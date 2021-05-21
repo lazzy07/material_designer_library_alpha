@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.15)
+
+set(CMAKE_GENERATOR_PLATFORM x64)
+project(matd_library)
+
+file(GLOB LIBRARY_CORE_SOURCE_FILES 
+"core/*.cpp" "core/*.hpp"
+)
+source_group("core" FILES ${LIBRARY_CORE_SOURCE_FILES})
+
+file(GLOB LIBRARY_ENGINE_SOURCE_FILES 
+"engine/*.cpp" "engine/*.hpp"
+)
+source_group("core" FILES ${LIBRARY_ENGINE_SOURCE_FILES})
+
+file(GLOB LIBRARY_FUNCTIONS_SOURCE_FILES 
+"functions/*.cpp" "functions/*.hpp"
+)
+source_group("core" FILES ${LIBRARY_FUNCTIONS_SOURCE_FILES})
+
+file(GLOB LIBRARY_GRAPHS_SOURCE_FILES 
+"graphs/*.cpp" "graphs/*.hpp"
+)
+source_group("core" FILES ${LIBRARY_GRAPHS_SOURCE_FILES})
+
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DMATD_DEBUG")
+
+add_library(${PROJECT_NAME} ${LIBRARY_CORE_SOURCE_FILES} ${LIBRARY_ENGINE_SOURCE_FILES} ${LIBRARY_FUNCTIONS_SOURCE_FILES} ${LIBRARY_GRAPHS_SOURCE_FILES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE ../vendor/opencl/include)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/../vendor/opencl/lib/x86_64/OpenCL.lib)
+
+set_target_properties( ${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE}/${CMAKE_GENERATOR_PLATFORM} )
+
+# set( CMAKE_LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE}/${CMAKE_GENERATOR_PLATFORM} )

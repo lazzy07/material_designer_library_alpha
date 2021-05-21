@@ -1,0 +1,45 @@
+{
+  "name": "material-designer-lib",
+  "version": "0.0.1",
+  "description": "C++ library for material designer with Node v8 bindings",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm config set cmake_js_arch x64 -G Visual Studio 16 2019",
+    "install": "cmake-js compile",
+    "configure": "cmake-js configure",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "cmake-js clean",
+    "dev": "node_modules/.bin/webpack --mode development --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lazzy07/material_designer_library.git"
+  },
+  "keywords": [
+    "material",
+    "designer"
+  ],
+  "author": "@lazzy07",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lazzy07/material_designer_library/issues"
+  },
+  "homepage": "https://github.com/lazzy07/material_designer_library#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.19",
+    "cmake-js": "^6.1.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "node-addon-loader": "^0.0.6",
+    "ts-loader": "^8.0.13",
+    "typescript": "^4.1.3",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "dependencies": {
+    "node-addon-api": "^3.1.0",
+    "node-loader": "^1.0.2",
+    "nodemon-webpack-plugin": "^4.3.2"
+  }
+}

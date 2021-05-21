@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "*": ["types/*"]
+    },
+    "outDir": "./dist/",
+    "noImplicitAny": false,
+    "module": "ES2015",
+    "target": "ES2016",
+    "lib": ["ES2016", "ESNext.AsyncIterable"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "exclude": ["node_modules"]
+}
