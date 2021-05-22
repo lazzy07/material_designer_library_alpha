@@ -1,7 +1,5 @@
 #pragma once
-
-
-
+#include <vector>
 
 namespace MATD{
   namespace CORE{
@@ -18,7 +16,8 @@ namespace MATD{
         void SelectContext(SUPPORTED_CONTEXTS context){m_Context = context;};
 
       private:
-        SUPPORTED_CONTEXTS m_Context;
+        SUPPORTED_CONTEXTS m_Context = OPEN_CL;
+        std::vector<int> m_Devices;
     };
   };
 }
