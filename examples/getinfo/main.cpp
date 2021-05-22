@@ -6,6 +6,5 @@ int main() {
 	MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
 
 	std::cin.get();
-
 	free(matd);
 }
