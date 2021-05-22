@@ -1,4 +1,4 @@
-#include "Log.hpp"
+#include <matd/core/Log.hpp>
 #include <spdlog/sinks/stdout_sinks.h>
 
 namespace MATD {
@@ -8,9 +8,9 @@ namespace MATD {
 
 		void Log::Init() {
 			spdlog::set_pattern("%^[%T] %n: %v%$");
-			s_CoreLogger = spdlog::stderr_logger_mt("VULTURE");
+			s_CoreLogger = spdlog::stdout_logger_mt("MATERIAL_DESIGNER");
 			s_CoreLogger->set_level(spdlog::level::trace);
-			s_ClientLogger = spdlog::stderr_logger_mt("APPLICATION");
+			s_ClientLogger = spdlog::stdout_logger_mt("APPLICATION");
 			s_ClientLogger->set_level(spdlog::level::trace);
 		}
 	}

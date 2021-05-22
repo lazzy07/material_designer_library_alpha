@@ -1,8 +1,7 @@
 #include <iostream>
-#include <matd/MaterialDesigner.hpp>
-
+#include <matd/core/MaterialDesigner.hpp>
+#include <matd/core/Log.hpp>
 
 int main() {
-	std::cout << "Hello";
-	MATD::MaterialDesigner;
+	MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
 }

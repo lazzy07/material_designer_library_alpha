@@ -6,7 +6,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(Material_Designer)
 
-
 add_subdirectory(src)
 #v8 bindigs project
 add_subdirectory(matd_v8)
