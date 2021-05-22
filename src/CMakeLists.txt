@@ -27,7 +27,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DMATD_DEBUG")
 
 add_library(${PROJECT_NAME} ${LIBRARY_CORE_SOURCE_FILES} ${LIBRARY_ENGINE_SOURCE_FILES} ${LIBRARY_FUNCTIONS_SOURCE_FILES} ${LIBRARY_GRAPHS_SOURCE_FILES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE ../vendor/opencl/include)
-target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/../vendor/opencl/lib/x86_64/OpenCL.lib)
+target_include_directories(${PROJECT_NAME} PRIVATE ../vendor/opencl/include PRIVATE ../vendor/spdlog-1.8.5/include)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/../vendor/opencl/lib/x86_64/OpenCL.lib )
 
 set_target_properties( ${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE}/${CMAKE_GENERATOR_PLATFORM} )

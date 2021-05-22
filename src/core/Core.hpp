@@ -1,16 +1,16 @@
 #pragma once
 #include <memory>
 
-#ifdef VUL_DEBUG
-  #define VUL_ENABLE_ASSERTS
+#ifdef MATD_DEBUG
+  #define MATD_ENABLE_ASSERTS
 #endif
 
-#ifdef VUL_ENABLE_ASSERTS
-  #define VUL_ASSERT(x, ...) {if(!(x)) { VUL_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak(); } }
-	#define VUL_CORE_ASSERT(x, ...) {if(!(x)) { VUL_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak(); } }
+#ifdef MATD_ENABLE_ASSERTS
+  #define MATD_ASSERT(x, ...) {if(!(x)) { MATD_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak(); } }
+	#define MATD_CORE_ASSERT(x, ...) {if(!(x)) { MATD_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak(); } }
 #else
-  #define VUL_ASSERT(x, ...) 
-	#define VUL_CORE_ASSERT(x, ...)
+  #define MATD_ASSERT(x, ...) 
+	#define MATD_CORE_ASSERT(x, ...)
 #endif
 
 namespace MATD{
