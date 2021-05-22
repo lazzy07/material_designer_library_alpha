@@ -13,7 +13,7 @@ namespace MATD{
         ContextManager();
         ~ContextManager();
 
-        void SelectContext(SUPPORTED_CONTEXTS context){m_Context = context;};
+        inline void SelectContext(SUPPORTED_CONTEXTS context){m_Context = context;};
 
       private:
         SUPPORTED_CONTEXTS m_Context = OPEN_CL;
