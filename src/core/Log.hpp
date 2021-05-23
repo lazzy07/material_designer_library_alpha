@@ -9,9 +9,19 @@
 
 namespace MATD {
 	namespace CORE {
+		enum LOGLEVEL{
+			TRACE,
+			INFO,
+			WARN,
+			ERR,
+			FATAL
+		};
+
 		class Log {
 		public:
 			static void Init();
+			static void SetCoreLogLevel(LOGLEVEL logLevel);
+			static void SetAppLogLevel(LOGLEVEL logLevel);
 
 			inline static Ref<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; };
 			inline static Ref<spdlog::logger>& GetCoreFileLogger() { return s_CoreFileLogger; };
@@ -40,6 +50,9 @@ namespace MATD {
 }
 
 //Core log macros
+#define MATD_CORE_LOG_LEVEL(x) 		 ::MATD::CORE::Log::SetCoreLogLevel(x)
+#define MATD_LOG_LEVEL(x) 		 ::MATD::CORE::Log::SetAppLogLevel(x)
+
 #define MATD_CORE_TRACE(...)   ::MATD::CORE::Log::AddCoreLogTrace(__VA_ARGS__)
 #define MATD_CORE_INFO(...)    ::MATD::CORE::Log::AddCoreLogInfo(__VA_ARGS__)
 #define MATD_CORE_WARN(...)    ::MATD::CORE::Log::AddCoreLogWarn(__VA_ARGS__)

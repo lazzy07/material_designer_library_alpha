@@ -13,7 +13,7 @@ namespace MATD {
 		void Log::Init() {
 			spdlog::set_pattern("%^[%T] %n: %v%$");
 			s_CoreLogger = spdlog::stdout_color_mt("MATERIAL_DESIGNER");
-			s_ClientLogger = spdlog::stdout_color_mt("APPLICATION");
+			s_ClientLogger = spdlog::stdout_color_mt("MATD_APPLICATION");
 
 			auto max_size = 1048576 * 1;
 			auto max_files = 3;
@@ -21,10 +21,66 @@ namespace MATD {
 			s_CoreFileLogger = spdlog::rotating_logger_mt("MATERIAL_DESIGNER_LOG", "logs/core/matd_log.txt", max_size, max_files);
 			s_ClientFileLogger = spdlog::rotating_logger_mt("MATERIAL_DESIGNER_APP_LOG", "logs/app/matd_app_log.txt", max_size, max_files);
 
-			s_CoreLogger->set_level(spdlog::level::trace);
-			s_ClientLogger->set_level(spdlog::level::trace);
-			s_CoreFileLogger->set_level(spdlog::level::trace);
-			s_ClientFileLogger->set_level(spdlog::level::trace);
+			SetCoreLogLevel(LOGLEVEL::TRACE);
+			SetAppLogLevel(LOGLEVEL::TRACE);
+		}
+
+		void Log::SetCoreLogLevel(LOGLEVEL logLevel){
+			switch(logLevel){
+				case LOGLEVEL::TRACE:
+						s_CoreLogger->set_level(spdlog::level::trace);
+						s_CoreFileLogger->set_level(spdlog::level::trace);
+					break;
+
+				case LOGLEVEL::INFO:
+						s_CoreLogger->set_level(spdlog::level::info);
+						s_CoreFileLogger->set_level(spdlog::level::info);
+					break;
+
+				case LOGLEVEL::WARN:
+						s_CoreLogger->set_level(spdlog::level::warn);
+						s_CoreFileLogger->set_level(spdlog::level::warn);
+					break;
+
+				case LOGLEVEL::ERR:
+						s_CoreLogger->set_level(spdlog::level::err);
+						s_CoreFileLogger->set_level(spdlog::level::err);
+				break;
+
+				case LOGLEVEL::FATAL:
+						s_CoreLogger->set_level(spdlog::level::critical);
+						s_CoreFileLogger->set_level(spdlog::level::critical);
+				break;
+			}
+		}
+
+		void Log::SetAppLogLevel(LOGLEVEL logLevel){
+			switch(logLevel){
+				case LOGLEVEL::TRACE:
+						s_ClientLogger->set_level(spdlog::level::trace);
+						s_ClientFileLogger->set_level(spdlog::level::trace);
+					break;
+
+				case LOGLEVEL::INFO:
+						s_ClientLogger->set_level(spdlog::level::info);
+						s_ClientFileLogger->set_level(spdlog::level::info);
+					break;
+
+				case LOGLEVEL::WARN:
+						s_ClientLogger->set_level(spdlog::level::warn);
+						s_ClientFileLogger->set_level(spdlog::level::warn);
+					break;
+
+				case LOGLEVEL::ERR:
+						s_ClientLogger->set_level(spdlog::level::err);
+						s_ClientFileLogger->set_level(spdlog::level::err);
+				break;
+
+				case LOGLEVEL::FATAL:
+						s_ClientLogger->set_level(spdlog::level::critical);
+						s_ClientFileLogger->set_level(spdlog::level::critical);
+				break;
+			}
 		}
 
 		void Log::AddCoreLogTrace(char* frmt, ...){
@@ -33,7 +89,6 @@ namespace MATD {
 			s_CoreLogger->trace(frmt, argp);
 		}
 
-		
 		void Log::AddCoreLogInfo(char* frmt, ...){
 			va_list argp;
 			s_CoreFileLogger->info(frmt, argp);

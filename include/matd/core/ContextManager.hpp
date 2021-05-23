@@ -9,9 +9,6 @@ namespace MATD{
 
     class ContextManager{
       public:
-        ContextManager();
-        ~ContextManager();
-
         void SelectContext(SUPPORTED_CONTEXTS context);
     };
   };
