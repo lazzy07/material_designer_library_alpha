@@ -1,6 +1,6 @@
-#include <matd/core/MaterialDesigner.hpp>
 #include <CL/opencl.h>
-#include <matd/core/Log.hpp>
+#include "MaterialDesigner.hpp"
+#include "Log.hpp"
 
 
 MATD::CORE::MaterialDesigner::MaterialDesigner(){

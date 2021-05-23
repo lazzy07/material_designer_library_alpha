@@ -7,8 +7,10 @@
 
 #ifdef MATD_ENABLE_ASSERTS
   #define MATD_ASSERT(x, ...) {if(!(x)) { MATD_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak(); } }
+	#define MATD_CORE_ASSERT(x, ...) {if(!(x)) { MATD_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak(); } }
 #else
   #define MATD_ASSERT(x, ...) 
+	#define MATD_CORE_ASSERT(x, ...)
 #endif
 
 namespace MATD{

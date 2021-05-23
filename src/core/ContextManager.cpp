@@ -1,5 +1,5 @@
-#include <matd/core/ContextManager.hpp>
-#include <matd/core/Log.hpp>
+#include "ContextManager.hpp"
+#include "Log.hpp"
 
 
 MATD::CORE::ContextManager::ContextManager(){
@@ -19,7 +19,7 @@ void MATD::CORE::ContextManager::SelectContext(SUPPORTED_CONTEXTS context){
     ctx = "OPEN_CL";
   }else{
     MATD_ASSERT(false, "CONTEXT_MANAGER::Unknown Context Change Detected")
-  }
+  };
 
   MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to {}", ctx);
   m_Context = context;
