@@ -1,26 +1,37 @@
 #include "ContextManager.hpp"
 #include "Log.hpp"
+#include "Core.hpp"
+#include "../engine/vendor/opencl/CLContext.hpp"
 
+namespace MATD{
+  namespace CORE{
+    SUPPORTED_CONTEXTS ContextManager::s_Context = SUPPORTED_CONTEXTS::OPEN_CL;
 
-MATD::CORE::ContextManager::ContextManager(){
-  MATD_CORE_TRACE("CONTEXT_MANAGER::Initialized");
-}
+    ContextManager::ContextManager(SUPPORTED_CONTEXTS context){
+      MATD_CORE_TRACE("CONTEXT_MANAGER::Initialized");
 
-MATD::CORE::ContextManager::~ContextManager(){
-  MATD_CORE_TRACE("CONTEXT_MANAGER::Closed");
-}
+      SelectContext(context);
+    }
+    
+    ContextManager::~ContextManager(){
+      MATD_CORE_TRACE("CONTEXT_MANAGER::Closed");
+    }
 
-void MATD::CORE::ContextManager::SelectContext(SUPPORTED_CONTEXTS context){
-  std::string ctx;
+    void ContextManager::SelectContext(SUPPORTED_CONTEXTS context){
+      std::string ctx = "";
 
-  if(context == MATD::CORE::CUDA){
-    ctx = "CUDA";
-  }else if(context == MATD::CORE::OPEN_CL){
-    ctx = "OPEN_CL";
-  }else{
-    MATD_ASSERT(false, "CONTEXT_MANAGER::Unknown Context Change Detected")
-  };
+      if(context == SUPPORTED_CONTEXTS::CUDA){
+        //TODO:: Add CUDA SUPPORT
+        MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to :: CUDA");
+        MATD_CORE_ASSERT(false, "CONTEXT_MANAGER::CUDA Not suppoted yet")
+      }else if(context == SUPPORTED_CONTEXTS::OPEN_CL){
+        m_Context = std::make_shared<MATD::ENGINE::OPENCL::Context>();
+        MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to :: OPENCL");
+      }else{
+        MATD_CORE_ASSERT(false, "CONTEXT_MANAGER::Unknown Context Change Detected")
+      };
 
-  MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to {}", ctx);
-  m_Context = context;
+      s_Context = context;
+    }
+  }
 }

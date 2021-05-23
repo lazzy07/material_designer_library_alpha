@@ -1,23 +1,24 @@
 #pragma once
 #include <vector>
+#include "../engine/matd/Context.hpp"
 
 namespace MATD{
   namespace CORE{
-    enum SUPPORTED_CONTEXTS{
+    enum class SUPPORTED_CONTEXTS{
       OPEN_CL,
       CUDA
     };
 
     class ContextManager{
       public:
-        ContextManager();
+        ContextManager(SUPPORTED_CONTEXTS context = SUPPORTED_CONTEXTS::OPEN_CL);
         ~ContextManager();
 
         void SelectContext(SUPPORTED_CONTEXTS context);
-
+        inline static const SUPPORTED_CONTEXTS GetSelectedContext() { return s_Context; };
       private:
-        SUPPORTED_CONTEXTS m_Context = OPEN_CL;
-        std::vector<int> m_Devices;
+        static SUPPORTED_CONTEXTS s_Context;
+        Ref<MATD::ENGINE::Context> m_Context;
     };
   };
 }

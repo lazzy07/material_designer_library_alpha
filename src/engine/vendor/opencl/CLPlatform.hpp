@@ -2,8 +2,10 @@
 
 namespace MATD{
   namespace ENGINE{
-    class Device{
+    namespace OPENCL{
+      class Platform{
 
+      };
     };
-  };
+  }
 }

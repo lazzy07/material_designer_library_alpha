@@ -4,11 +4,11 @@
 
 namespace MATD {
 	namespace CORE {
-		Ref<spdlog::logger> Log::s_CoreLogger;
-		Ref<spdlog::logger> Log::s_CoreFileLogger;
+		std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
+		std::shared_ptr<spdlog::logger> Log::s_CoreFileLogger;
 		
-		Ref<spdlog::logger> Log::s_ClientLogger;
-		Ref<spdlog::logger> Log::s_ClientFileLogger;
+		std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
+		std::shared_ptr<spdlog::logger> Log::s_ClientFileLogger;
 
 		void Log::Init() {
 			spdlog::set_pattern("%^[%T] %n: %v%$");
@@ -85,70 +85,90 @@ namespace MATD {
 
 		void Log::AddCoreLogTrace(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_CoreFileLogger->trace(frmt, argp);
 			s_CoreLogger->trace(frmt, argp);
+			va_end(argp);
 		}
 
 		void Log::AddCoreLogInfo(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_CoreFileLogger->info(frmt, argp);
 			s_CoreLogger->info(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddCoreLogWarn(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_CoreFileLogger->warn(frmt, argp);
 			s_CoreLogger->warn(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddCoreLogError(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_CoreFileLogger->error(frmt, argp);
 			s_CoreLogger->error(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddCoreLogFatal(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_CoreFileLogger->critical(frmt, argp);
 			s_CoreLogger->critical(frmt, argp);
+			va_end(argp);
 		}
 
 
 		void Log::AddAppLogTrace(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_ClientFileLogger->trace(frmt, argp);
 			s_ClientLogger->trace(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddAppLogInfo(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_ClientFileLogger->info(frmt, argp);
 			s_ClientLogger->info(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddAppLogWarn(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_ClientFileLogger->warn(frmt, argp);
 			s_ClientLogger->warn(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddAppLogError(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_ClientFileLogger->error(frmt, argp);
 			s_ClientLogger->error(frmt, argp);
+			va_end(argp);
 		}
 
 		
 		void Log::AddAppLogFatal(char* frmt, ...){
 			va_list argp;
+			va_start(argp, frmt);
 			s_ClientFileLogger->critical(frmt, argp);
 			s_ClientLogger->critical(frmt, argp);
+			va_end(argp);
 		}
 	}
 }
