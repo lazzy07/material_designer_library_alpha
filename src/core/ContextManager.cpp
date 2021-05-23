@@ -1,5 +1,5 @@
-#include <matd/core/ContextManager.hpp>
-#include <matd/core/Log.hpp>
+#include "ContextManager.hpp"
+#include "Log.hpp"
 
 
 MATD::CORE::ContextManager::ContextManager(){

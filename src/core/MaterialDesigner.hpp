@@ -10,9 +10,8 @@ namespace MATD{
         ~MaterialDesigner();
 
         inline const Ref<ContextManager> GetContextManager() {return m_ContextManager; };
-
       private:
         Ref<ContextManager> m_ContextManager;
     };
-  }
+  };
 }
