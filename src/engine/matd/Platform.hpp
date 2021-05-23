@@ -2,8 +2,8 @@
 
 namespace MATD{
   namespace ENGINE{
-    class Device{
+    class Platform{
 
     };
   };
-}
+};
