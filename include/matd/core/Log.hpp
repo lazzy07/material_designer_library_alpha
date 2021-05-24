@@ -1,3 +1,4 @@
+#include <spdlog/spdlog.h>
 
 namespace MATD {
 	namespace CORE {
@@ -14,11 +15,8 @@ namespace MATD {
 			static void SetCoreLogLevel(LOGLEVEL logLevel);
 			static void SetAppLogLevel(LOGLEVEL logLevel);
 
-			static void AddAppLogTrace(char* frmt, ...);
-			static void AddAppLogInfo(char* frmt, ...);
-			static void AddAppLogWarn(char* frmt, ...);
-			static void AddAppLogError(char* frmt, ...);
-			static void AddAppLogFatal(char* frmt, ...);
+			static std::shared_ptr<spdlog::logger>& GetClientLogger();
+			static std::shared_ptr<spdlog::logger>& GetClientFileLogger();
 		};
 	}
 }
@@ -27,8 +25,9 @@ namespace MATD {
 #define MATD_CORE_LOG_LEVEL(x) 		 ::MATD::CORE::Log::SetCoreLogLevel(x)
 #define MATD_LOG_LEVEL(x) 		 ::MATD::CORE::Log::SetAppLogLevel(x)
 
-#define MATD_TRACE(...)        ::MATD::CORE::Log::AddAppLogTrace(__VA_ARGS__)
-#define MATD_INFO(...)         ::MATD::CORE::Log::AddAppLogInfo(__VA_ARGS__)
-#define MATD_WARN(...)         ::MATD::CORE::Log::AddAppLogWarn(__VA_ARGS__)
-#define MATD_ERROR(...)        ::MATD::CORE::Log::AddAppLogError(__VA_ARGS__)
-#define MATD_FATAL(...)        ::MATD::CORE::Log::AddAppLogFatal(__VA_ARGS__)
+//Client log macros
+#define MATD_TRACE(...)        ::MATD::CORE::Log::GetClientLogger()->trace(__VA_ARGS__); MATD::CORE::Log::GetClientFileLogger()->trace(__VA_ARGS__)
+#define MATD_INFO(...)         ::MATD::CORE::Log::GetClientLogger()->info(__VA_ARGS__); MATD::CORE::Log::GetClientFileLogger()->info(__VA_ARGS__)
+#define MATD_WARN(...)         ::MATD::CORE::Log::GetClientLogger()->warn(__VA_ARGS__); MATD::CORE::Log::GetClientFileLogger()->warn(__VA_ARGS__)
+#define MATD_ERROR(...)        ::MATD::CORE::Log::GetClientLogger()->error(__VA_ARGS__); MATD::CORE::Log::GetClientFileLogger()->error(__VA_ARGS__)
+#define MATD_FATAL(...)        ::MATD::CORE::Log::GetClientLogger()->critical(__VA_ARGS__); MATD::CORE::Log::GetClientFileLogger()->critical(__VA_ARGS__)
