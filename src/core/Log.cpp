@@ -20,14 +20,14 @@ namespace MATD {
 
 		void Log::Init() {
 			spdlog::set_pattern("%^[%T] %n: %v%$");
-			s_CoreLogger = spdlog::stdout_color_mt("MATERIAL_DESIGNER");
-			s_ClientLogger = spdlog::stdout_color_mt("MATD_APPLICATION");
+			s_CoreLogger = spdlog::stdout_color_mt("MATD_CORE");
+			s_ClientLogger = spdlog::stdout_color_mt("MATD_APP");
 
 			auto max_size = 1048576 * 1;
 			auto max_files = 3;
 
-			s_CoreFileLogger = spdlog::rotating_logger_mt("MATERIAL_DESIGNER_LOG", "logs/core/matd_log.txt", max_size, max_files);
-			s_ClientFileLogger = spdlog::rotating_logger_mt("MATERIAL_DESIGNER_APP_LOG", "logs/app/matd_app_log.txt", max_size, max_files);
+			s_CoreFileLogger = spdlog::rotating_logger_mt("MATD_CORE_LOG", "logs/core/matd_log.txt", max_size, max_files);
+			s_ClientFileLogger = spdlog::rotating_logger_mt("MATD_APP_LOG", "logs/app/matd_app_log.txt", max_size, max_files);
 
 			SetCoreLogLevel(LOGLEVEL::TRACE);
 			SetAppLogLevel(LOGLEVEL::TRACE);

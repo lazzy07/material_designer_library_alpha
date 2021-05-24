@@ -23,7 +23,7 @@ namespace MATD{
       m_Name = name;
       m_Vendor = vendor;
 
-      MATD_CORE_TRACE("MATD_PLATFORM:: Platform Created {} by {} supports {}", name, vendor, version);
+      MATD_CORE_TRACE("MATD_PLATFORM:: Platform :{} supports:{}", name, version);
     }
   }
 }

@@ -8,13 +8,11 @@ namespace MATD{
     namespace OPENCL{
       class Platform : public ENGINE::Platform{
       public:
-        ~Platform();
-
-        inline void SetPlatformID(cl_platform_id* id){m_PlatformId = id;};
+        inline void SetPlatformID(cl_platform_id id){m_PlatformId = id;};
         virtual std::vector<Ref<MATD::ENGINE::Device>> GetCompatibleDevices() override;
         
       private:
-        cl_platform_id* m_PlatformId;
+        cl_platform_id m_PlatformId;
       };
     };
   }
