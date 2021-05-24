@@ -11,7 +11,7 @@ namespace MATD{
 
         virtual std::vector<Ref<Platform>> GetSupportedPlatforms() = 0;
 
-        static Context* CreateContext();
+        static Ref<Context> CreateContext();
     };
   };
 }

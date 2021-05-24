@@ -18,20 +18,17 @@ namespace MATD{
     }
 
     void ContextManager::SelectContext(SUPPORTED_CONTEXTS context){
-      std::string ctx = "";
-
+      s_Context = context;
       if(context == SUPPORTED_CONTEXTS::CUDA){
         //TODO:: Add CUDA SUPPORT
-        MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to :: CUDA");
         MATD_CORE_ASSERT(false, "CONTEXT_MANAGER::CUDA Not suppoted yet")
       }else if(context == SUPPORTED_CONTEXTS::OPEN_CL){
-        m_Context = std::make_shared<MATD::ENGINE::OPENCL::Context>();
-        MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to :: OPENCL");
+        MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to :: OpenCL");
+        m_Context = MATD::ENGINE::Context::CreateContext();
+        m_Context->GetSupportedPlatforms();
       }else{
         MATD_CORE_ASSERT(false, "CONTEXT_MANAGER::Unknown Context Change Detected")
       };
-
-      s_Context = context;
     }
   }
 }

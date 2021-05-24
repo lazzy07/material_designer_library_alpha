@@ -10,10 +10,11 @@ namespace MATD{
       class Context : public ENGINE::Context{
         public:
           Context();
+          ~Context();
           virtual std::vector<Ref<ENGINE::Platform>> GetSupportedPlatforms() override;
 
         private:
-          cl_context m_CLContext;
+          cl_platform_id* m_Platforms;
       };
     };
   }
