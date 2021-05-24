@@ -15,6 +15,8 @@ namespace MATD{
 
         void SetPlatformData(const std::string version, const std::string profile, const std::string name, const std::string vendor);
 
+        inline std::string GetName() const {return m_Name;};
+
       private:
         std::string m_Version;
         std::string m_Profile;

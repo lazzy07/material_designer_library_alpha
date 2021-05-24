@@ -22,7 +22,7 @@ namespace MATD{
       m_Platforms = (cl_platform_id*) malloc(sizeof(cl_platform_id) * noOfPlatforms);
       clGetPlatformIDs(noOfPlatforms, m_Platforms, &noOfPlatforms);
 
-      MATD_CORE_TRACE("MATD_CLCONTEXT:: {} OpenCL Platforms Found", noOfPlatforms);
+      MATD_CORE_TRACE("MATD_CLCONTEXT:: Platforms Found: {}", noOfPlatforms);
       auto vec = std::vector<Ref<ENGINE::Platform>>();
 
       for(cl_uint i=0; i< noOfPlatforms; i++){
@@ -52,17 +52,15 @@ namespace MATD{
           return std::vector<Ref<ENGINE::Platform>>();
         }
 
-        std::string ver(version);
-        std::string pro(profile);
-        std::string nam(name);
-        std::string ven(vendor);
+        std::string versionStr(version);
+        std::string profileStr(profile);
+        std::string nameStr(name);
+        std::string vendorStr(vendor);
 
-        pf->SetPlatformData(ver, pro, nam, ven);
+        pf->SetPlatformData(versionStr, profileStr, nameStr, vendorStr);
 
-        cl_platform_id* id = (cl_platform_id*)malloc(sizeof(cl_platform_id));
-        memcpy(id, m_Platforms[i], sizeof(cl_platform_id));
-
-        pf->SetPlatformID(id);
+        pf->SetPlatformID(m_Platforms[i]);
+        pf->GetCompatibleDevices();
         vec.push_back(pf);
 
         free(version);

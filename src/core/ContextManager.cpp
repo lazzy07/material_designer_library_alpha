@@ -25,7 +25,7 @@ namespace MATD{
       }else if(context == SUPPORTED_CONTEXTS::OPEN_CL){
         MATD_CORE_TRACE("CONTEXT_MANAGER::Context changed to :: OpenCL");
         m_Context = MATD::ENGINE::Context::CreateContext();
-        m_Context->GetSupportedPlatforms();
+        m_Context->SetPlatforms(m_Context->GetSupportedPlatforms());
       }else{
         MATD_CORE_ASSERT(false, "CONTEXT_MANAGER::Unknown Context Change Detected")
       };
