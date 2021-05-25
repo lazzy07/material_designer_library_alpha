@@ -1,6 +1,6 @@
 #pragma once
 #include "Core.hpp"
-#include "ContextManager.hpp"
+#include "EngineManager.hpp"
 
 namespace MATD{
   namespace CORE{
@@ -9,9 +9,9 @@ namespace MATD{
         MaterialDesigner();
         ~MaterialDesigner();
 
-        inline const Ref<ContextManager> GetContextManager() {return m_ContextManager; };
+        inline const Ref<EngineManager> GetEngineManager() {return m_EngineManager; };
       private:
-        Ref<ContextManager> m_ContextManager;
+        Ref<EngineManager> m_EngineManager;
     };
   };
 }

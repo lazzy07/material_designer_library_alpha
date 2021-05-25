@@ -1,16 +1,16 @@
 #pragma once
 #include <vector>
-#include "../../matd/Context.hpp"
+#include "../../matd/Engine.hpp"
 #include "CLPlatform.hpp"
 #include <CL/opencl.h>
 
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
-      class Context : public ENGINE::Context{
+      class Engine : public ENGINE::Engine{
         public:
-          Context();
-          ~Context();
+          Engine();
+          ~Engine();
           virtual std::vector<Ref<ENGINE::Platform>> GetSupportedPlatforms() override;
 
         private:

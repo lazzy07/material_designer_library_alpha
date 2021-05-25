@@ -8,9 +8,7 @@ namespace MATD{
       
 
       std::vector<Ref<MATD::ENGINE::Device>> Platform::GetCompatibleDevices(){
-
         std::vector<Ref<MATD::ENGINE::Device>> devices;
-
         cl_int error = 0;
         cl_uint numOfDevices = 0;
 
@@ -19,7 +17,7 @@ namespace MATD{
         if(error != CL_SUCCESS){
           MATD_CORE_ERROR("Couldn't find any device that support OpenCL");
         }
-        MATD_CORE_TRACE("MATD_CLPLATFORM:: Platform: {} devices {}", GetName(), numOfDevices);
+        MATD_CORE_TRACE("MATD_CLPLATFORM:: Platform: {} Devices: {}", GetName(), numOfDevices);
 
         m_DeviceIds = (cl_device_id*)malloc(sizeof(cl_device_id) * numOfDevices);
 

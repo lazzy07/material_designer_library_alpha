@@ -7,7 +7,7 @@ MATD::CORE::MaterialDesigner::MaterialDesigner(){
 	Log::Init();
 	MATD_CORE_TRACE("LOGGER::Initialized");
 
-	m_ContextManager = MATD::Ref<ContextManager>(new ContextManager());
+	m_EngineManager = MATD::Ref<EngineManager>(new EngineManager());
 };
 
 MATD::CORE::MaterialDesigner::~MaterialDesigner(){
