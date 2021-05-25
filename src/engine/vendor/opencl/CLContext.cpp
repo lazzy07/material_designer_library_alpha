@@ -58,9 +58,8 @@ namespace MATD{
         std::string vendorStr(vendor);
 
         pf->SetPlatformData(versionStr, profileStr, nameStr, vendorStr);
-
         pf->SetPlatformID(m_Platforms[i]);
-        pf->GetCompatibleDevices();
+        pf->SetDevices(pf->GetCompatibleDevices());
         vec.push_back(pf);
 
         free(version);
