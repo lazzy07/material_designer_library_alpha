@@ -1,17 +1,17 @@
-#include "CLContext.hpp"
+#include "CLEngine.hpp"
 
 
 namespace MATD{
   namespace ENGINE{
-    OPENCL::Context::Context(){
+    OPENCL::Engine::Engine(){
 
     }
 
-    OPENCL::Context::~Context(){
+    OPENCL::Engine::~Engine(){
       free(m_Platforms);
     }
 
-    std::vector<Ref<ENGINE::Platform>> OPENCL::Context::GetSupportedPlatforms(){
+    std::vector<Ref<ENGINE::Platform>> OPENCL::Engine::GetSupportedPlatforms(){
       cl_uint noOfPlatforms;
 
       cl_int err = clGetPlatformIDs(0, NULL, &noOfPlatforms);

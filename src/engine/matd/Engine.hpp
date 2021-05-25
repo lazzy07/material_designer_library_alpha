@@ -5,13 +5,13 @@
 
 namespace MATD{
   namespace ENGINE{
-    class Context{
+    class Engine{
       public:
-        virtual ~Context() {};
+        virtual ~Engine() {};
 
         virtual std::vector<Ref<Platform>> GetSupportedPlatforms() = 0;
 
-        static Ref<Context> CreateContext();
+        static Ref<Engine> CreateEngine();
 
         inline void SetPlatforms(std::vector<Ref<Platform>> platforms) { m_Platforms = platforms; };
 
