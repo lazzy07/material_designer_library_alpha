@@ -13,6 +13,7 @@ namespace MATD{
         
       private:
         cl_platform_id m_PlatformId;
+        cl_device_id* m_DeviceIds;
       };
     };
   }
