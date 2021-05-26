@@ -14,7 +14,7 @@ namespace MATD{
 
       inline void SetDeviceName(const std::string name) { m_DeviceName = name; };
       inline void SetDeviceType(ENGINE::DEVICE_TYPE type) { m_DeviceType = type; };
-
+      inline std::string GetDeviceName() const { return m_DeviceName; };
     private:
       std::string m_DeviceName;
       ENGINE::DEVICE_TYPE m_DeviceType = ENGINE::DEVICE_TYPE::DEVICE_CPU;
