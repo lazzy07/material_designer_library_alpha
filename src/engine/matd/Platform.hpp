@@ -15,8 +15,11 @@ namespace MATD{
 
         inline std::string GetName() const {return m_Name;};
         inline void SetDevices(std::vector<Ref<Device>> devices) { m_Devices = devices; };
+        inline size_t GetId() const { return m_Id; };
+        inline void SetId(size_t id) { m_Id = id; };
 
       private:
+        size_t m_Id;
         std::string m_Version;
         std::string m_Profile;
         std::string m_Name;

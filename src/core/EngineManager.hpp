@@ -15,7 +15,10 @@ namespace MATD{
         ~EngineManager();
 
         void SelectEngine(SUPPORTED_ENGINES engine);
+
         inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
+
+        void SelectDevice(size_t platform, size_t device);
       private:
         static SUPPORTED_ENGINES s_Engine;
         Ref<MATD::ENGINE::Engine> m_Engine;

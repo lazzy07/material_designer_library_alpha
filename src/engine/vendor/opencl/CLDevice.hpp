@@ -1,6 +1,9 @@
 #pragma once
 #include "../../matd/Device.hpp"
 #include <CL/opencl.h>
+#include "../../../core/Core.hpp"
+#include "CLContext.hpp"
+
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
@@ -8,6 +11,7 @@ namespace MATD{
       public:
         Device(std::string deviceName, DEVICE_TYPE type);
         void SetCLDeviceData(cl_device_id id, cl_uint maxUnits, cl_uint maxDim, cl_uint maxItem, cl_uint grpSize);
+        void CreateContext();
 
       private:
         cl_device_id m_DeviceId;
@@ -15,6 +19,7 @@ namespace MATD{
         cl_uint m_DeviceMaxWorkItemDimensions = 0;
         cl_uint m_DeviceMaxWorkItemSizes = 0;
         cl_uint m_DeviceMaxGroupSize = 0;
+        Ref<OPENCL::Context> m_Context;
       };
     };
   };

@@ -22,12 +22,12 @@ namespace MATD{
       m_Platforms = (cl_platform_id*) malloc(sizeof(cl_platform_id) * noOfPlatforms);
       clGetPlatformIDs(noOfPlatforms, m_Platforms, &noOfPlatforms);
 
-      MATD_CORE_TRACE("MATD_CLCONTEXT:: Platforms Found: {}", noOfPlatforms);
+      MATD_CORE_TRACE("MATD_CLENGINE:: Platforms Found: {}", noOfPlatforms);
       auto vec = std::vector<Ref<ENGINE::Platform>>();
 
       for(cl_uint i=0; i< noOfPlatforms; i++){
         Ref<ENGINE::OPENCL::Platform> pf = std::make_shared<ENGINE::OPENCL::Platform>();
-
+        pf->SetId(i);
         cl_int error = 0;
         size_t paramSize = 0;
 
