@@ -27,7 +27,7 @@ namespace MATD{
 
       for(cl_uint i=0; i< noOfPlatforms; i++){
         Ref<ENGINE::OPENCL::Platform> pf = std::make_shared<ENGINE::OPENCL::Platform>();
-
+        pf->SetId(i);
         cl_int error = 0;
         size_t paramSize = 0;
 

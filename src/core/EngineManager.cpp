@@ -30,5 +30,9 @@ namespace MATD{
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::Unknown Context Change Detected")
       };
     }
+
+    void EngineManager::SelectDevice(size_t platform, size_t device) {
+
+    }
   }
 }

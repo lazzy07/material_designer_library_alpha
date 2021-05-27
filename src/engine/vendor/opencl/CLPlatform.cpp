@@ -70,6 +70,7 @@ namespace MATD{
           }
 
           Ref<OPENCL::Device> device = std::make_shared<OPENCL::Device>(dname, type);
+          device->SetId(i);
           device->SetCLDeviceData(m_DeviceIds[i], *deviceMaxComputeUnits, *deviceMaxWorkItemDimensions, *deviceMaxWorkItemSizes, *deviceMaxGroupSize);
           device->CreateContext();
           devices.push_back(device);
