@@ -2,7 +2,7 @@
 #include <vector>
 #include "../../matd/Engine.hpp"
 #include "CLPlatform.hpp"
-#include <CL/opencl.h>
+#include <CL/cl.hpp>
 
 namespace MATD{
   namespace ENGINE{
@@ -14,7 +14,7 @@ namespace MATD{
           virtual std::vector<Ref<ENGINE::Platform>> GetSupportedPlatforms() override;
 
         private:
-          cl_platform_id* m_Platforms;
+          std::vector<cl::Platform> m_Platforms;
       };
     };
   }

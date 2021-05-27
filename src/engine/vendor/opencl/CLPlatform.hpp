@@ -1,5 +1,5 @@
 #pragma once
-#include <CL/opencl.h>
+#include <CL/cl.hpp>
 #include <vector>
 #include "../../matd/Platform.hpp"
 
@@ -8,12 +8,12 @@ namespace MATD{
     namespace OPENCL{
       class Platform : public ENGINE::Platform{
       public:
-        inline void SetPlatformID(cl_platform_id id){m_PlatformId = id;};
+        inline void SetPlatform(cl::Platform platform){m_Platform = platform;};
         virtual std::vector<Ref<MATD::ENGINE::Device>> GetCompatibleDevices() override;
         
       private:
-        cl_platform_id m_PlatformId;
-        cl_device_id* m_DeviceIds;
+        cl::Platform m_Platform;
+        std::vector<cl::Device> m_Devices;
       };
     };
   }

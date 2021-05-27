@@ -31,7 +31,11 @@ namespace MATD{
       };
     }
 
-    void EngineManager::SelectDevice(size_t platform, size_t device) {
+    void EngineManager::SelectDevice(size_t device) {
+
+    }
+
+    void EngineManager::SelectPlatform(size_t platform) {
 
     }
   }

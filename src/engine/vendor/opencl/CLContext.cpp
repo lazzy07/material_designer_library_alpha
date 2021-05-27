@@ -5,9 +5,9 @@
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
-      Context::Context(cl_device_id id, std::string deviceName) : m_DeviceId(id), m_DeviceName(deviceName) {
-        cl_int error;
-        m_Context = clCreateContext(NULL, 1, &m_DeviceId, NULL, NULL, &error);
+      Context::Context(cl::Device device, std::string deviceName) : m_Device(device), m_DeviceName(deviceName) {
+        cl_int error = 0;
+        m_Context = cl::Context(device);
 
         if (error != CL_SUCCESS) {
           MATD_CORE_ERROR("Creation of context failed");

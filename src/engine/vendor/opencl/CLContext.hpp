@@ -1,5 +1,5 @@
 #pragma once
-#include <CL/opencl.h>
+#include <CL/cl.hpp>
 #include "../../../core/Core.hpp"
 
 namespace MATD {
@@ -7,10 +7,10 @@ namespace MATD {
     namespace OPENCL {
       class Context {
       public:
-        Context(cl_device_id id, std::string deviceName);
+        Context(cl::Device device, std::string deviceName);
       private:
-        cl_context m_Context;
-        cl_device_id m_DeviceId;
+        cl::Context m_Context;
+        cl::Device m_Device;
         std::string m_DeviceName;
       };
     };
