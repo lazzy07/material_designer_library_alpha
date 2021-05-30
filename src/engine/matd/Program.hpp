@@ -4,10 +4,7 @@
 namespace MATD {
 	namespace ENGINE {
 		class Program {
-		public:
-
-		private:
-			cl::Program m_Program;
+		
 		};
 	}
 }
