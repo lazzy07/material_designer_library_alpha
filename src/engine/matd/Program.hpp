@@ -1,1 +1,10 @@
 #pragma once
+#include <CL/cl.hpp>
+
+namespace MATD {
+	namespace ENGINE {
+		class Program {
+		
+		};
+	}
+}
