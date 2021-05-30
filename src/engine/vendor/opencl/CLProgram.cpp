@@ -5,6 +5,7 @@ namespace MATD {
 		namespace OPENCL {
 			void Program::LoadKernel()
 			{
+
 			}
 		}
 	}

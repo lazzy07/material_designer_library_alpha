@@ -2,7 +2,7 @@
 
 namespace MATD {
 	namespace ENGINE {
-		class Queue {
+		class WorkItem {
 
 		};
 	}

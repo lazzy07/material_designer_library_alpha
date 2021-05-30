@@ -22,6 +22,7 @@ namespace MATD{
       size_t m_Id;
       std::string m_DeviceName;
       ENGINE::MAT_DEVICE_TYPE m_DeviceType = ENGINE::MAT_DEVICE_TYPE::DEVICE_CPU;
+      
     };
   };
 }
