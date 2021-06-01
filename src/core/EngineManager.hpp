@@ -18,14 +18,9 @@ namespace MATD{
 
         inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
 
-        void SelectDevice(size_t device);
-        void SelectPlatform(size_t platform);
-
       private:
         static SUPPORTED_ENGINES s_Engine;
         Ref<MATD::ENGINE::Engine> m_Engine;
-        Ref<MATD::ENGINE::Platform> m_Platform;
-        Ref<MATD::ENGINE::Device> m_Device;
     };
   };
 }
