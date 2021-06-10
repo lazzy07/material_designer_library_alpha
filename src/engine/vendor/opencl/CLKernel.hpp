@@ -5,7 +5,7 @@
 namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
-			class Kernel: ENGINE::Kernel {
+			class Kernel: public ENGINE::Kernel {
 			public:
 				void CreateCLKernel();
 			private:

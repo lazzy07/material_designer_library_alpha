@@ -16,11 +16,12 @@ namespace MATD{
 
         void SelectEngine(SUPPORTED_ENGINES engine);
 
-        inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
 
+        inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
+        inline static Ref<MATD::ENGINE::Engine> GetEngineInstance() { return s_EngineInstance; };
       private:
         static SUPPORTED_ENGINES s_Engine;
-        Ref<MATD::ENGINE::Engine> m_Engine;
+        static Ref<MATD::ENGINE::Engine> s_EngineInstance;
     };
   };
 }

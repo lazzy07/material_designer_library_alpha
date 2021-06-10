@@ -24,8 +24,8 @@ namespace MATD{
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::CUDA Not suppoted yet")
       }else if(engine == SUPPORTED_ENGINES::OPEN_CL){
         MATD_CORE_TRACE("ENGINE_MANAGER::Context changed to :: OpenCL");
-        m_Engine = MATD::ENGINE::Engine::CreateEngine();
-        m_Engine->SetPlatforms(m_Engine->GetSupportedPlatforms());
+        s_EngineInstance = MATD::ENGINE::Engine::CreateEngine();
+        s_EngineInstance->SetPlatforms(s_EngineInstance->GetSupportedPlatforms());
       }else{
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::Unknown Context Change Detected")
       };
