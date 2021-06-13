@@ -11,10 +11,14 @@ namespace MATD{
       public:
         Device(std::string deviceName, MATD::ENGINE::MAT_DEVICE_TYPE type);
         void SetCLDeviceData(cl::Device device, cl_uint maxUnits, cl_uint maxDim, std::vector<size_t> maxItem, cl_uint grpSize);
-        void CreateContext();
+        void InitDevice();
         inline const Ref<OPENCL::Context> GetContext() const { return m_Context; };
+        inline cl::Device GetClDevice() const { return m_Device; };
+
+
       private:
         cl::Device m_Device;
+        cl::CommandQueue m_Queue;
         cl_uint m_DeviceMaxComputeUnits = 0;
         cl_uint m_DeviceMaxWorkItemDimensions = 0;
         std::vector<size_t> m_DeviceMaxWorkItemSizes;
