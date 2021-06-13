@@ -5,8 +5,6 @@
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
-      
-
       std::vector<Ref<MATD::ENGINE::Device>> Platform::GetCompatibleDevices(){
         std::vector<Ref<MATD::ENGINE::Device>> devices;
 

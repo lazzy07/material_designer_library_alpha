@@ -8,10 +8,12 @@ namespace MATD {
 		namespace OPENCL {
 			class WorkItem : public ENGINE::WorkItem {
 			public:
-				WorkItem(Ref<Kernel> kernel);
-				
+				WorkItem(Ref<ENGINE::Kernel> kernel);
+				virtual void AddToQueue() override;
+				virtual void SetArgument(Argument argument) override;
+				virtual void OnComplete() override;
 			private:
-				Ref<OPENCL::Kernel> m_Kernel;
+				Ref<ENGINE::Kernel> m_Kernel;
 			};
 		}
 	}

@@ -19,8 +19,8 @@ namespace MATD{
         void SelectPlatform(size_t id);
         void SelectDevice(size_t id);
 
-        inline Ref<Platform> GetSelectedPlatform() const { return m_SelectedPlatfom; };
-        inline Ref<Device> GetSelectedDevice() const { return m_SelectedDevice; };
+        inline const Ref<Platform> GetSelectedPlatform() const { return m_SelectedPlatfom; };
+        inline const Ref<Device> GetSelectedDevice() const { return m_SelectedDevice; };
 
       private:
         std::vector<Ref<Platform>> m_Platforms;

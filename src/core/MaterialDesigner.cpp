@@ -11,5 +11,5 @@ MATD::CORE::MaterialDesigner::MaterialDesigner(){
 };
 
 MATD::CORE::MaterialDesigner::~MaterialDesigner(){
-  MATD_CORE_TRACE("MATERIAL_DESIGNER::CLosed");
+  MATD_CORE_TRACE("MATERIAL_DESIGNER::Closed");
 }

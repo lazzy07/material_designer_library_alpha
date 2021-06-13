@@ -2,6 +2,7 @@
 /build
 /bin
 /dist
+/.vs
 
 ##NPM stuff
 /node_modules

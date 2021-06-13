@@ -1,6 +1,7 @@
 #include "CLKernel.hpp"
 #include "../../../core/Core.hpp"
 #include "../../../core/EngineManager.hpp"
+#include "CLDevice.hpp"
 
 namespace MATD {
 	namespace ENGINE {
@@ -11,10 +12,10 @@ namespace MATD {
 				MATD_CORE_ASSERT(kernelLen, "CL_KERNEL::Invalid Kernel Found");
 
 				cl::Program::Sources src(1, std::make_pair(source.c_str(), kernelLen));
-				auto engine = CORE::EngineManager::GetEngineInstance();
-				auto device = engine->GetSelectedDevice();
-
-				cl::Program program(, src);
+				Ref<ENGINE::Engine> engine = CORE::EngineManager::GetEngineInstance();
+				Ref<ENGINE::OPENCL::Device> device = std::static_pointer_cast<ENGINE::OPENCL::Device>(engine->GetSelectedDevice());
+				
+				cl::Program program(device->GetContext()->GetContext(), src);
 			}
 		}
 	}

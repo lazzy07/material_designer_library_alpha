@@ -6,10 +6,10 @@
 namespace MATD{
   namespace CORE{
     SUPPORTED_ENGINES EngineManager::s_Engine = SUPPORTED_ENGINES::OPEN_CL;
+    Ref<ENGINE::Engine> EngineManager::s_EngineInstance = std::make_shared<ENGINE::OPENCL::Engine>();
 
     EngineManager::EngineManager(SUPPORTED_ENGINES engine){
       MATD_CORE_TRACE("ENGINE_MANAGER::Initialized");
-
       SelectEngine(engine);
     }
     

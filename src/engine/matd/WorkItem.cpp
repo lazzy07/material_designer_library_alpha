@@ -5,7 +5,7 @@
 
 namespace MATD {
   namespace ENGINE {
-    Ref<WorkItem> WorkItem::CreateWorkItem()
+    Ref<WorkItem> WorkItem::CreateWorkItem(Ref<Kernel> kernel)
     {
       CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
@@ -14,7 +14,7 @@ namespace MATD {
         MATD_CORE_ASSERT(false, "WORKITEM:: CUDA is not supported yet");
         break;
       case CORE::SUPPORTED_ENGINES::OPEN_CL:
-        return std::make_shared<OPENCL::WorkItem>();
+        return std::make_shared<OPENCL::WorkItem>(kernel);
         break;
       }
       MATD_CORE_ASSERT(false, "Un-identified WorkItem type selected");
