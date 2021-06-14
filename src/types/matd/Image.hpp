@@ -1,8 +1,8 @@
 #pragma once
 
 namespace MATD {
-	namespace ENGINE {
-		class Queue {
+	namespace DTYPES {
+		class Image {
 
 		};
 	}

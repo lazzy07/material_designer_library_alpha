@@ -23,5 +23,26 @@ namespace MATD{
       MATD_CORE_ASSERT(false, "Un-identified engine type selected");
       return nullptr;
     }
+
+    void Engine::SelectPlatform(size_t id)
+    {
+      for (auto platform : m_Platforms) {
+        if (id == platform->GetId()) {
+          m_SelectedPlatfom = platform;
+          MATD_CORE_INFO("MATD_ENGINE::Platform Selected {}", platform->GetName());
+        }
+      }
+    }
+
+    void Engine::SelectDevice(size_t id)
+    {
+      MATD_CORE_ASSERT(m_SelectedPlatfom, "MATD_ENGINE::Device Not been slected");
+      for (auto device : m_SelectedPlatfom->GetCompatibleDevices()) {
+        if (id == device->GetId()) {
+          m_SelectedDevice = device;
+          MATD_CORE_INFO("MATD_ENGINE::Device Selected {}", device->GetDeviceName());
+        }
+      }
+    }
   }
 }

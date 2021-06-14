@@ -6,10 +6,10 @@
 namespace MATD{
   namespace CORE{
     SUPPORTED_ENGINES EngineManager::s_Engine = SUPPORTED_ENGINES::OPEN_CL;
+    Ref<ENGINE::Engine> EngineManager::s_EngineInstance = std::make_shared<ENGINE::OPENCL::Engine>();
 
     EngineManager::EngineManager(SUPPORTED_ENGINES engine){
       MATD_CORE_TRACE("ENGINE_MANAGER::Initialized");
-
       SelectEngine(engine);
     }
     
@@ -24,19 +24,11 @@ namespace MATD{
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::CUDA Not suppoted yet")
       }else if(engine == SUPPORTED_ENGINES::OPEN_CL){
         MATD_CORE_TRACE("ENGINE_MANAGER::Context changed to :: OpenCL");
-        m_Engine = MATD::ENGINE::Engine::CreateEngine();
-        m_Engine->SetPlatforms(m_Engine->GetSupportedPlatforms());
+        s_EngineInstance = MATD::ENGINE::Engine::CreateEngine();
+        s_EngineInstance->SetPlatforms(s_EngineInstance->GetSupportedPlatforms());
       }else{
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::Unknown Context Change Detected")
       };
-    }
-
-    void EngineManager::SelectDevice(size_t device) {
-
-    }
-
-    void EngineManager::SelectPlatform(size_t platform) {
-
     }
   }
 }

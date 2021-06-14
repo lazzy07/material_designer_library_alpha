@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "WorkItem.hpp"
 
 namespace MATD{
   namespace ENGINE{
@@ -18,10 +19,13 @@ namespace MATD{
 
       inline size_t GetId() const { return m_Id; };
       inline void SetId(size_t id) { m_Id = id; };
+
+      virtual void EnqueueWorkItem(Ref<ENGINE::WorkItem> workItem) = 0;
     private:
       size_t m_Id;
       std::string m_DeviceName;
       ENGINE::MAT_DEVICE_TYPE m_DeviceType = ENGINE::MAT_DEVICE_TYPE::DEVICE_CPU;
+      
     };
   };
 }

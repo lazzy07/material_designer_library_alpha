@@ -5,7 +5,7 @@ set(CMAKE_GENERATOR_PLATFORM x64)
 set(DIST_DIR ${CMAKE_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE}/${CMAKE_GENERATOR_PLATFORM})
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-project(Material_Designer)
+project(MaterialDesigner)
 
 add_subdirectory(src)
 #v8 bindigs project

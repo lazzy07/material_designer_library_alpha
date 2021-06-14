@@ -9,6 +9,8 @@ namespace MATD{
       class Platform : public ENGINE::Platform{
       public:
         inline void SetPlatform(cl::Platform platform){m_Platform = platform;};
+        inline const std::vector<cl::Device> GetCLDevices() const { return m_Devices; };
+
         virtual std::vector<Ref<MATD::ENGINE::Device>> GetCompatibleDevices() override;
         
       private:

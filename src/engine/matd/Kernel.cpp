@@ -9,5 +9,10 @@ namespace MATD {
 			std::ifstream in(path);
 			m_Source = std::string(BufIt(in.rdbuf()), BufIt());
 		}
+
+		void Kernel::LoadKernelDataFromString(std::string const& kernel)
+		{
+			m_Source = kernel;
+		}
 	}
 }
