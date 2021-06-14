@@ -1,8 +1,11 @@
+#include "../../matd/Argument.hpp"
+#include <string>
+
 namespace MATD {
 	namespace ENGINE{
 		namespace OPENCL {
-			class Argument {
-
+			class Argument : public ENGINE::Argument {
+			
 			};
 		}
 	}

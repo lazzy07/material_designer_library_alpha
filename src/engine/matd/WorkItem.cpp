@@ -20,5 +20,10 @@ namespace MATD {
       MATD_CORE_ASSERT(false, "Un-identified WorkItem type selected");
       return nullptr;
     }
+
+		void WorkItem::SetArgument(ENGINE::Argument* argument)
+		{
+			m_Arguments.insert(std::pair<std::string, ENGINE::Argument*>(argument->GetID(), argument));
+		}
   }
 }

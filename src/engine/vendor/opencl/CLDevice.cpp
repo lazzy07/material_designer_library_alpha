@@ -14,6 +14,10 @@ namespace MATD{
 				m_Queue = cl::CommandQueue(m_Context->GetContext(), m_Device);
 			}
 
+			void Device::EnqueueWorkItem(Ref<ENGINE::WorkItem> workItem)
+			{
+			}
+
 			void Device::SetCLDeviceData(cl::Device device, cl_uint maxUnits, cl_uint maxDim, std::vector<size_t> maxItem, cl_uint grpSize)
 			{
 				m_Device = device;

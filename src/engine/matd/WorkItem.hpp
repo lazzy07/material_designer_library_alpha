@@ -2,6 +2,7 @@
 #include "../../core/Core.hpp"
 #include "Argument.hpp"
 #include "Kernel.hpp"
+#include <map>
 
 namespace MATD {
 	namespace ENGINE {
@@ -9,8 +10,10 @@ namespace MATD {
 		public:
 			static Ref<WorkItem> CreateWorkItem(Ref<Kernel> kernel);
 			virtual void AddToQueue() = 0;
-			virtual void SetArgument(Argument argument) = 0;
+			void SetArgument(Argument* argument);
 			virtual void OnComplete() = 0;
+		private:
+			std::map<std::string, ENGINE::Argument*> m_Arguments;
 		};
 	}
 }
