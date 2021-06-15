@@ -16,14 +16,13 @@ namespace MATD {
 		class WorkItem;
 	}
 
-
 	class Argument {
 		static Int* Int(int val);
 		static Float* Float(float val);
 
 		template<typename T>
 		static Buffer<T>* Buffer(T* val, size_t size);
-		
+
 		template<typename T>
 		static Image<T>* Image(T* val, size_t size, size_t width, size_t height);
 	};

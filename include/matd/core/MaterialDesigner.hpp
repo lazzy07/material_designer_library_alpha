@@ -1,6 +1,7 @@
 #pragma once
 #include "Core.hpp"
 #include "EngineManager.hpp"
+#include "../types/DataTypes.hpp"
 
 namespace MATD{
   namespace CORE{
