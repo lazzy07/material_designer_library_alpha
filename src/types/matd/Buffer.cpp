@@ -2,7 +2,6 @@
 #include "../../core/Log.hpp"
 
 namespace MATD {
-	namespace DTYPES {
 		template<typename T>
 		Buffer<T>::Buffer(T* buffer, size_t size)
 		{
@@ -17,5 +16,4 @@ namespace MATD {
 			m_ElementSize = sizeof(T);
 			m_ByteSize = m_ElementSize * size;
 		}
-	}
 }

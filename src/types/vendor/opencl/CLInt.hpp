@@ -4,8 +4,12 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			class Int : public DTYPES::Int {
+			class Int : public MATD::Int {
+			public:
+				Int(int val);
 
+				virtual void Bind(const ENGINE::WorkItem* workItem, size_t index) override;
+				virtual void Delete() override;
 			};
 		}
 	}
