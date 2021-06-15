@@ -11,19 +11,19 @@ namespace MATD {
 
       switch (engine) {
       case CORE::SUPPORTED_ENGINES::CUDA:
-        MATD_CORE_ASSERT(false, "WORKITEM:: CUDA is not supported yet");
+        MATD_CORE_ASSERT(false, "WORKITEM::CUDA is not supported yet");
         break;
       case CORE::SUPPORTED_ENGINES::OPEN_CL:
         return std::make_shared<OPENCL::WorkItem>(kernel);
         break;
       }
-      MATD_CORE_ASSERT(false, "Un-identified WorkItem type selected");
+      MATD_CORE_ASSERT(false, "WORKITEM::Un-identified WorkItem type selected");
       return nullptr;
     }
 
-		void WorkItem::SetArgument(ENGINE::Argument* argument)
+		void WorkItem::SetArgument(DTYPES::Argument* argument)
 		{
-			m_Arguments.insert(std::pair<std::string, ENGINE::Argument*>(argument->GetID(), argument));
+			m_Arguments.insert(std::pair<std::string, DTYPES::Argument*>(argument->GetID(), argument));
 		}
   }
 }

@@ -1,9 +1,10 @@
 #pragma once
+#include "../../matd/Image.hpp"
 
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			class Buffer {
+			class Image : public DTYPES::Image {
 
 			};
 		}

@@ -1,7 +1,6 @@
 #pragma once
 #include "../../matd/WorkItem.hpp"
 #include "CLKernel.hpp"
-#include "CLArgument.hpp"
 #include <CL/cl.hpp>
 
 namespace MATD {

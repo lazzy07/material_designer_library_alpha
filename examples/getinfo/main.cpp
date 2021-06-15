@@ -4,7 +4,7 @@
 
 int main() {
 	MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
-	MATD_TRACE("APPLICATION::Started");
+	MATD_INFO("APPLICATION::Started");
 	std::cin.get();
 	delete(matd);
 }

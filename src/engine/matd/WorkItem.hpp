@@ -10,10 +10,10 @@ namespace MATD {
 		public:
 			static Ref<WorkItem> CreateWorkItem(Ref<Kernel> kernel);
 			virtual void AddToQueue() = 0;
-			void SetArgument(Argument* argument);
+			void SetArgument(DTYPES::Argument* argument);
 			virtual void OnComplete() = 0;
 		private:
-			std::map<std::string, ENGINE::Argument*> m_Arguments;
+			std::map<std::string, DTYPES::Argument*> m_Arguments;
 		};
 	}
 }

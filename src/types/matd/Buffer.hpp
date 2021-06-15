@@ -1,8 +1,9 @@
 #pragma once
+#include "Argument.hpp"
 
 namespace MATD{
   namespace DTYPES{
-    class Buffer{
+    class Buffer : public Argument {
 
     };
   }

@@ -1,9 +1,10 @@
 #pragma once
+#include "../../matd/Buffer.hpp"
 
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			class Float {
+			class Buffer : DTYPES::Buffer {
 
 			};
 		}
