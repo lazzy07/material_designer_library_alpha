@@ -10,13 +10,13 @@ namespace MATD {
 	namespace DTYPES {
 		class Argument {
 		public:
-			inline const std::string& GetID() const { return m_ID; };
-			inline void SetID(const std::string& ID) { m_ID = ID; };
+			inline const size_t& GetID() const { return m_ID; };
+			inline void SetID(const size_t& ID) { m_ID = ID; };
 
 			virtual void Bind(const ENGINE::WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
 		private:
-			std::string m_ID;
+			size_t m_ID;
 		};
 	}
 }
