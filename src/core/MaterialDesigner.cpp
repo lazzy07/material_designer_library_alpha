@@ -4,11 +4,11 @@
 
 MATD::CORE::MaterialDesigner::MaterialDesigner(){
 	Log::Init();
+	MATD_CORE_INFO("MATIREAL_DESIGNER::Engine Started");
 	MATD_CORE_TRACE("LOGGER::Initialized");
-	MATD_CORE_INFO("MATD::Engine Started");
 	m_EngineManager = MATD::Ref<EngineManager>(new EngineManager());
 };
 
 MATD::CORE::MaterialDesigner::~MaterialDesigner(){
-  MATD_CORE_TRACE("MATERIAL_DESIGNER::Closed");
+  MATD_CORE_INFO("MATERIAL_DESIGNER::Closed");
 }
