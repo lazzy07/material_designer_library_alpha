@@ -13,7 +13,7 @@ namespace MATD {
 			void SetArgument(DTYPES::Argument* argument);
 			virtual void OnComplete() = 0;
 		private:
-			std::map<std::string, DTYPES::Argument*> m_Arguments;
+			std::map<size_t, DTYPES::Argument*> m_Arguments;
 		};
 	}
 }

@@ -4,7 +4,8 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			class Buffer : DTYPES::Buffer {
+			template <typename T>
+			class Buffer : DTYPES::Buffer<T> {
 
 			};
 		}

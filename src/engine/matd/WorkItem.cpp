@@ -23,7 +23,7 @@ namespace MATD {
 
 		void WorkItem::SetArgument(DTYPES::Argument* argument)
 		{
-			m_Arguments.insert(std::pair<std::string, DTYPES::Argument*>(argument->GetID(), argument));
+			m_Arguments.insert(std::pair<size_t, DTYPES::Argument*>(argument->GetID(), argument));
 		}
   }
 }
