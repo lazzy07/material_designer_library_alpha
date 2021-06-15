@@ -4,8 +4,13 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			class Image : public DTYPES::Image {
+			template<typename T>
+			class Image : public MATD::Image<T> {
+			public:
+				Image(T* buffer, size_t size, size_t width, size_t height);
 
+				virtual void Bind(const ENGINE::WorkItem* workItem, size_t index) override;
+				virtual void Delete() override;
 			};
 		}
 	}
