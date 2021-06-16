@@ -8,7 +8,7 @@ int main() {
 	MATD_INFO("APPLICATION::Started");
 	MATD::Float* f = MATD::Argument::Float(0.3f);
 	MATD::Int* i = MATD::Argument::Int(3);
-	std::cout << i->GetVal();
+	std::cout << f->GetVal();
 	std::cin.get();
 	delete(matd);
 }
