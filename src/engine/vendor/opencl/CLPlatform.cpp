@@ -5,7 +5,7 @@
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
-      std::vector<Ref<MATD::ENGINE::Device>> Platform::GetCompatibleDevices(){
+      void Platform::InitCompatibleDevices(){
         std::vector<Ref<MATD::ENGINE::Device>> devices;
 
         m_Platform.getDevices(CL_DEVICE_TYPE_ALL, &m_Devices);
@@ -42,10 +42,10 @@ namespace MATD{
           d->SetId(i);
           d->SetCLDeviceData(device, deviceMaxComputeUnits, maxWorkItemDimensions, deviceMaxWorkItemSizes, deviceMaxGroupSize);
           d->InitDevice();
+          devices.push_back(d);
           i++;
         }
-
-        return devices;
+        SetDevices(devices);
       }
     }
   }

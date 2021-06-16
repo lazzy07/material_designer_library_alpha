@@ -20,7 +20,7 @@ namespace MATD {
 		m_Source = kernel;
 	}
 
-	Kernel* Kernel::CreateKernel(std::string id) {
+	Kernel* Kernel::CreateKernelFromFile(std::string id, std::string const& path) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -28,11 +28,31 @@ namespace MATD {
 			MATD_CORE_ASSERT(false, "MAT_KERNEL::CUDA is not supported yet");
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
-			return new ENGINE::OPENCL::Kernel(id);
+			ENGINE::OPENCL::Kernel* kernel = new ENGINE::OPENCL::Kernel(id);
+			kernel->LoadKernelDataFromFile(path);
+			kernel->CreateCLKernel();
+			return kernel;
 			break;
 		}
 		MATD_CORE_ASSERT(false, "MAT_KERNEL::Un-identified WorkItem type selected");
 		return nullptr;
+	}
 
+	Kernel* Kernel::CreateKernelFromSource(std::string id, std::string const& source) {
+		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
+
+		switch (engine) {
+		case CORE::SUPPORTED_ENGINES::CUDA:
+			MATD_CORE_ASSERT(false, "MAT_KERNEL::CUDA is not supported yet");
+			break;
+		case CORE::SUPPORTED_ENGINES::OPEN_CL:
+			ENGINE::OPENCL::Kernel* kernel = new ENGINE::OPENCL::Kernel(id);
+			kernel->LoadKernelDataFromString(source);
+			kernel->CreateCLKernel();
+			return kernel;
+			break;
+		}
+		MATD_CORE_ASSERT(false, "MAT_KERNEL::Un-identified WorkItem type selected");
+		return nullptr;
 	}
 }

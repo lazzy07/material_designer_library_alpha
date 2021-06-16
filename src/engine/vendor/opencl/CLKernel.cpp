@@ -8,7 +8,7 @@ namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
 			Kernel::Kernel(std::string id): MATD::Kernel(id) {
-				CreateCLKernel();
+				
 			}
 
 			void Kernel::CreateCLKernel() {
@@ -21,7 +21,7 @@ namespace MATD {
 				Ref<ENGINE::OPENCL::Platform> platform = std::static_pointer_cast<ENGINE::OPENCL::Platform>(engine->GetSelectedPlatform());
 				Ref<ENGINE::OPENCL::Device> device = std::static_pointer_cast<ENGINE::OPENCL::Device>(engine->GetSelectedDevice());
 
-				cl::Program program(device->GetContext()->GetContext(), src);
+				cl::Program program(device->GetContext()->GetCLContext(), src);
 
 				program.build(platform->GetCLDevices());
 				m_Kernel = cl::Kernel(program, GetID().c_str());

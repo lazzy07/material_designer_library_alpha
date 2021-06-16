@@ -8,7 +8,7 @@ namespace MATD {
       class Context {
       public:
         Context(cl::Device device, std::string deviceName);
-        const cl::Context GetContext() const { return m_Context; };
+        const cl::Context GetCLContext() const { return m_Context; };
       private:
         cl::Context m_Context;
         cl::Device m_Device;

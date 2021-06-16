@@ -36,8 +36,8 @@ namespace MATD{
 
     void Engine::SelectDevice(size_t id)
     {
-      MATD_CORE_ASSERT(m_SelectedPlatfom, "MATD_ENGINE::Device Not been slected");
-      for (auto device : m_SelectedPlatfom->GetCompatibleDevices()) {
+      MATD_CORE_ASSERT(m_SelectedPlatfom, "MATD_ENGINE::Device Not been selected");
+      for (auto device : m_SelectedPlatfom->GetDevices()) {
         if (id == device->GetId()) {
           m_SelectedDevice = device;
           MATD_CORE_INFO("MATD_ENGINE::Device Selected {}", device->GetDeviceName());

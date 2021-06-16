@@ -11,10 +11,7 @@ namespace MATD{
 
     class EngineManager{
       public:
-        EngineManager(SUPPORTED_ENGINES engine = SUPPORTED_ENGINES::OPEN_CL);
-        ~EngineManager();
-
-        void SelectEngine(SUPPORTED_ENGINES engine);
+        static void SelectEngine(SUPPORTED_ENGINES engine);
 
 				inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
 				inline static const Ref<MATD::ENGINE::Engine> GetEngineInstance() { return s_EngineInstance; };

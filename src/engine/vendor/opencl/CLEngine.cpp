@@ -35,7 +35,7 @@ namespace MATD{
         pf->SetPlatformData(version, profile, name, vendor);
         pf->SetId(i);
         pf->SetPlatform(platform);
-        pf->SetDevices(pf->GetCompatibleDevices());
+        pf->InitCompatibleDevices();
         i++;
         vec.push_back(pf);
       }

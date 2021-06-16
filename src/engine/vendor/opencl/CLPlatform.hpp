@@ -11,7 +11,7 @@ namespace MATD{
         inline void SetPlatform(cl::Platform platform){m_Platform = platform;};
         inline const std::vector<cl::Device> GetCLDevices() const { return m_Devices; };
 
-        virtual std::vector<Ref<MATD::ENGINE::Device>> GetCompatibleDevices() override;
+				virtual void InitCompatibleDevices() override;
         
       private:
         cl::Platform m_Platform;

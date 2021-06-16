@@ -12,7 +12,7 @@ namespace MATD{
         Device(std::string deviceName, MATD::ENGINE::MAT_DEVICE_TYPE type);
         void SetCLDeviceData(cl::Device device, cl_uint maxUnits, cl_uint maxDim, std::vector<size_t> maxItem, cl_uint grpSize);
         void InitDevice();
-        inline const Ref<OPENCL::Context> GetContext() const { return m_Context; };
+        inline Ref<OPENCL::Context> GetContext() const { return m_Context; };
         inline cl::Device GetClDevice() const { return m_Device; };
 
         virtual void EnqueueWorkItem(Ref<WorkItem> workItem) override;
