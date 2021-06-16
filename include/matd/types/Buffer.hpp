@@ -3,7 +3,7 @@
 
 namespace MATD{
   template <typename T>
-  class Buffer : public Argument {
+  class Buffer : public DTYPES::Argument {
   public:
     Buffer(T* buffer, size_t size);
 

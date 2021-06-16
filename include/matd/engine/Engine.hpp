@@ -1,7 +1,7 @@
 #pragma once
-#include "../../core/Core.hpp"
-#include "../engine/matd/Platform.hpp"
-#include "../engine/matd/Device.hpp"
+#include "../core/Core.hpp"
+#include "../engine/Platform.hpp"
+#include "../engine/Device.hpp"
 namespace MATD{
   namespace ENGINE {
     class Engine {

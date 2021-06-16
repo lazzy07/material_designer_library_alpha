@@ -1,5 +1,5 @@
 #pragma once
-#include "../engine/matd/WorkItem.hpp"
+#include "../engine/WorkItem.hpp"
 
 namespace MATD{
   class Int;
@@ -13,14 +13,14 @@ namespace MATD{
 
   class Argument {
   public:
-    static MATD::Int* Int(int val);
-    static MATD::Float* Float(float val);
+    static Int* Int(int val);
+		static Float* Float(float val);
 
-    template<typename T>
-    static MATD::Buffer<T>* Buffer(T* data, size_t size);
+		template<typename T>
+		static Buffer<T>* Buffer(T* val, size_t size);
 
-    template<typename T>
-    static MATD::Image<T>* Image(T* data, size_t size, size_t height, size_t width);
+		template<typename T>
+		static Image<T>* Image(T* val, size_t size, size_t width, size_t height);
   };
 
   namespace DTYPES{

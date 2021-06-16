@@ -17,6 +17,7 @@ namespace MATD {
 	}
 
 	class Argument {
+		public:
 		static Int* Int(int val);
 		static Float* Float(float val);
 
