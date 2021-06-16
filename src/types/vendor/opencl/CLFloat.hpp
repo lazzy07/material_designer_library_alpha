@@ -8,7 +8,7 @@ namespace MATD {
 			public:
 				Float(float val);
 
-				virtual void Bind(const ENGINE::WorkItem* workItem, size_t index) override;
+				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;
 			};
 		}

@@ -12,7 +12,7 @@ namespace MATD{
     const size_t GetByteSize();
     const size_t GetElementSize();
 
-    void Bind(const ENGINE::WorkItem* workItem, size_t index);
+    void Bind(const WorkItem* workItem, size_t index);
     void Delete();
   };
 }

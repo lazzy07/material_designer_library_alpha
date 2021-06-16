@@ -1,5 +1,4 @@
 #pragma once
-#include "../engine/WorkItem.hpp"
 
 namespace MATD{
   class Int;
@@ -10,6 +9,8 @@ namespace MATD{
   
   template<typename T>
   class Image;
+
+  class WorkItem;
 
   class Argument {
   public:
@@ -29,7 +30,7 @@ namespace MATD{
       inline const size_t& GetID();
       inline void SetID(const size_t& ID);
 
-      virtual void Bind(const ENGINE::WorkItem* workItem, size_t index) = 0;
+      virtual void Bind(const WorkItem* workItem, size_t index) = 0;
       virtual void Delete() = 0;
     };
   }

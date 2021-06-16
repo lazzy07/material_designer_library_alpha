@@ -15,7 +15,7 @@ namespace MATD{
         inline const Ref<OPENCL::Context> GetContext() const { return m_Context; };
         inline cl::Device GetClDevice() const { return m_Device; };
 
-        virtual void EnqueueWorkItem(Ref<ENGINE::WorkItem> workItem) override;
+        virtual void EnqueueWorkItem(Ref<WorkItem> workItem) override;
       private:
         cl::Device m_Device;
         cl::CommandQueue m_Queue;

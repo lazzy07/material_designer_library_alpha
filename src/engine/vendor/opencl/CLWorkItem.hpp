@@ -6,13 +6,13 @@
 namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
-			class WorkItem : public ENGINE::WorkItem {
+			class WorkItem : public MATD::WorkItem {
 			public:
-				WorkItem(Ref<ENGINE::Kernel> kernel);
+				WorkItem(Kernel* kernel);
 				virtual void AddToQueue() override;
 				virtual void OnComplete() override;
 			private:
-				Ref<OPENCL::Kernel> m_Kernel;
+				OPENCL::Kernel* m_Kernel;
 			};
 		}
 	}
