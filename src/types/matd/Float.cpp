@@ -3,9 +3,8 @@
 #include "..\vendor\opencl\CLFloat.hpp"
 
 namespace MATD {
-		Float::Float(float val) : m_Value(val)
+		Float::Float(size_t id, float val) : m_Value(val), Argument(id)
 		{
-			MATD_CORE_TRACE("MATD_INT::Created mat_float:{}", val);
 		}
 
 		void DTYPES::OPENCL::Float::Bind(const WorkItem* workItem, size_t index)

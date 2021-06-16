@@ -2,8 +2,7 @@
 #include "../../core/Log.hpp"
 
 namespace MATD {
-		Int::Int(int val): m_Value(val)
+		Int::Int(size_t id, int val): Argument(id), m_Value(val)
 		{
-			MATD_CORE_TRACE("MATD_INT::Created mat_integer:{}", val);
 		}
 }

@@ -1,10 +1,11 @@
 #include "CLFloat.hpp"
+#include "../../../core/Log.hpp"
 
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			Float::Float(float val): MATD::Float(val) {
-
+			Float::Float(size_t id, float val): MATD::Float(id, val) {
+				MATD_CORE_TRACE("CL_FLOAT:::Created CL Float id:{} val:{}", id, val);
 			}
 		}
 	}

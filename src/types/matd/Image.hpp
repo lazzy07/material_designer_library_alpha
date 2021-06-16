@@ -3,9 +3,9 @@
 
 namespace MATD {
 		template<typename T>
-		class Image : public Argument {
+		class Image : public DTYPES::Argument {
 		public:
-			Image(T* buffer, size_t size, size_t width, size_t height);
+			Image(size_t id, T* buffer, size_t size, size_t width, size_t height);
 
 			inline T* GetImageData() { return m_Value; };
 			inline const size_t GetSize() const { return m_Size; };

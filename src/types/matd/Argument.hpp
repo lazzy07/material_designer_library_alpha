@@ -16,19 +16,20 @@ namespace MATD {
 
 	class Argument {
 		public:
-		static Int* Int(int val);
-		static Float* Float(float val);
+		static Int* Int(size_t id, int val);
+		static Float* Float(size_t id, float val);
 
 		template<typename T>
-		static Buffer<T>* Buffer(T* val, size_t size);
+		static Buffer<T>* Buffer(size_t id, T* val, size_t size);
 
 		template<typename T>
-		static Image<T>* Image(T* val, size_t size, size_t width, size_t height);
+		static Image<T>* Image(size_t id, T* val, size_t size, size_t width, size_t height);
 	};
 
 	namespace DTYPES {
 		class Argument {
 		public:
+			Argument(size_t id);
 			inline const size_t& GetID() const { return m_ID; };
 			inline void SetID(const size_t& ID) { m_ID = ID; };
 
