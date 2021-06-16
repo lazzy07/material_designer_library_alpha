@@ -4,13 +4,14 @@
 #include <map>
 
 namespace MATD {
-	namespace ENGINE {
-		class WorkItem {
-		public:
-			static Ref<WorkItem> CreateWorkItem(Ref<Kernel> kernel);
-			virtual void AddToQueue() = 0;
-			void SetArgument(MATD::DTYPES::Argument* argument);
-			virtual void OnComplete() = 0;
-		};
-	}
+	class WorkItem {
+	public:
+		virtual void AddToQueue() = 0;
+		void SetArgument(DTYPES::Argument* argument);
+		virtual void OnComplete() = 0;
+		static WorkItem* CreateWorkItem(Kernel* kernel);
+	private:
+		std::map<size_t, DTYPES::Argument*> m_Arguments;
+	};
+	
 }

@@ -3,8 +3,8 @@
 namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
-			WorkItem::WorkItem(Ref<ENGINE::Kernel> kernel) {
-				m_Kernel = std::static_pointer_cast<OPENCL::Kernel>(kernel);
+			WorkItem::WorkItem(Kernel* kernel) {
+				m_Kernel = (OPENCL::Kernel*)kernel;
 				MATD_CORE_TRACE("CL_WORKITEM::Work Item created with OpenCL");
 			}
 

@@ -2,14 +2,20 @@
 #include <string>
 
 namespace MATD {
-	namespace ENGINE {
-		class Kernel {
-		public:
-			void LoadKernelDataFromFile(std::string const& path);
-			void LoadKernelDataFromString(std::string const& kernel);
-			inline const std::string& GetKernelData() const { return m_Source; };
-		private:
-			std::string m_Source;
-		};
-	}
+	class Kernel {
+	public:
+		Kernel(std::string id);
+		
+		void LoadKernelDataFromFile(std::string const& path);
+		void LoadKernelDataFromString(std::string const& kernel);
+		inline const std::string& GetKernelData() const { return m_Source; };
+		inline const std::string& GetID() const { return m_ID; };
+		
+		static Kernel* CreateKernel(std::string id);
+
+	private:
+		std::string m_Source;
+		std::string m_ID;
+	};
+
 }
