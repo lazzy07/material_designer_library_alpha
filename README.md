@@ -15,7 +15,7 @@ Use this library to build material designer engine and V8 bindings, you can cust
 #### Engine functionality
 Engine functionality can be used without using any graph functionality
 
-```c++
+```cpp
 MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
 MATD::Float* f = MATD::Argument::Float(0.3f);
 MATD::Int* i = MATD::Argument::Int(3);
