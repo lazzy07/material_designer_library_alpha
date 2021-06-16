@@ -8,10 +8,6 @@ namespace MATD{
       public:
         MaterialDesigner();
         ~MaterialDesigner();
-
-        inline const Ref<EngineManager> GetEngineManager() {return m_EngineManager; };
-      private:
-        Ref<EngineManager> m_EngineManager;
     };
   };
 }

@@ -11,7 +11,8 @@ namespace MATD {
 		inline const std::string& GetKernelData() const { return m_Source; };
 		inline const std::string& GetID() const { return m_ID; };
 
-		static Kernel* CreateKernel(std::string id);
+		static Kernel* CreateKernelFromFile(std::string id, std::string const& path);
+		static Kernel* CreateKernelFromSource(std::string id, std::string const& kernel);
 	private:
 		std::string m_Source;
 		std::string m_ID;

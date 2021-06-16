@@ -8,15 +8,6 @@ namespace MATD{
     SUPPORTED_ENGINES EngineManager::s_Engine = SUPPORTED_ENGINES::OPEN_CL;
     Ref<ENGINE::Engine> EngineManager::s_EngineInstance = std::make_shared<ENGINE::OPENCL::Engine>();
 
-    EngineManager::EngineManager(SUPPORTED_ENGINES engine){
-      MATD_CORE_TRACE("ENGINE_MANAGER::Initialized");
-      SelectEngine(engine);
-    }
-    
-    EngineManager::~EngineManager(){
-      MATD_CORE_TRACE("ENGINE_MANAGER::Closed");
-    }
-
     void EngineManager::SelectEngine(SUPPORTED_ENGINES engine){
       s_Engine = engine;
       if(engine == SUPPORTED_ENGINES::CUDA){

@@ -11,7 +11,7 @@ namespace MATD{
 
 			void Device::InitDevice() {
 				m_Context = std::make_shared<OPENCL::Context>(m_Device, GetDeviceName());
-				m_Queue = cl::CommandQueue(m_Context->GetContext(), m_Device);
+				m_Queue = cl::CommandQueue(m_Context->GetCLContext(), m_Device);
 			}
 
 			void Device::EnqueueWorkItem(Ref<WorkItem> workItem)

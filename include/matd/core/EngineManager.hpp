@@ -4,16 +4,19 @@
 
 namespace MATD{
   namespace CORE{
-    enum SUPPORTED_ENGINES{
+    enum class SUPPORTED_ENGINES{
       OPEN_CL,
       CUDA
     };
 
     class EngineManager{
       public:
-        //Select the engine that Material Designer use to compute
-        void SelectEngine(SUPPORTED_ENGINES engine);
+        static void SelectEngine(SUPPORTED_ENGINES engine);
+
+				inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
+				inline static const Ref<MATD::ENGINE::Engine> GetEngineInstance() { return s_EngineInstance; };
       private:
+        static SUPPORTED_ENGINES s_Engine;
         static Ref<MATD::ENGINE::Engine> s_EngineInstance;
     };
   };

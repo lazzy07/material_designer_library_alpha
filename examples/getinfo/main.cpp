@@ -7,12 +7,15 @@
 
 int main() {
 	MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
+	auto e = MATD::CORE::EngineManager::GetEngineInstance();
+	e->SelectPlatform(0);
+	e->SelectDevice(0);
+
 	MATD_INFO("APPLICATION::Started");
 	MATD::Float* f = MATD::Argument::Float(0, 0.3f);
 	MATD::Int* i = MATD::Argument::Int(1, 3);
 
-	MATD::Kernel* k = MATD::Kernel::CreateKernel("test");
-	k->LoadKernelDataFromFile("");
+	MATD::Kernel* k = MATD::Kernel::CreateKernelFromFile("test", "C:/Users/Lazzy07/Documents/material_designer/kernels/test.cl");
 	MATD::WorkItem* wi = MATD::WorkItem::CreateWorkItem(k);
 	wi->SetArgument(i);
 
