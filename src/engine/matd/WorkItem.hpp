@@ -5,15 +5,13 @@
 #include <map>
 
 namespace MATD {
-	namespace ENGINE {
 		class WorkItem {
 		public:
-			static Ref<WorkItem> CreateWorkItem(Ref<Kernel> kernel);
+			static Ref<WorkItem> CreateWorkItem(Ref<ENGINE::Kernel> kernel);
 			virtual void AddToQueue() = 0;
 			void SetArgument(DTYPES::Argument* argument);
 			virtual void OnComplete() = 0;
 		private:
 			std::map<size_t, DTYPES::Argument*> m_Arguments;
 		};
-	}
 }

@@ -7,7 +7,7 @@ namespace MATD {
 
 			}
 
-			void Int::Bind(const ENGINE::WorkItem* workItem, size_t index)
+			void Int::Bind(const WorkItem* workItem, size_t index)
 			{
 			}
 

@@ -4,8 +4,7 @@
 #include "../vendor/opencl/CLWorkItem.hpp"
 
 namespace MATD {
-  namespace ENGINE {
-    Ref<WorkItem> WorkItem::CreateWorkItem(Ref<Kernel> kernel)
+    Ref<WorkItem> WorkItem::CreateWorkItem(Ref<ENGINE::Kernel> kernel)
     {
       CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
@@ -14,7 +13,7 @@ namespace MATD {
         MATD_CORE_ASSERT(false, "WORKITEM::CUDA is not supported yet");
         break;
       case CORE::SUPPORTED_ENGINES::OPEN_CL:
-        return std::make_shared<OPENCL::WorkItem>(kernel);
+        return std::make_shared<ENGINE::OPENCL::WorkItem>(kernel);
         break;
       }
       MATD_CORE_ASSERT(false, "WORKITEM::Un-identified WorkItem type selected");
@@ -25,5 +24,4 @@ namespace MATD {
 		{
 			m_Arguments.insert(std::pair<size_t, DTYPES::Argument*>(argument->GetID(), argument));
 		}
-  }
 }

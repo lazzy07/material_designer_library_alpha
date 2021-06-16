@@ -4,7 +4,7 @@ namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
 			template<typename T>
-			void Image<T>::Bind(const ENGINE::WorkItem* workItem, size_t index)
+			void Image<T>::Bind(const WorkItem* workItem, size_t index)
 			{
 			}
 
