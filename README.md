@@ -11,3 +11,15 @@ Material Designer library which is written using C++ is the engine under the hoo
 ### How to use?
 
 Use this library to build material designer engine and V8 bindings, you can customize the library using your own kernels to carry out image processing. Please refer to the doc.
+
+#### Engine functionality
+Engine functionality can be used without using any graph functionality
+
+```cpp
+MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
+MATD::Float* f = MATD::Argument::Float(0.3f);
+MATD::Int* i = MATD::Argument::Int(3);
+
+MATD::Kernel* k = MATD::Kernel::CreateKernel("test");
+MATD::WorkItem* wi = MATD::WorkItem::CreateWorkItem(k);
+```
