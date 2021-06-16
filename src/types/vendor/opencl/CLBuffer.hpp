@@ -7,7 +7,7 @@ namespace MATD {
 			template <typename T>
 			class Buffer : public MATD::Buffer<T> {
 			public:
-				Buffer(T* buffer, size_t size);
+				Buffer(size_t id, T* buffer, size_t size);
 
 				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;

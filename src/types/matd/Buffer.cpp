@@ -3,10 +3,9 @@
 
 namespace MATD {
 		template<typename T>
-		Buffer<T>::Buffer(T* buffer, size_t size)
+		Buffer<T>::Buffer(size_t id, T* buffer, size_t size) : Argument(id)
 		{
 			SetBuffer(buffer, size);
-			MATD_CORE_TRACE("MATD_BUFFER::Created mat_buffer of size:{}(bytes)", m_ByteSize);
 		}
 
 		template<typename T>
