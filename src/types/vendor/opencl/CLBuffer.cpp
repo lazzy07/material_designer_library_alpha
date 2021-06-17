@@ -3,18 +3,15 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			template<typename T>
-			Buffer<T>::Buffer(T* buffer, size_t size): MATD::Buffer(id, buffer, size) {
-				MATD_CORE_TRACE("CL_BUFFER:::Created CL Buffer id:{}", id);
+			Buffer::Buffer(void* buffer, size_t size, size_t elem_size): MATD::Buffer(buffer, size, elem_size) {
+				MATD_CORE_TRACE("CL_BUFFER:::Created CL Buffer of elements:{}", size);
 			}
 
-			template<typename T>
-			void Buffer<T>::Bind(const WorkItem* workItem, size_t index)
+			void Buffer::Bind(const WorkItem* workItem, size_t index)
 			{
 			}
 
-			template<typename T>
-			void Buffer<T>::Delete()
+			void Buffer::Delete()
 			{
 			}
 		}

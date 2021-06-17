@@ -2,17 +2,15 @@
 #include "../../core/Log.hpp"
 
 namespace MATD {
-		template<typename T>
-		Buffer<T>::Buffer(T* buffer, size_t size)
+		Buffer::Buffer(void* buffer, size_t size, size_t elem_size): m_ElementSize(elem_size)
 		{
-			SetBuffer(buffer, size);
+			SetBuffer(buffer, size, elem_size);
 		}
 
-		template<typename T>
-		void Buffer<T>::SetBuffer(T* val, size_t size) {
+		void Buffer::SetBuffer(void* val, size_t size, size_t elem_size) {
 			m_Value = val;
 			m_Size = size;
-			m_ElementSize = sizeof(T);
+			m_ElementSize = elem_size;
 			m_ByteSize = m_ElementSize * size;
 		}
 }

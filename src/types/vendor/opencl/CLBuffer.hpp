@@ -4,10 +4,9 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			template <typename T>
-			class Buffer : public MATD::Buffer<T> {
+			class Buffer : public MATD::Buffer {
 			public:
-				Buffer(T* buffer, size_t size);
+				Buffer(void* buffer, size_t size, size_t elem_size);
 
 				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;

@@ -2,14 +2,13 @@
 #include "Argument.hpp"
 
 namespace MATD{
-    template <typename T>
     class Buffer : public DTYPES::Argument {
     public:
-      Buffer(T* buffer, size_t size);
+      Buffer(void* buffer, size_t size, size_t elem_size);
 
-      void SetBuffer(T* val, size_t size);
+      void SetBuffer(void* val, size_t size, size_t elem_size);
 
-      inline T* GetBuffer() { return m_Value; };
+      inline void* GetBuffer() { return m_Value; };
 			inline const size_t GetSize() const { return m_Size; };
 			inline const size_t GetByteSize() const { return m_ByteSize; };
 			inline const size_t GetElementSize() const { return m_ElementSize; };
@@ -17,9 +16,9 @@ namespace MATD{
 			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
     private:
-      T* m_Value;
+      void* m_Value;
       size_t m_ByteSize = 0;
       size_t m_Size = 0;
-      size_t m_ElementSize = sizeof(T);
+      size_t m_ElementSize = 0;
     };
 }

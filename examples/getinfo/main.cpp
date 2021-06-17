@@ -13,7 +13,7 @@ int main() {
 
 	MATD_INFO("APPLICATION::Started");
 	int arr[] = { 1,2,3,4,5,6,7,8 };
-	MATD::Buffer<int>* buf = MATD::Argument::Buffer<int>(arr, 8);
+	MATD::Buffer* buf = MATD::Argument::Buffer(arr, 8, sizeof(int));
 	MATD::Int* i = MATD::Argument::Int(3);
 
 	MATD::Kernel* k = MATD::Kernel::CreateKernelFromFile("test", "C:/Users/Lazzy07/Documents/material_designer/kernels/test.cl");

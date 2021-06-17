@@ -1,6 +1,5 @@
 #include "Argument.hpp"
 #include "../../core/EngineManager.hpp"
-#include "../../core/Core.hpp"
 #include "../vendor/opencl/CLInt.hpp"
 #include "../vendor/opencl/CLFloat.hpp"
 #include "../vendor/opencl/CLImage.hpp"
@@ -11,7 +10,7 @@ namespace MATD {
 		
 	}
 
-	Int* MATD::Argument::Int(int val)
+	MATD::Int* MATD::Argument::Int(int val)
 	{
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
@@ -28,7 +27,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	Float* MATD::Argument::Float(float val) {
+	MATD::Float* MATD::Argument::Float(float val) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -44,8 +43,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	template<typename T>
-	Image<T>* MATD::Argument::Image(T* buffer, size_t size, size_t width, size_t height) {
+	MATD::Image* MATD::Argument::Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -53,16 +51,14 @@ namespace MATD {
 			MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
-			return new DTYPES::OPENCL::Image<T>(buffer, size, width, height);
+			return new DTYPES::OPENCL::Image(buffer, size, elem_size, width, height);
 			break;
-
 		}
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
 		return nullptr;
 	}
 
-	template<typename T>
-	Buffer<T>* MATD::Argument::Buffer(T* buffer, size_t size) {
+	MATD::Buffer* MATD::Argument::Buffer(void* buffer, size_t size, size_t elem_size) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -70,7 +66,7 @@ namespace MATD {
 			MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
-			return new DTYPES::OPENCL::Buffer<T>(buffer, size);
+			return new DTYPES::OPENCL::Buffer(buffer, size, elem_size);
 			break;
 		}
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
