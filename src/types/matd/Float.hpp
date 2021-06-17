@@ -9,7 +9,7 @@ namespace MATD {
 			inline float GetVal() const { return m_Value; };
 			inline void SetVal(float val) { m_Value = val; };
 
-			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
+			virtual void Bind(const WorkItem* workItem) = 0;
 			virtual void Delete() = 0;
 		private:
 			float m_Value  = 0.0f;

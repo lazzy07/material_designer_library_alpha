@@ -11,8 +11,6 @@ namespace MATD {
 				WorkItem(Kernel* kernel);
 				virtual void AddToQueue() override;
 				virtual void OnComplete() override;
-			private:
-				OPENCL::Kernel* m_Kernel;
 			};
 		}
 	}

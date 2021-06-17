@@ -31,7 +31,7 @@ namespace MATD {
 			inline const size_t& GetID() const { return m_ID; };
 			inline void SetID(const size_t& ID) { m_ID = ID; };
 
-			void Bind(const WorkItem* workItem, size_t index);
+			void Bind(const WorkItem* workItem);
 			void Delete();
 		private:
 			size_t m_ID;

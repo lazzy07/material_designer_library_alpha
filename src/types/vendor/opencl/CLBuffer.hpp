@@ -9,7 +9,7 @@ namespace MATD {
 			public:
 				Buffer(size_t id, T* buffer, size_t size);
 
-				virtual void Bind(const WorkItem* workItem, size_t index) override;
+				virtual void Bind(const WorkItem* workItem) override;
 				virtual void Delete() override;
 			};
 		}

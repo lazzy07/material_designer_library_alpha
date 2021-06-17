@@ -9,7 +9,7 @@ namespace MATD {
 			}
 
 			template<typename T>
-			void Buffer<T>::Bind(const WorkItem* workItem, size_t index)
+			void Buffer<T>::Bind(const WorkItem* workItem)
 			{
 			}
 

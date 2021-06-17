@@ -7,11 +7,16 @@
 namespace MATD {
 	class WorkItem {
 	public:
-		virtual void AddToQueue() = 0;
+		WorkItem(Kernel* kernel);
 		void SetArgument(DTYPES::Argument* argument);
+		inline const Kernel* GetKernel() const { return m_Kernel; };
+
+		virtual void AddToQueue() = 0;
 		virtual void OnComplete() = 0;
+
 		static WorkItem* CreateWorkItem(Kernel* kernel);
 	private:
+		Kernel* m_Kernel;
 		std::map<size_t, DTYPES::Argument*> m_Arguments;
 	};
 	
