@@ -1,5 +1,6 @@
 #pragma once
 #include "../../matd/Buffer.hpp"
+#include <cl/cl.hpp>
 
 namespace MATD {
 	namespace DTYPES {
@@ -10,6 +11,8 @@ namespace MATD {
 
 				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;
+			private:
+				cl::Buffer m_CLBuffer;
 			};
 		}
 	}
