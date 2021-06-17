@@ -12,12 +12,14 @@ int main() {
 	e->SelectDevice(0);
 
 	MATD_INFO("APPLICATION::Started");
-	MATD::Float* f = MATD::Argument::Float(0, 0.3f);
-	MATD::Int* i = MATD::Argument::Int(1, 3);
+	int arr[] = { 1,2,3,4,5,6,7,8 };
+	MATD::Buffer* buf = MATD::Argument::Buffer(arr, 8, sizeof(int));
+	MATD::Int* i = MATD::Argument::Int(3);
 
 	MATD::Kernel* k = MATD::Kernel::CreateKernelFromFile("test", "C:/Users/Lazzy07/Documents/material_designer/kernels/test.cl");
 	MATD::WorkItem* wi = MATD::WorkItem::CreateWorkItem(k);
-	wi->SetArgument(i);
+	wi->SetArgument(0, buf);
+	wi->SetArgument(1, i);
 
 	std::cin.get();
 	delete(matd);

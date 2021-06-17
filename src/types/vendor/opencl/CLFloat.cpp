@@ -4,8 +4,18 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			Float::Float(size_t id, float val): MATD::Float(id, val) {
-				MATD_CORE_TRACE("CL_FLOAT:::Created CL Float id:{} val:{}", id, val);
+			Float::Float(float val): MATD::Float(val) {
+				MATD_CORE_TRACE("CL_FLOAT:::Created CL Float val:{}", val);
+			}
+
+
+
+			void Float::Bind(const WorkItem* workItem, size_t index)
+			{
+			}
+
+			void Float::Delete()
+			{
 			}
 		}
 	}

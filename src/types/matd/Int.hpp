@@ -4,7 +4,7 @@
 namespace MATD {
 		class Int : public DTYPES::Argument {
 		public:
-			Int(size_t id, int val);
+			Int(int val);
 
 			inline int GetVal() const { return m_Value; };
 			inline void SetVal(int val) { m_Value = val; };
