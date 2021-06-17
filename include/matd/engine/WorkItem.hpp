@@ -9,7 +9,7 @@ namespace MATD {
 		WorkItem(Kernel* kernel);
 		virtual void AddToQueue() = 0;
 		virtual void OnComplete() = 0;
-		void SetArgument(DTYPES::Argument* argument);
+		void SetArgument(size_t index, DTYPES::Argument* argument);
 		inline const Kernel* GetKernel() const { return m_Kernel; };
 
 		static WorkItem* CreateWorkItem(Kernel* kernel);

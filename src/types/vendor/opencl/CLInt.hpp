@@ -7,9 +7,9 @@ namespace MATD {
 		namespace OPENCL {
 			class Int : public MATD::Int {
 			public:
-				Int(size_t id,int val);
+				Int(int val);
 
-				virtual void Bind(const WorkItem* workItem) override;
+				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;
 			private:
 				cl::Buffer m_CLBuffer;

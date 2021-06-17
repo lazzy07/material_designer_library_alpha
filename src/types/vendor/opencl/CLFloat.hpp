@@ -6,9 +6,9 @@ namespace MATD {
 		namespace OPENCL {
 			class Float : public MATD::Float {
 			public:
-				Float(size_t id, float val);
+				Float(float val);
 
-				virtual void Bind(const WorkItem* workItem) override;
+				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;
 			};
 		}

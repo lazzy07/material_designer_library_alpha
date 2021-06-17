@@ -3,7 +3,7 @@
 
 namespace MATD {
 		template<typename T>
-		Buffer<T>::Buffer(size_t id, T* buffer, size_t size) : Argument(id)
+		Buffer<T>::Buffer(T* buffer, size_t size)
 		{
 			SetBuffer(buffer, size);
 		}

@@ -8,7 +8,7 @@ namespace MATD {
 	class WorkItem {
 	public:
 		WorkItem(Kernel* kernel);
-		void SetArgument(DTYPES::Argument* argument);
+		void SetArgument(size_t index, DTYPES::Argument* argument);
 		inline const Kernel* GetKernel() const { return m_Kernel; };
 
 		virtual void AddToQueue() = 0;

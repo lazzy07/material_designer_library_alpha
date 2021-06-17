@@ -5,7 +5,7 @@ namespace MATD{
     template <typename T>
     class Buffer : public DTYPES::Argument {
     public:
-      Buffer(size_t id, T* buffer, size_t size);
+      Buffer(T* buffer, size_t size);
 
       void SetBuffer(T* val, size_t size);
 
@@ -14,7 +14,7 @@ namespace MATD{
 			inline const size_t GetByteSize() const { return m_ByteSize; };
 			inline const size_t GetElementSize() const { return m_ElementSize; };
 
-			virtual void Bind(const WorkItem* workItem) = 0;
+			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
     private:
       T* m_Value;

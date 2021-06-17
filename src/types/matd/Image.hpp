@@ -5,14 +5,14 @@ namespace MATD {
 		template<typename T>
 		class Image : public DTYPES::Argument {
 		public:
-			Image(size_t id, T* buffer, size_t size, size_t width, size_t height);
+			Image(T* buffer, size_t size, size_t width, size_t height);
 
 			inline T* GetImageData() { return m_Value; };
 			inline const size_t GetSize() const { return m_Size; };
 			inline const size_t GetByteSize() const { return m_ByteSize; };
 			inline const size_t GetElementSize() const { return m_ElementSize; };
 
-			virtual void Bind(const WorkItem* workItem) = 0;
+			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
 		private:
 			T* m_Value;

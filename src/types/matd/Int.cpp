@@ -2,7 +2,7 @@
 #include "../../core/Log.hpp"
 
 namespace MATD {
-		Int::Int(size_t id, int val): Argument(id), m_Value(val)
+		Int::Int(int val): m_Value(val)
 		{
 		}
 }

@@ -7,16 +7,16 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			Int::Int(size_t id, int val): MATD::Int(id, val) {
-				MATD_CORE_TRACE("CL_INT:::Created CL Int id:{} val:{}", id, val);
+			Int::Int(int val): MATD::Int(val) {
+				MATD_CORE_TRACE("CL_INT:::Created CL Int val:{}", val);
 			}
 
-			void Int::Bind(const WorkItem* workItem)
+			void Int::Bind(const WorkItem* workItem, size_t index)
 			{
 				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();
 				cl::Kernel clKernel = kernel->GetCLKernel();
-				clKernel.setArg<int>(GetID(), GetVal());
-				MATD_CORE_TRACE("CL_INT::Integer value bound to kernel:{} at index:{}", kernel->GetID(), GetID());
+				clKernel.setArg<int>(index, GetVal());
+				MATD_CORE_TRACE("CL_INT::Integer value bound to kernel:{} at index:{}", kernel->GetID(), index);
 			};
 
 			void Int::Delete()
