@@ -4,7 +4,7 @@
 namespace MATD{
     class Buffer : public DTYPES::Argument {
     public:
-      Buffer(void* buffer, size_t size, size_t elem_size);
+      Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType = ARG_TYPE::DEVICE_READ | ARG_TYPE::HOST_WRITE);
 
       void SetBuffer(void* val, size_t size, size_t elem_size);
 
@@ -16,6 +16,7 @@ namespace MATD{
 			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
     private:
+      buf_type m_BufType;
       void* m_Value;
       size_t m_ByteSize = 0;
       size_t m_Size = 0;

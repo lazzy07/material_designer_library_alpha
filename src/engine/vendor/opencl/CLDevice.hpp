@@ -13,7 +13,8 @@ namespace MATD{
         void SetCLDeviceData(cl::Device device, cl_uint maxUnits, cl_uint maxDim, std::vector<size_t> maxItem, cl_uint grpSize);
         void InitDevice();
         inline Ref<OPENCL::Context> GetContext() const { return m_Context; };
-        inline cl::Device GetClDevice() const { return m_Device; };
+				inline cl::Device GetClDevice() const { return m_Device; };
+				inline const cl::CommandQueue GetClQueue() const { return m_Queue; };
 
       private:
         cl::Device m_Device;

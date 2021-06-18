@@ -43,7 +43,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	MATD::Image* MATD::Argument::Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height) {
+	MATD::Image* MATD::Argument::Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -58,7 +58,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	MATD::Buffer* MATD::Argument::Buffer(void* buffer, size_t size, size_t elem_size) {
+	MATD::Buffer* MATD::Argument::Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {

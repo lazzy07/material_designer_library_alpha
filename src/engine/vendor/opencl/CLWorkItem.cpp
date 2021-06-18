@@ -1,4 +1,6 @@
 #include "CLWorkItem.hpp"
+#include "CLDevice.hpp"
+#include "../../../core/EngineManager.hpp"
 
 namespace MATD {
 	namespace ENGINE {
@@ -9,10 +11,23 @@ namespace MATD {
 
 			void WorkItem::AddToQueue()
 			{
+				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
+				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
+				cl::CommandQueue queue = clDevice->GetClQueue();
 			}
 
 			void WorkItem::OnComplete()
 			{
+			}
+
+			void WorkItem::SetOutput(Buffer* buffer)
+			{
+
+			}
+
+			void WorkItem::SetOutput(Image* image)
+			{
+
 			}
 		}
 	}

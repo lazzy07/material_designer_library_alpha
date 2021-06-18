@@ -9,11 +9,11 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-			Buffer::Buffer(void* buffer, size_t size, size_t elem_size): MATD::Buffer(buffer, size, elem_size) {
+			Buffer::Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType): MATD::Buffer(buffer, size, elem_size, argType) {
 				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
 				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
 				cl::Context clContext = clDevice->GetContext()->GetCLContext();
-				m_CLBuffer = cl::Buffer(clContext, CL_MEM_READ_WRITE, GetByteSize(), GetBuffer());
+				m_CLBuffer = cl::Buffer(clContext, argType, GetByteSize(), GetBuffer());
 				MATD_CORE_TRACE("CL_BUFFER:::Created CL Buffer of elements:{}", size);
 			}
 
