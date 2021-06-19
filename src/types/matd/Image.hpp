@@ -4,7 +4,7 @@
 namespace MATD {
 	class Image : public DTYPES::Argument {
 	public:
-		Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType = ARG_TYPE::DEVICE_READ | ARG_TYPE::HOST_WRITE);
+		Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType);
 
 		inline void* GetImageData() { return m_Value; };
 		inline const size_t GetSize() const { return m_Size; };

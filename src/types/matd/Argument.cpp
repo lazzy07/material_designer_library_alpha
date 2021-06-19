@@ -51,7 +51,7 @@ namespace MATD {
 			MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
-			return new DTYPES::OPENCL::Image(buffer, size, elem_size, width, height);
+			return new DTYPES::OPENCL::Image(buffer, size, elem_size, width, height, argType);
 			break;
 		}
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
@@ -66,7 +66,7 @@ namespace MATD {
 			MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
-			return new DTYPES::OPENCL::Buffer(buffer, size, elem_size);
+			return new DTYPES::OPENCL::Buffer(buffer, size, elem_size, argType);
 			break;
 		}
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");

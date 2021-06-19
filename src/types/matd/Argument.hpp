@@ -29,8 +29,8 @@ namespace MATD {
 		public:
 			static MATD::Int* Int(int val);
 			static MATD::Float* Float(float val);
-			static MATD::Buffer* Buffer(void* val, size_t size, size_t elem_size, buf_type argType = ARG_TYPE::DEVICE_READ | ARG_TYPE::HOST_WRITE);
-			static MATD::Image* Image(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType = ARG_TYPE::DEVICE_READ | ARG_TYPE::HOST_WRITE);
+			static MATD::Buffer* Buffer(void* val, size_t size, size_t elem_size, buf_type argType);
+			static MATD::Image* Image(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType);
 	};
 
 	namespace DTYPES {

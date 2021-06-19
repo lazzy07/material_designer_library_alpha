@@ -4,7 +4,7 @@
 namespace MATD{
     class Buffer : public DTYPES::Argument {
     public:
-      Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType = ARG_TYPE::DEVICE_READ | ARG_TYPE::HOST_WRITE);
+      Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType);
 
       void SetBuffer(void* val, size_t size, size_t elem_size);
 

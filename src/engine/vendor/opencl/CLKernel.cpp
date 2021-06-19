@@ -23,8 +23,27 @@ namespace MATD {
 
 				cl::Program program(device->GetContext()->GetCLContext(), src);
 
-				program.build(platform->GetCLDevices());
-				m_Kernel = cl::Kernel(program, GetID().c_str());
+				try {
+					program.build(platform->GetCLDevices());
+					m_Kernel = cl::Kernel(program, GetID().c_str());
+				}
+				catch (cl::Error error) {
+					if (error.err() == CL_BUILD_PROGRAM_FAILURE) {
+						for (cl::Device dev : platform->GetCLDevices()) {
+							// Check the build status
+							cl_build_status status = program.getBuildInfo<CL_PROGRAM_BUILD_STATUS>(dev);
+							if (status != CL_BUILD_ERROR)
+								continue;
+
+							// Get the build log
+							std::string name = dev.getInfo<CL_DEVICE_NAME>();
+							std::string buildlog = program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(dev);
+							
+							MATD_CORE_ERROR("For device: {} buildlog: \n{}", name, buildlog);
+							MATD_CORE_ASSERT(false, "Build Failed");
+						}
+					}
+				}
 			}
 		}
 	}

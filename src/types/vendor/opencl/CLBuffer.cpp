@@ -13,12 +13,18 @@ namespace MATD {
 				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
 				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
 				cl::Context clContext = clDevice->GetContext()->GetCLContext();
-				m_CLBuffer = cl::Buffer(clContext, argType, GetByteSize(), GetBuffer());
-				MATD_CORE_TRACE("CL_BUFFER:::Created CL Buffer of elements:{}", size);
+				auto byteSize = GetByteSize();
+				m_CLBuffer = cl::Buffer(clContext, argType, byteSize);
+				MATD_CORE_TRACE("CL_BUFFER:::Created CL Buffer of bytes:{} elements: {}", byteSize, size);
 			}
 
 			void Buffer::Bind(const WorkItem* workItem, size_t index)
 			{
+				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
+				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
+				cl::CommandQueue clQueue = clDevice->GetClQueue();
+				clQueue.enqueueWriteBuffer(m_CLBuffer, CL_TRUE, 0, GetByteSize(), GetBuffer());
+
 				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();
 				cl::Kernel clKernel = kernel->GetCLKernel();
 				clKernel.setArg<cl::Buffer>(index, m_CLBuffer);

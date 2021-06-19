@@ -7,7 +7,7 @@
 namespace MATD {
   WorkItem::WorkItem(Kernel* kernel) {
     m_Kernel = kernel;
-  };
+  }
 
   WorkItem* WorkItem::CreateWorkItem(Kernel* kernel)
   {
