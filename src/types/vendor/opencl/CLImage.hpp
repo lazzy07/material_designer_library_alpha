@@ -6,7 +6,7 @@ namespace MATD {
 		namespace OPENCL {
 			class Image : public MATD::Image {
 			public:
-				Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height);
+				Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType);
 
 				virtual void Bind(const WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;

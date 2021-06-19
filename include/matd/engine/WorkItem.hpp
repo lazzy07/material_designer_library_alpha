@@ -7,10 +7,13 @@ namespace MATD {
 	class WorkItem {
 	public:
 		WorkItem(Kernel* kernel);
-		virtual void AddToQueue() = 0;
-		virtual void OnComplete() = 0;
 		void SetArgument(size_t index, DTYPES::Argument* argument);
 		inline const Kernel* GetKernel() const { return m_Kernel; };
+
+		virtual void AddToQueue() = 0;
+		virtual void OnComplete() = 0;
+		virtual void SetOutput(Buffer* buffer) = 0;
+		virtual void SetOutput(Image* image) = 0;
 
 		static WorkItem* CreateWorkItem(Kernel* kernel);
 	private:

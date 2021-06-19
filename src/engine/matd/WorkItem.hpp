@@ -10,9 +10,12 @@ namespace MATD {
 		WorkItem(Kernel* kernel);
 		void SetArgument(size_t index, DTYPES::Argument* argument);
 		inline const Kernel* GetKernel() const { return m_Kernel; };
+		inline const std::map<size_t, DTYPES::Argument*>& GetArguments() const { return m_Arguments; };
 
 		virtual void AddToQueue() = 0;
 		virtual void OnComplete() = 0;
+		virtual void SetOutput(Buffer* buffer) = 0;
+		virtual void SetOutput(Image* image) = 0;
 
 		static WorkItem* CreateWorkItem(Kernel* kernel);
 	private:

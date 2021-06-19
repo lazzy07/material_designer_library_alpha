@@ -13,6 +13,7 @@ namespace MATD {
         cl::Context m_Context;
         cl::Device m_Device;
         std::string m_DeviceName;
+        
       };
     };
   };
