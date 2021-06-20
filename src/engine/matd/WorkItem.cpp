@@ -9,6 +9,23 @@ namespace MATD {
     m_Kernel = kernel;
   }
 
+	void MATD::WorkItem::SetEnqueueStatus(size_t index, bool status)
+	{
+     m_EnqueueStatus.insert(std::pair<size_t, bool>(index, status));
+     if (m_HasCalledExecute) {
+        std::map<size_t, bool>::iterator it;
+        bool canCallEnqueue = true;
+        for (it = m_EnqueueStatus.begin(); it != m_EnqueueStatus.end(); it++) {
+          if (it->second == false) {
+            canCallEnqueue = false;
+          }
+        }
+        if (canCallEnqueue) {
+          AddToQueue();
+        }
+     }
+	}
+
   WorkItem* WorkItem::CreateWorkItem(Kernel* kernel)
   {
     CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();

@@ -11,7 +11,7 @@ namespace MATD {
 				MATD_CORE_TRACE("CL_INT:::Created CL Int val:{}", val);
 			}
 
-			void Int::Bind(const WorkItem* workItem, size_t index)
+			void Int::Bind(WorkItem* workItem, size_t index)
 			{
 				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();
 				cl::Kernel clKernel = kernel->GetCLKernel();

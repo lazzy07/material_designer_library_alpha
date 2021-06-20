@@ -13,7 +13,7 @@ namespace MATD{
 			inline const size_t GetByteSize() const { return m_ByteSize; };
 			inline const size_t GetElementSize() const { return m_ElementSize; };
       
-			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
+			virtual void Bind(WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
     private:
       buf_type m_BufType;

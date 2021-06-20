@@ -1,6 +1,7 @@
 #include "CLWorkItem.hpp"
 #include "CLDevice.hpp"
 #include "../../../core/EngineManager.hpp"
+#include "../../../core/Core.hpp"
 
 namespace MATD {
 	namespace ENGINE {
@@ -13,6 +14,7 @@ namespace MATD {
 
 			void WorkItem::AddToQueue()
 			{
+				SetHasCalledExecute(true);
 				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
 				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
 				cl::CommandQueue queue = clDevice->GetClQueue();
@@ -21,13 +23,23 @@ namespace MATD {
 				queue.enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange);
 
 				if (m_OutBuffer) {
-					queue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_TRUE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer());
+					cl::Event onCompleteEvent;
+					queue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_FALSE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer(), NULL, &onCompleteEvent);
+					onCompleteEvent.setCallback(CL_COMPLETE, [](cl_event, cl_int, void* userData) {
+						WorkItem* w = (WorkItem*)userData;
+						w->OnComplete();
+						}, this);
+				} else if(m_OutImage) {
+
+				}
+				else {
+					MATD_CORE_ASSERT(false, "Output buffer/image not set");
 				}
 			}
 
 			void WorkItem::OnComplete()
 			{
-
+				MATD_CORE_INFO("CL_WORKITEM:::Finished processing");
 			}
 
 			void WorkItem::SetOutput(Buffer* buffer)

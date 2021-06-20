@@ -10,7 +10,7 @@ namespace MATD {
 
 
 
-			void Float::Bind(const WorkItem* workItem, size_t index)
+			void Float::Bind(WorkItem* workItem, size_t index)
 			{
 			}
 
