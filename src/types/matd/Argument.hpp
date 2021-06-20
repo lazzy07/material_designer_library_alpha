@@ -37,7 +37,7 @@ namespace MATD {
 		class Argument {
 		public:
 			Argument();
-			virtual void Bind(const WorkItem* workItem, size_t index) = 0;
+			virtual void Bind(WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
 		};
 	}

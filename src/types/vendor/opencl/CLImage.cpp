@@ -7,7 +7,7 @@ namespace MATD {
 				MATD_CORE_TRACE("CL_IMAGE:::Created CL Image of elements: {}", size);
 			}
 
-			void Image::Bind(const WorkItem* workItem, size_t index)
+			void Image::Bind(WorkItem* workItem, size_t index)
 			{
 			}
 
