@@ -27,6 +27,7 @@ namespace MATD {
 					bool exists = std::filesystem::exists(file);
 					if (exists) {
 						MATD::Kernel* kernel = Kernel::CreateKernelFromFile(kernelName, file.u8string());
+						MATD_CORE_INFO("KERNEL_LIB:::Kernel loaded from file id: {}", kernel->GetID());
 						AddKernel(kernel);
 						return kernel;
 					};
@@ -36,6 +37,7 @@ namespace MATD {
 				auto itr = m_Kernels.find(kernelName);
 
 				if (itr != m_Kernels.end()) {
+					MATD_CORE_INFO("KERNEL_LIB::Kernel loaded from memory id: {}", itr->second->GetID());
 					return itr->second;
 				}
 			}

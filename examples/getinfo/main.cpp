@@ -6,8 +6,9 @@
 #include <matd/engine/Kernel.hpp>
 
 int main() {
-	//Create the material designer engine
+	//Create the material designer engine context
 	MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
+	//Set library folder where kernel files been loaded
 	matd->SetKenelLibraryFolder("C:/Users/Lazzy07/Documents/material_designer/kernels/");
 	matd->SelectDevice(0, 0);
 	MATD_INFO("APPLICATION::Started");
@@ -21,6 +22,7 @@ int main() {
 	MATD::Buffer* outBuffer = matd->CreateBuffer(outArr, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_WRITE);
 	MATD::Int* integer = matd->CreateInt(3);
 	MATD::WorkItem* wi = matd->CreateWorkItem("test");
+	MATD::WorkItem* wi2 = matd->CreateWorkItem("test");
 
 	wi->SetArgument(0, buffer);
 	wi->SetArgument(1, integer);
