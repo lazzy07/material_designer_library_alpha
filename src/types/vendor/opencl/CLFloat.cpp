@@ -17,6 +17,10 @@ namespace MATD {
 			void Float::Delete()
 			{
 			}
+
+			void Float::AddToQueue(MATD::Queue* queue)
+			{
+			}
 		}
 	}
 }

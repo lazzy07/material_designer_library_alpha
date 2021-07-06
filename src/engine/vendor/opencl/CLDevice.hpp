@@ -14,11 +14,9 @@ namespace MATD{
         void InitDevice();
         inline Ref<OPENCL::Context> GetContext() const { return m_Context; };
 				inline cl::Device GetClDevice() const { return m_Device; };
-				inline const cl::CommandQueue GetClQueue() const { return m_Queue; };
 
       private:
         cl::Device m_Device;
-        cl::CommandQueue m_Queue;
         cl_uint m_DeviceMaxComputeUnits = 0;
         cl_uint m_DeviceMaxWorkItemDimensions = 0;
         std::vector<size_t> m_DeviceMaxWorkItemSizes;

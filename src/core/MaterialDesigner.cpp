@@ -51,3 +51,8 @@ MATD::WorkItem* MATD::CORE::MaterialDesigner::CreateWorkItem(const std::string& 
 	MATD::Kernel* kernel = m_KernelLibrary->GetKernel(kernelName);
 	return MATD::WorkItem::CreateWorkItem(kernel);
 }
+
+MATD::Queue* MATD::CORE::MaterialDesigner::CreateQueue()
+{
+	return MATD::Queue::CreateQueue();
+}

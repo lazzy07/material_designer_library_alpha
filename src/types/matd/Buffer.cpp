@@ -2,7 +2,7 @@
 #include "../../core/Log.hpp"
 
 namespace MATD {
-		Buffer::Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType): m_Value(buffer) ,m_ElementSize(elem_size), m_Size(size), m_BufType(argType)
+		Buffer::Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType): Argument(MAT_ARG::MAT_BUFFER), m_Value(buffer) ,m_ElementSize(elem_size), m_Size(size), m_BufType(argType)
 		{
 			m_ByteSize = m_ElementSize * size;
 		}

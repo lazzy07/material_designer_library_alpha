@@ -6,7 +6,7 @@
 #include "../vendor/opencl/CLBuffer.hpp"
 
 namespace MATD {
-	DTYPES::Argument::Argument() {
+	DTYPES::Argument::Argument(MAT_ARG type): m_Type(type) {
 		
 	}
 

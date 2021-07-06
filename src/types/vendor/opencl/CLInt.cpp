@@ -22,6 +22,10 @@ namespace MATD {
 			void Int::Delete()
 			{
 			}
+
+			void Int::AddToQueue(MATD::Queue* queue)
+			{
+			}
 		}
 	}
 }

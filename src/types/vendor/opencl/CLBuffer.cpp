@@ -25,29 +25,14 @@ namespace MATD {
 
 			void Buffer::Bind(WorkItem* workItem, size_t index)
 			{
-				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
-				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
-				cl::CommandQueue clQueue = clDevice->GetClQueue();
-				cl::Event enqueueEvent;
-
-				workItem->SetEnqueueStatus(index, false);
-				clQueue.enqueueWriteBuffer(m_CLBuffer, CL_FALSE, 0, GetByteSize(), GetBuffer(), NULL, &enqueueEvent);
-				UserD userData;
-				userData.index = index;
-				userData.wi = workItem;
-
-				enqueueEvent.setCallback(CL_COMPLETE, [](cl_event, cl_int, void* userData) {
-					UserD* ud = (UserD*)userData;
-					ud->wi->SetEnqueueStatus(ud->index, true);
-					}, &userData);
-
-				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();
-				cl::Kernel clKernel = kernel->GetCLKernel();
-				clKernel.setArg<cl::Buffer>(index, m_CLBuffer);
-				MATD_CORE_TRACE("CL_BUFFER::Buffer bound to kernel:{} at index:{} of size: {}", kernel->GetID(), index, GetSize());
+				
 			}
 
 			void Buffer::Delete()
+			{
+			}
+
+			void Buffer::AddToQueue(MATD::Queue* queue)
 			{
 			}
 		}

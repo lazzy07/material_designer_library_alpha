@@ -13,6 +13,7 @@ namespace MATD {
 
 		virtual void Bind(WorkItem* workItem, size_t index) = 0;
 		virtual void Delete() = 0;
+		virtual void AddToQueue(MATD::Queue* queue) = 0;
 	private:
 		void* m_Value;
 		buf_type m_BufType;

@@ -2,6 +2,7 @@
 #include "../../matd/WorkItem.hpp"
 #include "CLKernel.hpp"
 #include <CL/cl.hpp>
+#include "../../matd/Queue.hpp"
 #include "../../../types/vendor/opencl/CLBuffer.hpp"
 #include "../../../types/vendor/opencl/CLImage.hpp"
 
@@ -11,7 +12,7 @@ namespace MATD {
 			class WorkItem : public MATD::WorkItem {
 			public:
 				WorkItem(Kernel* kernel);
-				virtual void AddToQueue() override;
+				virtual void AddToQueue(MATD::Queue* queue) override;
 				virtual void OnComplete() override;
 				virtual void SetOutput(Buffer* buffer) override;
 				virtual void SetOutput(Image* image) override;

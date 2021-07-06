@@ -1,5 +1,6 @@
 #include "CLWorkItem.hpp"
 #include "CLDevice.hpp"
+#include "CLQueue.hpp"
 #include "../../../core/EngineManager.hpp"
 #include "../../../core/Core.hpp"
 
@@ -12,19 +13,33 @@ namespace MATD {
 				MATD_CORE_TRACE("CL_WORKITEM::Work Item created with OpenCL");
 			}
 
-			void WorkItem::AddToQueue()
+			void WorkItem::AddToQueue(MATD::Queue* queue)
 			{
-				SetHasCalledExecute(true);
 				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
 				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
-				cl::CommandQueue queue = clDevice->GetClQueue();
+
+				cl::CommandQueue clQueue = ((ENGINE::OPENCL::Queue*)queue)->GetCLQueue();
+
+				auto arguments = GetArguments();
+				for (std::map<size_t, MATD::DTYPES::Argument*>::iterator it = arguments.begin(); it != arguments.end(); ++it) {
+					MATD::DTYPES::Argument*  arg = it->second;
+
+					if (arg->IsBound()) {
+						MATD_CORE_TRACE("MATD_WORKITEM::Argument at index {} is already found on device and skipping", it->first);
+					}
+					else {
+						arg->AddToQueue(queue);
+					}
+
+				}
+
 				cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
 				cl::NDRange global(m_OutputSize);
-				queue.enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange);
+				clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange);
 
 				if (m_OutBuffer) {
 					cl::Event onCompleteEvent;
-					queue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_FALSE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer(), NULL, &onCompleteEvent);
+					clQueue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_FALSE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer(), NULL, &onCompleteEvent);
 					onCompleteEvent.setCallback(CL_COMPLETE, [](cl_event, cl_int, void* userData) {
 						WorkItem* w = (WorkItem*)userData;
 						w->OnComplete();
