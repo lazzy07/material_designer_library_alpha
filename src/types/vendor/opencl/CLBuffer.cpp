@@ -5,6 +5,7 @@
 #include "../../../engine/vendor/opencl/CLWorkItem.hpp"
 #include "../../../engine/vendor/opencl/CLContext.hpp"
 #include "../../../engine/vendor/opencl/CLDevice.hpp"
+#include "../../../engine/vendor/opencl/CLQueue.hpp"
 
 namespace MATD {
 	namespace DTYPES {
@@ -25,7 +26,10 @@ namespace MATD {
 
 			void Buffer::Bind(WorkItem* workItem, size_t index)
 			{
-				
+				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();
+				cl::Kernel clKernel = kernel->GetCLKernel();
+				clKernel.setArg<cl::Buffer>(index, m_CLBuffer);
+				MATD_CORE_TRACE("CL_BUFFER::Buffer bound to kernel:{} at index:{} of size: {}", kernel->GetID(), index, GetSize());
 			}
 
 			void Buffer::Delete()
@@ -34,6 +38,9 @@ namespace MATD {
 
 			void Buffer::AddToQueue(MATD::Queue* queue)
 			{
+				MATD::ENGINE::OPENCL::Queue* clQueue = (MATD::ENGINE::OPENCL::Queue*)queue;
+				cl::CommandQueue clCommandQueue = clQueue->GetCLQueue();
+				clCommandQueue.enqueueWriteBuffer(m_CLBuffer, CL_FALSE, 0, GetByteSize(), GetBuffer());
 			}
 		}
 	}

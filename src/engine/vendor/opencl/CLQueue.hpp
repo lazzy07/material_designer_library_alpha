@@ -1,6 +1,7 @@
 #pragma once
 #include <cl/cl.hpp>
 #include "../../matd/Queue.hpp"
+#include <vector>
 
 namespace MATD {
 	namespace ENGINE {
@@ -12,6 +13,7 @@ namespace MATD {
 				inline const cl::CommandQueue& GetCLQueue() const { return m_Queue; };
 			private:
 				cl::CommandQueue m_Queue;
+				std::vector<cl::Event> m_Events;
 			};
 		}
 	}

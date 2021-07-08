@@ -31,6 +31,7 @@ namespace MATD {
 						arg->AddToQueue(queue);
 					}
 
+					arg->Bind(this, it->first);
 				}
 
 				cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
