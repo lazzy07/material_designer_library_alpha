@@ -40,7 +40,10 @@ namespace MATD {
 			{
 				MATD::ENGINE::OPENCL::Queue* clQueue = (MATD::ENGINE::OPENCL::Queue*)queue;
 				cl::CommandQueue clCommandQueue = clQueue->GetCLQueue();
-				clCommandQueue.enqueueWriteBuffer(m_CLBuffer, CL_FALSE, 0, GetByteSize(), GetBuffer());
+				std::vector<cl::Event> events = clQueue->GetCLEvents();
+				cl::Event event;
+				clCommandQueue.enqueueWriteBuffer(m_CLBuffer, CL_FALSE, 0, GetByteSize(), GetBuffer(), &events, &event);
+				clQueue->SetEvent(event);
 			}
 		}
 	}

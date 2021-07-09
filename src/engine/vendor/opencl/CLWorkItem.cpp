@@ -17,40 +17,46 @@ namespace MATD {
 			{
 				Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
 				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
-
 				cl::CommandQueue clQueue = ((ENGINE::OPENCL::Queue*)queue)->GetCLQueue();
-
 				auto arguments = GetArguments();
+
 				for (std::map<size_t, MATD::DTYPES::Argument*>::iterator it = arguments.begin(); it != arguments.end(); ++it) {
 					MATD::DTYPES::Argument*  arg = it->second;
-
 					if (arg->IsBound()) {
-						MATD_CORE_TRACE("MATD_WORKITEM::Argument at index {} is already found on device and skipping", it->first);
-					}
-					else {
+						MATD_CORE_TRACE("MATD_WORKITEM::Argument at index {} is already found on device", it->first);
+					} else {
 						arg->AddToQueue(queue);
 					}
-
 					arg->Bind(this, it->first);
+					arg->SeIsBound(true);
 				}
 
 				cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
 				cl::NDRange global(m_OutputSize);
-				clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange);
+
+				OPENCL::Queue* matClQueue = (OPENCL::Queue*)queue;
+				cl::Event event;
+				
+				auto events = matClQueue->GetCLEvents();
+				clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange, &events, &event);
+				matClQueue->SetEvent(event);
+
+				cl::Event onCompleteEvent;
 
 				if (m_OutBuffer) {
-					cl::Event onCompleteEvent;
-					clQueue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_FALSE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer(), NULL, &onCompleteEvent);
-					onCompleteEvent.setCallback(CL_COMPLETE, [](cl_event, cl_int, void* userData) {
-						WorkItem* w = (WorkItem*)userData;
-						w->OnComplete();
-						}, this);
+					clQueue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_FALSE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
+					matClQueue->SetEvent(onCompleteEvent);
 				} else if(m_OutImage) {
-
+					//TODO:: Add image functionality
 				}
 				else {
 					MATD_CORE_ASSERT(false, "Output buffer/image not set");
 				}
+
+				onCompleteEvent.setCallback(CL_COMPLETE, [](cl_event, cl_int, void* userData) {
+					WorkItem* w = (WorkItem*)userData;
+					w->OnComplete();
+				}, this);
 			}
 
 			void WorkItem::OnComplete()

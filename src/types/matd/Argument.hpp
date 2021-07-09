@@ -51,7 +51,7 @@ namespace MATD {
 			virtual void AddToQueue(MATD::Queue* queue) = 0;
 
 			inline bool IsBound() const { return m_IsBound; };
-			inline bool SeIsBound(bool bound) { m_IsBound = true; };
+			inline void SeIsBound(bool bound) { m_IsBound = true; };
 		private:
 			MAT_ARG m_Type;
 			bool m_IsBound = false;
