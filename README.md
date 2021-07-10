@@ -8,7 +8,7 @@ Material Desgner is a procedural texture generator software that runs on all pla
 
 Material Designer library which is written using C++ is the engine under the hood of material designer software. Thanks to V8 bindings, using N-API material designer library has been ported to electron
 
-## How to use?
+## How to use the library?
 
 Use this library to build material designer engine and V8 bindings, you can customize the library using your own kernels to carry out image processing. Please refer to the doc.
 
@@ -32,9 +32,7 @@ int outArr[8] = {}; // where the output will be saved to
 MATD::Buffer* buffer = matd->CreateBuffer(arr, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_READ);  //Creating Matd buffer from the array
 MATD::Buffer* outBuffer = matd->CreateBuffer(outArr, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_WRITE); //Creating out buffer that processed data need to save to
 MATD::Int* integer = matd->CreateInt(3); //Another argument which required by the kernel
-
 MATD::WorkItem* wi = matd->CreateWorkItem("test"); // creating workitem from the kernel (test.cl)
-
 MATD::Queue* queue = matd->CreateQueue(); //Creating a MATD queue where the workitems will be enqueued to be processed
 
 wi->SetArgument(0, buffer); // Setting kernel arguments (Please check hello.cl)
