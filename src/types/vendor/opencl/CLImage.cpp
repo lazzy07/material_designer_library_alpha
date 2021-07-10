@@ -14,6 +14,10 @@ namespace MATD {
 			void Image::Delete()
 			{
 			}
+
+			void Image::AddToQueue(MATD::Queue* queue)
+			{
+			}
 		}
 	}
 }

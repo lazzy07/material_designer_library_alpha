@@ -3,7 +3,7 @@
 #include "..\vendor\opencl\CLFloat.hpp"
 
 namespace MATD {
-		Float::Float(float val) : m_Value(val)
+		Float::Float(float val) : Argument(MAT_ARG::MAT_FLOAT), m_Value(val)
 		{
 		}
 }

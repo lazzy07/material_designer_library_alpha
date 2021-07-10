@@ -19,7 +19,7 @@ namespace MATD{
         MATD::Buffer* CreateBuffer(void* val, size_t size, size_t elem_size, buf_type argType=MATD::ARG_TYPE::DEVICE_READ);
 	      MATD::Image* CreateImage(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType= MATD::ARG_TYPE::DEVICE_READ);
         MATD::WorkItem* CreateWorkItem(const std::string& kernelName);
-
+        MATD::Queue* CreateQueue();
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
     };

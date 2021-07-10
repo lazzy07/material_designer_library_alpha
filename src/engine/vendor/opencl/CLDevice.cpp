@@ -11,7 +11,6 @@ namespace MATD{
 
 			void Device::InitDevice() {
 				m_Context = std::make_shared<OPENCL::Context>(m_Device, GetDeviceName());
-				m_Queue = cl::CommandQueue(m_Context->GetCLContext(), m_Device);
 			}
 
 			void Device::SetCLDeviceData(cl::Device device, cl_uint maxUnits, cl_uint maxDim, std::vector<size_t> maxItem, cl_uint grpSize)

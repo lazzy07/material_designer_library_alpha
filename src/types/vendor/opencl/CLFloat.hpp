@@ -10,6 +10,7 @@ namespace MATD {
 
 				virtual void Bind(WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;
+				virtual void AddToQueue(MATD::Queue* queue) override;
 			};
 		}
 	}

@@ -1,6 +1,7 @@
 #pragma once 
 #include <string>
 #include "../../core/Core.hpp"
+#include "../../engine/matd/Queue.hpp"
 
 #define buf_type int
 
@@ -17,6 +18,14 @@ namespace MATD {
 		HOST_READ							= (1 << 8),
 		HOST_NO_ACCESS				= (1 << 9),
 	};
+
+	enum class MAT_ARG {
+		MAT_INTEGER						= (1 << 0),
+		MAT_FLOAT							= (1 << 1),
+		MAT_BUFFER						= (1 << 2),
+		MAT_IMAGE							= (1 << 3)
+	};
+
 
 	class Int;
 	class Float;
@@ -36,9 +45,16 @@ namespace MATD {
 	namespace DTYPES {
 		class Argument {
 		public:
-			Argument();
+			Argument(MAT_ARG type);
 			virtual void Bind(WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
+			virtual void AddToQueue(MATD::Queue* queue) = 0;
+
+			inline bool IsBound() const { return m_IsBound; };
+			inline void SeIsBound(bool bound) { m_IsBound = true; };
+		private:
+			MAT_ARG m_Type;
+			bool m_IsBound = false;
 		};
 	}
 }
