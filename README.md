@@ -13,13 +13,33 @@ Material Designer library which is written using C++ is the engine under the hoo
 Use this library to build material designer engine and V8 bindings, you can customize the library using your own kernels to carry out image processing. Please refer to the doc.
 
 ### Engine functionality
+
 Engine functionality can be used without using any graph functionality
 
 ```cpp
+//Create the material designer engine context
 MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
-MATD::Float* f = MATD::Argument::Float(0.3f);
-MATD::Int* i = MATD::Argument::Int(3);
+//Set library folder where kernel files been loaded
+matd->SetKenelLibraryFolder("C:/material_designer/kernels/");
+matd->SelectDevice(0, 0);
+MATD_INFO("APPLICATION::Started");
 
-MATD::Kernel* k = MATD::Kernel::CreateKernel("test");
-MATD::WorkItem* wi = MATD::WorkItem::CreateWorkItem(k);
+const size_t noOfElems = 8;
+
+int arr[8] = {1,2,3,4,5,6,7,8}; // Array to be processed
+int outArr[8] = {}; // where the output will be saved to
+
+MATD::Buffer* buffer = matd->CreateBuffer(arr, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_READ);  //Creating Matd buffer from the array
+MATD::Buffer* outBuffer = matd->CreateBuffer(outArr, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_WRITE); //Creating out buffer that processed data need to save to
+MATD::Int* integer = matd->CreateInt(3); //Another argument which required by the kernel
+
+MATD::WorkItem* wi = matd->CreateWorkItem("test"); // creating workitem from the kernel (test.cl)
+
+MATD::Queue* queue = matd->CreateQueue(); //Creating a MATD queue where the workitems will be enqueued to be processed
+
+wi->SetArgument(0, buffer); // Setting kernel arguments (Please check hello.cl)
+wi->SetArgument(1, integer);
+wi->SetOutput(outBuffer);
+wi->AddToQueue(queue); //adding workitem to the created queue
+
 ```
