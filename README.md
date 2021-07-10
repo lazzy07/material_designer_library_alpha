@@ -16,6 +16,17 @@ Use this library to build material designer engine and V8 bindings, you can cust
 
 Engine functionality can be used without using any graph functionality
 
+assume that the "hello.cl" file resides inside the folder C:/material_designer/kernels/ following is the implementation of hello.cl file
+
+```c
+__kernel void test(__global int* A, int B, __global int* out){
+  int gid = get_global_id(0);
+  out[gid] = A[gid]*B;
+}
+```
+
+Once the kernel being implemented, you can use it to process data as follows
+
 ```cpp
 //Create the material designer engine context
 MATD::CORE::MaterialDesigner* matd = new MATD::CORE::MaterialDesigner();
