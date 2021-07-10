@@ -23,6 +23,7 @@ int main() {
 	MATD::Buffer* outBuffer = matd->CreateBuffer(outArr, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_WRITE);
 	MATD::Buffer* outBuffer2 = matd->CreateBuffer(outArr2, noOfElems, sizeof(int), MATD::ARG_TYPE::DEVICE_WRITE);
 	MATD::Int* integer = matd->CreateInt(3);
+	MATD::Int* integer2 = matd->CreateInt(2);
 
 	MATD::WorkItem* wi = matd->CreateWorkItem("test");
 	MATD::WorkItem* wi2 = matd->CreateWorkItem("test");
@@ -33,13 +34,11 @@ int main() {
 	wi->SetArgument(0, buffer);
 	wi->SetArgument(1, integer);
 	wi->SetOutput(outBuffer);
-	wi->OnComplete();
 	wi->AddToQueue(queue1);
 
 	wi2->SetArgument(0, buffer);
-	wi2->SetArgument(1, integer);
+	wi2->SetArgument(1, integer2);
 	wi2->SetOutput(outBuffer2);
-	wi2->OnComplete();
 	wi2->AddToQueue(queue2);
 
 	std::cin.get();

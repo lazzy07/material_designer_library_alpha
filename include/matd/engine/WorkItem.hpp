@@ -18,7 +18,7 @@ namespace MATD {
 		virtual void OnComplete() = 0;
 		virtual void SetOutput(Buffer* buffer) = 0;
 		virtual void SetOutput(Image* image) = 0;
-
+ 
 		static WorkItem* CreateWorkItem(Kernel* kernel);
 	private:
 		Kernel* m_Kernel;
