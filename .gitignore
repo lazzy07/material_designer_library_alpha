@@ -3,6 +3,7 @@
 /bin
 /dist
 /.vs
+/out
 
 ##NPM stuff
 /node_modules

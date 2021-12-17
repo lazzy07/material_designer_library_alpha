@@ -2,15 +2,16 @@
   "name": "material-designer-lib",
   "version": "0.0.1",
   "description": "C++ library for material designer with Node v8 bindings",
-  "main": "index.js",
+  "main": "./dist/bundle.js",
   "scripts": {
     "preinstall": "npm config set cmake_js_arch x64 -G Visual Studio 16 2019",
     "install": "cmake-js compile",
     "configure": "cmake-js configure",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "cmake-js clean",
-    "dev": "node_modules/.bin/webpack --mode development --watch",
-    "build": "webpack"
+    "dev": "webpack --mode development --watch",
+    "build": "webpack",
+    "start": "node ./dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "@types/node": "^14.14.19",
     "cmake-js": "^6.1.0",
     "copy-webpack-plugin": "^7.0.0",
+    "jest": "^27.4.5",
     "node-addon-loader": "^0.0.6",
     "ts-loader": "^8.0.13",
     "typescript": "^4.1.3",
