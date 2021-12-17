@@ -3,16 +3,17 @@
 
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
+  this->matd = new MATD::CORE::MaterialDesigner();
 }
 
 Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
 {
   return DefineClass(env, "MatdV8", {
-      MatdV8::InstanceMethod("parseJSONToNodeGraph", &MatdV8::parseJSONToNodeGraph),
+      MatdV8::InstanceMethod("parseJSONToNodeGraph", &MatdV8::ParseJSONToNodeGraph),
     });
 }
 
-Napi::Value MATD::V8::MatdV8::parseJSONToNodeGraph(const Napi::CallbackInfo& info)
+Napi::Value MATD::V8::MatdV8::ParseJSONToNodeGraph(const Napi::CallbackInfo& info)
 {
   Napi::Env env = info.Env();
 
@@ -28,7 +29,7 @@ Napi::Value MATD::V8::MatdV8::parseJSONToNodeGraph(const Napi::CallbackInfo& inf
 
   Napi::String graph = info[0].As<Napi::String>();
 
-  MATD_CORE_TRACE("MATD::V8:: Graph\n", graph.Utf8Value().c_str());
+  printf("%s", graph.Utf8Value().c_str());
 
   return env.Null();
 }

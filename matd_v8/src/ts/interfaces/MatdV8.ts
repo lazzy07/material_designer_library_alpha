@@ -1,3 +1,4 @@
 export interface MatdV8 {
-  parseJSONToNodeGraph: () => void;
+  new (): MatdV8;
+  parseJSONToNodeGraph: (nodeGraphString: string) => void;
 }
