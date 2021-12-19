@@ -18,6 +18,8 @@ Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
 			MatdV8::InstanceMethod("parseJSONToNodeProject", &MatdV8::ParseJSONToNodeProject),
 			MatdV8::InstanceMethod("setComputationDevice", &MatdV8::SetComputationDevice),
 			MatdV8::InstanceMethod("getAvailableEngines", &MatdV8::GetAvailableEngines),
+			MatdV8::InstanceMethod("setEngine", &MatdV8::SetEngine),
+			MatdV8::InstanceMethod("getAvailableDevices", &MatdV8::GetAvailableDevices),
     });
 }
 
@@ -76,4 +78,49 @@ Napi::Value MATD::V8::MatdV8::GetAvailableEngines(const Napi::CallbackInfo& info
   }
 
 	return arr;
+}
+
+Napi::Value MATD::V8::MatdV8::SetEngine(const Napi::CallbackInfo& info)
+{
+  Napi::Env env = info.Env();
+
+	if (info.Length() < 1) {
+		Napi::TypeError::New(env, "Engine cannot be undefined").ThrowAsJavaScriptException();
+		return env.Null();
+	}
+
+	if (!info[0].IsNumber()) {
+		Napi::TypeError::New(env, "Expects an integer value").ThrowAsJavaScriptException();
+		return env.Null();
+	}
+
+	MATD::CORE::EngineManager::SelectEngine((MATD::CORE::SUPPORTED_ENGINES)info[0].As<Napi::Number>().Uint32Value());
+
+  return env.Null();
+}
+
+Napi::Value MATD::V8::MatdV8::GetAvailableDevices(const Napi::CallbackInfo& info)
+{
+	Napi::Env env = info.Env();
+  
+  auto platforms = MATD::CORE::EngineManager::GetEngineInstance()->GetSupportedPlatforms();
+  Napi::Array arr = Napi::Array::New(env);
+
+  for (int i = 0; i < platforms.size(); i++) {
+    MATD::Ref<MATD::ENGINE::Platform> platform = platforms.at(i);
+
+    auto devices = platform->GetDevices();
+
+    for (int j = 0; j < devices.size(); j++) {
+      Napi::Object obj = Napi::Object::New(env);
+			obj.Set(Napi::String::New(env, "platformID"), Napi::Number::New(env, platform->GetId()));
+			obj.Set(Napi::String::New(env, "deviceID"), Napi::Number::New(env, devices.at(j)->GetId()));
+			obj.Set(Napi::String::New(env, "platformName"), Napi::String::New(env, platform->GetName()));
+      obj.Set(Napi::String::New(env, "deviceName"), Napi::String::New(env, devices.at(j)->GetDeviceName()));
+
+      arr.Set(arr.Length(), obj);
+    }
+  }
+
+  return arr;
 }

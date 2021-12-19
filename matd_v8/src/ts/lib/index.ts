@@ -8,5 +8,6 @@ const {
 
 const mat = new MatdV8();
 console.log(mat.getAvailableEngines());
+console.log(mat.getAvailableDevices());
 
 export default { class: MatdV8 };
