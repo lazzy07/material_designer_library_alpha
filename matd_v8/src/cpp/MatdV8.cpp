@@ -1,5 +1,6 @@
 #include "MatdV8.hpp"
 #include <core/Core.hpp>
+#include <core/EngineManager.hpp>
 
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
@@ -16,6 +17,7 @@ Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
   return DefineClass(env, "MatdV8", {
 			MatdV8::InstanceMethod("parseJSONToNodeProject", &MatdV8::ParseJSONToNodeProject),
 			MatdV8::InstanceMethod("setComputationDevice", &MatdV8::SetComputationDevice),
+			MatdV8::InstanceMethod("getAvailableEngines", &MatdV8::GetAvailableEngines),
     });
 }
 
@@ -59,6 +61,19 @@ Napi::Value MATD::V8::MatdV8::SetComputationDevice(const Napi::CallbackInfo& inf
 	}
 
   this->matd->SelectDevice(info[0].As<Napi::Number>().Uint32Value(), info[1].As<Napi::Number>().Uint32Value());
+	return Napi::Boolean::New(env, true);
+}
 
-	return env.Null();
+Napi::Value MATD::V8::MatdV8::GetAvailableEngines(const Napi::CallbackInfo& info)
+{
+	Napi::Env env = info.Env();
+  Napi::Array arr = Napi::Array::New(env);
+  
+  MATD::Ref<std::vector<std::string>> engines = MATD::CORE::EngineManager::GetSupportedEngines();
+
+  for (int i = 0; i < engines->size(); i++) {
+    arr.Set(i, Napi::String::New(env, engines->at(i)));
+  }
+
+	return arr;
 }

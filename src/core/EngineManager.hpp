@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include "../engine/matd/Engine.hpp"
 
 namespace MATD{
@@ -12,6 +11,7 @@ namespace MATD{
     class EngineManager{
       public:
         static void SelectEngine(SUPPORTED_ENGINES engine);
+        static Ref<std::vector<std::string>> GetSupportedEngines();
 
 				inline static const SUPPORTED_ENGINES GetSelectedEngine() { return s_Engine; };
 				inline static const Ref<MATD::ENGINE::Engine> GetEngineInstance() { return s_EngineInstance; };

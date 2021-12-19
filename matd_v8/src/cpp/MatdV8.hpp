@@ -10,6 +10,7 @@ namespace MATD{
       ~MatdV8();
 			Napi::Value ParseJSONToNodeProject(const Napi::CallbackInfo& info);
       Napi::Value SetComputationDevice(const Napi::CallbackInfo& info);
+      Napi::Value GetAvailableEngines(const Napi::CallbackInfo& info);
       static Napi::Function GetClass(Napi::Env env);
     private:
       MATD::CORE::MaterialDesigner* matd;

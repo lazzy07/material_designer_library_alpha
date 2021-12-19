@@ -11,6 +11,8 @@ int main() {
 	//Set library folder where kernel files been loaded
 	matd->SetKenelLibraryFolder("C:/Users/Lazzy07/Documents/material_designer/kernels/");
 	matd->SelectDevice(0, 0);
+	auto data = MATD::CORE::EngineManager::GetSupportedEngines();
+
 	MATD_INFO("APPLICATION::Started");
 
 	const size_t noOfElems = 8;
