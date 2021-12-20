@@ -3,9 +3,9 @@
     "baseUrl": ".",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "paths": {
-      "*": ["types/*"]
-    },
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "./dist/@types",
     "outDir": "./dist/",
     "noImplicitAny": false,
     "module": "ES2015",

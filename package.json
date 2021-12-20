@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "C++ library for material designer with Node v8 bindings",
   "main": "./dist/bundle.js",
+  "types": "./dist/@types/matd_v8/src/ts/index.d.ts",
+  "type": "commonjs",
   "scripts": {
     "preinstall": "npm config set cmake_js_arch x64 -G Visual Studio 16 2019",
     "install": "cmake-js compile",
@@ -33,7 +35,7 @@
     "copy-webpack-plugin": "^7.0.0",
     "jest": "^27.4.5",
     "node-addon-loader": "^0.0.6",
-    "ts-loader": "^8.0.13",
+    "ts-loader": "^8.3.0",
     "typescript": "^4.1.3",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1",

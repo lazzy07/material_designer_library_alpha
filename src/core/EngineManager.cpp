@@ -21,5 +21,14 @@ namespace MATD{
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::Unknown Context Change Detected")
       };
     }
+
+		Ref<std::vector<std::string>> EngineManager::GetSupportedEngines()
+		{
+      Ref<std::vector<std::string>> engines = std::make_shared<std::vector<std::string>>();
+			engines->push_back("OpenCL");
+			engines->push_back("CUDA");
+
+      return engines;
+		}
   }
 }
