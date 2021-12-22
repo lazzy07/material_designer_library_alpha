@@ -28,18 +28,21 @@ Napi::Value MATD::V8::MatdV8::ParseJSONToNodeProject(const Napi::CallbackInfo& i
   Napi::Env env = info.Env();
 
   if (info.Length() < 1) {
-    Napi::TypeError::New(env, "NodeGraph not found!").ThrowAsJavaScriptException();
+    Napi::TypeError::New(env, "NodeProject not found!").ThrowAsJavaScriptException();
     return env.Null();
   }
 
   if (!info[0].IsString()) {
-    Napi::TypeError::New(env, "NodeGraph need to be in string format").ThrowAsJavaScriptException();
+    Napi::TypeError::New(env, "NodeProject need to be in string format").ThrowAsJavaScriptException();
     return env.Null();
   }
 
-  Napi::String graph = info[0].As<Napi::String>();
+  Napi::String project = info[0].As<Napi::String>();
 
-  MATD_TRACE("MATD_V8:: Parse NodeGraph request recieved");
+  MATD_TRACE("MATD_V8:: Parse NodeProject request recieved");
+
+  std::string projectData = project.Utf8Value().c_str();
+
   return env.Null();
 }
 
