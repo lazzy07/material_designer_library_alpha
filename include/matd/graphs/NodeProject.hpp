@@ -1,4 +1,5 @@
 #pragma once
+#include "NodeGraph.hpp"
 
 namespace MATD{
   namespace GRAPH{

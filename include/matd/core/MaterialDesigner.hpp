@@ -3,6 +3,7 @@
 #include "EngineManager.hpp"
 #include "../types/DataTypes.hpp"
 #include "KernelLibrary.hpp"
+#include "../graphs/NodeProject.hpp"
 
 namespace MATD{
   namespace CORE{

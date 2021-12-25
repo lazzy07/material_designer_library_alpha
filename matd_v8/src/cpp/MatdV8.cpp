@@ -43,7 +43,8 @@ Napi::Value MATD::V8::MatdV8::OpenNodeProject(const Napi::CallbackInfo& info)
 
 	Napi::String project = info[0].As<Napi::String>();
 	
-	MATD_TRACE("MATD_V8:: Open NodeProject request recieved");
+	MATD_CORE_TRACE("MATD_V8:: Open NodeProject request recieved");
+	this->matd->OpenProject(project);
 
 	return env.Null();
 }
@@ -63,7 +64,9 @@ Napi::Value MATD::V8::MatdV8::UpdateNodeProject(const Napi::CallbackInfo& info)
 	}
 
 	Napi::String project = info[0].As<Napi::String>();
-	MATD_TRACE("MATD_V8:: Update NodeProject request recieved");
+
+	MATD_CORE_TRACE("MATD_V8:: Update NodeProject request recieved");
+	this->matd->UpdateProject(project);
 
 	return env.Null();
 }
@@ -83,7 +86,9 @@ Napi::Value MATD::V8::MatdV8::UpdateNodeGraph(const Napi::CallbackInfo& info)
 	}
 
 	Napi::String graph = info[0].As<Napi::String>();
-	MATD_TRACE("MATD_V8:: Update NodeGraph request recieved");
+	
+	MATD_CORE_TRACE("MATD_V8:: Update NodeGraph request recieved");
+	this->matd->UpdateGraph(graph);
 
 	return env.Null();
 }
@@ -93,17 +98,19 @@ Napi::Value MATD::V8::MatdV8::SelectCurrentNodeGraph(const Napi::CallbackInfo& i
 	Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
-		Napi::TypeError::New(env, "NodeGraph not found!").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "graphID not found!").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
 	if (!info[0].IsString()) {
-		Napi::TypeError::New(env, "NodeGraph needs to be in string format").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "graphID needs to be in string format").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
-	Napi::String graph = info[0].As<Napi::String>();
-	MATD_TRACE("MATD_V8:: Update NodeGraph request recieved");
+	Napi::String graphID = info[0].As<Napi::String>();
+
+	MATD_CORE_TRACE("MATD_V8:: Selected Graph Change request recieved");
+	this->matd->SetSelectedGraph(graphID);
 
 	return env.Null();
 }
