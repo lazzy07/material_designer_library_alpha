@@ -4,6 +4,7 @@
 #include "KernelLibrary.hpp"
 #include "../types/matd/Argument.hpp"
 #include "../engine/matd/Queue.hpp"
+#include "../graphs/NodeProject.hpp"
 
 namespace MATD{
 
@@ -23,8 +24,17 @@ namespace MATD{
         MATD::WorkItem* CreateWorkItem(const std::string& kernelName);
         MATD::Queue* CreateQueue();
 
+        void OpenProject(const std::string& JSONString);
+        void UpdateProject(const std::string& JSONString);
+
+        void SetSelectedGraph(const std::string& graphID);
+        void UpdateGraph(const std::string& JSONString);
+
+        inline const Ref<MATD::GRAPH::NodeProject> GetNodeProject() { return m_CurrentProject; };
+
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
+        Ref<MATD::GRAPH::NodeProject> m_CurrentProject;
     };
   };
 }
