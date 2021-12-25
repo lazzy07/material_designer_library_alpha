@@ -14,7 +14,7 @@ namespace MATD{
         //TODO:: Add CUDA SUPPORT
         MATD_CORE_ASSERT(false, "ENGINE_MANAGER::CUDA Not suppoted yet")
       }else if(engine == SUPPORTED_ENGINES::OPEN_CL){
-        MATD_CORE_TRACE("ENGINE_MANAGER::Context changed to :: OpenCL");
+        MATD_CORE_INFO("ENGINE_MANAGER::Context changed to :: OpenCL");
         s_EngineInstance = MATD::ENGINE::Engine::CreateEngine();
         s_EngineInstance->SetPlatforms(s_EngineInstance->GetSupportedPlatforms());
       }else{

@@ -56,3 +56,24 @@ MATD::Queue* MATD::CORE::MaterialDesigner::CreateQueue()
 {
 	return MATD::Queue::CreateQueue();
 }
+
+void MATD::CORE::MaterialDesigner::OpenProject(const std::string& JSONString)
+{
+	this->m_CurrentProject = std::make_shared<MATD::GRAPH::NodeProject>();
+	this->m_CurrentProject->OpenProject(JSONString);
+}
+
+void MATD::CORE::MaterialDesigner::UpdateProject(const std::string& JSONString)
+{
+	this->m_CurrentProject->UpdateProject(JSONString);
+}
+
+void MATD::CORE::MaterialDesigner::SetSelectedGraph(const std::string& graphID)
+{
+	this->m_CurrentProject->SetSelectedGraph(graphID);
+}
+
+void MATD::CORE::MaterialDesigner::UpdateGraph(const std::string& JSONString)
+{
+	this->m_CurrentProject->UpdateGraph(JSONString);
+}

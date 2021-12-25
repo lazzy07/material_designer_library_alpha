@@ -8,7 +8,10 @@ namespace MATD{
     public:
       MatdV8(const Napi::CallbackInfo& info);
       ~MatdV8();
-			Napi::Value ParseJSONToNodeProject(const Napi::CallbackInfo& info);
+			Napi::Value OpenNodeProject(const Napi::CallbackInfo& info);
+			Napi::Value UpdateNodeProject(const Napi::CallbackInfo& info);
+			Napi::Value UpdateNodeGraph(const Napi::CallbackInfo& info);
+			Napi::Value SelectCurrentNodeGraph(const Napi::CallbackInfo& info);
 
       Napi::Value SetComputationDevice(const Napi::CallbackInfo& info);
       Napi::Value SetEngine(const Napi::CallbackInfo& info);

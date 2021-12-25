@@ -20,8 +20,17 @@ namespace MATD{
 	      MATD::Image* CreateImage(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType= MATD::ARG_TYPE::DEVICE_READ);
         MATD::WorkItem* CreateWorkItem(const std::string& kernelName);
         MATD::Queue* CreateQueue();
+
+        void OpenProject(const std::string& JSONString);
+        void UpdateProject(const std::string& JSONString);
+
+        void SetSelectedGraph(const std::string& graphID);
+        void UpdateGraph(const std::string& JSONString);
+
+        inline const Ref<MATD::GRAPH::NodeProject> GetNodeProject() { return m_CurrentProject; };
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
+        Ref<MATD::GRAPH::NodeProject> m_CurrentProject;
     };
   }
 }
