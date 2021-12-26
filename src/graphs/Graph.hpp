@@ -20,6 +20,9 @@ namespace MATD {
     private:
       std::string m_ID;
       NODE_IO_TYPE m_IOType;
+
+    private:
+      void Init(const MATD::JSON& jsonObj);
     };
   };
 };

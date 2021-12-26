@@ -54,8 +54,9 @@ void MATD::GRAPH::NodeProject::ParsePackages(MATD::JSON package)
 	}
 	else {
 		if (this->m_Graphs.find(package["id"]) == this->m_Graphs.end()) {
-			Ref<MATD::GRAPH::NodeGraph> graph = std::make_shared<MATD::GRAPH::NodeGraph>();
+			Ref<MATD::GRAPH::NodeGraph> graph = std::make_shared<MATD::GRAPH::NodeGraph>(package);
 			this->m_Graphs.insert(std::pair<std::string, Ref<MATD::GRAPH::NodeGraph>>(package["id"].get<std::string>(), graph));
 		}
 	}
 }
+	
