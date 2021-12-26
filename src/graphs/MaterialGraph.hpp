@@ -12,10 +12,10 @@ namespace MATD{
       KERNEL_GRAPH
     };
 
-    class NodeGraph{
+    class MaterialGraph{
     public:
-      NodeGraph(const MATD::JSON& JSONObj);
-      ~NodeGraph();
+      MaterialGraph(const MATD::JSON& JSONObj);
+      ~MaterialGraph();
 
     private:
       std::string m_ID;

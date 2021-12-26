@@ -15,10 +15,10 @@ MATD::V8::MatdV8::~MatdV8()
 Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
 {
   return DefineClass(env, "MatdV8", {
-			MatdV8::InstanceMethod("openNodeProject", &MatdV8::OpenNodeProject),
-			MatdV8::InstanceMethod("updateNodeProject", &MatdV8::UpdateNodeProject),
-			MatdV8::InstanceMethod("updateNodeGraph", &MatdV8::UpdateNodeGraph),
-			MatdV8::InstanceMethod("selectCurrentNodeGraph", &MatdV8::SelectCurrentNodeGraph),
+			MatdV8::InstanceMethod("openMaterialProject", &MatdV8::OpenMaterialProject),
+			MatdV8::InstanceMethod("updateMaterialProject", &MatdV8::UpdateMaterialProject),
+			MatdV8::InstanceMethod("updateMaterialGraph", &MatdV8::UpdateMaterialGraph),
+			MatdV8::InstanceMethod("selectCurrentMaterialGraph", &MatdV8::SelectCurrentMaterialGraph),
 
 			MatdV8::InstanceMethod("setComputationDevice", &MatdV8::SetComputationDevice),
 			MatdV8::InstanceMethod("getAvailableEngines", &MatdV8::GetAvailableEngines),
@@ -27,7 +27,7 @@ Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
     });
 }
 
-Napi::Value MATD::V8::MatdV8::OpenNodeProject(const Napi::CallbackInfo& info)
+Napi::Value MATD::V8::MatdV8::OpenMaterialProject(const Napi::CallbackInfo& info)
 {
 	Napi::Env env = info.Env();
 
@@ -49,51 +49,51 @@ Napi::Value MATD::V8::MatdV8::OpenNodeProject(const Napi::CallbackInfo& info)
 	return env.Null();
 }
 
-Napi::Value MATD::V8::MatdV8::UpdateNodeProject(const Napi::CallbackInfo& info)
+Napi::Value MATD::V8::MatdV8::UpdateMaterialProject(const Napi::CallbackInfo& info)
 {
 	Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
-		Napi::TypeError::New(env, "NodeProject not found!").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "MaterialProject not found!").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
 	if (!info[0].IsString()) {
-		Napi::TypeError::New(env, "NodeProject needs to be in string format").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "MaterialProject needs to be in string format").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
 	Napi::String project = info[0].As<Napi::String>();
 
-	MATD_CORE_TRACE("MATD_V8:: Update NodeProject request recieved");
+	MATD_CORE_TRACE("MATD_V8:: Update MaterialProject request recieved");
 	this->matd->UpdateProject(project);
 
 	return env.Null();
 }
 
-Napi::Value MATD::V8::MatdV8::UpdateNodeGraph(const Napi::CallbackInfo& info)
+Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
 {
 	Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
-		Napi::TypeError::New(env, "NodeGraph not found!").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "MaterialGraph not found!").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
 	if (!info[0].IsString()) {
-		Napi::TypeError::New(env, "NodeGraph needs to be in string format").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "MaterialGraph needs to be in string format").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
 	Napi::String graph = info[0].As<Napi::String>();
 	
-	MATD_CORE_TRACE("MATD_V8:: Update NodeGraph request recieved");
+	MATD_CORE_TRACE("MATD_V8:: Update MaterialGraph request recieved");
 	this->matd->UpdateGraph(graph);
 
 	return env.Null();
 }
 
-Napi::Value MATD::V8::MatdV8::SelectCurrentNodeGraph(const Napi::CallbackInfo& info)
+Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInfo& info)
 {
 	Napi::Env env = info.Env();
 

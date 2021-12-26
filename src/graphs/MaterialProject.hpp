@@ -1,5 +1,5 @@
 #pragma once
-#include "NodeGraph.hpp"
+#include "MaterialGraph.hpp"
 #include "../core/Core.hpp"
 #include "../core/JSONParser.hpp"
 #include <map>
@@ -7,7 +7,7 @@
 
 namespace MATD{
   namespace GRAPH{
-    class NodeProject{
+    class MaterialProject{
       public:
         void OpenProject(const std::string& JSONString);
         void UpdateProject(const std::string& JSONString);
@@ -18,8 +18,8 @@ namespace MATD{
         std::string m_FileName;
         bool m_IsLocal;
         
-        Ref<NodeGraph> m_SelectedNodeGraph;
-        std::map<std::string, Ref<NodeGraph>> m_Graphs;
+        Ref<MaterialGraph> m_SelectedMaterialGraph;
+        std::map<std::string, Ref<MaterialGraph>> m_Graphs;
 
       private:
         void ParsePackages(MATD::JSON json);

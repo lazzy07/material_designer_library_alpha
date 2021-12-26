@@ -4,7 +4,7 @@
 #include "KernelLibrary.hpp"
 #include "../types/matd/Argument.hpp"
 #include "../engine/matd/Queue.hpp"
-#include "../graphs/NodeProject.hpp"
+#include "../graphs/MaterialProject.hpp"
 
 namespace MATD{
 
@@ -30,11 +30,11 @@ namespace MATD{
         void SetSelectedGraph(const std::string& graphID);
         void UpdateGraph(const std::string& JSONString);
 
-        inline const Ref<MATD::GRAPH::NodeProject> GetNodeProject() { return m_CurrentProject; };
+        inline const Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
 
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
-        Ref<MATD::GRAPH::NodeProject> m_CurrentProject;
+        Ref<MATD::GRAPH::MaterialProject> m_CurrentProject;
     };
   };
 }

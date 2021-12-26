@@ -1,6 +1,6 @@
-#include "NodeProject.hpp"
+#include "MaterialProject.hpp"
 
-void MATD::GRAPH::NodeProject::OpenProject(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::OpenProject(const std::string& JSONString)
 {
 	MATD::CORE::JSONParser* jp = new MATD::CORE::JSONParser(JSONString);
 	MATD::JSON projectJSON = jp->GetMap();
@@ -18,7 +18,7 @@ void MATD::GRAPH::NodeProject::OpenProject(const std::string& JSONString)
 	delete jp;
 }
 
-void MATD::GRAPH::NodeProject::UpdateProject(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::UpdateProject(const std::string& JSONString)
 {
 	MATD::CORE::JSONParser* jp = new MATD::CORE::JSONParser(JSONString);
 	MATD::JSON projectJSON = jp->GetMap();
@@ -36,15 +36,15 @@ void MATD::GRAPH::NodeProject::UpdateProject(const std::string& JSONString)
 	delete jp;
 }
 
-void MATD::GRAPH::NodeProject::SetSelectedGraph(const std::string& graphID)
+void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& graphID)
 {
 }
 
-void MATD::GRAPH::NodeProject::UpdateGraph(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::UpdateGraph(const std::string& JSONString)
 {
 }
 
-void MATD::GRAPH::NodeProject::ParsePackages(MATD::JSON package)
+void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)
 {
 	if (package["contentType"] == "package") {
 		auto children = package["children"];
@@ -54,8 +54,8 @@ void MATD::GRAPH::NodeProject::ParsePackages(MATD::JSON package)
 	}
 	else {
 		if (this->m_Graphs.find(package["id"]) == this->m_Graphs.end()) {
-			Ref<MATD::GRAPH::NodeGraph> graph = std::make_shared<MATD::GRAPH::NodeGraph>(package);
-			this->m_Graphs.insert(std::pair<std::string, Ref<MATD::GRAPH::NodeGraph>>(package["id"].get<std::string>(), graph));
+			Ref<MATD::GRAPH::MaterialGraph> graph = std::make_shared<MATD::GRAPH::MaterialGraph>(package);
+			this->m_Graphs.insert(std::pair<std::string, Ref<MATD::GRAPH::MaterialGraph>>(package["id"].get<std::string>(), graph));
 		}
 	}
 }
