@@ -5,7 +5,7 @@ namespace MATD{
   namespace GRAPH{
     class DataGraph : public MATD::GRAPH::Graph{
     public:
-      DataGraph(const MATD::JSON& JSONObj);
+      DataGraph(MaterialGraph* graph,const MATD::JSON& JSONObj);
       ~DataGraph();
     };
   }

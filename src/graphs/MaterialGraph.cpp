@@ -1,6 +1,6 @@
 #include "MaterialGraph.hpp"
 
-MATD::GRAPH::MaterialGraph::MaterialGraph(const MATD::JSON& JSONObj)
+MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj)
 {
 	this->m_GraphType = SetGraphType(JSONObj["type"].get<std::string>());
 
@@ -9,9 +9,9 @@ MATD::GRAPH::MaterialGraph::MaterialGraph(const MATD::JSON& JSONObj)
 
 	MATD_CORE_INFO("MATD::GRAPH MaterialGraph Loaded: {} {}", this->m_ID, this->m_Name);
 
-	this->m_DataGraph = std::make_shared<MATD::GRAPH::DataGraph>(JSONObj["dataGraph"]);
-	this->m_KernelGraph = std::make_shared<MATD::GRAPH::KernelGraph>(JSONObj["kernelGraph"]);
-	this->m_ShaderGraph = std::make_shared<MATD::GRAPH::ShaderGraph>(JSONObj["shaderGraph"]);
+	this->m_DataGraph = std::make_shared<MATD::GRAPH::DataGraph>(this, JSONObj["dataGraph"]);
+	this->m_KernelGraph = std::make_shared<MATD::GRAPH::KernelGraph>(this, JSONObj["kernelGraph"]);
+	this->m_ShaderGraph = std::make_shared<MATD::GRAPH::ShaderGraph>(this, JSONObj["shaderGraph"]);
 }
 
 MATD::GRAPH::MaterialGraph::~MaterialGraph()

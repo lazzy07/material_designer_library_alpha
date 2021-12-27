@@ -6,7 +6,7 @@ namespace MATD{
   namespace GRAPH{
     class ShaderGraph : public Graph{
     public:
-      ShaderGraph(const MATD::JSON& JSONObj);
+      ShaderGraph(MaterialGraph* graph, const MATD::JSON& JSONObj);
       ~ShaderGraph();
     };
   }

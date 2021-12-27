@@ -5,7 +5,7 @@ namespace MATD{
   namespace GRAPH{
     class KernelGraph : public MATD::GRAPH::Graph{
     public:
-      KernelGraph(const MATD::JSON& JSONObj);
+      KernelGraph(MaterialGraph* graph, const MATD::JSON& JSONObj);
       ~KernelGraph();
     };
   }

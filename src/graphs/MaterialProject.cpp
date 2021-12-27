@@ -1,5 +1,17 @@
 #include "MaterialProject.hpp"
 
+MATD::GRAPH::MaterialProject::MaterialProject()
+{
+	MATD_CORE_TRACE("MATD::PROJECT:: A new project created");
+
+	this->m_DataCache = std::make_shared<MATD::GRAPH::DataCache>();
+	this->m_ShaderCache = std::make_shared<MATD::GRAPH::ShaderCache>();
+}
+
+MATD::GRAPH::MaterialProject::~MaterialProject()
+{
+}
+
 void MATD::GRAPH::MaterialProject::OpenProject(const std::string& JSONString)
 {
 	MATD::CORE::JSONParser* jp = new MATD::CORE::JSONParser(JSONString);
@@ -54,7 +66,7 @@ void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)
 	}
 	else {
 		if (this->m_Graphs.find(package["id"]) == this->m_Graphs.end()) {
-			Ref<MATD::GRAPH::MaterialGraph> graph = std::make_shared<MATD::GRAPH::MaterialGraph>(package);
+			Ref<MATD::GRAPH::MaterialGraph> graph = std::make_shared<MATD::GRAPH::MaterialGraph>(this, package);
 			this->m_Graphs.insert(std::pair<std::string, Ref<MATD::GRAPH::MaterialGraph>>(package["id"].get<std::string>(), graph));
 		}
 	}

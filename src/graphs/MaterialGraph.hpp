@@ -12,14 +12,17 @@ namespace MATD{
       KERNEL_GRAPH
     };
 
+    class MaterialProject;
+
     class MaterialGraph{
     public:
-      MaterialGraph(const MATD::JSON& JSONObj);
+      MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj);
       ~MaterialGraph();
 
     private:
       std::string m_ID;
       std::string m_Name;
+      MaterialProject* m_Project;
 
       GRAPH_TYPE m_GraphType;
 
