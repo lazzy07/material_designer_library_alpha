@@ -1,8 +1,9 @@
 #pragma once
+#include "Cache.hpp"
 
 namespace MATD{
   namespace GRAPH{
-    class NodeGraph{
+    class DataCache : public Cache{
 
     };
   }

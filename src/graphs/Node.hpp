@@ -2,7 +2,7 @@
 
 namespace MATD{
   namespace GRAPH{
-    class NodeGraph{
+    class Node{
 
     };
   }

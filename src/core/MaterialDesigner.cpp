@@ -59,7 +59,7 @@ MATD::Queue* MATD::CORE::MaterialDesigner::CreateQueue()
 
 void MATD::CORE::MaterialDesigner::OpenProject(const std::string& JSONString)
 {
-	this->m_CurrentProject = std::make_shared<MATD::GRAPH::NodeProject>();
+	this->m_CurrentProject = std::make_shared<MATD::GRAPH::MaterialProject>();
 	this->m_CurrentProject->OpenProject(JSONString);
 }
 

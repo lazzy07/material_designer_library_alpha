@@ -1,14 +1,19 @@
 #pragma once
-#include "NodeGraph.hpp"
+#include "MaterialGraph.hpp"
 #include "../core/Core.hpp"
 #include "../core/JSONParser.hpp"
+#include "ShaderCache.hpp"
+#include "DataCache.hpp"
 #include <map>
 #include <string>
 
 namespace MATD{
   namespace GRAPH{
-    class NodeProject{
+    class MaterialProject{
       public:
+        MaterialProject();
+        ~MaterialProject();
+
         void OpenProject(const std::string& JSONString);
         void UpdateProject(const std::string& JSONString);
 				void SetSelectedGraph(const std::string& graphID);
@@ -18,9 +23,12 @@ namespace MATD{
         std::string m_FileName;
         bool m_IsLocal;
         
-        Ref<NodeGraph> m_SelectedNodeGraph;
-        std::map<std::string, Ref<NodeGraph>> m_Graphs;
+        Ref<MaterialGraph> m_SelectedMaterialGraph;
+        Ref<ShaderCache> m_ShaderCache;
+        Ref<DataCache> m_DataCache;
 
+        std::map<std::string, Ref<MaterialGraph>> m_Graphs;
+        Ref<MATD::CORE::JSONParser> m_JSONParser;
       private:
         void ParsePackages(MATD::JSON json);
     };

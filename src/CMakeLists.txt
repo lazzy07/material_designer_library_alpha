@@ -21,10 +21,15 @@ file(GLOB_RECURSE LIBRARY_DATA_TYPES_SOURCE_FILES
 )
 source_group("types" FILES ${LIBRARY_DATA_TYPES_SOURCE_FILES})
 
-file(GLOB LIBRARY_FUNCTIONS_SOURCE_FILES 
-"functions/*.cpp" "functions/*.hpp"
+file(GLOB LIBRARY_DATA_FUNCTIONS_SOURCE_FILES 
+"functions/data_graph/*.cpp" "functions/data_graph/*.hpp"
 )
-source_group("functions" FILES ${LIBRARY_FUNCTIONS_SOURCE_FILES})
+source_group("data_functions" FILES ${LIBRARY_DATA_FUNCTIONS_SOURCE_FILES})
+
+file(GLOB LIBRARY_SHADER_FUNCTIONS_SOURCE_FILES 
+"functions/shader_graph/*.cpp" "functions/shader_graph/*.hpp"
+)
+source_group("shader_functions" FILES ${LIBRARY_SHADER_FUNCTIONS_SOURCE_FILES})
 
 file(GLOB LIBRARY_GRAPHS_SOURCE_FILES 
 "graphs/*.cpp" "graphs/*.hpp"
