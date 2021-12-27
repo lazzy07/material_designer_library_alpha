@@ -10,13 +10,9 @@ namespace MATD{
 
     class JSONParser {
     public:
-      JSONParser(const std::string& JSONString);
+      JSONParser();
       ~JSONParser();
-
-      inline const JSON GetMap() { return m_Map; };
-
-    private:
-       JSON m_Map;
+      JSON ParseJSON(const std::string& JSONString);
     };
   }
 }

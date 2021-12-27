@@ -1,14 +1,18 @@
 #include "JSONParser.hpp"
 #include "Core.hpp"
 
-MATD::CORE::JSONParser::JSONParser(const std::string& JSONString)
+MATD::CORE::JSONParser::JSONParser()
 {
-	this->m_Map = JSON::parse(JSONString);
-	MATD_CORE_TRACE("JSON_PARSER:: JSON parsing complete");
+	MATD_CORE_TRACE("JSON_PARSER:: JSON parser initialized");
 }
 
 MATD::CORE::JSONParser::~JSONParser()
 {
 	MATD_CORE_TRACE("JSON_PARSER:: Destroyed");
+}
+
+MATD::JSON MATD::CORE::JSONParser::ParseJSON(const std::string& JSONString)
+{
+	return JSON::parse(JSONString);
 }
 

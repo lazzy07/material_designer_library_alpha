@@ -2,7 +2,8 @@
 
 MATD::GRAPH::MaterialProject::MaterialProject()
 {
-	MATD_CORE_TRACE("MATD::PROJECT:: A new project created");
+	MATD_CORE_TRACE("MATD::GRAPH:: A new project created");
+	this->m_JSONParser = std::make_shared<MATD::CORE::JSONParser>();
 
 	this->m_DataCache = std::make_shared<MATD::GRAPH::DataCache>();
 	this->m_ShaderCache = std::make_shared<MATD::GRAPH::ShaderCache>();
@@ -14,8 +15,7 @@ MATD::GRAPH::MaterialProject::~MaterialProject()
 
 void MATD::GRAPH::MaterialProject::OpenProject(const std::string& JSONString)
 {
-	MATD::CORE::JSONParser* jp = new MATD::CORE::JSONParser(JSONString);
-	MATD::JSON projectJSON = jp->GetMap();
+	MATD::JSON projectJSON = m_JSONParser->ParseJSON(JSONString);
 
 	this->m_ProjectID = projectJSON["id"].get<std::string>();
 	this->m_FileName = projectJSON["fileName"].get<std::string>();
@@ -26,14 +26,11 @@ void MATD::GRAPH::MaterialProject::OpenProject(const std::string& JSONString)
 	for (MATD::JSON::iterator it = packages.begin(); it != packages.end(); it++) {
 		this->ParsePackages(it.value());
 	}
-
-	delete jp;
 }
 
 void MATD::GRAPH::MaterialProject::UpdateProject(const std::string& JSONString)
 {
-	MATD::CORE::JSONParser* jp = new MATD::CORE::JSONParser(JSONString);
-	MATD::JSON projectJSON = jp->GetMap();
+	MATD::JSON projectJSON = m_JSONParser->ParseJSON(JSONString);
 
 	this->m_ProjectID = projectJSON["id"].get<std::string>();
 	this->m_FileName = projectJSON["fileName"].get<std::string>();
@@ -44,16 +41,26 @@ void MATD::GRAPH::MaterialProject::UpdateProject(const std::string& JSONString)
 	for (MATD::JSON::iterator it = packages.begin(); it != packages.end(); it++) {
 		this->ParsePackages(it.value());
 	}
-
-	delete jp;
 }
 
 void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& graphID)
 {
+	auto selectedGraph = m_Graphs.find(graphID);
+
+	if (selectedGraph == m_Graphs.end()) {
+		MATD_CORE_ASSERT(false, "MATD::GRAPH:: Unknown graphID found");
+	}
+	else {
+		this->m_SelectedMaterialGraph = selectedGraph->second;
+		MATD_CORE_TRACE("MATD::GRAPH:: Selected MaterialGraph Change, Graph ID: {}", m_SelectedMaterialGraph->GetID());
+	}
 }
 
 void MATD::GRAPH::MaterialProject::UpdateGraph(const std::string& JSONString)
 {
+	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+
+	MATD_CORE_TRACE("Update: \n {}", update);
 }
 
 void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)

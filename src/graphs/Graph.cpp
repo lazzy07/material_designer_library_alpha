@@ -13,5 +13,9 @@ MATD::GRAPH::Graph::~Graph()
 void MATD::GRAPH::Graph::Init(const MATD::JSON& JSONObj)
 {
 	this->m_ID = JSONObj["id"].get<std::string>();
+
+	MATD::JSON nodes = JSONObj["data"]["nodes"];
+
+	MATD_CORE_TRACE("Nodes {}", nodes);
 }
 

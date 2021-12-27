@@ -19,6 +19,8 @@ namespace MATD{
       MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj);
       ~MaterialGraph();
 
+      inline const std::string& GetID() { return m_ID; };
+
     private:
       std::string m_ID;
       std::string m_Name;

@@ -28,6 +28,7 @@ namespace MATD{
         Ref<DataCache> m_DataCache;
 
         std::map<std::string, Ref<MaterialGraph>> m_Graphs;
+        Ref<MATD::CORE::JSONParser> m_JSONParser;
       private:
         void ParsePackages(MATD::JSON json);
     };

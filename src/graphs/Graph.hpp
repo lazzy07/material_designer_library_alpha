@@ -12,6 +12,7 @@ namespace MATD {
       ~Graph();
 
       inline const std::string& GetID() { return m_ID; };
+      inline MaterialGraph* GetMaterialGraph() { return m_MaterialGraph; };
     private:
       std::string m_ID;
       MaterialGraph* m_MaterialGraph;
