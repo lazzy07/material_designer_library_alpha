@@ -8,6 +8,8 @@ namespace MATD{
     public:
       ShaderGraph(MaterialGraph* graph, const MATD::JSON& JSONObj);
       ~ShaderGraph();
+
+			virtual void Update(MATD::JSON JSONObj) override;
     };
   }
 }

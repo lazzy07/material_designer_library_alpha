@@ -18,6 +18,26 @@ MATD::GRAPH::MaterialGraph::~MaterialGraph()
 {
 }
 
+MATD::Ref<MATD::GRAPH::Graph> MATD::GRAPH::MaterialGraph::GetGraph(GRAPH_TYPE graphType)
+{
+	switch (graphType)
+	{
+	case MATD::GRAPH::GRAPH_TYPE::DATA_GRAPH:
+		return m_DataGraph;
+		break;
+	case MATD::GRAPH::GRAPH_TYPE::SHADER_GRAPH:
+		return m_ShaderGraph;
+		break;
+	case MATD::GRAPH::GRAPH_TYPE::KERNEL_GRAPH:
+		return m_KernelGraph;
+		break;
+	default:
+		MATD_CORE_ASSERT(false, "MATD::GRAPH Unknown graph type recieved");
+		return m_DataGraph;
+		break;
+	}
+}
+
 MATD::GRAPH::GRAPH_TYPE MATD::GRAPH::MaterialGraph::GetGraphType(const std::string& graphType)
 {
 	if (graphType == "dataGraph") {

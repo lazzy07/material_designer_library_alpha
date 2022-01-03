@@ -7,6 +7,8 @@ namespace MATD{
     public:
       KernelGraph(MaterialGraph* graph, const MATD::JSON& JSONObj);
       ~KernelGraph();
+
+			virtual void Update(MATD::JSON JSONObj) override;
     };
   }
 }

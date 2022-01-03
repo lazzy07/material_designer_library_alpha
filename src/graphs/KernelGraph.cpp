@@ -9,3 +9,7 @@ MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MA
 MATD::GRAPH::KernelGraph::~KernelGraph()
 {
 }
+
+void MATD::GRAPH::KernelGraph::Update(MATD::JSON JSONObj)
+{
+}

@@ -10,3 +10,8 @@ MATD::GRAPH::DataGraph::DataGraph(MaterialGraph* graph, const MATD::JSON& JSONOb
 MATD::GRAPH::DataGraph::~DataGraph()
 {
 }
+
+void MATD::GRAPH::DataGraph::Update(MATD::JSON JSONObj)
+{
+
+}

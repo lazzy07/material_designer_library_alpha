@@ -7,6 +7,7 @@ namespace MATD{
     public:
       DataGraph(MaterialGraph* graph,const MATD::JSON& JSONObj);
       ~DataGraph();
+      virtual void Update(MATD::JSON JSONObj) override;
     };
   }
 }

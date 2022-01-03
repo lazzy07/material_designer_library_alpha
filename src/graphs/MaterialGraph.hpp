@@ -22,6 +22,7 @@ namespace MATD{
       ~MaterialGraph();
 
       inline const std::string& GetID() { return m_ID; };
+      Ref<MATD::GRAPH::Graph> GetGraph(GRAPH_TYPE graphType);
 
     private:
       std::string m_ID;
