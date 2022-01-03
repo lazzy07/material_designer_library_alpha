@@ -16,6 +16,5 @@ void MATD::GRAPH::Graph::Init(const MATD::JSON& JSONObj)
 
 	MATD::JSON nodes = JSONObj["data"]["nodes"];
 
-	MATD_CORE_TRACE("Nodes {}", nodes);
 }
 

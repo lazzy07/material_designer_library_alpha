@@ -16,6 +16,8 @@ namespace MATD{
 
     class MaterialGraph{
     public:
+      static GRAPH_TYPE GetGraphType(const std::string& graphType);
+
       MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj);
       ~MaterialGraph();
 
@@ -31,9 +33,6 @@ namespace MATD{
       Ref<DataGraph> m_DataGraph;
       Ref<ShaderGraph> m_ShaderGraph;
       Ref<KernelGraph> m_KernelGraph;
-
-    private:
-      GRAPH_TYPE SetGraphType(const std::string& graphType);
     };
   }
 }
