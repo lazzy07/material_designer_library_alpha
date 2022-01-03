@@ -43,8 +43,15 @@ void MATD::GRAPH::MaterialProject::UpdateProject(const std::string& JSONString)
 	}
 }
 
-void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& graphID)
+void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& data)
 {
+	MATD::JSON json = m_JSONParser->ParseJSON(data);
+	
+	std::string graphID = json["id"].get<std::string>();
+	std::string graphType = json["type"].get<std::string>();
+
+	m_SelectedGraphType = MATD::GRAPH::MaterialGraph::GetGraphType(graphType);
+
 	auto selectedGraph = m_Graphs.find(graphID);
 
 	if (selectedGraph == m_Graphs.end()) {
@@ -52,15 +59,16 @@ void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& graphID)
 	}
 	else {
 		this->m_SelectedMaterialGraph = selectedGraph->second;
-		MATD_CORE_TRACE("MATD::GRAPH:: Selected MaterialGraph Change, Graph ID: {}", m_SelectedMaterialGraph->GetID());
+		MATD_CORE_TRACE("MATD::GRAPH:: Selected MaterialGraph Change, Graph ID: {} Type: {}", m_SelectedMaterialGraph->GetID(), graphType);
 	}
 }
 
 void MATD::GRAPH::MaterialProject::UpdateGraph(const std::string& JSONString)
 {
 	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+	auto selectedGraph = this->m_SelectedMaterialGraph;
 
-	MATD_CORE_TRACE("Update: \n {}", update);
+
 }
 
 void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)

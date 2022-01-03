@@ -24,6 +24,7 @@ namespace MATD{
         bool m_IsLocal;
         
         Ref<MaterialGraph> m_SelectedMaterialGraph;
+        MATD::GRAPH::GRAPH_TYPE m_SelectedGraphType;
         Ref<ShaderCache> m_ShaderCache;
         Ref<DataCache> m_DataCache;
 

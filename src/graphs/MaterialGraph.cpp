@@ -2,7 +2,7 @@
 
 MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj)
 {
-	this->m_GraphType = SetGraphType(JSONObj["type"].get<std::string>());
+	this->m_GraphType = GetGraphType(JSONObj["type"].get<std::string>());
 
 	this->m_ID = JSONObj["id"].get<std::string>();
 	this->m_Name = JSONObj["name"].get<std::string>();
@@ -18,7 +18,7 @@ MATD::GRAPH::MaterialGraph::~MaterialGraph()
 {
 }
 
-MATD::GRAPH::GRAPH_TYPE MATD::GRAPH::MaterialGraph::SetGraphType(const std::string& graphType)
+MATD::GRAPH::GRAPH_TYPE MATD::GRAPH::MaterialGraph::GetGraphType(const std::string& graphType)
 {
 	if (graphType == "dataGraph") {
 		return GRAPH_TYPE::DATA_GRAPH;
