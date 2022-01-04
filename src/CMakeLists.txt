@@ -6,10 +6,17 @@ project(matd_library)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DMATD_DEBUG")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__CL_ENABLE_EXCEPTIONS")
 
+################################### Core files ###################################
+
 file(GLOB LIBRARY_CORE_SOURCE_FILES 
 "core/*.cpp" "core/*.hpp"
 )
 source_group("core" FILES ${LIBRARY_CORE_SOURCE_FILES})
+
+###################################################################################
+
+
+################################### Engine files ###################################
 
 file(GLOB LIBRARY_ENGINE_MATD_SOURCE_FILES 
 "engine/matd/*.cpp" "engine/matd/*.hpp"
@@ -26,6 +33,11 @@ file(GLOB LIBRARY_ENGINE_CUDA_SOURCE_FILES
 )
 source_group("engine\\vendor\\cuda" FILES ${LIBRARY_ENGINE_CUDA_SOURCE_FILES})
 
+#####################################################################################
+
+
+################################### Types files ###################################
+
 file(GLOB LIBRARY_DATA_TYPES_MATD_SOURCE_FILES 
 "types/matd/*.cpp" "types/matd/*.hpp"
 )
@@ -40,6 +52,11 @@ file(GLOB LIBRARY_DATA_TYPES_CUDA_SOURCE_FILES
 "types/vendor/cuda/*.cpp" "types/vendor/cuda/*.hpp"
 )
 source_group("types\\vendor\\cuda" FILES ${LIBRARY_DATA_TYPES_CUDA_SOURCE_FILES})
+
+#####################################################################################
+
+
+################################### Functions files ###################################
 
 file(GLOB LIBRARY_DATA_FUNCTIONS_SOURCE_FILES 
 "functions/data_graph/*.cpp" "functions/data_graph/*.hpp"
@@ -56,6 +73,10 @@ file(GLOB LIBRARY_CORE_FUNCTIONS_SOURCE_FILES
 )
 source_group("functions\\core" FILES ${LIBRARY_CORE_FUNCTIONS_SOURCE_FILES})
 
+#####################################################################################
+
+
+################################### Graphs files ###################################
 
 file(GLOB LIBRARY_GRAPHS_CORE_SOURCE_FILES 
 "graphs/core/*.cpp" "graphs/core/*.hpp"
@@ -72,11 +93,12 @@ file(GLOB LIBRARY_GRAPHS_KERNEL_SOURCE_FILES
 )
 source_group("graphs\\kernel" FILES ${LIBRARY_GRAPHS_KERNEL_SOURCE_FILES})
 
-
 file(GLOB LIBRARY_GRAPHS_SHADER_SOURCE_FILES 
 "graphs/shader_graph/*.cpp" "graphs/shader_graph/*.hpp"
 )
 source_group("graphs\\shader" FILES ${LIBRARY_GRAPHS_SHADER_SOURCE_FILES})
+
+#####################################################################################
 
 add_library(${PROJECT_NAME} 
   ${LIBRARY_CORE_SOURCE_FILES} 
