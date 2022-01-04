@@ -1,5 +1,5 @@
 #include "Graph.hpp"
-#include "../core/Core.hpp"
+#include "../../core/Core.hpp"
 
 MATD::GRAPH::Graph::Graph(MaterialGraph* graph, const MATD::JSON& JSONObj): m_MaterialGraph(graph)
 {

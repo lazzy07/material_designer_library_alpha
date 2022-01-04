@@ -68,7 +68,8 @@ void MATD::GRAPH::MaterialProject::UpdateGraph(const std::string& JSONString)
 	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
 	auto selectedGraph = this->m_SelectedMaterialGraph;
 
-
+	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
+	graph->Update(update);
 }
 
 void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)

@@ -1,8 +1,8 @@
 #pragma once
-#include "../core/Core.hpp"
-#include "DataGraph.hpp"
-#include "ShaderGraph.hpp"
-#include "KernelGraph.hpp"
+#include "../../core/Core.hpp"
+#include "../data_graph/DataGraph.hpp"
+#include "../shader_graph/ShaderGraph.hpp"
+#include "../kernel_graph/KernelGraph.hpp"
 
 namespace MATD{
   namespace GRAPH{
@@ -22,6 +22,7 @@ namespace MATD{
       ~MaterialGraph();
 
       inline const std::string& GetID() { return m_ID; };
+      Ref<MATD::GRAPH::Graph> GetGraph(GRAPH_TYPE graphType);
 
     private:
       std::string m_ID;
