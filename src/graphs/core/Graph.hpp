@@ -1,5 +1,5 @@
 #pragma once
-#include "../core/JSONParser.hpp"
+#include "../../core/JSONParser.hpp"
 #include <string>
 
 namespace MATD {

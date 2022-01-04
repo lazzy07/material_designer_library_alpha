@@ -1,12 +1,12 @@
 #pragma once
-#include "Node.hpp"
+#include "../core/Node.hpp"
 
 namespace MATD{
   namespace GRAPH{
-    class ShaderNode : public Node{
+    class DataNode : public Node{
     public:
-      ShaderNode(JSON JSONObj);
-      ~ShaderNode();
+      DataNode(JSON JSONObj);
+      ~DataNode();
 
       virtual void Update(JSON JSONObj) override;
     };

@@ -1,6 +1,6 @@
 #pragma once
-#include "Graph.hpp"
-#include "../core/JSONParser.hpp"
+#include "../core/Graph.hpp"
+#include "../../core/JSONParser.hpp"
 
 namespace MATD{
   namespace GRAPH{

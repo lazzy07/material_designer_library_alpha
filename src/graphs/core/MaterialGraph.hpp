@@ -1,8 +1,8 @@
 #pragma once
-#include "../core/Core.hpp"
-#include "DataGraph.hpp"
-#include "ShaderGraph.hpp"
-#include "KernelGraph.hpp"
+#include "../../core/Core.hpp"
+#include "../data_graph/DataGraph.hpp"
+#include "../shader_graph/ShaderGraph.hpp"
+#include "../kernel_graph/KernelGraph.hpp"
 
 namespace MATD{
   namespace GRAPH{

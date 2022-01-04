@@ -1,9 +1,9 @@
 #pragma once
 #include "MaterialGraph.hpp"
-#include "../core/Core.hpp"
-#include "../core/JSONParser.hpp"
-#include "ShaderCache.hpp"
-#include "DataCache.hpp"
+#include "../../core/Core.hpp"
+#include "../../core/JSONParser.hpp"
+#include "../shader_graph/ShaderCache.hpp"
+#include "../data_graph/DataCache.hpp"
 #include <map>
 #include <string>
 

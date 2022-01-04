@@ -1,5 +1,5 @@
 #include "ShaderGraph.hpp"
-#include "MaterialGraph.hpp"
+#include "../core/MaterialGraph.hpp"
 
 MATD::GRAPH::ShaderGraph::ShaderGraph(MaterialGraph* graph, const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {

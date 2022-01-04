@@ -1,5 +1,5 @@
 #pragma once
-#include "Graph.hpp"
+#include "../core/Graph.hpp"
 
 namespace MATD{
   namespace GRAPH{
