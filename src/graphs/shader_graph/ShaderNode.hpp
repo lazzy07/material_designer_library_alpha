@@ -5,7 +5,7 @@ namespace MATD{
   namespace GRAPH{
     class ShaderNode : public Node{
     public:
-      ShaderNode(JSON JSONObj);
+      ShaderNode(MaterialGraph* graph, JSON JSONObj);
       ~ShaderNode();
 
       virtual void Update(JSON JSONObj) override;
