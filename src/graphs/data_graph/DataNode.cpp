@@ -1,6 +1,6 @@
 #include "DataNode.hpp"
 
-MATD::GRAPH::DataNode::DataNode(JSON JSONObj) : Node(JSONObj)
+MATD::GRAPH::DataNode::DataNode(MaterialGraph* graph,JSON JSONObj) : Node(graph, JSONObj)
 {
 }
 

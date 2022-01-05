@@ -2,11 +2,11 @@
 #include "Function.hpp"
 
 namespace MATD{
-  namespace FUNC {
-    class ShaderFunction : public Function {
+  namespace FUNC{
+    class KernelFunction : public Function{
     public:
-      ShaderFunction(MATD::GRAPH::Node* node);
-      ~ShaderFunction();
+      KernelFunction(MATD::GRAPH::Node* node);
+      ~KernelFunction();
 
 			virtual void Init() = 0;
 			virtual void Calculate() = 0;
