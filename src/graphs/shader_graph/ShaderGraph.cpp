@@ -10,6 +10,22 @@ MATD::GRAPH::ShaderGraph::~ShaderGraph()
 {
 }
 
+void MATD::GRAPH::ShaderGraph::CreateNode(MATD::JSON JSONObj)
+{
+}
+
+void MATD::GRAPH::ShaderGraph::RemoveNode(MATD::JSON JSONObj)
+{
+}
+
+void MATD::GRAPH::ShaderGraph::AddConnection(MATD::JSON JSONObj)
+{
+}
+
+void MATD::GRAPH::ShaderGraph::RemoveConnection(MATD::JSON JSONObj)
+{
+}
+
 void MATD::GRAPH::ShaderGraph::Update(MATD::JSON JSONObj)
 {
 }
