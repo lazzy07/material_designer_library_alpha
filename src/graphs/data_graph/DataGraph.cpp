@@ -11,7 +11,22 @@ MATD::GRAPH::DataGraph::~DataGraph()
 {
 }
 
+void MATD::GRAPH::DataGraph::CreateNode(MATD::JSON JSONObj)
+{
+}
+
+void MATD::GRAPH::DataGraph::RemoveNode(MATD::JSON JSONObj)
+{
+}
+
+void MATD::GRAPH::DataGraph::AddConnection(MATD::JSON JSONObj)
+{
+}
+
+void MATD::GRAPH::DataGraph::RemoveConnection(MATD::JSON JSONObj)
+{
+}
+
 void MATD::GRAPH::DataGraph::Update(MATD::JSON JSONObj)
 {
-
 }
