@@ -1,6 +1,7 @@
 #pragma once
-#include <vector>
+#include <map>
 #include <string>
+#include "../../core/Core.hpp"
 
 namespace MATD{
   namespace GRAPH {
@@ -20,8 +21,8 @@ namespace MATD{
       _lut3
     };
 
-    typedef struct Argument {
-      std::string key;
+    struct Argument {
+      std::string id;
       DATA_TYPES dataType;
       void* data;
     };
@@ -36,11 +37,14 @@ namespace MATD{
       virtual void Update() = 0;
 
       virtual void OnComplete() = 0;
-      inline GRAPH::Node* GetNode() { return m_Node; };
 
+      inline GRAPH::Node* GetNode() { return m_Node; };
+      inline std::map<std::string, Ref<Argument>>* GetArguments() { return &m_Arguments; };
+      inline Ref<Argument> GetArgument(const std::string& id) { return m_Arguments.find(id)->second; };
+      void SetArgument(std::string id, DATA_TYPES dataType, void* data);
     private:
       MATD::GRAPH::Node* m_Node;
-      std::vector<Argument>m_Arguments;
+      std::map<std::string, Ref<Argument>> m_Arguments;
     };
   }
 }
