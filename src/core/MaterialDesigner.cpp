@@ -73,7 +73,27 @@ void MATD::CORE::MaterialDesigner::SetSelectedGraph(const std::string& graphID)
 	this->m_CurrentProject->SetSelectedGraph(graphID);
 }
 
-void MATD::CORE::MaterialDesigner::UpdateGraph(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::CreateNode(const std::string& JSONString)
 {
-	this->m_CurrentProject->UpdateGraph(JSONString);
+	this->m_CurrentProject->CreateNode(JSONString);
+}
+
+void MATD::CORE::MaterialDesigner::RemoveNode(const std::string& JSONString)
+{
+	this->m_CurrentProject->RemoveNode(JSONString);
+}
+
+void MATD::CORE::MaterialDesigner::AddConnection(const std::string& JSONString)
+{
+	this->m_CurrentProject->AddConnection(JSONString);
+}
+
+void MATD::CORE::MaterialDesigner::RemoveConnection(const std::string& JSONString)
+{
+	this->m_CurrentProject->RemoveConnection(JSONString);
+}
+
+void MATD::CORE::MaterialDesigner::Update(const std::string& JSONString)
+{
+	this->m_CurrentProject->Update(JSONString);
 }

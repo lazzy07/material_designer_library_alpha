@@ -4,12 +4,12 @@
 
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
-  this->matd = new MATD::CORE::MaterialDesigner();
+  this->m_Matd = new MATD::CORE::MaterialDesigner();
 }
 
 MATD::V8::MatdV8::~MatdV8()
 {
-  delete this->matd;
+  delete this->m_Matd;
 }
 
 Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
@@ -44,7 +44,7 @@ Napi::Value MATD::V8::MatdV8::OpenMaterialProject(const Napi::CallbackInfo& info
 	Napi::String project = info[0].As<Napi::String>();
 	
 	MATD_CORE_TRACE("MATD_V8:: Open NodeProject request recieved");
-	this->matd->OpenProject(project);
+	this->m_Matd->OpenProject(project);
 
 	return env.Null();
 }
@@ -66,7 +66,7 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialProject(const Napi::CallbackInfo& in
 	Napi::String project = info[0].As<Napi::String>();
 
 	MATD_CORE_TRACE("MATD_V8:: Update MaterialProject request recieved");
-	this->matd->UpdateProject(project);
+	this->m_Matd->UpdateProject(project);
 
 	return env.Null();
 }
@@ -75,20 +75,42 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info
 {
 	Napi::Env env = info.Env();
 
-	if (info.Length() < 1) {
-		Napi::TypeError::New(env, "MaterialGraph not found!").ThrowAsJavaScriptException();
+	if (info.Length() < 2) {
+		Napi::TypeError::New(env, "Update type and update data required").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
 	if (!info[0].IsString()) {
+		Napi::TypeError::New(env, "Update type needs to be in string format").ThrowAsJavaScriptException();
+		return env.Null();
+	}
+
+	if (!info[1].IsString()) {
 		Napi::TypeError::New(env, "MaterialGraph needs to be in string format").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
-	Napi::String graph = info[0].As<Napi::String>();
+	Napi::String updateType = info[0].As<Napi::String>();
+	Napi::String graph = info[1].As<Napi::String>();
 	
 	MATD_CORE_TRACE("MATD_V8:: Update MaterialGraph request recieved");
-	this->matd->UpdateGraph(graph);
+
+	if (updateType.Utf8Value() == "createNode") {
+		this->m_Matd->CreateNode(graph);
+	}
+	else if (updateType.Utf8Value() == "removeNode") {
+		this->m_Matd->RemoveNode(graph);
+	}
+	else if (updateType.Utf8Value() == "addConnection") {
+		this->m_Matd->AddConnection(graph);
+	}
+	else if (updateType.Utf8Value() == "removeConnection") {
+		this->m_Matd->RemoveConnection(graph);
+	}
+	else {
+		Napi::TypeError::New(env, "Unknown update format").ThrowAsJavaScriptException();
+		return env.Null();
+	}
 
 	return env.Null();
 }
@@ -110,7 +132,7 @@ Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInf
 	Napi::String graphID = info[0].As<Napi::String>();
 
 	MATD_CORE_TRACE("MATD_V8:: Selected Graph Change request recieved");
-	this->matd->SetSelectedGraph(graphID);
+	this->m_Matd->SetSelectedGraph(graphID);
 
 	return env.Null();
 }
@@ -134,7 +156,7 @@ Napi::Value MATD::V8::MatdV8::SetComputationDevice(const Napi::CallbackInfo& inf
 		return env.Null();
 	}
 
-  this->matd->SelectDevice(info[0].As<Napi::Number>().Uint32Value(), info[1].As<Napi::Number>().Uint32Value());
+  this->m_Matd->SelectDevice(info[0].As<Napi::Number>().Uint32Value(), info[1].As<Napi::Number>().Uint32Value());
 	return Napi::Boolean::New(env, true);
 }
 
