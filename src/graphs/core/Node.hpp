@@ -9,6 +9,7 @@ namespace MATD{
 
     class Node{
     public:
+
       Node(MaterialGraph* graph, JSON JSONObj);
       ~Node();
 
@@ -24,6 +25,7 @@ namespace MATD{
 
       inline int GetID() { return m_ID; };
       inline int SetID(int id) { m_ID = id; };
+
 
     private:
       MaterialGraph* m_MaterialGraph;

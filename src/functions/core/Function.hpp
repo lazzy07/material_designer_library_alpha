@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include "../../core/Core.hpp"
+#include "../../core/JSONParser.hpp"
 
 namespace MATD{
   namespace GRAPH {
@@ -29,10 +30,12 @@ namespace MATD{
 
     class Function{
     public:
+			static Ref<FUNC::Function> FunctionFactory(int initialID);
+
       Function(MATD::GRAPH::Node* node);
       ~Function();
 
-      virtual void Init() = 0;
+      virtual void Init(const MATD::JSON& JSONObj) = 0;
       virtual void Calculate() = 0;
       virtual void Update() = 0;
 

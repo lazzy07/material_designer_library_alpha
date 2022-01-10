@@ -93,21 +93,29 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info
 	Napi::String updateType = info[0].As<Napi::String>();
 	Napi::String graph = info[1].As<Napi::String>();
 	
-	MATD_CORE_TRACE("MATD_V8:: Update MaterialGraph request recieved");
 
 	if (updateType.Utf8Value() == "createNode") {
+		MATD_CORE_TRACE("MATD_V8:: Create node request recieved");
 		this->m_Matd->CreateNode(graph);
 	}
 	else if (updateType.Utf8Value() == "removeNode") {
+		MATD_CORE_TRACE("MATD_V8:: Remove node request recieved");
 		this->m_Matd->RemoveNode(graph);
 	}
 	else if (updateType.Utf8Value() == "addConnection") {
+		MATD_CORE_TRACE("MATD_V8:: Add connection request recieved");
 		this->m_Matd->AddConnection(graph);
 	}
 	else if (updateType.Utf8Value() == "removeConnection") {
+		MATD_CORE_TRACE("MATD_V8:: Remove connection request recieved");
 		this->m_Matd->RemoveConnection(graph);
 	}
+	else if (updateType.Utf8Value() == "update") {
+		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
+		this->m_Matd->Update(graph);
+	}
 	else {
+		MATD_CORE_TRACE("MATD_V8:: Unknown update format!");
 		Napi::TypeError::New(env, "Unknown update format").ThrowAsJavaScriptException();
 		return env.Null();
 	}

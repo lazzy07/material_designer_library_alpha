@@ -1,18 +1,19 @@
 #pragma once
-#include "Function.hpp"
+#include "ShaderFunction.hpp"
 
 namespace MATD{
   namespace FUNC{
-    class KernelFunction : public Function{
-    public:
-      KernelFunction(MATD::GRAPH::Node* node);
-      ~KernelFunction();
+    class ShaderPrimitiveFunction : public ShaderFunction {
+		public:
+			ShaderPrimitiveFunction(MATD::GRAPH::Node* node);
+			~ShaderPrimitiveFunction();
 
 			virtual void Init(const MATD::JSON& JSONObj) = 0;
 			virtual void Calculate() = 0;
 			virtual void Update() = 0;
 
 			virtual void OnComplete() = 0;
+		};
     };
   }
 }

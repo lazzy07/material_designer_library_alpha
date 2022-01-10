@@ -1,12 +1,12 @@
 #pragma once
-#include "Function.hpp"
+#include "DataFunction.hpp"
 
 namespace MATD{
-  namespace FUNC {
-    class ShaderFunction : public Function {
-    public:
-      ShaderFunction(MATD::GRAPH::Node* node);
-      ~ShaderFunction();
+  namespace FUNC{
+    class DataPrimitiveFunction : public DataFunction {
+		public:
+			DataPrimitiveFunction(MATD::GRAPH::Node* node);
+			~DataPrimitiveFunction();
 
 			virtual void Init(const MATD::JSON& JSONObj) = 0;
 			virtual void Calculate() = 0;

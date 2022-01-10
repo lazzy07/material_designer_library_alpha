@@ -1,5 +1,14 @@
 #include "Function.hpp"
 
+MATD::Ref<MATD::FUNC::Function> MATD::FUNC::Function::FunctionFactory(int initialID)
+{
+	switch (initialID) {
+	case 1:
+
+		break;
+	}
+}
+
 MATD::FUNC::Function::Function(MATD::GRAPH::Node* node) : m_Node(node)
 {
 
