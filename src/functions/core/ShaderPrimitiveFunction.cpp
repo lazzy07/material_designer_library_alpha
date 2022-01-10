@@ -7,3 +7,7 @@ MATD::FUNC::ShaderPrimitiveFunction::ShaderPrimitiveFunction(MATD::GRAPH::Node* 
 MATD::FUNC::ShaderPrimitiveFunction::~ShaderPrimitiveFunction()
 {
 }
+
+void MATD::FUNC::ShaderPrimitiveFunction::Init(const MATD::JSON& JSONObj)
+{
+}

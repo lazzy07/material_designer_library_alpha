@@ -7,3 +7,8 @@ MATD::FUNC::DataPrimitiveFunction::DataPrimitiveFunction(MATD::GRAPH::Node* node
 MATD::FUNC::DataPrimitiveFunction::~DataPrimitiveFunction()
 {
 }
+
+void MATD::FUNC::DataPrimitiveFunction::Init(const MATD::JSON& JSONObj)
+{
+
+}
