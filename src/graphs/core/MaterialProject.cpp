@@ -4,9 +4,6 @@ MATD::GRAPH::MaterialProject::MaterialProject()
 {
 	MATD_CORE_TRACE("MATD::GRAPH:: A new project created");
 	this->m_JSONParser = std::make_shared<MATD::CORE::JSONParser>();
-
-	this->m_DataCache = std::make_shared<MATD::GRAPH::DataCache>();
-	this->m_ShaderCache = std::make_shared<MATD::GRAPH::ShaderCache>();
 }
 
 MATD::GRAPH::MaterialProject::~MaterialProject()

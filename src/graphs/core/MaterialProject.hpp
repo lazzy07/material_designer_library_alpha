@@ -31,8 +31,6 @@ namespace MATD{
         
         Ref<MaterialGraph> m_SelectedMaterialGraph;
         MATD::GRAPH::GRAPH_TYPE m_SelectedGraphType;
-        Ref<ShaderCache> m_ShaderCache;
-        Ref<DataCache> m_DataCache;
 
         std::map<std::string, Ref<MaterialGraph>> m_Graphs;
         Ref<MATD::CORE::JSONParser> m_JSONParser;

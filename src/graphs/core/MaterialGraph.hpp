@@ -3,6 +3,8 @@
 #include "../data_graph/DataGraph.hpp"
 #include "../shader_graph/ShaderGraph.hpp"
 #include "../kernel_graph/KernelGraph.hpp"
+#include "../data_graph/DataCache.hpp"
+#include "../shader_graph/ShaderCache.hpp"
 
 namespace MATD{
   namespace GRAPH{
@@ -34,6 +36,9 @@ namespace MATD{
       Ref<DataGraph> m_DataGraph;
       Ref<ShaderGraph> m_ShaderGraph;
       Ref<KernelGraph> m_KernelGraph;
+
+			Ref<ShaderCache> m_ShaderCache;
+			Ref<DataCache> m_DataCache;
     };
   }
 }
