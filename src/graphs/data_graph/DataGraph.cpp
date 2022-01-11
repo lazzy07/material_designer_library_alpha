@@ -1,6 +1,7 @@
 #include "DataGraph.hpp"
 #include "../../core/Core.hpp"
 #include "../core/MaterialGraph.hpp"
+#include "DataNode.hpp"
 
 MATD::GRAPH::DataGraph::DataGraph(MaterialGraph* graph, const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {
@@ -13,24 +14,9 @@ MATD::GRAPH::DataGraph::~DataGraph()
 
 void MATD::GRAPH::DataGraph::CreateNode(MATD::JSON JSONObj)
 {
+	Ref<DataNode> dataNode = std::make_shared<DataNode>(this, JSONObj);
 	const unsigned int id = JSONObj["id"].get<int>();
-	std::string name = JSONObj["name"].get<std::string>();
-	MATD::JSON dGraphData = JSONObj["data"]["dataGraph"];
-	std::string initialID = dGraphData["parentId"].get<std::string>();
-
-	if (dGraphData["ioType"].is_string()) {
-		std::string ioType = dGraphData["ioType"].get<std::string>();
-
-		if (ioType.length() > 0) {
-			//A primitive node
-			MATD::JSON dataArr = dGraphData["data"];
-
-			return;
-		}
-	}
-	//Not a primitive node
-	MATD::JSON graph = dGraphData["data"];
-
+	this->m_Nodes[id] = dataNode;
 }
 
 void MATD::GRAPH::DataGraph::RemoveNode(MATD::JSON JSONObj)

@@ -8,7 +8,7 @@ namespace MATD{
       DataFunction(MATD::GRAPH::Node* node);
       ~DataFunction();
 
-			virtual void Init(const MATD::JSON& JSONObj) = 0;
+			virtual void Init(MATD::JSON JSONObj) = 0;
 			virtual void Calculate() = 0;
 			virtual void Update() = 0;
 
