@@ -8,7 +8,7 @@ namespace MATD{
       ShaderFunction(MATD::GRAPH::Node* node);
       ~ShaderFunction();
 
-			virtual void Init() = 0;
+			virtual void Init(const MATD::JSON& JSONObj) = 0;
 			virtual void Calculate() = 0;
 			virtual void Update() = 0;
 

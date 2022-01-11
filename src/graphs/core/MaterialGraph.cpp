@@ -12,6 +12,9 @@ MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::
 	this->m_DataGraph = std::make_shared<MATD::GRAPH::DataGraph>(this, JSONObj["dataGraph"]);
 	this->m_KernelGraph = std::make_shared<MATD::GRAPH::KernelGraph>(this, JSONObj["kernelGraph"]);
 	this->m_ShaderGraph = std::make_shared<MATD::GRAPH::ShaderGraph>(this, JSONObj["shaderGraph"]);
+
+	this->m_DataCache = std::make_shared<MATD::GRAPH::DataCache>();
+	this->m_ShaderCache = std::make_shared<MATD::GRAPH::ShaderCache>();
 }
 
 MATD::GRAPH::MaterialGraph::~MaterialGraph()

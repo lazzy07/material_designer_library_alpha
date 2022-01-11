@@ -21,7 +21,7 @@ namespace MATD{
 
       static Napi::Function GetClass(Napi::Env env);
     private:
-      MATD::CORE::MaterialDesigner* matd;
+      MATD::CORE::MaterialDesigner* m_Matd;
     };
   }
 }

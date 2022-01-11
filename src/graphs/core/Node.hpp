@@ -5,11 +5,12 @@
 
 namespace MATD{
   namespace GRAPH{
-    class MaterialGraph;
+    class Graph;
 
     class Node{
     public:
-      Node(MaterialGraph* graph, JSON JSONObj);
+
+      Node(Graph* graph, JSON JSONObj);
       ~Node();
 
       virtual void Init() = 0;
@@ -18,15 +19,19 @@ namespace MATD{
 
 			inline std::vector<Ref<Node>>* GetOutputs() { return &m_Outputs; };
 			inline std::vector<Ref<Node>>* GetInputs() { return &m_Inputs; };
+			inline const MATD::JSON* GetJSON() { return &m_JSON; };
+
+			inline const Ref<MATD::FUNC::Function>* GetFunction() { return &m_Function; };
+			inline void SetFunction(Ref<MATD::FUNC::Function> function) { m_Function = function; };
 
       Ref<Node> GetInput(int id);
 			Ref<Node> GetOutput(int id);
 
       inline int GetID() { return m_ID; };
-      inline int SetID(int id) { m_ID = id; };
+      inline void SetID(int id) { m_ID = id; };
 
     private:
-      MaterialGraph* m_MaterialGraph;
+      Graph* m_Graph;
       MATD::JSON m_JSON;
       int m_ID;
 
