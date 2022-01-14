@@ -9,9 +9,8 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 	JSON data = JSONObj["data"];
 	if (dataType == "number") {
 		Number1* mem = (Number1*)malloc(sizeof(Number1));
-		float num = data.get<float>();
+		*mem = data.get<float>();
 
-		*mem = num;
 		return std::make_shared<Argument>(id, DATA_TYPES::NUMBER1, mem);
 	}
 	else if (dataType == "number2") {
@@ -27,9 +26,8 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 	}
 	else if (dataType == "colorvec") {
 		ColorVec1* mem = (ColorVec1*)malloc(sizeof(ColorVec1));
-		float num = data.get<float>();
+		*mem = data.get<float>();
 
-		*mem = num;
 		return std::make_shared<Argument>(id, DATA_TYPES::COLORVEC1, mem);
 	}
 	else if (dataType == "colorvec3") {
@@ -54,14 +52,16 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 	else if (dataType == "boolean") {
 		bool* mem = (bool*)malloc(sizeof(bool));
 
-		bool num1 = data.get<bool>();
-		*mem = num1;
+		if (mem) {
+			*mem = data.get<bool>();
+		}
+
 		return std::make_shared<Argument>(id, DATA_TYPES::COLORVEC3, mem);
 	}
 	else if (dataType == "string") {
 
 	}
-
+	MATD_CORE_WARN("Unknown type of Argument Recieved");
 	return nullptr;
 }
 

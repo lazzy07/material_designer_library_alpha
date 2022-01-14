@@ -4,7 +4,12 @@
 
 MATD::Ref<MATD::FUNC::Function> MATD::FUNC::Function::FunctionFactory(MATD::GRAPH::Node* node, const std::string& initialID, MATD::JSON JSONObj)
 {
-	if (initialID == "1") {
+	if (initialID == "1" || initialID == "2") {
+		auto func = std::make_shared<MATD::FUNC::DATA::INPUT::Number1Input>(node);
+		func->Init(JSONObj);
+		return func;
+	}
+	else if (initialID == "3") {
 		auto func = std::make_shared<MATD::FUNC::DATA::INPUT::Number1Input>(node);
 		func->Init(JSONObj);
 		return func;
