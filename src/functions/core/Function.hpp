@@ -14,7 +14,6 @@ namespace MATD{
   namespace FUNC{
     class Function{
     public:
-			static Ref<FUNC::Function> FunctionFactory(MATD::GRAPH::Node* node, const std::string& initialID, MATD::JSON JSONObj);
 
       Function(MATD::GRAPH::Node* node);
       ~Function();

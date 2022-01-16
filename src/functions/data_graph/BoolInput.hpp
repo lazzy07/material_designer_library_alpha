@@ -5,9 +5,9 @@ namespace MATD {
 	namespace FUNC {
 		namespace DATA {
 			namespace INPUT {
-				class BooleanInput : public DataPrimitiveFunction {
+				class BoolInput : public DataPrimitiveFunction {
 				public:
-					BooleanInput(MATD::GRAPH::Node* node);
+					BoolInput(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
 					virtual void Update() override;

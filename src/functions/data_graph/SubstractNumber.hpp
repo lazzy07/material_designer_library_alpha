@@ -7,7 +7,7 @@ namespace MATD {
 			namespace PROCESS {
 				class SubstractNumber : public DataPrimitiveFunction {
 				public:
-					Colorvec1Input(MATD::GRAPH::Node* node);
+					SubstractNumber(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
 					virtual void Update() override;
