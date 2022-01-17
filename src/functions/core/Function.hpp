@@ -28,9 +28,13 @@ namespace MATD{
       inline std::map<std::string, Ref<MATD::FUNC::Argument>>* GetArguments() { return &m_Arguments; };
       inline Ref<MATD::FUNC::Argument> GetArgument(const std::string& id) { return m_Arguments[id]; };
       void SetArgument(Ref<Argument> arg);
+
+      inline Ref<Argument> GetOutput() { return m_Output; };
+
     private:
       MATD::GRAPH::Node* m_Node;
       std::map<std::string, Ref<MATD::FUNC::Argument>> m_Arguments;
+      Ref<Argument> m_Output;
     };
   }
 }
