@@ -1,3 +1,3 @@
 #pragma once
 
-#include "Number1Input.hpp"
+#include "Num1Input.hpp"
