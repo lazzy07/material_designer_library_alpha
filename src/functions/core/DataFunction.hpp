@@ -3,8 +3,11 @@
 
 namespace MATD{
   namespace FUNC{
+
     class DataFunction : public Function {
     public:
+			static Ref<FUNC::DataFunction> FunctionFactory(MATD::GRAPH::Node* node, const std::string& initialID, MATD::JSON JSONObj);
+
       DataFunction(MATD::GRAPH::Node* node);
       ~DataFunction();
 

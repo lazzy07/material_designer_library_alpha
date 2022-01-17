@@ -1,4 +1,5 @@
 #include "Node.hpp"
+#include "Socket.hpp"
 
 MATD::GRAPH::Node::Node(MATD::GRAPH::Graph* graph, MATD::JSON JSONObj)
 {
@@ -20,24 +21,12 @@ bool MATD::GRAPH::Node::ShouldUpdate(MATD::JSON JSONObj)
   }
 }
 
-MATD::Ref<MATD::GRAPH::Node> MATD::GRAPH::Node::GetInput(int id)
+MATD::Ref<MATD::GRAPH::InputSocket> MATD::GRAPH::Node::GetInput(const std::string& id)
 {
-  for (auto element : m_Inputs) {
-    if (element->GetID() == id) {
-      return element;
-    }
-  }
-
-  return nullptr;
+  return m_Inputs[id];
 }
 
-MATD::Ref<MATD::GRAPH::Node> MATD::GRAPH::Node::GetOutput(int id)
+MATD::Ref<MATD::GRAPH::OutputSocket> MATD::GRAPH::Node::GetOutput()
 {
-  for (auto element : m_Outputs) {
-    if (element->GetID() == id) {
-      return element;
-    }
-  }
-
-  return nullptr;
+  return m_Output;
 }

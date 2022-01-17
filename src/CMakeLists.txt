@@ -121,6 +121,7 @@ target_include_directories(${PROJECT_NAME}
   PRIVATE ../vendor/opencl/include
   PUBLIC ../vendor/json/include
   PUBLIC ../vendor/spdlog-1.8.5/include
+  PUBLIC ../vendor/uuid/include
 )
 
 target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/../vendor/opencl/lib/x86_64/OpenCL.lib )
