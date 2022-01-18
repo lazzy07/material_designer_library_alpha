@@ -1,3 +1,33 @@
 #pragma once
 
+#include "AddNumber.hpp"
+#include "BoolInput.hpp"
+#include "BoolToNum1.hpp"
+#include "Col1ToNum1.hpp"
+#include "Col3ToNum1.hpp"
+#include "Colorvec1Input.hpp"
+#include "Colorvec3Input.hpp"
+#include "DivideNumber.hpp"
+#include "Lut1Input.hpp"
+#include "Lut3Input.hpp"
+#include "MultiplyNumber.hpp"
 #include "Num1Input.hpp"
+#include "Num1ToBool.hpp"
+#include "Num1ToCol1.hpp"
+#include "Num1ToCol3.hpp"
+#include "Num1ToNum2.hpp"
+#include "Num2Input.hpp"
+#include "Num2ToNum1.hpp"
+#include "OutputBool.hpp"
+#include "OutputCol1.hpp"
+#include "OutputCol3.hpp"
+#include "OutputLut1.hpp"
+#include "OutputLut3.hpp"
+#include "OutputNum1.hpp"
+#include "OutputNum1.hpp"
+#include "PowerNumber.hpp"
+#include "SqrtNumber.hpp"
+#include "SubstractNumber.hpp"
+
+
+
