@@ -27,10 +27,3 @@ void MATD::FUNC::DATA::PROCESS::DivideNumber::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::PROCESS::DivideNumber::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::DivideNumber::OnComplete()
-{
-}

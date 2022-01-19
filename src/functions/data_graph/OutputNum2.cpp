@@ -22,10 +22,3 @@ void MATD::FUNC::DATA::OUTPUT::OutputNum2::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::OUTPUT::OutputNum2::Update()
-{
-}
-
-void MATD::FUNC::DATA::OUTPUT::OutputNum2::OnComplete()
-{
-}

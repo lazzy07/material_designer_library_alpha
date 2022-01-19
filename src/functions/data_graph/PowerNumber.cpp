@@ -26,11 +26,3 @@ MATD::FUNC::DATA::PROCESS::PowerNumber::PowerNumber(MATD::GRAPH::Node* node) : D
 void MATD::FUNC::DATA::PROCESS::PowerNumber::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::PROCESS::PowerNumber::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::PowerNumber::OnComplete()
-{
-}

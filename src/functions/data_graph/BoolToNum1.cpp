@@ -22,10 +22,3 @@ void MATD::FUNC::DATA::PROCESS::BoolToNum1::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::PROCESS::BoolToNum1::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::BoolToNum1::OnComplete()
-{
-}

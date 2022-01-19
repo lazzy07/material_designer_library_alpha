@@ -21,11 +21,3 @@ MATD::FUNC::DATA::OUTPUT::OutputLut1::OutputLut1(MATD::GRAPH::Node* node) : Data
 void MATD::FUNC::DATA::OUTPUT::OutputLut1::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::OUTPUT::OutputLut1::Update()
-{
-}
-
-void MATD::FUNC::DATA::OUTPUT::OutputLut1::OnComplete()
-{
-}

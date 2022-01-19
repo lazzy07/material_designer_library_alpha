@@ -12,11 +12,3 @@ MATD::FUNC::DATA::INPUT::BoolInput::BoolInput(MATD::GRAPH::Node* node) : DataPri
 void MATD::FUNC::DATA::INPUT::BoolInput::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::INPUT::BoolInput::Update()
-{
-}
-
-void MATD::FUNC::DATA::INPUT::BoolInput::OnComplete()
-{
-}

@@ -21,11 +21,3 @@ MATD::FUNC::DATA::OUTPUT::OutputNum1::OutputNum1(MATD::GRAPH::Node* node) : Data
 void MATD::FUNC::DATA::OUTPUT::OutputNum1::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::OUTPUT::OutputNum1::Update()
-{
-}
-
-void MATD::FUNC::DATA::OUTPUT::OutputNum1::OnComplete()
-{
-}

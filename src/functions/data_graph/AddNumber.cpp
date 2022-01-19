@@ -26,11 +26,3 @@ MATD::FUNC::DATA::PROCESS::AddNumber1::AddNumber1(MATD::GRAPH::Node* node) : Dat
 void MATD::FUNC::DATA::PROCESS::AddNumber1::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::PROCESS::AddNumber1::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::AddNumber1::OnComplete()
-{
-}

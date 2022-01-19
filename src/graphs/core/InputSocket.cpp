@@ -27,3 +27,15 @@ MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::InputSocket::GetArgument()
 		return m_Connection->GetInput()->GetArgument();
 	}
 }
+
+bool MATD::GRAPH::InputSocket::GetUpdateStatus()
+{
+	auto connection = this->GetConnection("");
+	if (connection) {
+		auto input = connection->GetInput();
+		return input->GetUpdateStatus();
+	}
+	else {
+		return true;
+	}
+}

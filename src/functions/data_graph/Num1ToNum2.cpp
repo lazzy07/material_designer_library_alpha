@@ -26,11 +26,3 @@ MATD::FUNC::DATA::PROCESS::Num1ToNum2::Num1ToNum2(MATD::GRAPH::Node* node) : Dat
 void MATD::FUNC::DATA::PROCESS::Num1ToNum2::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::PROCESS::Num1ToNum2::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::Num1ToNum2::OnComplete()
-{
-}

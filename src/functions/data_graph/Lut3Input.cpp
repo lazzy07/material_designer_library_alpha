@@ -13,10 +13,3 @@ void MATD::FUNC::DATA::INPUT::Lut3Input::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::INPUT::Lut3Input::Update()
-{
-}
-
-void MATD::FUNC::DATA::INPUT::Lut3Input::OnComplete()
-{
-}

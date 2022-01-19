@@ -27,10 +27,3 @@ void MATD::FUNC::DATA::PROCESS::MultiplyNumber::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::PROCESS::MultiplyNumber::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::MultiplyNumber::OnComplete()
-{
-}

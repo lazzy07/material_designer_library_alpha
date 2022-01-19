@@ -18,9 +18,12 @@ namespace MATD{
       virtual Ref<Connection> GetConnection(const std::string& id) = 0;
       virtual int NoOfConnections() = 0;
 			virtual Ref<FUNC::Argument> GetArgument() = 0;
+
+			virtual bool GetUpdateStatus() = 0;
     private:
       std::string m_ID;
       Node* m_Node;
+
     };
   }
 }

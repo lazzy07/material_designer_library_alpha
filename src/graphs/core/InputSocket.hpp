@@ -10,7 +10,7 @@ namespace MATD{
       inline virtual Ref<Connection> GetConnection(const std::string&) override { return m_Connection; };
       virtual int NoOfConnections() override;
 			virtual Ref<FUNC::Argument> GetArgument() override;
-
+      bool GetUpdateStatus() override;
     private:
 			Ref<Connection> m_Connection;
 			Ref<MATD::FUNC::Argument> m_Argument;

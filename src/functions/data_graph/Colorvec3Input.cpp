@@ -13,10 +13,3 @@ void MATD::FUNC::DATA::INPUT::Colorvec3Input::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::INPUT::Colorvec3Input::Update()
-{
-}
-
-void MATD::FUNC::DATA::INPUT::Colorvec3Input::OnComplete()
-{
-}

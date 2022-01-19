@@ -21,11 +21,3 @@ MATD::FUNC::DATA::OUTPUT::OutputCol3::OutputCol3(MATD::GRAPH::Node* node) : Data
 void MATD::FUNC::DATA::OUTPUT::OutputCol3::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::OUTPUT::OutputCol3::Update()
-{
-}
-
-void MATD::FUNC::DATA::OUTPUT::OutputCol3::OnComplete()
-{
-}

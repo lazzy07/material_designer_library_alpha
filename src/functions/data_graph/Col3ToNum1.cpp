@@ -22,10 +22,3 @@ void MATD::FUNC::DATA::PROCESS::Col3ToNum1::Calculate()
 {
 }
 
-void MATD::FUNC::DATA::PROCESS::Col3ToNum1::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::Col3ToNum1::OnComplete()
-{
-}

@@ -26,11 +26,3 @@ MATD::FUNC::DATA::PROCESS::SqrtNumber::SqrtNumber(MATD::GRAPH::Node* node) : Dat
 void MATD::FUNC::DATA::PROCESS::SqrtNumber::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::PROCESS::SqrtNumber::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::SqrtNumber::OnComplete()
-{
-}

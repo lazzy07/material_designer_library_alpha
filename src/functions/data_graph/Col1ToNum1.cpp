@@ -21,11 +21,3 @@ MATD::FUNC::DATA::PROCESS::Col1ToNum1::Col1ToNum1(MATD::GRAPH::Node* node) : Dat
 void MATD::FUNC::DATA::PROCESS::Col1ToNum1::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::PROCESS::Col1ToNum1::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::Col1ToNum1::OnComplete()
-{
-}

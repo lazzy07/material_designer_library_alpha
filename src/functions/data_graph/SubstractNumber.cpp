@@ -26,11 +26,3 @@ MATD::FUNC::DATA::PROCESS::SubstractNumber::SubstractNumber(MATD::GRAPH::Node* n
 void MATD::FUNC::DATA::PROCESS::SubstractNumber::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::PROCESS::SubstractNumber::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::SubstractNumber::OnComplete()
-{
-}

@@ -14,11 +14,3 @@ MATD::FUNC::DATA::INPUT::Num2Input::Num2Input(MATD::GRAPH::Node* node) : DataPri
 void MATD::FUNC::DATA::INPUT::Num2Input::Calculate()
 {
 }
-
-void MATD::FUNC::DATA::INPUT::Num2Input::Update()
-{
-}
-
-void MATD::FUNC::DATA::INPUT::Num2Input::OnComplete()
-{
-}
