@@ -8,13 +8,8 @@ MATD::FUNC::DATA::PROCESS::Num2ToNum1::Num2ToNum1(MATD::GRAPH::Node* node) : Dat
 	MATD_CORE_TRACE("MATD::FUNC Num2ToNum1 function created");
 
 	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("2711")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->SetOutputSocket(uuid.str(), std::make_shared<MATD::GRAPH::OutputSocket>(uuid.str(), node));
+		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2711")));
+		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 

@@ -8,6 +8,8 @@ namespace MATD{
       InputSocket(std::string id, Node* node, Ref<MATD::FUNC::Argument> argument);
 			~InputSocket();
       inline virtual Ref<Connection> GetConnection(const std::string&) override { return m_Connection; };
+			virtual void AddConnection(Ref<Connection> connection) override;
+
       virtual int NoOfConnections() override;
 			virtual Ref<FUNC::Argument> GetArgument() override;
       bool GetUpdateStatus() override;

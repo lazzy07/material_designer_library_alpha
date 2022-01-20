@@ -164,7 +164,7 @@ MATD::FUNC::DataFunction::~DataFunction()
 }
 
 
-void MATD::FUNC::DATA::INPUT::DataFunction::Update()
+void MATD::FUNC::DataFunction::Update()
 {
 	{
 		auto output = this->GetNode()->GetOutput();
@@ -175,7 +175,7 @@ void MATD::FUNC::DATA::INPUT::DataFunction::Update()
 	this->OnComplete();
 }
 
-void MATD::FUNC::DATA::INPUT::DataFunction::OnComplete()
+void MATD::FUNC::DataFunction::OnComplete()
 {
 	auto output = this->GetNode()->GetOutput();
 	output->SetUpdateStatus(true);

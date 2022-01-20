@@ -6,8 +6,7 @@ MATD::FUNC::DATA::INPUT::Num2Input::Num2Input(MATD::GRAPH::Node* node) : DataPri
 {
 	MATD_CORE_TRACE("MATD::FUNC Num2Input function created");
 	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->SetOutputSocket(uuid.str(), std::make_shared<MATD::GRAPH::OutputSocket>(uuid.str(), node));
+		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 
