@@ -24,7 +24,7 @@
 #include "OutputLut1.hpp"
 #include "OutputLut3.hpp"
 #include "OutputNum1.hpp"
-#include "OutputNum1.hpp"
+#include "OutputNum2.hpp"
 #include "PowerNumber.hpp"
 #include "SqrtNumber.hpp"
 #include "SubstractNumber.hpp"

@@ -8,29 +8,12 @@ MATD::FUNC::DATA::PROCESS::AddNumber1::AddNumber1(MATD::GRAPH::Node* node) : Dat
 	MATD_CORE_TRACE("MATD::FUNC AddNumber function created");
 
 	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("1411")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("1412")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->SetOutputSocket(uuid.str(), std::make_shared<MATD::GRAPH::OutputSocket>(uuid.str(), node));
+		node->AddInputSocket("", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("1411")));
+		node->AddInputSocket("", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("1412")));
+		node->SetOutputSocket("", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 
 void MATD::FUNC::DATA::PROCESS::AddNumber1::Calculate()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::AddNumber1::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::AddNumber1::OnComplete()
 {
 }

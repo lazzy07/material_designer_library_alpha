@@ -10,9 +10,6 @@ namespace MATD {
 					BoolInput(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
-					virtual void Update() override;
-
-					virtual void OnComplete() override;
 				};
 			}
 		}

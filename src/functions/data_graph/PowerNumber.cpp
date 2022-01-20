@@ -8,29 +8,12 @@ MATD::FUNC::DATA::PROCESS::PowerNumber::PowerNumber(MATD::GRAPH::Node* node) : D
 	MATD_CORE_TRACE("MATD::FUNC PowerNumber function created");
 
 	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("1811")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("1812")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->SetOutputSocket(uuid.str(), std::make_shared<MATD::GRAPH::OutputSocket>(uuid.str(), node));
+		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("1811")));
+		node->AddInputSocket("2", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("1812")));
+		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 
 void MATD::FUNC::DATA::PROCESS::PowerNumber::Calculate()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::PowerNumber::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::PowerNumber::OnComplete()
 {
 }

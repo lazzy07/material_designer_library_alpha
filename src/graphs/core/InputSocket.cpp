@@ -18,6 +18,11 @@ inline int MATD::GRAPH::InputSocket::NoOfConnections()
 	return 0;
 }
 
+void MATD::GRAPH::InputSocket::AddConnection(Ref<MATD::GRAPH::Connection> connection)
+{
+	m_Connection = connection;
+}
+
 MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::InputSocket::GetArgument()
 {
 	if (this->NoOfConnections() == 0) {
@@ -25,5 +30,17 @@ MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::InputSocket::GetArgument()
 	}
 	else {
 		return m_Connection->GetInput()->GetArgument();
+	}
+}
+
+bool MATD::GRAPH::InputSocket::GetUpdateStatus()
+{
+	auto connection = this->GetConnection("");
+	if (connection) {
+		auto input = connection->GetInput();
+		return input->GetUpdateStatus();
+	}
+	else {
+		return true;
 	}
 }

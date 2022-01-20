@@ -16,11 +16,15 @@ namespace MATD{
       inline const std::string& GetID() { return m_ID; };
       inline Node* GetNode() { return m_Node; };
       virtual Ref<Connection> GetConnection(const std::string& id) = 0;
+      virtual void AddConnection(Ref<Connection> connection) = 0;
       virtual int NoOfConnections() = 0;
 			virtual Ref<FUNC::Argument> GetArgument() = 0;
+
+			virtual bool GetUpdateStatus() = 0;
     private:
       std::string m_ID;
       Node* m_Node;
+
     };
   }
 }

@@ -9,28 +9,12 @@ MATD::FUNC::DATA::PROCESS::Num1ToNum2::Num1ToNum2(MATD::GRAPH::Node* node) : Dat
 
 	{
 		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("2611")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->AddInputSocket(uuid.str(), std::make_shared<MATD::GRAPH::InputSocket>(uuid.str(), node, GetArgument("2612")));
-	}
-
-	{
-		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
-		node->SetOutputSocket(uuid.str(), std::make_shared<MATD::GRAPH::OutputSocket>(uuid.str(), node));
+		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2611")));
+		node->AddInputSocket("2", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("2612")));
+		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 
 void MATD::FUNC::DATA::PROCESS::Num1ToNum2::Calculate()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::Num1ToNum2::Update()
-{
-}
-
-void MATD::FUNC::DATA::PROCESS::Num1ToNum2::OnComplete()
 {
 }
