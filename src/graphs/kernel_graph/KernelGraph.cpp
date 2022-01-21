@@ -14,18 +14,6 @@ void MATD::GRAPH::KernelGraph::CreateNode(MATD::JSON JSONObj)
 {
 }
 
-void MATD::GRAPH::KernelGraph::RemoveNode(MATD::JSON JSONObj)
-{
-}
-
-void MATD::GRAPH::KernelGraph::AddConnection(MATD::JSON JSONObj)
-{
-}
-
-void MATD::GRAPH::KernelGraph::RemoveConnection(MATD::JSON JSONObj)
-{
-}
-
 void MATD::GRAPH::KernelGraph::Update(MATD::JSON JSONObj)
 {
 }

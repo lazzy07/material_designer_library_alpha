@@ -3,12 +3,12 @@
 
 MATD::CORE::JSONParser::JSONParser()
 {
-	MATD_CORE_TRACE("JSON_PARSER:: JSON parser initialized");
+	MATD_CORE_INFO("JSON_PARSER:: JSON parser initialized");
 }
 
 MATD::CORE::JSONParser::~JSONParser()
 {
-	MATD_CORE_TRACE("JSON_PARSER:: Destroyed");
+	MATD_CORE_INFO("JSON_PARSER:: Destroyed");
 }
 
 MATD::JSON MATD::CORE::JSONParser::ParseJSON(const std::string& JSONString)
