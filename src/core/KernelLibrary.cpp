@@ -6,7 +6,7 @@ namespace MATD {
 	namespace CORE {
 		KernelLibrary::KernelLibrary()
 		{
-			MATD_CORE_TRACE("MATD_KERNEL_LIB::Initialized");
+			MATD_CORE_INFO("MATD_KERNEL_LIB::Initialized");
 		}
 
 		inline void KernelLibrary::AddKernel(MATD::Kernel* kernel)

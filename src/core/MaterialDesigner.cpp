@@ -17,7 +17,7 @@ void MATD::CORE::MaterialDesigner::SetKenelLibraryFolder(const std::string& path
 MATD::CORE::MaterialDesigner::MaterialDesigner(){
 	Log::Init();
 	MATD_CORE_INFO("MATIREAL_DESIGNER::Engine Started");
-	MATD_CORE_TRACE("LOGGER::Initialized");
+	MATD_CORE_INFO("LOGGER::Initialized");
 	EngineManager::SelectEngine(SUPPORTED_ENGINES::OPEN_CL);
 	m_KernelLibrary = std::make_shared<MATD::CORE::KernelLibrary>();
 };

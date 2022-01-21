@@ -67,7 +67,7 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 
 MATD::FUNC::Argument::Argument(std::string id, MATD::DATA_TYPES dataType, void* data) : m_ID(id), m_DataType(dataType), m_Data(data)
 {
-	MATD_CORE_TRACE("Argument created ID:{}", this->m_ID);
+	MATD_CORE_TRACE("MATD::FUNC Argument created ID:{}", this->m_ID);
 }
 
 MATD::FUNC::Argument::~Argument()

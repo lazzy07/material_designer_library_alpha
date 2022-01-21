@@ -16,6 +16,11 @@ void MATD::GRAPH::OutputSocket::AddConnection(Ref<MATD::GRAPH::Connection> conne
 	m_Connections[id] = connection;
 }
 
+void MATD::GRAPH::OutputSocket::RemoveConnection(const std::string& id)
+{
+	m_Connections.erase(id);
+}
+
 MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::OutputSocket::GetArgument()
 {
 	return this->GetNode()->GetFunction()->get()->GetOutput();

@@ -26,7 +26,12 @@ namespace MATD{
         void UpdateProject(const std::string& JSONString);
 
         void SetSelectedGraph(const std::string& graphID);
-        void UpdateGraph(const std::string& JSONString);
+
+				void CreateNode(const std::string& JSONString);
+				void RemoveNode(const std::string& JSONString);
+				void AddConnection(const std::string& JSONString);
+				void RemoveConnection(const std::string& JSONString);
+				void Update(const std::string& JSONString);
 
         inline const Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
     private:

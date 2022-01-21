@@ -9,6 +9,7 @@ namespace MATD{
 			~OutputSocket();
 			inline virtual Ref<Connection> GetConnection(const std::string& id) override { return m_Connections[id]; };
 			virtual void AddConnection(Ref<Connection> connection) override;
+			virtual void RemoveConnection(const std::string& id) override;
 
 			inline virtual int NoOfConnections() override { return m_Connections.size(); };
 			virtual Ref<FUNC::Argument> GetArgument() override;

@@ -8,7 +8,7 @@ namespace MATD{
   namespace GRAPH{
     class Connection{
     public:
-      Connection(const std::string& id, Ref<MATD::GRAPH::InputSocket> input, Ref<MATD::GRAPH::OutputSocket> output);
+      Connection(std::string id, Ref<MATD::GRAPH::InputSocket> input, Ref<MATD::GRAPH::OutputSocket> output);
       ~Connection();
       inline Ref<MATD::GRAPH::InputSocket> GetInput() { return m_Input; };
       inline Ref<MATD::GRAPH::OutputSocket> GetOutput() { return m_Output; };

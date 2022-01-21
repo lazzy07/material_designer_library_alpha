@@ -2,7 +2,7 @@
 
 MATD::GRAPH::MaterialProject::MaterialProject()
 {
-	MATD_CORE_TRACE("MATD::GRAPH:: A new project created");
+	MATD_CORE_INFO("MATD::GRAPH:: A new project created");
 	this->m_JSONParser = std::make_shared<MATD::CORE::JSONParser>();
 }
 
@@ -56,7 +56,7 @@ void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& data)
 	}
 	else {
 		this->m_SelectedMaterialGraph = selectedGraph->second;
-		MATD_CORE_TRACE("MATD::GRAPH:: Selected MaterialGraph Change, Graph ID: {} Type: {}", m_SelectedMaterialGraph->GetID(), graphType);
+		MATD_CORE_INFO("MATD::GRAPH:: Selected MaterialGraph Changed, Graph ID: {} Type: {}", m_SelectedMaterialGraph->GetID(), graphType);
 	}
 }
 

@@ -23,6 +23,11 @@ void MATD::GRAPH::InputSocket::AddConnection(Ref<MATD::GRAPH::Connection> connec
 	m_Connection = connection;
 }
 
+void MATD::GRAPH::InputSocket::RemoveConnection(const std::string& id)
+{
+	m_Connection = nullptr;
+}
+
 MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::InputSocket::GetArgument()
 {
 	if (this->NoOfConnections() == 0) {

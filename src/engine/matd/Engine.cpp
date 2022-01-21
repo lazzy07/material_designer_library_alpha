@@ -11,7 +11,7 @@ namespace MATD{
 
       switch(context){
         case CORE::SUPPORTED_ENGINES::OPEN_CL:
-            MATD_CORE_TRACE("MATD_ENGINE::Created engine with OpenCL");
+            MATD_CORE_INFO("MATD_ENGINE::Created engine with OpenCL");
             return std::make_shared<ENGINE::OPENCL::Engine>();
           break;
 
