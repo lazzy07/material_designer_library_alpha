@@ -10,6 +10,7 @@ namespace MATD {
 					OutputLut1(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
+					virtual void SetSocketArguments() override;
 				};
 			}
 		}

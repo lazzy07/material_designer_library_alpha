@@ -10,6 +10,7 @@ namespace MATD{
 
 			virtual void Init(MATD::JSON JSONObj) override;
 			virtual void Calculate() = 0;
+			virtual void SetSocketArguments() = 0;
     };
   }
 }

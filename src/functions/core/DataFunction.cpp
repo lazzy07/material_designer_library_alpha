@@ -5,7 +5,6 @@ MATD::Ref<MATD::FUNC::DataFunction> MATD::FUNC::DataFunction::FunctionFactory(MA
 {
 	if (initialID == "1" || initialID == "2" || initialID == "6" || initialID == "8") {
 		auto func = std::make_shared<MATD::FUNC::DATA::INPUT::Num1Input>(node);
-
 		func->Init(JSONObj);
 		return func;
 	}
@@ -179,4 +178,5 @@ void MATD::FUNC::DataFunction::OnComplete()
 {
 	auto output = this->GetNode()->GetOutput();
 	output->SetUpdateStatus(true);
+	output->Update();
 }

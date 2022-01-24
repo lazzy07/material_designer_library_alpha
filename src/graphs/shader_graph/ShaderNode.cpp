@@ -9,6 +9,6 @@ MATD::GRAPH::ShaderNode::~ShaderNode()
 {
 }
 
-void MATD::GRAPH::ShaderNode::Update(JSON JSONObj)
+void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj)
 {
 }

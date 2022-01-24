@@ -25,3 +25,10 @@ MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::OutputSocket::GetArgument()
 {
 	return this->GetNode()->GetFunction()->get()->GetOutput();
 }
+
+inline void MATD::GRAPH::OutputSocket::Update()
+{
+	for (auto elem : this->m_Connections) {
+		elem.second->Update();
+	}
+}

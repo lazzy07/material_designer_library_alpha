@@ -15,4 +15,6 @@ void MATD::FUNC::DataPrimitiveFunction::Init(MATD::JSON JSONObj)
 		auto arg = MATD::FUNC::Argument::ArgumentFactory(*it);
 		this->SetArgument(arg);
 	}
+
+	this->SetSocketArguments();
 }

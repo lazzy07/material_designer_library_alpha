@@ -8,7 +8,7 @@ namespace MATD{
       DataNode(Graph* graph, JSON JSONObj);
       ~DataNode();
 			virtual void Init() override;
-      virtual void Update(JSON JSONObj) override;
+      virtual void UpdateParameters(JSON JSONObj) override;
     };
   }
 }
