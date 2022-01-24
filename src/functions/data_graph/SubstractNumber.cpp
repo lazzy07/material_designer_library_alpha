@@ -6,6 +6,15 @@
 MATD::FUNC::DATA::PROCESS::SubstractNumber::SubstractNumber(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC SubstractNumber function created");
+}
+
+void MATD::FUNC::DATA::PROCESS::SubstractNumber::Calculate()
+{
+}
+
+void MATD::FUNC::DATA::PROCESS::SubstractNumber::SetSocketArguments()
+{
+	auto node = this->GetNode();
 
 	{
 		MATD::UUID uuid = MATD::CORE::UUIDGenerator::GenerateUUID();
@@ -13,8 +22,4 @@ MATD::FUNC::DATA::PROCESS::SubstractNumber::SubstractNumber(MATD::GRAPH::Node* n
 		node->AddInputSocket("2", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("1512")));
 		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
-}
-
-void MATD::FUNC::DATA::PROCESS::SubstractNumber::Calculate()
-{
 }

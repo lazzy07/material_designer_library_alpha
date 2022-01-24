@@ -14,6 +14,8 @@ namespace MATD{
       inline Ref<MATD::GRAPH::OutputSocket> GetOutput() { return m_Output; };
 
       inline const std::string& GetID() { return m_ID; };
+
+      void Update();
     private:
       std::string m_ID;
 

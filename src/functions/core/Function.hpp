@@ -23,13 +23,13 @@ namespace MATD{
       virtual void Update() = 0;
 
       virtual void OnComplete() = 0;
-
       inline GRAPH::Node* GetNode() { return m_Node; };
       inline std::map<std::string, Ref<MATD::FUNC::Argument>>* GetArguments() { return &m_Arguments; };
       inline Ref<MATD::FUNC::Argument> GetArgument(const std::string& id) { return m_Arguments[id]; };
       void SetArgument(Ref<Argument> arg);
 
-      inline Ref<Argument> GetOutput() { return m_Output; };
+			inline Ref<Argument> GetOutput() { return m_Output; };
+			inline void SetOutput(Ref<Argument> output) { m_Output = output; };
 
     private:
       MATD::GRAPH::Node* m_Node;

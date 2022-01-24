@@ -15,8 +15,12 @@ namespace MATD {
 
 			inline const std::string& GetID() { return m_ID; };
 			inline const MATD::DATA_TYPES GetDataType() { return m_DataType; };
-			template<class T>
+
+			template <class T>
 			inline T* GetData() { return (T*)m_Data; };
+
+			template <class T>
+			inline void SetData(T data) { memcpy(m_Data, &data, sizeof(T)); };
 
 		private:
 			std::string m_ID;

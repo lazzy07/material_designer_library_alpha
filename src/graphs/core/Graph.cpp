@@ -38,6 +38,7 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 		outputSocket->AddConnection(connection);
 		inputSocket->AddConnection(connection);
 		this->AddToConnectionPool(connectionId, connection);
+		inputNode->GetFunction()->get()->Update();
 	}
 	else {
 		MATD_CORE_ERROR("Input/Output sockets cannot be null");

@@ -16,6 +16,7 @@ namespace MATD{
 
 			inline void SetUpdateStatus(bool status) { m_IsUpdated = status; };
 			inline bool GetUpdateStatus() override { return m_IsUpdated; };
+			inline void Update() override;
 		private:
 			std::map<std::string, Ref<Connection>> m_Connections;
 			bool m_IsUpdated;

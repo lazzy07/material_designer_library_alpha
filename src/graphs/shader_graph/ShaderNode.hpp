@@ -8,7 +8,7 @@ namespace MATD{
       ShaderNode(Graph* graph, JSON JSONObj);
       ~ShaderNode();
 
-      virtual void Update(JSON JSONObj) override;
+      virtual void UpdateParameters(JSON JSONObj) override;
     };
   }
 }

@@ -6,14 +6,41 @@
 MATD::FUNC::DATA::PROCESS::AddNumber1::AddNumber1(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC AddNumber function created");
-
-	{
-		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("1411")));
-		node->AddInputSocket("2", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("1412")));
-		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
-	}
 }
 
 void MATD::FUNC::DATA::PROCESS::AddNumber1::Calculate()
 {
+	auto num1Input = this->GetNode()->GetInput("1"); 
+	auto num2Input = this->GetNode()->GetInput("2"); 
+	
+	auto num1 = num1Input->GetArgument();
+	Number1 num1Val = *num1->GetData<float>();
+	auto num2 = num2Input->GetArgument();
+	Number1 num2Val = *num2->GetData<float>();
+
+
+	Number1 total = num1Val + num2Val;
+
+	MATD_CORE_TRACE("AddNumber values Num1: {} Num2: {} Total: {}", num1Val, num2Val, total);
+
+	this->GetOutput().get()->SetData<Number1>(total);
+}
+
+void MATD::FUNC::DATA::PROCESS::AddNumber1::SetSocketArguments()
+{
+	{
+		auto node = this->GetNode();
+		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("1411")));
+		node->AddInputSocket("2", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("1412")));
+		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
+
+		std::string argId = CORE::UUIDGenerator::GenerateUUID().str();
+		Number1* num = (Number1*)malloc(sizeof(Number1));
+
+		if (num) {
+			*num = 0;
+			Ref<Argument> arg = std::make_shared<Argument>(argId, MATD::DATA_TYPES::NUMBER1, num);
+			this->SetOutput(arg);
+		}
+	}
 }

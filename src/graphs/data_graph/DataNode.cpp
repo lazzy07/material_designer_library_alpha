@@ -25,6 +25,8 @@ void MATD::GRAPH::DataNode::Init()
 			//A primitive function
 			MATD::JSON dataArr = dGraphData["data"];
 			auto function = MATD::FUNC::DataPrimitiveFunction::FunctionFactory(this, initialID, dGraphData);
+			
+
 			this->SetFunction(function);
 			return;
 		}
@@ -33,6 +35,7 @@ void MATD::GRAPH::DataNode::Init()
 	MATD::JSON graphData = dGraphData["data"];
 }
 
-void MATD::GRAPH::DataNode::Update(JSON JSONObj)
+void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
 {
+
 }

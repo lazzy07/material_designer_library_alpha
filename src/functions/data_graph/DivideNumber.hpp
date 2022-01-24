@@ -10,6 +10,8 @@ namespace MATD {
 					DivideNumber(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
+					virtual void SetSocketArguments() override;
+
 				};
 			}
 		}

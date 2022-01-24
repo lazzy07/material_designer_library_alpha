@@ -9,7 +9,8 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 	JSON data = JSONObj["data"];
 	if (dataType == "number") {
 		Number1* mem = (Number1*)malloc(sizeof(Number1));
-		*mem = data.get<float>();
+		float val = data.get<float>();
+		memcpy(mem, &val, sizeof(Number1));
 
 		return std::make_shared<Argument>(id, DATA_TYPES::NUMBER1, mem);
 	}
@@ -37,9 +38,11 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 		float num2 = data.at(1).get<float>();
 		float num3 = data.at(2).get<float>();
 
-		mem->r = num1;
-		mem->g = num2;
-		mem->b = num3;
+		if (mem) {
+			mem->r = num1;
+			mem->g = num2;
+			mem->b = num3;
+		}
 
 		return std::make_shared<Argument>(id, DATA_TYPES::COLORVEC3, mem);
 	}

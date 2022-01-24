@@ -16,7 +16,7 @@ namespace MATD{
       ~Node();
 
       virtual void Init() = 0;
-      virtual void Update(MATD::JSON JSONObj) = 0;
+      virtual void UpdateParameters(MATD::JSON JSONObj) = 0;
       bool ShouldUpdate(MATD::JSON JSONObj);
 
 			inline std::map<std::string, Ref<InputSocket>>* GetInputs() { return &m_Inputs; };

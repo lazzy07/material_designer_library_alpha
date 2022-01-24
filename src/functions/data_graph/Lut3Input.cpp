@@ -6,12 +6,18 @@ MATD::FUNC::DATA::INPUT::Lut3Input::Lut3Input(MATD::GRAPH::Node* node) : DataPri
 {
 	MATD_CORE_TRACE("MATD::FUNC Lut3Input function created");
 
-	{
-		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
-	}
 }
 
 void MATD::FUNC::DATA::INPUT::Lut3Input::Calculate()
 {
+}
+
+void MATD::FUNC::DATA::INPUT::Lut3Input::SetSocketArguments()
+{
+	auto node = this->GetNode();
+
+	{
+		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
+	}
 }
 

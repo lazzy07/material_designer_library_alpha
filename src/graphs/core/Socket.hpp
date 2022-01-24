@@ -22,6 +22,8 @@ namespace MATD{
 			virtual Ref<FUNC::Argument> GetArgument() = 0;
 
 			virtual bool GetUpdateStatus() = 0;
+
+      virtual void Update() = 0;
     private:
       std::string m_ID;
       Node* m_Node;
