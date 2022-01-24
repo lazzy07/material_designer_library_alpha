@@ -22,5 +22,14 @@ void MATD::GRAPH::DataGraph::CreateNode(MATD::JSON JSONObj)
 
 void MATD::GRAPH::DataGraph::Update(MATD::JSON JSONObj)
 {
-	MATD_CORE_TRACE("Update {}", JSONObj);
+	MATD_CORE_INFO("MATD::GRAPH Parameter change recieved of DataGraph : {}", this->GetID());
+	MATD::JSON payload = JSONObj["payload"];
+	std::string selectedType = payload["selectedType"].get<std::string>();
+
+	int id = payload["data"]["id"].get<int>();
+	auto node = this->GetNode(id);
+
+	node->UpdateParameters(payload["data"]["data"]["dataGraph"]["data"]);
+
+	node->SetJSON(payload["data"]);
 }
