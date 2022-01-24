@@ -9,6 +9,7 @@ namespace MATD {
 		class Argument {
 		public:
 			static MATD::Ref<Argument> ArgumentFactory(MATD::JSON JSONObj);
+			static MATD::DATA_TYPES StringToArgumentType(std::string str);
 
 			Argument(std::string id, MATD::DATA_TYPES dataType, void* data);
 			~Argument();
@@ -21,6 +22,25 @@ namespace MATD {
 
 			template <class T>
 			inline void SetData(T data) { memcpy(m_Data, &data, sizeof(T)); };
+
+			/**
+			 * @param dataType Data type
+			 * @param data Data needs to be stored
+			 * This function will assign data using json information 
+						{
+							"id": "111",
+							"name": "Default Value",
+							"data": 1,
+							"dataType": "number",
+							"groups": {
+								"id": "1111",
+								"name": "Default"
+							},
+							"inputType": "input",
+							"type": ""
+						}
+			 */
+			void SetData(MATD::JSON JSONObj);
 
 		private:
 			std::string m_ID;

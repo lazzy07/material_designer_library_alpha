@@ -1,5 +1,6 @@
 #include "DataNode.hpp"
 #include "../../functions/core/DataPrimitiveFunction.hpp"
+#include "../../functions/core/Argument.hpp"
 
 MATD::GRAPH::DataNode::DataNode(Graph* graph,JSON JSONObj) : Node(graph, JSONObj)
 {
@@ -37,5 +38,13 @@ void MATD::GRAPH::DataNode::Init()
 
 void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
 {
+	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
+		MATD::JSON argData = it.value();
+		std::string id = argData["id"].get<std::string>();
+		auto arg = this->GetFunction()->get()->GetArgument(id);
 
+		arg->SetData(argData);
+		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
+	}
+	this->GetFunction()->get()->Update();
 }

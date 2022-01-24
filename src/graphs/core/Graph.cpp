@@ -49,16 +49,22 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 {
 	std::string connectionId = JSONObj["id"].get<std::string>();
+	MATD::Ref<InputSocket> inputSocket;
 	
-	Ref<MATD::GRAPH::Connection> connection = this->GetConnection(connectionId);
-	if (connection) {
-		connection->GetInput()->RemoveConnection(connectionId);
-		connection->GetOutput()->RemoveConnection(connectionId);
-		this->RemoveFromConnectionPool(connectionId);
+	{
+		Ref<MATD::GRAPH::Connection> connection = this->GetConnection(connectionId);
+		if (connection) {
+			connection->GetInput()->RemoveConnection(connectionId);
+			connection->GetOutput()->RemoveConnection(connectionId);
+			this->RemoveFromConnectionPool(connectionId);
+			inputSocket = connection->GetInput();
+		}
+		else {
+			MATD_CORE_ASSERT(false, "Connection not found");
+		}
 	}
-	else {
-		MATD_CORE_ASSERT(false, "Connection not found");
-	}
+	
+	inputSocket->GetNode()->GetFunction()->get()->Update();
 
 }
 

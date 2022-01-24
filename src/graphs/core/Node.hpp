@@ -24,6 +24,7 @@ namespace MATD{
 			inline void SetOutputSocket(std::string id, Ref<OutputSocket> socket) { m_Output = socket; };
 
 			inline const MATD::JSON* GetJSON() { return &m_JSON; };
+      inline void SetJSON(MATD::JSON JSONObj) { m_JSON = JSONObj; };
 
 			inline const Ref<MATD::FUNC::Function>* GetFunction() { return &m_Function; };
 			inline void SetFunction(Ref<MATD::FUNC::Function> function) { m_Function = function; };

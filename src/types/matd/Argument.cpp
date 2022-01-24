@@ -4,6 +4,7 @@
 #include "../vendor/opencl/CLFloat.hpp"
 #include "../vendor/opencl/CLImage.hpp"
 #include "../vendor/opencl/CLBuffer.hpp"
+#include "..\..\functions\core\Argument.hpp"
 
 namespace MATD {
 	DTYPES::Argument::Argument(MAT_ARG type): m_Type(type) {

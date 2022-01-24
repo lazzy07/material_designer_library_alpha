@@ -97,8 +97,7 @@ void MATD::GRAPH::MaterialProject::RemoveConnection(const std::string& JSONStrin
 void MATD::GRAPH::MaterialProject::Update(const std::string& JSONString)
 {
 	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
-	auto selectedGraph = this->m_SelectedMaterialGraph;
-
+	
 	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
 	graph->Update(update);
 }
