@@ -29,12 +29,22 @@ namespace MATD {
 	};
 
 	struct Lut1 {
-		ColorVec1* stops;
+		Lut1Elem* stops;
 		size_t size;
 	};
 
 	struct Lut3 {
-		ColorVec3* stops;
+		Lut3Elem* stops;
 		size_t size;
+	};
+
+	struct Lut1Elem {
+		ColorVec1 color;
+		int pos;
+	};
+
+	struct Lut3Elem {
+		ColorVec3 color;
+		int pos;
 	};
 }
