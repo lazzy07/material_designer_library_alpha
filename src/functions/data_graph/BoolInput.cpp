@@ -12,14 +12,14 @@ void MATD::FUNC::DATA::INPUT::BoolInput::Calculate()
 {
 	auto input = this->GetNode()->GetInput("1");
 	auto arg = input->GetArgument();
-	this->SetOutput(arg);
+	this->SetOutput("out", arg);
 }
 
 void MATD::FUNC::DATA::INPUT::BoolInput::SetSocketArguments()
 {
 	{
 		auto node = this->GetNode();
-		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("out", node, GetArgument("411")));
+		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("411")));
 		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }

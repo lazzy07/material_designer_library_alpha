@@ -12,6 +12,17 @@ MATD::FUNC::DATA::PROCESS::BoolToNum1::BoolToNum1(MATD::GRAPH::Node* node) : Dat
 
 void MATD::FUNC::DATA::PROCESS::BoolToNum1::Calculate()
 {
+	auto input = this->GetNode()->GetInput("1");
+	auto arg = input->GetArgument();
+
+	auto data = arg->GetData<bool>();
+
+	if (data) {
+		this->GetOutput("out").get()->SetData<Number1>(1);
+	}
+	else {
+		this->GetOutput("out").get()->SetData<Number1>(0);
+	}
 }
 
 void MATD::FUNC::DATA::PROCESS::BoolToNum1::SetSocketArguments()
