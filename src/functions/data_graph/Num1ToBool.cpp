@@ -18,7 +18,7 @@ void MATD::FUNC::DATA::PROCESS::Num1ToBool::SetSocketArguments()
 
 	{
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2511")));
-		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
+		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 

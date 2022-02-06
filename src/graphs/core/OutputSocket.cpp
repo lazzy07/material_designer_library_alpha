@@ -21,11 +21,6 @@ void MATD::GRAPH::OutputSocket::RemoveConnection(const std::string& id)
 	m_Connections.erase(id);
 }
 
-MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::OutputSocket::GetArgument()
-{
-	return this->GetNode()->GetFunction()->get()->GetOutput(this->GetID());
-}
-
 inline void MATD::GRAPH::OutputSocket::Update()
 {
 	for (auto elem : this->m_Connections) {

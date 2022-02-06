@@ -10,6 +10,12 @@ MATD::FUNC::DATA::PROCESS::Col1ToNum1::Col1ToNum1(MATD::GRAPH::Node* node) : Dat
 
 void MATD::FUNC::DATA::PROCESS::Col1ToNum1::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+
+	auto data = arg->GetData<Number1>();
+
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(*data);
 }
 
 void MATD::FUNC::DATA::PROCESS::Col1ToNum1::SetSocketArguments()
@@ -18,6 +24,8 @@ void MATD::FUNC::DATA::PROCESS::Col1ToNum1::SetSocketArguments()
 
 	{
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2011")));
-		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
+		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
+
+	this->Update();
 }

@@ -21,7 +21,7 @@ namespace MATD{
 
 			inline std::map<std::string, Ref<InputSocket>>* GetInputs() { return &m_Inputs; };
       inline void AddInputSocket(std::string id, Ref<InputSocket> socket) { m_Inputs[id] = socket; };
-			inline void SetOutputSocket(std::string id, Ref<OutputSocket> socket) { m_Output = socket; };
+			inline void AddOutputSocket(std::string id, Ref<OutputSocket> socket) { m_Outputs[id] = socket; };
 
 			inline const MATD::JSON* GetJSON() { return &m_JSON; };
       inline void SetJSON(MATD::JSON JSONObj) { m_JSON = JSONObj; };
@@ -29,8 +29,11 @@ namespace MATD{
 			inline const Ref<MATD::FUNC::Function>* GetFunction() { return &m_Function; };
 			inline void SetFunction(Ref<MATD::FUNC::Function> function) { m_Function = function; };
 
-      Ref<InputSocket> GetInput(const std::string& id);
-			Ref<OutputSocket> GetOutput();
+      inline Ref<InputSocket> GetInputSocket(const std::string& id) { return m_Inputs[id]; };
+      inline Ref<OutputSocket> GetOutputSocket(const std::string& id) { return m_Outputs[id]; };
+
+      inline std::map <std::string, Ref<OutputSocket>> GetOutputSockets() { return m_Outputs; };
+      inline std::map<std::string, Ref<InputSocket>> GetInputsSockets() { return m_Inputs; };
 
       inline int GetID() { return m_ID; };
       inline void SetID(int id) { m_ID = id; };
@@ -42,7 +45,7 @@ namespace MATD{
 
       Ref<MATD::FUNC::Function> m_Function;
 			std::map<std::string,Ref<InputSocket>> m_Inputs;
-			Ref<OutputSocket> m_Output;
+      std::map<std::string, Ref<OutputSocket>> m_Outputs;
     };
   }
 }

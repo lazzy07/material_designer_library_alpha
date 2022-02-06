@@ -20,21 +20,19 @@ namespace MATD{
 
       virtual void Init(MATD::JSON JSONObj) = 0;
       virtual void Calculate() = 0;
-      virtual void Update() = 0;
+      void Update();
+      void OnComplete();
 
-      virtual void OnComplete() = 0;
       inline GRAPH::Node* GetNode() { return m_Node; };
-      inline std::map<std::string, Ref<MATD::FUNC::Argument>>* GetArguments() { return &m_Arguments; };
-      inline Ref<MATD::FUNC::Argument> GetArgument(const std::string& id) { return m_Arguments[id]; };
       void SetArgument(Ref<Argument> arg);
+      inline Ref<Argument> GetArgument(const std::string& id) { return m_Arguments[id]; };
 
-			inline Ref<Argument> GetOutput(const std::string& id) { return m_Outputs[id]; };
-			inline void SetOutput(std::string id, Ref<Argument> output) { m_Outputs[id] = output; };
-
+      inline std::map<std::string, Ref<Argument>> GetArguments() { return m_Arguments; };
     private:
       MATD::GRAPH::Node* m_Node;
-      std::map<std::string, Ref<MATD::FUNC::Argument>> m_Arguments;
-      std::map<std::string, Ref<Argument>> m_Outputs;
+
+      //Arguments are the node properties coming from Material Designer editor
+      std::map<std::string, Ref<Argument>> m_Arguments;
     };
   }
 }

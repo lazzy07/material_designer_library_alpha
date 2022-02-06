@@ -20,13 +20,3 @@ bool MATD::GRAPH::Node::ShouldUpdate(MATD::JSON JSONObj)
     return true;
   }
 }
-
-MATD::Ref<MATD::GRAPH::InputSocket> MATD::GRAPH::Node::GetInput(const std::string& id)
-{
-  return m_Inputs[id];
-}
-
-MATD::Ref<MATD::GRAPH::OutputSocket> MATD::GRAPH::Node::GetOutput()
-{
-  return m_Output;
-}
