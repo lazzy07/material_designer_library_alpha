@@ -161,22 +161,3 @@ MATD::FUNC::DataFunction::DataFunction(MATD::GRAPH::Node* node) : Function(node)
 MATD::FUNC::DataFunction::~DataFunction()
 {
 }
-
-
-void MATD::FUNC::DataFunction::Update()
-{
-	{
-		auto output = this->GetNode()->GetOutput();
-		output->SetUpdateStatus(false);
-	}
-
-	this->Calculate();
-	this->OnComplete();
-}
-
-void MATD::FUNC::DataFunction::OnComplete()
-{
-	auto output = this->GetNode()->GetOutput();
-	output->SetUpdateStatus(true);
-	output->Update();
-}

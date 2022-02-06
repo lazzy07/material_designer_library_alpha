@@ -30,8 +30,8 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 	auto outputNode = this->GetNode(outputNodeID);
 	auto inputNode = this->GetNode(inputNodeID);
 
-	auto outputSocket = outputNode->GetOutput();
-	auto inputSocket = inputNode->GetInput(inputSocketID);
+	auto outputSocket = outputNode->GetOutputSocket(outputSocketID);
+	auto inputSocket = inputNode->GetInputSocket(inputSocketID);
 
 	if (inputSocket && outputSocket) {
 		Ref<Connection> connection = std::make_shared<Connection>(connectionId, inputSocket, outputSocket);

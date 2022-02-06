@@ -35,6 +35,61 @@ MATD::DATA_TYPES MATD::FUNC::Argument::StringToArgumentType(std::string str)
 	}
 }
 
+MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(const std::string& id, DATA_TYPES dataType)
+{
+	void* mem = nullptr;
+	switch (dataType)
+	{
+	case MATD::DATA_TYPES::NUMBER1:
+	{
+		mem = malloc(sizeof(Number1));
+	}
+		break;
+	case MATD::DATA_TYPES::NUMBER2:
+	{
+		mem = malloc(sizeof(Number2));
+	}
+		break;
+	case MATD::DATA_TYPES::STRING:
+	{
+		mem = malloc(sizeof(StringElem));
+	}
+		break;
+	case MATD::DATA_TYPES::BOOLEAN:
+	{
+		mem = malloc(sizeof(bool));
+	}
+		break;
+	case MATD::DATA_TYPES::COLORVEC1:
+	{
+		mem = malloc(sizeof(ColorVec1));
+	}
+		break;
+	case MATD::DATA_TYPES::COLORVEC3:
+	{
+		mem = malloc(sizeof(ColorVec3));
+	}
+		break;
+	case MATD::DATA_TYPES::LUT1:
+	{
+		mem = malloc(sizeof(Lut1));
+	}
+		break;
+	case MATD::DATA_TYPES::LUT3: 
+	{
+		mem = malloc(sizeof(Lut3));
+	}
+		break;
+	}
+
+	if (mem) {
+		return std::make_shared<FUNC::Argument>(id, dataType, mem);
+	}
+
+	MATD_CORE_WARN("Unknown type of Argument Recieved");
+	return nullptr;
+}
+
 MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON JSONObj)
 {
 	std::string dataTypeStr = JSONObj["dataType"].get<std::string>();
@@ -64,8 +119,10 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 		float num1 = data.at(0).get<float>();
 		float num2 = data.at(1).get<float>();
 
-		mem2->x = num1;
-		mem2->y = num2;
+		if (mem2) {
+			mem2->x = num1;
+			mem2->y = num2;
+		}
 
 		return std::make_shared<Argument>(id, DATA_TYPES::NUMBER2, mem2);
 	}

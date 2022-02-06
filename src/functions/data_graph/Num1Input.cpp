@@ -10,9 +10,9 @@ MATD::FUNC::DATA::INPUT::Num1Input::Num1Input(MATD::GRAPH::Node* node) : DataPri
 
 void MATD::FUNC::DATA::INPUT::Num1Input::Calculate()
 {
-	auto input = this->GetNode()->GetInput("1");
+	auto input = this->GetNode()->GetInputSocket("1");
 	auto arg = input->GetArgument();
-	this->SetOutput("out", arg);
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(*(arg->GetData<Number1>()));
 }
 
 void MATD::FUNC::DATA::INPUT::Num1Input::SetSocketArguments()
@@ -21,8 +21,7 @@ void MATD::FUNC::DATA::INPUT::Num1Input::SetSocketArguments()
 
 	{
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("111")));
-		node->SetOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
-		this->SetOutput("out", GetArgument("111"));
+		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
 }
 

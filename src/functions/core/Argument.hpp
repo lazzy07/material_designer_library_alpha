@@ -8,7 +8,15 @@ namespace MATD {
 	namespace FUNC {
 		class Argument {
 		public:
+			/**
+			 * Create argument out of JSON Object
+			 */
 			static MATD::Ref<Argument> ArgumentFactory(MATD::JSON JSONObj);
+			/**
+			 * Create empty argument
+			 */
+			static MATD::Ref<Argument> ArgumentFactory(const std::string& id, DATA_TYPES dataType);
+
 			static MATD::DATA_TYPES StringToArgumentType(std::string str);
 
 			Argument(std::string id, MATD::DATA_TYPES dataType, void* data);
