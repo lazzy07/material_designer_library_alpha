@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "../../core/Core.hpp"
 
 namespace MATD {
 	enum class DATA_TYPES {
@@ -22,19 +24,33 @@ namespace MATD {
 		float b;
 	};
 
-
 	struct Number2 {
 		float x;
 		float y;
 	};
 
+	struct Lut1Elem {
+		ColorVec1 color;
+		int pos;
+	};
+
+	struct Lut3Elem {
+		ColorVec3 color;
+		int pos;
+	};
+
 	struct Lut1 {
-		ColorVec1* stops;
-		size_t size;
+		std::vector<Ref<Lut1Elem>> stops;
 	};
 
 	struct Lut3 {
-		ColorVec3* stops;
+		std::vector<Ref<Lut3Elem>> stops;
+	};
+
+	
+
+	struct StringElem {
 		size_t size;
+		char* str;
 	};
 }

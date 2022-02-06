@@ -18,12 +18,11 @@ void MATD::FUNC::DATA::PROCESS::AddNumber1::Calculate()
 	auto num2 = num2Input->GetArgument();
 	Number1 num2Val = *num2->GetData<float>();
 
-
 	Number1 total = num1Val + num2Val;
 
 	MATD_CORE_TRACE("AddNumber values Num1: {} Num2: {} Total: {}", num1Val, num2Val, total);
 
-	this->GetOutput().get()->SetData<Number1>(total);
+	this->GetOutput("out").get()->SetData<Number1>(total);
 }
 
 void MATD::FUNC::DATA::PROCESS::AddNumber1::SetSocketArguments()
@@ -40,7 +39,7 @@ void MATD::FUNC::DATA::PROCESS::AddNumber1::SetSocketArguments()
 		if (num) {
 			*num = 0;
 			Ref<Argument> arg = std::make_shared<Argument>(argId, MATD::DATA_TYPES::NUMBER1, num);
-			this->SetOutput(arg);
+			this->SetOutput("out", arg);
 		}
 	}
 }

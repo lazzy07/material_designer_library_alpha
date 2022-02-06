@@ -23,7 +23,7 @@ void MATD::GRAPH::OutputSocket::RemoveConnection(const std::string& id)
 
 MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::OutputSocket::GetArgument()
 {
-	return this->GetNode()->GetFunction()->get()->GetOutput();
+	return this->GetNode()->GetFunction()->get()->GetOutput(this->GetID());
 }
 
 inline void MATD::GRAPH::OutputSocket::Update()

@@ -1,6 +1,7 @@
 #include "Argument.hpp"
 #include "../../types/matd/MatdDataTypes.hpp"
 #include "../../core/Core.hpp"
+#include <string.h>
 
 MATD::DATA_TYPES MATD::FUNC::Argument::StringToArgumentType(std::string str)
 {
@@ -70,6 +71,21 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 	}
 		break;
 	case MATD::DATA_TYPES::STRING:
+	{
+		StringElem* mem = (StringElem*)malloc(sizeof(StringElem));
+		std::string str = data.get<std::string>();
+
+		size_t size = sizeof(char) * (str.length() + 1);
+		char* strMem = (char*)malloc(size);
+
+		if (mem && strMem) {
+			strcpy(strMem, str.c_str());
+			mem->size = size;
+			mem->str = strMem;
+		}
+
+		return std::make_shared<Argument>(id, DATA_TYPES::STRING, mem);
+	}
 		break;
 	case MATD::DATA_TYPES::BOOLEAN:
 	{
@@ -184,13 +200,59 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 	}
 		break;
 	case DATA_TYPES::LUT1:
-		//TODO
+	{
+		auto d = this->GetData<std::vector<Ref<Lut1Elem>>>();
+		d->clear();
+
+		for (auto i = data.begin(); i < data.end(); i++) {
+			Ref<Lut1Elem> ele = std::make_shared<Lut1Elem>();
+
+			float col = i.value()["col"].get<float>();
+			int pos = i.value()["pos"].get<int>();
+
+			ele->color = col;
+			ele->pos = pos;
+
+			d->push_back(ele);
+		}
+	}
 		break;
 	case DATA_TYPES::LUT3:
-		//TODO
+	{
+		auto d = this->GetData<std::vector<Ref<Lut3Elem>>>();
+		d->clear();
+
+		for (auto i = data.begin(); i < data.end(); i++) {
+			Ref<Lut3Elem> ele = std::make_shared<Lut3Elem>();
+
+			std::string col = i.value()["col"].get<std::string>();
+			int pos = i.value()["pos"].get<int>();
+			float r, g, b;
+			sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
+
+			ele->color.r = r;
+			ele->color.g = g;
+			ele->color.b = b;
+
+			ele->pos = pos;
+
+			d->push_back(ele);
+		}
+	}
 		break;
 	case DATA_TYPES::STRING:
-		//TODO
+	{
+		std::string str = data.get<std::string>();
+		StringElem* mem = this->GetData<StringElem>();
+		
+		size_t size = sizeof(char) * (str.length() + 1);
+		char* strMem = (char*)malloc(size);
+		strcpy(strMem, str.c_str());
+		delete mem->str;
+
+		mem->size = size;
+		mem->str = strMem;
+	}
 		break;
 	}
 }
