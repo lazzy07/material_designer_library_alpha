@@ -10,6 +10,19 @@ MATD::FUNC::DATA::PROCESS::Num1ToBool::Num1ToBool(MATD::GRAPH::Node* node) : Dat
 
 void MATD::FUNC::DATA::PROCESS::Num1ToBool::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+
+	auto data = arg->GetData<bool>();
+
+	if (*data != 0) {
+		this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<bool>(true);
+		MATD_CORE_TRACE("MATD::FUNC Num1ToBool num1: {} bool: {}", *data, true);
+	}
+	else {
+		this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<bool>(false);
+		MATD_CORE_TRACE("MATD::FUNC Num1ToBool num1: {} bool: {}", *data, false);
+	}
 }
 
 void MATD::FUNC::DATA::PROCESS::Num1ToBool::SetSocketArguments()
@@ -20,5 +33,9 @@ void MATD::FUNC::DATA::PROCESS::Num1ToBool::SetSocketArguments()
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2511")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
+
+	UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::BOOLEAN));
+	this->Update();
 }
 

@@ -10,6 +10,7 @@ MATD::FUNC::DATA::PROCESS::Num2ToNum1::Num2ToNum1(MATD::GRAPH::Node* node) : Dat
 
 void MATD::FUNC::DATA::PROCESS::Num2ToNum1::Calculate()
 {
+
 }
 
 void MATD::FUNC::DATA::PROCESS::Num2ToNum1::SetSocketArguments()
@@ -21,4 +22,12 @@ void MATD::FUNC::DATA::PROCESS::Num2ToNum1::SetSocketArguments()
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 		node->AddOutputSocket("out2", std::make_shared<MATD::GRAPH::OutputSocket>("out2", node));
 	}
+
+	UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::NUMBER1));
+
+	id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out2")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::NUMBER1));
+
+	this->Update();
 }

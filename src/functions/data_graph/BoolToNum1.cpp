@@ -34,16 +34,9 @@ void MATD::FUNC::DATA::PROCESS::BoolToNum1::SetSocketArguments()
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2411")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 
-		{
-			std::string argId = CORE::UUIDGenerator::GenerateUUID().str();
-			bool* val = (bool*)malloc(sizeof(bool));
-
-			if (val) {
-				*val = false;
-				Ref<Argument> arg = std::make_shared<Argument>(argId, MATD::DATA_TYPES::BOOLEAN, val);
-				this->GetNode()->GetOutputSocket("out")->SetArgument(arg);
-			}
-		}
+		UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+		node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::NUMBER1));
+		this->Update();
 	}
 }
 

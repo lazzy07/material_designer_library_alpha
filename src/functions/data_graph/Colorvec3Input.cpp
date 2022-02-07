@@ -10,6 +10,9 @@ MATD::FUNC::DATA::INPUT::Colorvec3Input::Colorvec3Input(MATD::GRAPH::Node* node)
 
 void MATD::FUNC::DATA::INPUT::Colorvec3Input::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<ColorVec3>(*(arg->GetData<ColorVec3>()));
 }
 
 void MATD::FUNC::DATA::INPUT::Colorvec3Input::SetSocketArguments()
@@ -19,5 +22,7 @@ void MATD::FUNC::DATA::INPUT::Colorvec3Input::SetSocketArguments()
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("1311")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
+	UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::COLORVEC3));
+	this->Update();
 }
-
