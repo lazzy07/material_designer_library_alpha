@@ -11,6 +11,12 @@ MATD::FUNC::DATA::PROCESS::Num1ToCol1::Num1ToCol1(MATD::GRAPH::Node* node) : Dat
 
 void MATD::FUNC::DATA::PROCESS::Num1ToCol1::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+
+	auto data = arg->GetData<Number1>();
+
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<ColorVec1>(*data);
 }
 
 void MATD::FUNC::DATA::PROCESS::Num1ToCol1::SetSocketArguments()
@@ -21,4 +27,8 @@ void MATD::FUNC::DATA::PROCESS::Num1ToCol1::SetSocketArguments()
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2111")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
+
+	UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::COLORVEC1));
+	this->Update();
 }
