@@ -27,3 +27,8 @@ inline void MATD::GRAPH::OutputSocket::Update()
 		elem.second->Update();
 	}
 }
+
+inline MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::OutputSocket::GetArgument()
+{
+	return m_Argument;
+}

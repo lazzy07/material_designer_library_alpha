@@ -18,7 +18,7 @@ namespace MATD{
 			inline bool GetUpdateStatus() override { return m_IsUpdated; };
 			inline void Update() override;
 
-			virtual inline Ref<FUNC::Argument> GetArgument() override { return m_Argument; };
+			virtual inline Ref<FUNC::Argument> GetArgument() override;
 			inline void SetArgument(Ref<FUNC::Argument> arg) { m_Argument = arg; };
 		private:
 			std::map<std::string, Ref<Connection>> m_Connections;
