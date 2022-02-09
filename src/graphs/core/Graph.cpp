@@ -19,7 +19,18 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 {
 	std::string connectionId = JSONObj["id"].get<std::string>();
 	MATD::JSON outputData = JSONObj["input"]["connections"].at(0);
-	MATD::JSON inputData = JSONObj["output"]["connections"].at(0);
+	MATD::JSON inputs = JSONObj["output"]["connections"];
+	MATD::JSON inputData;
+
+	MATD_CORE_WARN("{}", inputs);
+
+	for (auto input = inputs.begin(); input<inputs.end(); input++) {
+		std::string connId = input.value()["id"].get<std::string>();
+
+		if (connId == connectionId) {
+			inputData = input.value();
+		}
+	}
 
 	int outputNodeID = outputData["node"].get<int>();
 	int inputNodeID = inputData["node"].get<int>();
@@ -38,7 +49,7 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 		outputSocket->AddConnection(connection);
 		inputSocket->AddConnection(connection);
 		this->AddToConnectionPool(connectionId, connection);
-		inputNode->GetFunction()->get()->Update();
+		outputNode->GetFunction()->get()->Update();
 	}
 	else {
 		MATD_CORE_ERROR("Input/Output sockets cannot be null");

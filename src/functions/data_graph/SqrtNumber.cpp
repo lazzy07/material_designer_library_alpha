@@ -19,7 +19,7 @@ void MATD::FUNC::DATA::PROCESS::SqrtNumber::Calculate()
 
 	Number1 total = sqrt(num1Val);
 
-	MATD_CORE_TRACE("PowerNumber values Num1: {} Total: {}", num1Val, total);
+	MATD_CORE_TRACE("SqrtNumber values Num1: {} Total: {}", num1Val, total);
 
 	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(total);
 }
