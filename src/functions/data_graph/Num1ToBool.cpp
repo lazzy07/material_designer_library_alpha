@@ -13,7 +13,7 @@ void MATD::FUNC::DATA::PROCESS::Num1ToBool::Calculate()
 	auto input = this->GetNode()->GetInputSocket("1");
 	auto arg = input->GetArgument();
 
-	auto data = arg->GetData<bool>();
+	auto data = arg->GetData<Number1>();
 
 	if (*data != 0) {
 		this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<bool>(true);
