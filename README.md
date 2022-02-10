@@ -12,6 +12,10 @@ Material Designer library which is written using C++ is the engine under the hoo
 
 Use this library to build material designer engine and V8 bindings, you can customize the library using your own kernels to carry out image processing. Please refer to the doc.
 
+### Debugging
+
+To debug the library with electron bindings (v8 bindings using Visual Studio), select all the electron processes from Debug > Attach To Process
+
 ### Engine functionality
 
 Engine functionality can be used without using any graph functionality
