@@ -12,6 +12,8 @@ namespace MATD{
 
 			virtual void CreateNode(MATD::JSON JSONObj) override;
 			virtual void Update(MATD::JSON JSONObj) override;
+
+      virtual void Init(const MATD::JSON& JSONObj) override;
     };
   }
 }

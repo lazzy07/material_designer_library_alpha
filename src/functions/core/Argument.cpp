@@ -52,7 +52,7 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(const std:
 		break;
 	case MATD::DATA_TYPES::STRING:
 	{
-		mem = malloc(sizeof(StringElem));
+		mem = new std::string("");
 	}
 		break;
 	case MATD::DATA_TYPES::BOOLEAN:
@@ -129,17 +129,8 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 		break;
 	case MATD::DATA_TYPES::STRING:
 	{
-		StringElem* mem = (StringElem*)malloc(sizeof(StringElem));
 		std::string str = data.get<std::string>();
-
-		size_t size = sizeof(char) * (str.length() + 1);
-		char* strMem = (char*)malloc(size);
-
-		if (mem && strMem) {
-			strcpy(strMem, str.c_str());
-			mem->size = size;
-			mem->str = strMem;
-		}
+		std::string* mem = new std::string(str.c_str());
 
 		return std::make_shared<Argument>(id, DATA_TYPES::STRING, mem);
 	}
@@ -285,7 +276,7 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 			std::string col = i.value()["col"].get<std::string>();
 			int pos = i.value()["pos"].get<int>();
 			float r, g, b;
-			sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
+			int val = sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
 
 			ele->color.r = r;
 			ele->color.g = g;
@@ -300,15 +291,11 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 	case DATA_TYPES::STRING:
 	{
 		std::string str = data.get<std::string>();
-		StringElem* mem = this->GetData<StringElem>();
+		std::string* mem = this->GetData<std::string>();
 		
-		size_t size = sizeof(char) * (str.length() + 1);
-		char* strMem = (char*)malloc(size);
-		strcpy(strMem, str.c_str());
-		delete mem->str;
+		delete mem;
 
-		mem->size = size;
-		mem->str = strMem;
+		m_Data = new std::string(str);
 	}
 		break;
 	}

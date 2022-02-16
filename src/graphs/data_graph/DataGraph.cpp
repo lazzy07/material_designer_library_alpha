@@ -6,6 +6,7 @@
 
 MATD::GRAPH::DataGraph::DataGraph(MaterialGraph* graph, const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {
+	this->Init(JSONObj);
 	MATD_CORE_TRACE("MATD::GRAPH DataGraph created ID: {} MatGraphID: {}", this->GetID(), this->GetMaterialGraph()->GetID());
 }
 
@@ -32,4 +33,10 @@ void MATD::GRAPH::DataGraph::Update(MATD::JSON JSONObj)
 	node->UpdateParameters(payload["data"]["data"]["dataGraph"]["data"]);
 
 	node->SetJSON(payload["data"]);
+}
+
+void MATD::GRAPH::DataGraph::Init(const MATD::JSON& JSONObj)
+{
+	this->SetID(JSONObj["id"].get<std::string>());
+	MATD::JSON nodes = JSONObj["data"]["nodes"];
 }
