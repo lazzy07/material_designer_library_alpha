@@ -46,11 +46,4 @@ namespace MATD {
 	struct Lut3 {
 		std::vector<Ref<Lut3Elem>> stops;
 	};
-
-	
-
-	struct StringElem {
-		size_t size;
-		char* str;
-	};
 }

@@ -19,4 +19,4 @@ add_subdirectory(examples)
 
 add_definitions(/bigobj)
 
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT matd_examples)
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT matd_v8_bindings)

@@ -22,6 +22,7 @@ namespace MATD {
 			void AddConnection(MATD::JSON JSONObj);
 			void RemoveConnection(MATD::JSON JSONObj);
 			virtual void Update(MATD::JSON JSONObj) = 0;
+      virtual void Init(const MATD::JSON& JSONObj) = 0;
 
 			inline std::map<int, Ref<MATD::GRAPH::Node>>* GetNodes() { return &m_Nodes; };
 			inline Ref<MATD::GRAPH::Node> GetNode(int id) { return m_Nodes[id]; };
@@ -31,14 +32,14 @@ namespace MATD {
       inline Ref<MATD::GRAPH::Connection> GetConnection(const std::string& id) { return m_Connections[id]; };
 			inline void AddToConnectionPool(std::string id, Ref<Connection> connection) { m_Connections[id] = connection; };
 			inline void RemoveFromConnectionPool(std::string id) { m_Connections.erase(id); };
+      inline void SetID(std::string id) { m_ID = id; };
+			
 
     private:
       std::string m_ID;
       MaterialGraph* m_MaterialGraph;
 			std::map<int, Ref<MATD::GRAPH::Node>> m_Nodes;
       std::map<std::string, Ref<MATD::GRAPH::Connection>> m_Connections;
-    private:
-      void Init(const MATD::JSON& JSONObj);
     };
   };
 };
