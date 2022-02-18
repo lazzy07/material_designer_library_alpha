@@ -1,14 +1,11 @@
 #pragma once
-#include "../core/DataPrimitiveFunction.hpp"
-#include "../../core/UUIDGenerator.hpp"
-#include "../../graphs/core/OutputSocket.hpp"
-#include "../../graphs/core/InputSocket.hpp"
+#include "../core/DataPrimitiveProcess.hpp"
 
 namespace MATD {
 	namespace FUNC {
 		namespace DATA {
 			namespace PROCESS {
-				class Col1ToNum1 : public DataPrimitiveFunction {
+				class Col1ToNum1 : public DataPrimitiveProcess {
 				public:
 					Col1ToNum1(MATD::GRAPH::Node* node);
 

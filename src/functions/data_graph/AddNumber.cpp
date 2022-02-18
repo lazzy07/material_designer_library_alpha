@@ -3,12 +3,12 @@
 #include "../../graphs/core/OutputSocket.hpp"
 #include "../../graphs/core/InputSocket.hpp"
 
-MATD::FUNC::DATA::PROCESS::AddNumber1::AddNumber1(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
+MATD::FUNC::DATA::PROCESS::AddNumber::AddNumber(MATD::GRAPH::Node* node) : DataPrimitiveProcess(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC AddNumber function created");
 }
 
-void MATD::FUNC::DATA::PROCESS::AddNumber1::Calculate()
+void MATD::FUNC::DATA::PROCESS::AddNumber::Calculate()
 {
 	auto num1Input = this->GetNode()->GetInputSocket("1"); 
 	auto num2Input = this->GetNode()->GetInputSocket("2"); 
@@ -25,7 +25,7 @@ void MATD::FUNC::DATA::PROCESS::AddNumber1::Calculate()
 	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(total);
 }
 
-void MATD::FUNC::DATA::PROCESS::AddNumber1::SetSocketArguments()
+void MATD::FUNC::DATA::PROCESS::AddNumber::SetSocketArguments()
 {
 	{
 		auto node = this->GetNode();

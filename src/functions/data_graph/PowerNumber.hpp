@@ -1,11 +1,11 @@
 #pragma once
-#include "../core/DataPrimitiveFunction.hpp"
+#include "../core/DataPrimitiveProcess.hpp"
 
 namespace MATD {
 	namespace FUNC {
 		namespace DATA {
 			namespace PROCESS {
-				class PowerNumber : public DataPrimitiveFunction {
+				class PowerNumber : public DataPrimitiveProcess {
 				public:
 					PowerNumber(MATD::GRAPH::Node* node);
 

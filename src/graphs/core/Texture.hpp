@@ -2,8 +2,8 @@
 
 namespace MATD{
   namespace GRAPH{
-    class Texture{
-      
-    }
+    class Texture {
+
+    };
   }
 }

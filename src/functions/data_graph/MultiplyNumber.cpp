@@ -3,7 +3,7 @@
 #include "../../graphs/core/OutputSocket.hpp"
 #include "../../graphs/core/InputSocket.hpp"
 
-MATD::FUNC::DATA::PROCESS::MultiplyNumber::MultiplyNumber(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
+MATD::FUNC::DATA::PROCESS::MultiplyNumber::MultiplyNumber(MATD::GRAPH::Node* node) : DataPrimitiveProcess(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC MultiplyNumber function created");
 }

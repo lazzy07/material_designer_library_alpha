@@ -3,7 +3,7 @@
 #include "../../graphs/core/OutputSocket.hpp"
 #include "../../graphs/core/InputSocket.hpp"
 
-MATD::FUNC::DATA::INPUT::Colorvec3Input::Colorvec3Input(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
+MATD::FUNC::DATA::INPUT::Colorvec3Input::Colorvec3Input(MATD::GRAPH::Node* node) : DataPrimitiveInput(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC Colorvec1Input function created");
 }

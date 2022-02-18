@@ -1,11 +1,11 @@
 #pragma once
-#include "../core/DataPrimitiveFunction.hpp"
+#include "../core/DataPrimitiveInput.hpp"
 
 namespace MATD {
 	namespace FUNC {
 		namespace DATA {
 			namespace INPUT {
-				class BoolInput : public DataPrimitiveFunction {
+				class BoolInput : public DataPrimitiveInput {
 				public:
 					BoolInput(MATD::GRAPH::Node* node);
 

@@ -4,7 +4,7 @@
 #include "../../graphs/core/InputSocket.hpp"
 #include <math.h>
 
-MATD::FUNC::DATA::PROCESS::PowerNumber::PowerNumber(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
+MATD::FUNC::DATA::PROCESS::PowerNumber::PowerNumber(MATD::GRAPH::Node* node) : DataPrimitiveProcess(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC PowerNumber function created");
 
