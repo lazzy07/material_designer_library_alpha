@@ -12,6 +12,12 @@ namespace MATD{
   }
 
   namespace FUNC{
+    enum class FUNCTION_TYPE {
+      OUTPUT,
+      INPUT,
+      PROCESS,
+    };
+
     class Function{
     public:
 
@@ -28,9 +34,13 @@ namespace MATD{
       inline Ref<Argument> GetArgument(const std::string& id) { return m_Arguments[id]; };
 
       inline std::map<std::string, Ref<Argument>> GetArguments() { return m_Arguments; };
+
+			inline FUNCTION_TYPE GetFunctionType() { return m_FuntionType; };
+			inline void SetFunctionType(FUNCTION_TYPE functionType) { m_FuntionType = functionType; };
+
     private:
       MATD::GRAPH::Node* m_Node;
-
+      MATD::FUNC::FUNCTION_TYPE m_FuntionType;
       //Arguments are the node properties coming from Material Designer editor
       std::map<std::string, Ref<Argument>> m_Arguments;
     };

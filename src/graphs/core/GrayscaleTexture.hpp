@@ -1,9 +1,9 @@
 #pragma once
 
 namespace MATD{
-  namespace GRAPH{
-    class GrayscaleTexture{
-      
-    }
+  namespace GRAPH {
+    class GrayscaleTexture {
+
+    };
   }
 }

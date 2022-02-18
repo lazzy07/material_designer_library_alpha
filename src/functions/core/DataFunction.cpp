@@ -44,7 +44,7 @@ MATD::Ref<MATD::FUNC::DataFunction> MATD::FUNC::DataFunction::FunctionFactory(MA
 		return func;
 	}
 	else if (initialID == "14") {
-		auto func = std::make_shared<MATD::FUNC::DATA::PROCESS::AddNumber1>(node);
+		auto func = std::make_shared<MATD::FUNC::DATA::PROCESS::AddNumber>(node);
 		func->Init(JSONObj);
 		return func;
 	}

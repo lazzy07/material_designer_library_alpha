@@ -3,7 +3,7 @@
 #include "../../graphs/core/OutputSocket.hpp"
 #include "../../graphs/core/InputSocket.hpp"
 
-MATD::FUNC::DATA::OUTPUT::OutputNum2::OutputNum2(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
+MATD::FUNC::DATA::OUTPUT::OutputNum2::OutputNum2(MATD::GRAPH::Node* node) : DataPrimitiveOutput(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC OutputNum2 function created");
 

@@ -3,7 +3,7 @@
 #include "../../graphs/core/OutputSocket.hpp"
 #include "../../graphs/core/InputSocket.hpp"
 
-MATD::FUNC::DATA::PROCESS::DivideNumber::DivideNumber(MATD::GRAPH::Node* node) : DataPrimitiveFunction(node)
+MATD::FUNC::DATA::PROCESS::DivideNumber::DivideNumber(MATD::GRAPH::Node* node) : DataPrimitiveProcess(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC DivideNumber function created");
 

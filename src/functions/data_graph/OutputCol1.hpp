@@ -1,11 +1,11 @@
 #pragma once
-#include "../core/DataPrimitiveFunction.hpp"
+#include "../core/DataPrimitiveOutput.hpp"
 
 namespace MATD {
 	namespace FUNC {
 		namespace DATA {
 			namespace OUTPUT {
-				class OutputCol1 : public DataPrimitiveFunction {
+				class OutputCol1 : public DataPrimitiveOutput {
 				public:
 					OutputCol1(MATD::GRAPH::Node* node);
 
