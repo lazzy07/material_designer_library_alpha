@@ -44,6 +44,11 @@ void MATD::GRAPH::KernelGraph::Compile()
 	auto shaderGraph = materialGraph->GetGraph(GRAPH_TYPE::SHADER_GRAPH);
 
 	{
+		auto dataOutputNodes = dataGraph->GetOutputNodes();
+		auto shaderOutputNodes = shaderGraph->GetOutputNodes();
 
+		{
+			 
+		}
 	}
 }

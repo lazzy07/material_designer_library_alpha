@@ -11,8 +11,6 @@ namespace MATD {
 				MATD_CORE_TRACE("CL_FLOAT:::Created CL Float val:{}", val);
 			}
 
-
-
 			void Float::Bind(WorkItem* workItem, size_t index)
 			{
 				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();

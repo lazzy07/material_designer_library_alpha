@@ -34,7 +34,7 @@ namespace MATD {
 			inline void RemoveFromConnectionPool(std::string id) { m_Connections.erase(id); };
       inline void SetID(std::string id) { m_ID = id; };
 			
-
+      std::vector<Ref<MATD::GRAPH::Node>> GetOutputNodes();
     private:
       std::string m_ID;
       MaterialGraph* m_MaterialGraph;

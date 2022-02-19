@@ -77,3 +77,20 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 	inputSocket->GetNode()->GetFunction()->get()->Update();
 
 }
+
+std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
+{
+	std::vector<Ref<MATD::GRAPH::Node>> outputNodes;
+	auto nodes = this->GetNodes();
+
+	for (auto ele = nodes->begin(); ele != nodes->end(); ele++) {
+		auto node = ele->second;
+		auto functionType = node->GetFunction()->get()->GetFunctionType();
+
+		if (functionType == MATD::FUNC::FUNCTION_TYPE::OUTPUT) {
+			outputNodes.push_back(node);
+		}
+	}
+
+	return outputNodes;
+}

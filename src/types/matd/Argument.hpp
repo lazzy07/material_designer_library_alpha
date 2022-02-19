@@ -23,7 +23,8 @@ namespace MATD {
 		MAT_INTEGER						= (1 << 0),
 		MAT_FLOAT							= (1 << 1),
 		MAT_BUFFER						= (1 << 2),
-		MAT_IMAGE							= (1 << 3)
+		MAT_IMAGE							= (1 << 3),
+		MAT_STRUCT						= (1 << 4)
 	};
 
 
