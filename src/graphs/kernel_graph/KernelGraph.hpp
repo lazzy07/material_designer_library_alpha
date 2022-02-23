@@ -1,5 +1,7 @@
 #pragma once
 #include "../core/Graph.hpp"
+#include "../../engine/matd/Kernel.hpp"
+#include "../../engine/matd/Queue.hpp"
 
 namespace MATD{
   namespace GRAPH{
@@ -17,9 +19,24 @@ namespace MATD{
 			inline const std::string& GetFunctionsSource() { return m_FunctionsSource; };
 
       void Compile();
+
+      void SubmitToQueue(Ref<MATD::Queue> queue);
     private:
       std::string m_KernelSource;
       std::string m_FunctionsSource;
+      std::map<std::string, Ref<MATD::FUNC::Argument>> m_DataArguments;
+      Ref<MATD::Kernel> m_EngineKernel;
+    private:
+      //Binding variables coming from data graph
+      void BindDataVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> dataOutputNodes);
+			//Binding variables coming from shader graph (images)
+      void BindShaderVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> shaderOutputNodes);
+      //Creating the kernel source
+      const std::string& CreateKernelString();
+      //Initializing the engine kernel
+      void InitKernel(const std::string& kernelSource);
+      //Set outputs so that outputs can be ported to other graphs/nodes
+      void SetOutputs();
     };
   }
 }

@@ -2,6 +2,7 @@
 #include <string>
 #include "../../core/Core.hpp"
 #include "../../engine/matd/Queue.hpp"
+#include "Struct.hpp"
 
 #define buf_type int
 
@@ -41,6 +42,9 @@ namespace MATD {
 			static MATD::Float* Float(float val);
 			static MATD::Buffer* Buffer(void* val, size_t size, size_t elem_size, buf_type argType);
 			static MATD::Image* Image(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType);
+
+			template<class T>
+			static MATD::Struct<T>* Struct(T val);
 	};
 
 	namespace DTYPES {

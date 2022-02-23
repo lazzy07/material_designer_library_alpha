@@ -40,10 +40,12 @@ namespace MATD {
 	};
 
 	struct Lut1 {
-		std::vector<Ref<Lut1Elem>> stops;
+		Lut1Elem* stops;
+		size_t length;
 	};
 
 	struct Lut3 {
-		std::vector<Ref<Lut3Elem>> stops;
+		Lut3Elem* stops;
+		size_t length;
 	};
 }

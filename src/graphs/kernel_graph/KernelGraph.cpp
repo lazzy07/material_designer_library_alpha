@@ -1,5 +1,7 @@
 #include "KernelGraph.hpp"
 #include "../core/MaterialGraph.hpp"
+#include "../data_graph/DataNode.hpp"
+#include "../shader_graph/ShaderNode.hpp"
 
 MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {
@@ -47,8 +49,52 @@ void MATD::GRAPH::KernelGraph::Compile()
 		auto dataOutputNodes = dataGraph->GetOutputNodes();
 		auto shaderOutputNodes = shaderGraph->GetOutputNodes();
 
-		{
-			 
+		m_DataArguments.clear();
+
+		//DataGraph outputs
+		BindDataVariables(dataOutputNodes);
+		BindShaderVariables(shaderOutputNodes);
+
+		
+	}
+}
+
+void MATD::GRAPH::KernelGraph::BindDataVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> dataOutputNodes)
+{
+	//Adding variables to m_DataArguments
+	{
+		for (auto node : dataOutputNodes) {
+			auto outputs = node->GetOutputSockets();
+
+			for (auto output : outputs) {
+				m_DataArguments[output.first] = output.second->GetArgument();
+			}
 		}
 	}
+
+	//Binding data variables into kernel
+	{
+
+	}
+}
+
+void MATD::GRAPH::KernelGraph::BindShaderVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> shaderGraphNodes)
+{
+}
+
+const std::string& MATD::GRAPH::KernelGraph::CreateKernelString()
+{
+	// TODO: insert return statement here
+}
+
+void MATD::GRAPH::KernelGraph::InitKernel(const std::string& kernelSource)
+{
+}
+
+void MATD::GRAPH::KernelGraph::SetOutputs()
+{
+}
+
+void MATD::GRAPH::KernelGraph::SubmitToQueue(Ref<MATD::Queue> queue)
+{
 }

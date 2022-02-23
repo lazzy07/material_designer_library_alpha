@@ -90,6 +90,11 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(const std:
 	return nullptr;
 }
 
+MATD::Ref<MATD::Argument> MATD::FUNC::Argument::Serialize(Argument* arg)
+{
+	
+}
+
 MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON JSONObj)
 {
 	std::string dataTypeStr = JSONObj["dataType"].get<std::string>();
@@ -249,42 +254,55 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 		break;
 	case DATA_TYPES::LUT1:
 	{
-		auto d = this->GetData<std::vector<Ref<Lut1Elem>>>();
-		d->clear();
+		auto d = this->GetData<Lut1>();
+		delete d->stops;
 
+		size_t length = data.size();
+		Lut1Elem* stops = (Lut1Elem*)malloc(sizeof(Lut1Elem) * length);
+		
+		d->stops = stops;
+		d->length = length;
+
+		int j = 0;
 		for (auto i = data.begin(); i < data.end(); i++) {
-			Ref<Lut1Elem> ele = std::make_shared<Lut1Elem>();
-
 			float col = i.value()["col"].get<float>();
 			int pos = i.value()["pos"].get<int>();
 
-			ele->color = col;
-			ele->pos = pos;
+			if (stops) {
+				stops[j].color = col;
+				stops[j].pos = pos;
+			}
 
-			d->push_back(ele);
+			j++;
 		}
 	}
 		break;
 	case DATA_TYPES::LUT3:
 	{
-		auto d = this->GetData<std::vector<Ref<Lut3Elem>>>();
-		d->clear();
+		auto d = this->GetData<Lut3>();
+		delete d->stops;
 
+		size_t length = data.size();
+		Lut3Elem* stops = (Lut3Elem*)malloc(sizeof(Lut3Elem) * length);
+		
+		d->length = length;
+		d->stops = stops;
+		
+		int j = 0;
 		for (auto i = data.begin(); i < data.end(); i++) {
-			Ref<Lut3Elem> ele = std::make_shared<Lut3Elem>();
-
 			std::string col = i.value()["col"].get<std::string>();
 			int pos = i.value()["pos"].get<int>();
 			float r, g, b;
 			int val = sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
 
-			ele->color.r = r;
-			ele->color.g = g;
-			ele->color.b = b;
+			if (stops) {
+				stops[j].color.r = r;
+				stops[j].color.g = r;
+				stops[j].color.b = r;
+				stops[j].pos = pos;
+			}
 
-			ele->pos = pos;
-
-			d->push_back(ele);
+			j++;
 		}
 	}
 		break;

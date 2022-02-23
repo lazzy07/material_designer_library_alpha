@@ -4,7 +4,8 @@
 #include "../vendor/opencl/CLFloat.hpp"
 #include "../vendor/opencl/CLImage.hpp"
 #include "../vendor/opencl/CLBuffer.hpp"
-#include "..\..\functions\core\Argument.hpp"
+#include "../vendor/opencl/CLStruct.hpp"
+#include "../../functions/core/Argument.hpp"
 
 namespace MATD {
 	DTYPES::Argument::Argument(MAT_ARG type): m_Type(type) {
@@ -73,4 +74,21 @@ namespace MATD {
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
 		return nullptr;
 	}
+}
+
+template<class T>
+inline MATD::Struct<T>* MATD::Argument::Struct(T val)
+{
+	CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
+
+	switch (engine) {
+	case CORE::SUPPORTED_ENGINES::CUDA:
+		MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
+		break;
+	case CORE::SUPPORTED_ENGINES::OPEN_CL:
+		return new DTYPES::OPENCL::Struct(val);
+		break;
+	}
+	MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
+	return nullptr;
 }
