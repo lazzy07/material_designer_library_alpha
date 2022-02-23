@@ -21,7 +21,7 @@ namespace MATD {
 			/**
 			 * Argument to kernel argument converter
 			 */
-			static Ref<MATD::Argument> Serialize(Argument* arg);
+			static Ref<MATD::DTYPES::Argument> Serialize(Argument* arg);
 
 			static MATD::DATA_TYPES StringToArgumentType(std::string str);
 

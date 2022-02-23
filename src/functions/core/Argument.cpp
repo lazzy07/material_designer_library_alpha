@@ -90,9 +90,70 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(const std:
 	return nullptr;
 }
 
-MATD::Ref<MATD::Argument> MATD::FUNC::Argument::Serialize(Argument* arg)
+MATD::Ref<MATD::DTYPES::Argument> MATD::FUNC::Argument::Serialize(Argument* arg)
 {
-	
+	MATD::Ref<MATD::DTYPES::Argument> ref;
+	switch (arg->GetDataType())
+	{
+	case MATD::DATA_TYPES::NUMBER1:
+	{
+		Number1 data = *(arg->GetData<Number1>());
+		auto arg = MATD::Argument::Float(data);
+		ref.reset(arg);
+	}
+		break;
+	case MATD::DATA_TYPES::NUMBER2:
+	{
+		Number2 data = *(arg->GetData<Number2>());
+		auto arg = MATD::Argument::Struct<Number2>(data);
+		ref.reset(arg);
+	}
+		break;
+	case MATD::DATA_TYPES::STRING:
+		break;
+	case MATD::DATA_TYPES::BOOLEAN:
+	{
+		bool data = *(arg->GetData<bool>());
+		auto arg = MATD::Argument::Int((int)data);
+		ref.reset(arg);
+	}
+		break;
+	case MATD::DATA_TYPES::COLORVEC1:
+	{
+		ColorVec1 data = *(arg->GetData<ColorVec1>());
+		MATD::Argument::Float(data);
+	}
+		break;
+	case MATD::DATA_TYPES::COLORVEC3:
+	{
+		ColorVec3 data = *(arg->GetData<ColorVec3>());
+		auto arg = MATD::Argument::Struct<ColorVec3>(data);
+		ref.reset(arg);
+	}
+		break;
+	case MATD::DATA_TYPES::LUT1:
+	{
+		Lut1 data = *(arg->GetData<Lut1>());
+		auto arg = MATD::Argument::Buffer(data.stops, data.length, sizeof(Lut1Elem), MATD::ARG_TYPE::DEVICE_READ);
+		ref.reset(arg);
+	}
+		break;
+	case MATD::DATA_TYPES::LUT3:
+	{
+		Lut3 data = *(arg->GetData<Lut3>());
+		auto arg = MATD::Argument::Buffer(data.stops, data.length, sizeof(Lut3Elem), MATD::ARG_TYPE::DEVICE_READ);
+		ref.reset(arg);
+	}
+		break;
+	default:
+		MATD_CORE_ERROR("MATD::FUNC Unknown argument datatype found");
+		{
+			return nullptr;
+		}
+		break;
+	}
+
+	return ref;
 }
 
 MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON JSONObj)

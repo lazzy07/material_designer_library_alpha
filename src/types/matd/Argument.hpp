@@ -2,7 +2,6 @@
 #include <string>
 #include "../../core/Core.hpp"
 #include "../../engine/matd/Queue.hpp"
-#include "Struct.hpp"
 
 #define buf_type int
 
@@ -33,6 +32,9 @@ namespace MATD {
 	class Float;
 	class Buffer;
 	class Image;
+
+	template<class T>
+	class Struct;
 
 	class WorkItem;
 
