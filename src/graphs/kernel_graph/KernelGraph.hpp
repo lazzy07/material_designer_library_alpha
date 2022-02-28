@@ -1,5 +1,7 @@
 #pragma once
 #include "../core/Graph.hpp"
+#include "../../engine/matd/Kernel.hpp"
+#include "../../engine/matd/Queue.hpp"
 
 namespace MATD{
   namespace GRAPH{
@@ -17,9 +19,20 @@ namespace MATD{
 			inline const std::string& GetFunctionsSource() { return m_FunctionsSource; };
 
       void Compile();
+
+      void SubmitToQueue(Ref<MATD::Queue> queue);
+      std::string GetKernelName();
+
     private:
       std::string m_KernelSource;
       std::string m_FunctionsSource;
+
+      Ref<MATD::Kernel> m_EngineKernel;
+    private:
+      //Creating the kernel source
+      std::string InitKernel();
+      //Set outputs so that outputs can be ported to other graphs/nodes
+      void SetOutputs();
     };
   }
 }

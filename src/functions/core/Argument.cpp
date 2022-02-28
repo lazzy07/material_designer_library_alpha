@@ -2,6 +2,7 @@
 #include "../../types/matd/MatdDataTypes.hpp"
 #include "../../core/Core.hpp"
 #include <string.h>
+#include "../../types/matd/Argument.hpp"
 
 MATD::DATA_TYPES MATD::FUNC::Argument::StringToArgumentType(std::string str)
 {
@@ -88,6 +89,73 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(const std:
 
 	MATD_CORE_WARN("Unknown type of Argument Recieved");
 	return nullptr;
+}
+
+MATD::Ref<MATD::DTYPES::Argument> MATD::FUNC::Argument::Serialize(MATD::FUNC::Argument* argument)
+{
+	MATD::Ref<MATD::DTYPES::Argument> ref;
+	switch (argument->GetDataType())
+	{
+	case MATD::DATA_TYPES::NUMBER1:
+	{
+		float data = *(argument->GetData<Number1>());
+		auto arg = MATD::Argument::Float(data);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	case MATD::DATA_TYPES::NUMBER2:
+	{
+		Number2 data = *(argument->GetData<Number2>());
+		auto arg = MATD::Argument::Number2(data);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	case MATD::DATA_TYPES::STRING:
+		break;
+	case MATD::DATA_TYPES::BOOLEAN:
+	{
+		bool data = *(argument->GetData<bool>());
+		auto arg = MATD::Argument::Int((int)data);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	case MATD::DATA_TYPES::COLORVEC1:
+	{
+		float data = *(argument->GetData<ColorVec1>());
+		auto arg = MATD::Argument::Float(data);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	case MATD::DATA_TYPES::COLORVEC3:
+	{
+		ColorVec3 data = *(argument->GetData<ColorVec3>());
+		auto arg = MATD::Argument::ColorVec3(data);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	case MATD::DATA_TYPES::LUT1:
+	{
+		Lut1 data = *(argument->GetData<Lut1>());
+		auto arg = MATD::Argument::Buffer(data.stops, data.length, sizeof(Lut1Elem), MATD::ARG_TYPE::DEVICE_READ);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	case MATD::DATA_TYPES::LUT3:
+	{
+		Lut3 data = *(argument->GetData<Lut3>());
+		auto arg = MATD::Argument::Buffer(data.stops, data.length, sizeof(Lut3Elem), MATD::ARG_TYPE::DEVICE_READ);
+		ref.reset((DTYPES::Argument*)arg);
+	}
+		break;
+	default:
+		MATD_CORE_ERROR("MATD::FUNC Unknown argument datatype found");
+		{
+			return nullptr;
+		}
+		break;
+	}
+
+	return ref;
 }
 
 MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON JSONObj)
@@ -249,42 +317,55 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 		break;
 	case DATA_TYPES::LUT1:
 	{
-		auto d = this->GetData<std::vector<Ref<Lut1Elem>>>();
-		d->clear();
+		auto d = this->GetData<Lut1>();
+		delete d->stops;
 
+		size_t length = data.size();
+		Lut1Elem* stops = (Lut1Elem*)malloc(sizeof(Lut1Elem) * length);
+		
+		d->stops = stops;
+		d->length = length;
+
+		int j = 0;
 		for (auto i = data.begin(); i < data.end(); i++) {
-			Ref<Lut1Elem> ele = std::make_shared<Lut1Elem>();
-
 			float col = i.value()["col"].get<float>();
 			int pos = i.value()["pos"].get<int>();
 
-			ele->color = col;
-			ele->pos = pos;
+			if (stops) {
+				stops[j].color = col;
+				stops[j].pos = pos;
+			}
 
-			d->push_back(ele);
+			j++;
 		}
 	}
 		break;
 	case DATA_TYPES::LUT3:
 	{
-		auto d = this->GetData<std::vector<Ref<Lut3Elem>>>();
-		d->clear();
+		auto d = this->GetData<Lut3>();
+		delete d->stops;
 
+		size_t length = data.size();
+		Lut3Elem* stops = (Lut3Elem*)malloc(sizeof(Lut3Elem) * length);
+		
+		d->length = length;
+		d->stops = stops;
+		
+		int j = 0;
 		for (auto i = data.begin(); i < data.end(); i++) {
-			Ref<Lut3Elem> ele = std::make_shared<Lut3Elem>();
-
 			std::string col = i.value()["col"].get<std::string>();
 			int pos = i.value()["pos"].get<int>();
 			float r, g, b;
 			int val = sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
 
-			ele->color.r = r;
-			ele->color.g = g;
-			ele->color.b = b;
+			if (stops) {
+				stops[j].color.r = r;
+				stops[j].color.g = r;
+				stops[j].color.b = r;
+				stops[j].pos = pos;
+			}
 
-			ele->pos = pos;
-
-			d->push_back(ele);
+			j++;
 		}
 	}
 		break;
