@@ -1,21 +1,16 @@
 #pragma once
-#include "../../matd/Struct.hpp"
-#include <cl/cl.hpp>
+#include "../../matd/MatColorVec3.hpp"
 
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
-      template<class T>
-			class Struct : public MATD::Struct<T> {
+			class ColorVec3 : public MATD::MatColorVec3 {
 			public:
-				Struct(T val);
+				ColorVec3(MATD::ColorVec3 val);
 
 				virtual void Bind(WorkItem* workItem, size_t index) override;
 				virtual void Delete() override;
 				virtual void AddToQueue(MATD::Queue* queue) override;
-
-			private:
-				cl::Buffer m_CLBuffer;
 			};
 		}
 	}

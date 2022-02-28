@@ -2,6 +2,7 @@
 #include "../core/MaterialGraph.hpp"
 #include "../data_graph/DataNode.hpp"
 #include "../shader_graph/ShaderNode.hpp"
+#include <algorithm>
 
 MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {
@@ -11,6 +12,14 @@ MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MA
 
 MATD::GRAPH::KernelGraph::~KernelGraph()
 {
+}
+
+
+std::string MATD::GRAPH::KernelGraph::GetKernelName()
+{
+	std::string id = this->GetID();
+	id.erase(std::remove(id.begin(), id.end(), '-'), id.end());
+	return id;
 }
 
 void MATD::GRAPH::KernelGraph::CreateNode(MATD::JSON JSONObj)
@@ -40,55 +49,119 @@ void MATD::GRAPH::KernelGraph::Init(const MATD::JSON& JSONObj)
 
 void MATD::GRAPH::KernelGraph::Compile()
 {
-	auto materialGraph = this->GetMaterialGraph();
-	
-	auto dataGraph = materialGraph->GetGraph(GRAPH_TYPE::DATA_GRAPH);
-	auto shaderGraph = materialGraph->GetGraph(GRAPH_TYPE::SHADER_GRAPH);
-
-	{
-		auto dataOutputNodes = dataGraph->GetOutputNodes();
-		auto shaderOutputNodes = shaderGraph->GetOutputNodes();
-
-		m_DataArguments.clear();
-
-		//DataGraph outputs
-		BindDataVariables(dataOutputNodes);
-		BindShaderVariables(shaderOutputNodes);
-
-		
-	}
+	std::string kernelStr = InitKernel();
+	m_EngineKernel.reset(MATD::Kernel::CreateKernelFromSource(this->GetID(), kernelStr));
 }
 
-void MATD::GRAPH::KernelGraph::BindDataVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> dataOutputNodes)
-{
-	//Adding variables to m_DataArguments
-	{
-		for (auto node : dataOutputNodes) {
-			auto outputs = node->GetOutputSockets();
 
-			for (auto output : outputs) {
-				m_DataArguments[output.first] = output.second->GetArgument();
+std::string MATD::GRAPH::KernelGraph::InitKernel()
+{
+	std::string shaderStr;
+
+	std::string structs = R""""(
+		typedef float Number1;
+		typedef float ColorVec1;
+
+		typedef struct ColorVec3 {
+			float r;
+			float g;
+			float b;
+		};
+
+		typedef struct Number2 {
+			float x;
+			float y;
+		};
+
+		struct Lut1Elem {
+			ColorVec1 color;
+			int pos;
+		};
+
+		struct Lut3Elem {
+			ColorVec3 color;
+			int pos;
+		};
+
+
+	)"""";
+
+	shaderStr += structs;
+	shaderStr += m_FunctionsSource;
+
+	shaderStr += "\n\n";
+
+	shaderStr += "____kernel void ";
+	shaderStr += ("kernel_" + this->GetKernelName() + "(") ;
+
+	//add kernel parameters
+	{
+		auto materialGraph = this->GetMaterialGraph();
+		auto shaderGraph = materialGraph->GetGraph(GRAPH_TYPE::SHADER_GRAPH);
+
+		//data parameters
+		{
+			auto dataGraph = materialGraph->GetGraph(GRAPH_TYPE::DATA_GRAPH);
+			auto dataOutputNodes = dataGraph->GetOutputNodes();
+
+			size_t index = 0;
+			std::string argList = "";
+			for (auto node : dataOutputNodes) {
+				auto outSocket = node->GetOutputSocket("out");
+				auto arg = outSocket->GetArgument();
+
+
+				auto argName = node->GetFunction()->get()->GetArgument("id")->GetData<std::string>();
+				
+				argList += index > 0 ? "," : "";
+
+				switch (arg->GetDataType())
+				{
+				case MATD::DATA_TYPES::NUMBER1:
+					index += 1;
+					argList += "Number1 " + *argName;
+					break;
+				case MATD::DATA_TYPES::NUMBER2:
+					index += 1;
+					argList += "Number2 " + *argName;
+					break;
+				case MATD::DATA_TYPES::STRING:
+					break;
+				case MATD::DATA_TYPES::BOOLEAN:
+					index += 1;
+					argList += "float " + *argName;
+					break;
+				case MATD::DATA_TYPES::COLORVEC1:
+					index += 1;
+					argList += "ColorVec1 " + *argName;
+					break;
+				case MATD::DATA_TYPES::COLORVEC3:
+					index += 1;
+					argList += "ColorVec3 " + *argName;
+					break;
+				case MATD::DATA_TYPES::LUT1:
+					index += 2;
+					argList += "Lut1Elem* " + *argName;
+					argList += ", int " + *argName + "_size";
+					break;
+				case MATD::DATA_TYPES::LUT3:
+					index += 2;
+					argList += "Lut1Elem* " + *argName;
+					argList += ", int " + *argName + "_size";
+					break;
+				default:
+					break;
+				}
 			}
+
+			shaderStr += argList + "){\n";
+			shaderStr += m_KernelSource;
+			shaderStr += "};";
 		}
 	}
 
-	//Binding data variables into kernel
-	{
-
-	}
-}
-
-void MATD::GRAPH::KernelGraph::BindShaderVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> shaderGraphNodes)
-{
-}
-
-const std::string& MATD::GRAPH::KernelGraph::CreateKernelString()
-{
-	// TODO: insert return statement here
-}
-
-void MATD::GRAPH::KernelGraph::InitKernel(const std::string& kernelSource)
-{
+	MATD_CORE_TRACE("Kernel: \n" + shaderStr);
+	return shaderStr;
 }
 
 void MATD::GRAPH::KernelGraph::SetOutputs()
@@ -98,3 +171,4 @@ void MATD::GRAPH::KernelGraph::SetOutputs()
 void MATD::GRAPH::KernelGraph::SubmitToQueue(Ref<MATD::Queue> queue)
 {
 }
+

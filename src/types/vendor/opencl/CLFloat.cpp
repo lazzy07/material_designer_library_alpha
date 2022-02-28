@@ -16,7 +16,7 @@ namespace MATD {
 				const MATD::ENGINE::OPENCL::Kernel* kernel = (ENGINE::OPENCL::Kernel*)workItem->GetKernel();
 				cl::Kernel clKernel = kernel->GetCLKernel();
 				clKernel.setArg<float>(index, GetVal());
-				MATD_CORE_TRACE("CL_INT::Integer value bound to kernel:{} at index:{}", kernel->GetID(), index);
+				MATD_CORE_TRACE("CL_FLOAT::Float value bound to kernel:{} at index:{}", kernel->GetID(), index);
 			}
 
 			void Float::Delete()

@@ -21,20 +21,16 @@ namespace MATD{
       void Compile();
 
       void SubmitToQueue(Ref<MATD::Queue> queue);
+      std::string GetKernelName();
+
     private:
       std::string m_KernelSource;
       std::string m_FunctionsSource;
-      std::map<std::string, Ref<MATD::FUNC::Argument>> m_DataArguments;
+
       Ref<MATD::Kernel> m_EngineKernel;
     private:
-      //Binding variables coming from data graph
-      void BindDataVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> dataOutputNodes);
-			//Binding variables coming from shader graph (images)
-      void BindShaderVariables(std::vector<MATD::Ref<MATD::GRAPH::Node>> shaderOutputNodes);
       //Creating the kernel source
-      const std::string& CreateKernelString();
-      //Initializing the engine kernel
-      void InitKernel(const std::string& kernelSource);
+      std::string InitKernel();
       //Set outputs so that outputs can be ported to other graphs/nodes
       void SetOutputs();
     };

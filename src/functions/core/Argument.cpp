@@ -2,6 +2,7 @@
 #include "../../types/matd/MatdDataTypes.hpp"
 #include "../../core/Core.hpp"
 #include <string.h>
+#include "../../types/matd/Argument.hpp"
 
 MATD::DATA_TYPES MATD::FUNC::Argument::StringToArgumentType(std::string str)
 {
@@ -90,59 +91,60 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(const std:
 	return nullptr;
 }
 
-MATD::Ref<MATD::DTYPES::Argument> MATD::FUNC::Argument::Serialize(Argument* arg)
+MATD::Ref<MATD::DTYPES::Argument> MATD::FUNC::Argument::Serialize(MATD::FUNC::Argument* argument)
 {
 	MATD::Ref<MATD::DTYPES::Argument> ref;
-	switch (arg->GetDataType())
+	switch (argument->GetDataType())
 	{
 	case MATD::DATA_TYPES::NUMBER1:
 	{
-		Number1 data = *(arg->GetData<Number1>());
+		float data = *(argument->GetData<Number1>());
 		auto arg = MATD::Argument::Float(data);
-		ref.reset(arg);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	case MATD::DATA_TYPES::NUMBER2:
 	{
-		Number2 data = *(arg->GetData<Number2>());
-		auto arg = MATD::Argument::Struct<Number2>(data);
-		ref.reset(arg);
+		Number2 data = *(argument->GetData<Number2>());
+		auto arg = MATD::Argument::Number2(data);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	case MATD::DATA_TYPES::STRING:
 		break;
 	case MATD::DATA_TYPES::BOOLEAN:
 	{
-		bool data = *(arg->GetData<bool>());
+		bool data = *(argument->GetData<bool>());
 		auto arg = MATD::Argument::Int((int)data);
-		ref.reset(arg);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	case MATD::DATA_TYPES::COLORVEC1:
 	{
-		ColorVec1 data = *(arg->GetData<ColorVec1>());
-		MATD::Argument::Float(data);
+		float data = *(argument->GetData<ColorVec1>());
+		auto arg = MATD::Argument::Float(data);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	case MATD::DATA_TYPES::COLORVEC3:
 	{
-		ColorVec3 data = *(arg->GetData<ColorVec3>());
-		auto arg = MATD::Argument::Struct<ColorVec3>(data);
-		ref.reset(arg);
+		ColorVec3 data = *(argument->GetData<ColorVec3>());
+		auto arg = MATD::Argument::ColorVec3(data);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	case MATD::DATA_TYPES::LUT1:
 	{
-		Lut1 data = *(arg->GetData<Lut1>());
+		Lut1 data = *(argument->GetData<Lut1>());
 		auto arg = MATD::Argument::Buffer(data.stops, data.length, sizeof(Lut1Elem), MATD::ARG_TYPE::DEVICE_READ);
-		ref.reset(arg);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	case MATD::DATA_TYPES::LUT3:
 	{
-		Lut3 data = *(arg->GetData<Lut3>());
+		Lut3 data = *(argument->GetData<Lut3>());
 		auto arg = MATD::Argument::Buffer(data.stops, data.length, sizeof(Lut3Elem), MATD::ARG_TYPE::DEVICE_READ);
-		ref.reset(arg);
+		ref.reset((DTYPES::Argument*)arg);
 	}
 		break;
 	default:

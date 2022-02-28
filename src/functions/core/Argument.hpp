@@ -12,16 +12,16 @@ namespace MATD {
 			/**
 			 * Create argument out of JSON Object
 			 */
-			static MATD::Ref<Argument> ArgumentFactory(MATD::JSON JSONObj);
+			static MATD::Ref<MATD::FUNC::Argument> ArgumentFactory(MATD::JSON JSONObj);
 			/**
 			 * Create empty argument
 			 */
-			static MATD::Ref<Argument> ArgumentFactory(const std::string& id, DATA_TYPES dataType);
+			static MATD::Ref<MATD::FUNC::Argument> ArgumentFactory(const std::string& id, DATA_TYPES dataType);
 
 			/**
 			 * Argument to kernel argument converter
 			 */
-			static Ref<MATD::DTYPES::Argument> Serialize(Argument* arg);
+			static Ref<MATD::DTYPES::Argument> Serialize(MATD::FUNC::Argument* arg);
 
 			static MATD::DATA_TYPES StringToArgumentType(std::string str);
 
