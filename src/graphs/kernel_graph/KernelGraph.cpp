@@ -32,11 +32,14 @@ void MATD::GRAPH::KernelGraph::Update(MATD::JSON JSONObj)
 	std::string type = JSONObj["type"].get<std::string>();
 	std::string update = JSONObj["update"].get<std::string>();
 
-	if (update == "kernel") {
+	if (type == "kernel") {
 		m_KernelSource = update;
 	}
-	else if (update == "functions") {
+	else if (type == "functions") {
 		m_FunctionsSource = update;
+	}
+	else {
+		MATD_CORE_ERROR("Unknown update type in Kernel: {}", this->GetID());
 	}
 }
 
@@ -49,50 +52,50 @@ void MATD::GRAPH::KernelGraph::Init(const MATD::JSON& JSONObj)
 
 void MATD::GRAPH::KernelGraph::Compile()
 {
-	std::string kernelStr = InitKernel();
-	m_EngineKernel.reset(MATD::Kernel::CreateKernelFromSource(this->GetID(), kernelStr));
+	InitKernel();
+	auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetID(), m_ShaderSource);
+	m_EngineKernel.reset(kernel);
 }
 
-
-std::string MATD::GRAPH::KernelGraph::InitKernel()
+void MATD::GRAPH::KernelGraph::InitKernel()
 {
-	std::string shaderStr;
+	m_ShaderSource = "";
 
 	std::string structs = R""""(
-		typedef float Number1;
-		typedef float ColorVec1;
+typedef float Number1;
+typedef float ColorVec1;
 
-		typedef struct ColorVec3 {
-			float r;
-			float g;
-			float b;
-		};
+struct ColorVec3 {
+	float r;
+	float g;
+	float b;
+};
 
-		typedef struct Number2 {
-			float x;
-			float y;
-		};
+struct Number2 {
+	float x;
+	float y;
+};
 
-		struct Lut1Elem {
-			ColorVec1 color;
-			int pos;
-		};
+struct Lut1Elem {
+	ColorVec1 color;
+	int pos;
+};
 
-		struct Lut3Elem {
-			ColorVec3 color;
-			int pos;
-		};
+struct Lut3Elem {
+	struct ColorVec3 color;
+	int pos;
+};
 
 
-	)"""";
+)"""";
 
-	shaderStr += structs;
-	shaderStr += m_FunctionsSource;
+	m_ShaderSource += structs;
+	m_ShaderSource += m_FunctionsSource;
 
-	shaderStr += "\n\n";
+	m_ShaderSource += "\n\n";
 
-	shaderStr += "____kernel void ";
-	shaderStr += ("kernel_" + this->GetKernelName() + "(") ;
+	m_ShaderSource += "__kernel void ";
+	m_ShaderSource += ("kernel_" + this->GetKernelName() + "(") ;
 
 	//add kernel parameters
 	{
@@ -154,14 +157,13 @@ std::string MATD::GRAPH::KernelGraph::InitKernel()
 				}
 			}
 
-			shaderStr += argList + "){\n";
-			shaderStr += m_KernelSource;
-			shaderStr += "};";
+			m_ShaderSource += argList + "){\n\n";
+			m_ShaderSource += m_KernelSource;
+			m_ShaderSource += "\n\n};";
 		}
 	}
 
-	MATD_CORE_TRACE("Kernel: \n" + shaderStr);
-	return shaderStr;
+	MATD_CORE_TRACE("Kernel: \n" + m_ShaderSource);
 }
 
 void MATD::GRAPH::KernelGraph::SetOutputs()

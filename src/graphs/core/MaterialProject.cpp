@@ -102,6 +102,19 @@ void MATD::GRAPH::MaterialProject::Update(const std::string& JSONString)
 	graph->Update(update);
 }
 
+void MATD::GRAPH::MaterialProject::CompileKernel()
+{
+	if (m_SelectedGraphType == GRAPH_TYPE::KERNEL_GRAPH) {
+		auto graph = m_SelectedMaterialGraph->GetGraph(GRAPH_TYPE::KERNEL_GRAPH);
+		auto kernelGraph = (MATD::GRAPH::KernelGraph*)graph.get();
+
+		kernelGraph->Compile();
+	}
+	else {
+		MATD_CORE_WARN("MATD::GRAPHS Warning::Selected graph is not a Kernel Graph");
+	}
+}
+
 
 void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)
 {

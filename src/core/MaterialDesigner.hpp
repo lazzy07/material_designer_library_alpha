@@ -34,12 +34,16 @@ namespace MATD{
 				void AddConnection(const std::string& JSONString);
 				void RemoveConnection(const std::string& JSONString);
 				void Update(const std::string& JSONString);
-        
-        inline const Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
+        void CompileKernel();
 
+        inline void SetUsedByMaterialDesignerApp(bool isUsedByApp) { this->m_IsUsedByMaterialDesignerApp = isUsedByApp; };
+        inline bool GetUsedByMaterialDesignerApp() { return m_IsUsedByMaterialDesignerApp; };
+
+        inline const Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
         Ref<MATD::GRAPH::MaterialProject> m_CurrentProject;
+        bool m_IsUsedByMaterialDesignerApp = false;
     };
   };
 }

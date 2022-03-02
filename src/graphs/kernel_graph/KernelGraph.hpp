@@ -27,10 +27,12 @@ namespace MATD{
       std::string m_KernelSource;
       std::string m_FunctionsSource;
 
+      std::string m_ShaderSource;
+
       Ref<MATD::Kernel> m_EngineKernel;
     private:
       //Creating the kernel source
-      std::string InitKernel();
+      void InitKernel();
       //Set outputs so that outputs can be ported to other graphs/nodes
       void SetOutputs();
     };

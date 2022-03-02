@@ -48,7 +48,14 @@ namespace MATD {
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
 			ENGINE::OPENCL::Kernel* kernel = new ENGINE::OPENCL::Kernel(id);
 			kernel->LoadKernelDataFromString(source);
-			kernel->CreateCLKernel();
+			std::string error = kernel->CreateCLKernel();
+
+			if (error.size() > 0) {
+				//Has an error
+			}
+			else {
+
+			}
 			return kernel;
 			break;
 		}

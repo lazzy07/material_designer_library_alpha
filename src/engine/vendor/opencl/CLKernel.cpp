@@ -11,7 +11,7 @@ namespace MATD {
 				
 			}
 
-			void Kernel::CreateCLKernel() {
+			std::string Kernel::CreateCLKernel() {
 				std::string source = GetKernelData();
 				size_t kernelLen = source.length();
 				MATD_CORE_ASSERT(kernelLen, "CL_KERNEL::Invalid Kernel Found");
@@ -26,6 +26,8 @@ namespace MATD {
 				try {
 					program.build(platform->GetCLDevices());
 					m_Kernel = cl::Kernel(program, GetID().c_str());
+
+					return "";
 				}
 				catch (cl::Error error) {
 					if (error.err() == CL_BUILD_PROGRAM_FAILURE) {
@@ -40,8 +42,11 @@ namespace MATD {
 							std::string buildlog = program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(dev);
 							
 							MATD_CORE_ERROR("For device: {} buildlog: \n{}", name, buildlog);
-							MATD_CORE_ASSERT(false, "Build Failed");
+							return buildlog;
 						}
+					}
+					else {
+						MATD_CORE_ASSERT(false, "MATD::CL_KERNEL Kernel build error!");
 					}
 				}
 			}
