@@ -18,7 +18,7 @@ namespace MATD{
 			inline const std::string& GetKernelSource() { return m_KernelSource; };
 			inline const std::string& GetFunctionsSource() { return m_FunctionsSource; };
 
-      void Compile();
+      std::string Compile();
 
       void SubmitToQueue(Ref<MATD::Queue> queue);
       std::string GetKernelName();

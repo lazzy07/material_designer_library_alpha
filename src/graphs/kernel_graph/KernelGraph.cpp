@@ -50,11 +50,13 @@ void MATD::GRAPH::KernelGraph::Init(const MATD::JSON& JSONObj)
 	m_KernelSource = JSONObj["data"]["functions"].get<std::string>();
 }
 
-void MATD::GRAPH::KernelGraph::Compile()
+std::string MATD::GRAPH::KernelGraph::Compile()
 {
 	InitKernel();
-	auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetID(), m_ShaderSource);
+	std::string error = "";
+	auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetID(), m_ShaderSource, &error);
 	m_EngineKernel.reset(kernel);
+	return error;
 }
 
 void MATD::GRAPH::KernelGraph::InitKernel()

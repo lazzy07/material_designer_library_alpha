@@ -98,7 +98,7 @@ void MATD::CORE::MaterialDesigner::Update(const std::string& JSONString)
 	this->m_CurrentProject->Update(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::CompileKernel()
+std::string MATD::CORE::MaterialDesigner::CompileKernel()
 {
-	this->m_CurrentProject->CompileKernel();
+	return this->m_CurrentProject->CompileKernel();
 }
