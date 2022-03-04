@@ -14,7 +14,7 @@ namespace MATD {
       Graph(MaterialGraph* graph, const MATD::JSON& JSONObj);
       ~Graph();
 
-      inline const std::string& GetID() { return m_ID; };
+      inline std::string GetID() { return m_ID; };
       inline MaterialGraph* GetMaterialGraph() { return m_MaterialGraph; };
 
 			virtual void CreateNode(MATD::JSON JSONObj) = 0;

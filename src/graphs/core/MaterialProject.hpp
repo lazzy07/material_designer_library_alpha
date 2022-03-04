@@ -23,7 +23,7 @@ namespace MATD{
 				void AddConnection(const std::string& JSONString);
 				void RemoveConnection(const std::string& JSONString);
 				void Update(const std::string& JSONString);
-
+        std::string CompileKernel();
       private:
         std::string m_ProjectID;
         std::string m_FileName;

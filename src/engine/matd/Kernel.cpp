@@ -38,7 +38,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	Kernel* Kernel::CreateKernelFromSource(std::string id, std::string const& source) {
+	Kernel* Kernel::CreateKernelFromSource(std::string id, std::string const& source, std::string* error) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -48,7 +48,14 @@ namespace MATD {
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
 			ENGINE::OPENCL::Kernel* kernel = new ENGINE::OPENCL::Kernel(id);
 			kernel->LoadKernelDataFromString(source);
-			kernel->CreateCLKernel();
+			std::string err = kernel->CreateCLKernel();
+
+			if (err.size() > 0) {
+				//Has an error
+				MATD_CORE_WARN("MATD::CL kernel build error: \n{}", err);
+				*error = err;
+			}
+
 			return kernel;
 			break;
 		}

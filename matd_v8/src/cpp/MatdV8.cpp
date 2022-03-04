@@ -5,6 +5,8 @@
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
   this->m_Matd = new MATD::CORE::MaterialDesigner();
+	this->m_Matd->SelectDevice(0, 0);
+	this->m_Matd->SetUsedByMaterialDesignerApp(true);
 }
 
 MATD::V8::MatdV8::~MatdV8()
@@ -113,6 +115,10 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info
 	else if (updateType.Utf8Value() == "update") {
 		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
 		this->m_Matd->Update(graph);
+	}
+	else if (updateType.Utf8Value() == "compileKernel") {
+		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
+		this->m_Matd->CompileKernel();
 	}
 	else {
 		MATD_CORE_TRACE("MATD_V8:: Unknown update format!");

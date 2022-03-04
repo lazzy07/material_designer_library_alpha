@@ -9,7 +9,7 @@ namespace MATD {
 			class Kernel: public MATD::Kernel {
 			public:
 				Kernel(std::string id);
-				void CreateCLKernel();
+				std::string CreateCLKernel();
 				inline const cl::Kernel& GetCLKernel() const { return m_Kernel; };
 			private:
 				cl::Kernel m_Kernel;
