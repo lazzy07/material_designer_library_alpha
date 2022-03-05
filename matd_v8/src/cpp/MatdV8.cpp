@@ -1,6 +1,7 @@
 #include "MatdV8.hpp"
 #include <core/Core.hpp>
 #include <core/EngineManager.hpp>
+#include "KernelCompilerAsync.hpp"
 
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
@@ -26,6 +27,7 @@ Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
 			MatdV8::InstanceMethod("getAvailableEngines", &MatdV8::GetAvailableEngines),
 			MatdV8::InstanceMethod("setEngine", &MatdV8::SetEngine),
 			MatdV8::InstanceMethod("getAvailableDevices", &MatdV8::GetAvailableDevices),
+			MatdV8::InstanceMethod("compileKernel", &MatdV8::CompileKernel),
     });
 }
 
@@ -88,7 +90,7 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info
 	}
 
 	if (!info[1].IsString()) {
-		Napi::TypeError::New(env, "MaterialGraph needs to be in string format").ThrowAsJavaScriptException();
+		Napi::TypeError::New(env, "Graph needs to be in string format").ThrowAsJavaScriptException();
 		return env.Null();
 	}
 
@@ -115,10 +117,6 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info
 	else if (updateType.Utf8Value() == "update") {
 		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
 		this->m_Matd->Update(graph);
-	}
-	else if (updateType.Utf8Value() == "compileKernel") {
-		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
-		this->m_Matd->CompileKernel();
 	}
 	else {
 		MATD_CORE_TRACE("MATD_V8:: Unknown update format!");
@@ -231,4 +229,13 @@ Napi::Value MATD::V8::MatdV8::GetAvailableDevices(const Napi::CallbackInfo& info
   }
 
   return arr;
+}
+
+void MATD::V8::MatdV8::CompileKernel(const Napi::CallbackInfo& info)
+{
+	Napi::Env env = info.Env();
+
+	MATD_CORE_TRACE("MATD_V8:: Compile kernel request recieved");
+	KernelCompilerAsync* kernelCompiler = new KernelCompilerAsync(info[0].As<Napi::Function>(), this->m_Matd);
+	kernelCompiler->Queue();
 }

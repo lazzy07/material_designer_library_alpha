@@ -9,10 +9,11 @@ namespace MATD{
       KernelCompilerAsync(Napi::Function& callback, MATD::CORE::MaterialDesigner* matd);
       ~KernelCompilerAsync();
 
-      void Execute();
-      void OnOk();
+      void Execute() override;
+      void OnOK() override;
     private:
       MATD::CORE::MaterialDesigner* m_MaterialDesignerInstance;
+      std::string m_KernelError;
     };
   }
 }

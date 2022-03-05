@@ -12,10 +12,14 @@ MATD::V8::KernelCompilerAsync::~KernelCompilerAsync()
 
 void MATD::V8::KernelCompilerAsync::Execute()
 {
-	std::string error = this->m_MaterialDesignerInstance->CompileKernel();
+	MATD_CORE_TRACE("MATD::V8 Compilation Process Started");
+	m_KernelError = this->m_MaterialDesignerInstance->CompileKernel();
+	MATD_CORE_TRACE("MATD::V8 Compilation Process Finished");
 }
 
-void MATD::V8::KernelCompilerAsync::OnOk()
+void MATD::V8::KernelCompilerAsync::OnOK()
 {
-	Callback().Call({});
+	auto arg = Napi::String::New(this->Env(), m_KernelError.size() > 0 ? m_KernelError.c_str() : "");
+	Callback().Call({arg});
 }
+

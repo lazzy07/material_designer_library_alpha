@@ -19,6 +19,8 @@ namespace MATD{
       Napi::Value GetAvailableEngines(const Napi::CallbackInfo& info);
 			Napi::Value GetAvailableDevices(const Napi::CallbackInfo& info);
 
+      void CompileKernel(const Napi::CallbackInfo& info);
+
       static Napi::Function GetClass(Napi::Env env);
     private:
       MATD::CORE::MaterialDesigner* m_Matd;

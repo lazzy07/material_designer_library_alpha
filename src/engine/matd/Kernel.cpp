@@ -52,7 +52,6 @@ namespace MATD {
 
 			if (err.size() > 0) {
 				//Has an error
-				MATD_CORE_WARN("MATD::CL kernel build error: \n{}", err);
 				*error = err;
 			}
 
