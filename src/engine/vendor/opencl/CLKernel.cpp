@@ -25,7 +25,8 @@ namespace MATD {
 
 				try {
 					program.build(platform->GetCLDevices());
-					m_Kernel = cl::Kernel(program, GetID().c_str());
+					auto id = "kernel_" + this->GetID();
+					m_Kernel = cl::Kernel(program, id.c_str());
 
 					return "";
 				}
@@ -48,6 +49,8 @@ namespace MATD {
 					else {
 						MATD_CORE_ASSERT(false, "MATD::CL_KERNEL Kernel build error!");
 					}
+
+						return "Unknown Kernel build error";
 				}
 			}
 		}
