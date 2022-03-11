@@ -228,9 +228,13 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 		ColorVec3* col3 = (ColorVec3*)malloc(sizeof(ColorVec3));
 
 		if (col3) {
-			col3->b = data.at(0).get<float>();
-			col3->g = data.at(1).get<float>();
-			col3->r = data.at(2).get<float>();
+			std::string col = data.get<std::string>();
+			unsigned int r, g, b;
+			int val = sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
+
+			col3->b = (float)b;
+			col3->g = (float)g;
+			col3->r = (float)r;
 		}
 		return std::make_shared<Argument>(id, DATA_TYPES::COLORVEC3, col3);
 	}
@@ -302,10 +306,13 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 	case DATA_TYPES::COLORVEC3:
 	{
 		ColorVec3 vec3;
+		std::string col = data.get<std::string>();
+		unsigned int r, g, b;
+		int val = sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
 
-		vec3.b = data.at(0).get<float>();
-		vec3.g = data.at(1).get<float>();
-		vec3.r = data.at(2).get<float>();
+		vec3.b = (float)b;
+		vec3.g = (float)g;
+		vec3.r = (float)r;
 		this->SetData<ColorVec3>(vec3);
 	}
 		break;
@@ -355,13 +362,13 @@ void MATD::FUNC::Argument::SetData(MATD::JSON JSONObj)
 		for (auto i = data.begin(); i < data.end(); i++) {
 			std::string col = i.value()["col"].get<std::string>();
 			int pos = i.value()["pos"].get<int>();
-			float r, g, b;
+			unsigned int r, g, b;
 			int val = sscanf(col.c_str(), "#%02x%02x%02x", &r, &g, &b);
 
 			if (stops) {
-				stops[j].color.r = r;
-				stops[j].color.g = r;
-				stops[j].color.b = r;
+				stops[j].color.r = (float)r;
+				stops[j].color.g = (float)g;
+				stops[j].color.b = (float)b;
 				stops[j].pos = pos;
 			}
 
