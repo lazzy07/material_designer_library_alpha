@@ -22,6 +22,11 @@ std::string MATD::GRAPH::KernelGraph::GetKernelName()
 	return id;
 }
 
+std::string MATD::GRAPH::KernelGraph::IDToVariableName(std::string id) {
+	id.erase(std::remove(id.begin(), id.end(), '-'), id.end());
+	return id;
+}
+
 void MATD::GRAPH::KernelGraph::CreateNode(MATD::JSON JSONObj)
 {
 }
@@ -54,7 +59,7 @@ std::string MATD::GRAPH::KernelGraph::Compile()
 {
 	InitKernel();
 	std::string error = "";
-	auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetID(), m_ShaderSource, &error);
+	auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetKernelName(), m_ShaderSource, &error);
 	m_EngineKernel.reset(kernel);
 	return error;
 }
@@ -116,7 +121,7 @@ struct Lut3Elem {
 				auto arg = outSocket->GetArgument();
 
 
-				auto argName = node->GetFunction()->get()->GetArgument("id")->GetData<std::string>();
+				auto argName = "_" + IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
 				
 				argList += index > 0 ? "," : "";
 
@@ -124,35 +129,35 @@ struct Lut3Elem {
 				{
 				case MATD::DATA_TYPES::NUMBER1:
 					index += 1;
-					argList += "Number1 " + *argName;
+					argList += "Number1 " + argName;
 					break;
 				case MATD::DATA_TYPES::NUMBER2:
 					index += 1;
-					argList += "Number2 " + *argName;
+					argList += "struct Number2 " + argName;
 					break;
 				case MATD::DATA_TYPES::STRING:
 					break;
 				case MATD::DATA_TYPES::BOOLEAN:
 					index += 1;
-					argList += "float " + *argName;
+					argList += "int " + argName;
 					break;
 				case MATD::DATA_TYPES::COLORVEC1:
 					index += 1;
-					argList += "ColorVec1 " + *argName;
+					argList += "ColorVec1 " + argName;
 					break;
 				case MATD::DATA_TYPES::COLORVEC3:
 					index += 1;
-					argList += "ColorVec3 " + *argName;
+					argList += "struct ColorVec3 " + argName;
 					break;
 				case MATD::DATA_TYPES::LUT1:
 					index += 2;
-					argList += "Lut1Elem* " + *argName;
-					argList += ", int " + *argName + "_size";
+					argList += "struct Lut1Elem* " + argName;
+					argList += ", int " + argName + "_size";
 					break;
 				case MATD::DATA_TYPES::LUT3:
 					index += 2;
-					argList += "Lut1Elem* " + *argName;
-					argList += ", int " + *argName + "_size";
+					argList += "struct Lut1Elem* " + argName;
+					argList += ", int " + argName + "_size";
 					break;
 				default:
 					break;
