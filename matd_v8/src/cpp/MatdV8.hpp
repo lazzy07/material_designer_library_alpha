@@ -10,7 +10,7 @@ namespace MATD{
       ~MatdV8();
 			Napi::Value OpenMaterialProject(const Napi::CallbackInfo& info);
 			Napi::Value UpdateMaterialProject(const Napi::CallbackInfo& info);
-			Napi::Value UpdateMaterialGraph(const Napi::CallbackInfo& info);
+			void UpdateMaterialGraph(const Napi::CallbackInfo& info);
 			Napi::Value SelectCurrentMaterialGraph(const Napi::CallbackInfo& info);
 
       Napi::Value SetComputationDevice(const Napi::CallbackInfo& info);
