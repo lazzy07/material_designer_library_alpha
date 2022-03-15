@@ -99,7 +99,7 @@ void MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
 	Napi::String updateType = info[0].As<Napi::String>();
 	Napi::String graph = info[1].As<Napi::String>();
 	
-	UpdaterAsync* kernelCompiler = new UpdaterAsync(info[2].As<Napi::Function>(), this->m_Matd, updateType, graph);
+	UpdaterAsync* kernelCompiler = new UpdaterAsync(info[2].As<Napi::Function>(), this->m_Matd, updateType.Utf8Value(), graph.Utf8Value());
 	kernelCompiler->Queue();
 }
 

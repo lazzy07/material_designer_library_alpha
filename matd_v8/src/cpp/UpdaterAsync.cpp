@@ -2,41 +2,40 @@
 
 #include <core/Log.hpp>
 
-MATD::V8::UpdaterAsync::UpdaterAsync(Napi::Function& callback, MATD::CORE::MaterialDesigner* matd, const Napi::String& updateType, const Napi::String& graph) : Napi::AsyncWorker(callback), m_MaterialDesignerInstance(matd), m_UpdateType(updateType), m_Graph(graph)
+MATD::V8::UpdaterAsync::UpdaterAsync(Napi::Function& callback, MATD::CORE::MaterialDesigner* matd, std::string updateType, std::string graph) : Napi::AsyncWorker(callback), m_MaterialDesignerInstance(matd), m_UpdateType(updateType), m_Graph(graph)
 {
+	MATD_CORE_TRACE("MATD::V8 Updater Async Created");
+
 }
 
 MATD::V8::UpdaterAsync::~UpdaterAsync()
 {
-	MATD_CORE_TRACE("MATD::V8 Kernel Compiler Deleted");
+	MATD_CORE_TRACE("MATD::V8 Updater Async Deleted");
 }
 
 void MATD::V8::UpdaterAsync::Execute()
 {
 	MATD_CORE_TRACE("MATD::V8 Update Process Started");
 
-	auto graph = m_Graph;
-	auto updateType = m_UpdateType;
-
-	if (updateType.Utf8Value() == "createNode") {
+	if (m_UpdateType == "createNode") {
 		MATD_CORE_TRACE("MATD_V8:: Create node request recieved");
-		this->m_MaterialDesignerInstance->CreateNode(graph);
+		this->m_MaterialDesignerInstance->CreateNode(m_Graph);
 	}
-	else if (updateType.Utf8Value() == "removeNode") {
+	else if (m_UpdateType == "removeNode") {
 		MATD_CORE_TRACE("MATD_V8:: Remove node request recieved");
-		this->m_MaterialDesignerInstance->RemoveNode(graph);
+		this->m_MaterialDesignerInstance->RemoveNode(m_Graph);
 	}
-	else if (updateType.Utf8Value() == "addConnection") {
+	else if (m_UpdateType == "addConnection") {
 		MATD_CORE_TRACE("MATD_V8:: Add connection request recieved");
-		this->m_MaterialDesignerInstance->AddConnection(graph);
+		this->m_MaterialDesignerInstance->AddConnection(m_Graph);
 	}
-	else if (updateType.Utf8Value() == "removeConnection") {
+	else if (m_UpdateType == "removeConnection") {
 		MATD_CORE_TRACE("MATD_V8:: Remove connection request recieved");
-		this->m_MaterialDesignerInstance->RemoveConnection(graph);
+		this->m_MaterialDesignerInstance->RemoveConnection(m_Graph);
 	}
-	else if (updateType.Utf8Value() == "update") {
+	else if (m_UpdateType == "update") {
 		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
-		this->m_MaterialDesignerInstance->Update(graph);
+		this->m_MaterialDesignerInstance->Update(m_Graph);
 	}
 	else {
 		MATD_CORE_WARN("MATD::V8 Unknown Update type in UpdateAsync");
@@ -46,6 +45,5 @@ void MATD::V8::UpdaterAsync::Execute()
 
 void MATD::V8::UpdaterAsync::OnOK()
 {
-	Callback().Call({});
 }
 
