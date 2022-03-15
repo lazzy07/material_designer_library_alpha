@@ -2,6 +2,7 @@
 #include <core/Core.hpp>
 #include <core/EngineManager.hpp>
 #include "KernelCompilerAsync.hpp"
+#include "UpdaterAsync.hpp"
 
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
@@ -75,56 +76,31 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialProject(const Napi::CallbackInfo& in
 	return env.Null();
 }
 
-Napi::Value MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
+void MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
 {
 	Napi::Env env = info.Env();
 
-	if (info.Length() < 2) {
-		Napi::TypeError::New(env, "Update type and update data required").ThrowAsJavaScriptException();
-		return env.Null();
+	if (info.Length() < 3) {
+		Napi::TypeError::New(env, "Update type, update data and callback are required").ThrowAsJavaScriptException();
 	}
 
 	if (!info[0].IsString()) {
 		Napi::TypeError::New(env, "Update type needs to be in string format").ThrowAsJavaScriptException();
-		return env.Null();
 	}
 
 	if (!info[1].IsString()) {
 		Napi::TypeError::New(env, "Graph needs to be in string format").ThrowAsJavaScriptException();
-		return env.Null();
+	}
+
+	if (!info[2].IsFunction()) {
+		Napi::TypeError::New(env, "Callback needs to be a function").ThrowAsJavaScriptException();
 	}
 
 	Napi::String updateType = info[0].As<Napi::String>();
 	Napi::String graph = info[1].As<Napi::String>();
 	
-
-	if (updateType.Utf8Value() == "createNode") {
-		MATD_CORE_TRACE("MATD_V8:: Create node request recieved");
-		this->m_Matd->CreateNode(graph);
-	}
-	else if (updateType.Utf8Value() == "removeNode") {
-		MATD_CORE_TRACE("MATD_V8:: Remove node request recieved");
-		this->m_Matd->RemoveNode(graph);
-	}
-	else if (updateType.Utf8Value() == "addConnection") {
-		MATD_CORE_TRACE("MATD_V8:: Add connection request recieved");
-		this->m_Matd->AddConnection(graph);
-	}
-	else if (updateType.Utf8Value() == "removeConnection") {
-		MATD_CORE_TRACE("MATD_V8:: Remove connection request recieved");
-		this->m_Matd->RemoveConnection(graph);
-	}
-	else if (updateType.Utf8Value() == "update") {
-		MATD_CORE_TRACE("MATD_V8:: Node data update request recieved");
-		this->m_Matd->Update(graph);
-	}
-	else {
-		MATD_CORE_TRACE("MATD_V8:: Unknown update format!");
-		Napi::TypeError::New(env, "Unknown update format").ThrowAsJavaScriptException();
-		return env.Null();
-	}
-
-	return env.Null();
+	UpdaterAsync* kernelCompiler = new UpdaterAsync(info[2].As<Napi::Function>(), this->m_Matd, updateType.Utf8Value(), graph.Utf8Value());
+	kernelCompiler->Queue();
 }
 
 Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInfo& info)
