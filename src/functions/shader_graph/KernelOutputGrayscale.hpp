@@ -5,9 +5,12 @@
 namespace MATD {
 	namespace FUNC {
 		namespace SHADER {
-			namespace INPUT {
-        class KerenlOutputGrayscale : public ShaderPrimitiveProcess {
-          
+			namespace PROCESS {
+        class KernelOutputGrayscale : public ShaderPrimitiveProcess {
+					KernelOutputGrayscale(MATD::GRAPH::Node* node);
+
+					virtual void Calculate() override;
+					virtual void SetSocketArguments() override;
         };
       }
     }
