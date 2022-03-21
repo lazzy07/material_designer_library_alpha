@@ -8,11 +8,8 @@ namespace MATD {
 			ShaderPrimitiveFunction(MATD::GRAPH::Node* node);
 			~ShaderPrimitiveFunction();
 
-			virtual void Init(const MATD::JSON& JSONObj) override;
 			virtual void Calculate() = 0;
-			virtual void Update() = 0;
-
-			virtual void OnComplete() = 0;
+			virtual void SetSocketArguments() = 0;
 		};
 	}
 }
