@@ -21,8 +21,6 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 	MATD::JSON inputs = JSONObj["output"]["connections"];
 	MATD::JSON inputData;
 
-	MATD_CORE_WARN("{}", inputs);
-
 	for (auto input = inputs.begin(); input<inputs.end(); input++) {
 		std::string connId = input.value()["id"].get<std::string>();
 
