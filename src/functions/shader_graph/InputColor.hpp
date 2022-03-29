@@ -6,6 +6,7 @@ namespace MATD {
 		namespace SHADER {
 			namespace INPUT {
         class InputColor : public ShaderPrimitiveInput {
+        public:
           InputColor(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;

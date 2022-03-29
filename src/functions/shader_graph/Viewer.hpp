@@ -7,6 +7,7 @@ namespace MATD {
 		namespace SHADER {
 			namespace PROCESS {
         class Viewer : public ShaderPrimitiveProcess {
+				public:
 					Viewer(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
