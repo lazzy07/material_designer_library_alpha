@@ -6,6 +6,7 @@ namespace MATD {
 		namespace SHADER {
 			namespace OUTPUT {
         class OutputColor : public ShaderPrimitiveOutput {
+				public:
 					OutputColor(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;

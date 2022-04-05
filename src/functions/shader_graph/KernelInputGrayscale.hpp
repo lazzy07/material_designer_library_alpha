@@ -7,6 +7,7 @@ namespace MATD {
 		namespace SHADER {
 			namespace PROCESS {
         class KernelInputGrayscale : public ShaderPrimitiveProcess {
+				public:
 					KernelInputGrayscale(MATD::GRAPH::Node* node);
 
 					virtual void Calculate() override;
