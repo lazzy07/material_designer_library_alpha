@@ -52,6 +52,8 @@ namespace MATD {
 		class Argument {
 		public:
 			Argument(MAT_ARG type);
+			~Argument();
+
 			virtual void Bind(WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
 			virtual void AddToQueue(MATD::Queue* queue) = 0;
