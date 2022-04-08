@@ -30,6 +30,12 @@ MATD::DATA_TYPES MATD::FUNC::Argument::StringToArgumentType(std::string str)
 	else if (str == "string") {
 		return DATA_TYPES::STRING;
 	}
+	else if (str == "color") {
+		return DATA_TYPES::TEXCOLOR;
+	}
+	else if (str == "grayscale") {
+		return DATA_TYPES::TEXGRAYSCALE;
+	}
 	else {
 		MATD_CORE_ASSERT(false, "Data type not found!");
 		return DATA_TYPES::BOOLEAN;
