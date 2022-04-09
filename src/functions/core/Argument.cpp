@@ -30,6 +30,12 @@ MATD::DATA_TYPES MATD::FUNC::Argument::StringToArgumentType(std::string str)
 	else if (str == "string") {
 		return DATA_TYPES::STRING;
 	}
+	else if (str == "color") {
+		return DATA_TYPES::TEXCOLOR;
+	}
+	else if (str == "grayscale") {
+		return DATA_TYPES::TEXGRAYSCALE;
+	}
 	else {
 		MATD_CORE_ASSERT(false, "Data type not found!");
 		return DATA_TYPES::BOOLEAN;
@@ -161,6 +167,7 @@ MATD::Ref<MATD::DTYPES::Argument> MATD::FUNC::Argument::Serialize(MATD::FUNC::Ar
 MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON JSONObj)
 {
 	std::string dataTypeStr = JSONObj["dataType"].get<std::string>();
+	std::string inputTypeStr = JSONObj["inputType"].get<std::string>();
 	DATA_TYPES dataType = Argument::StringToArgumentType(dataTypeStr);
 	std::string id = JSONObj["id"].get<std::string>();
 	JSON data = JSONObj["data"];
@@ -173,8 +180,15 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 		Number1* mem = (Number1*)malloc(sizeof(Number1));
 
 		if (mem) {
-			float val = data.get<float>();
-			memcpy(mem, &val, sizeof(Number1));
+			if(inputTypeStr == "dropdown"){
+				std::string val = data["value"].get<std::string>();
+				float data = std::stof(val);
+				memcpy(mem, &data, sizeof(Number1));
+			}
+			else {
+				float val = data.get<float>();
+				memcpy(mem, &val, sizeof(Number1));
+			}
 		}
 		return std::make_shared<Argument>(id, DATA_TYPES::NUMBER1, mem);
 	}

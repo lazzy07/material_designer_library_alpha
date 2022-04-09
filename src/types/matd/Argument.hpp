@@ -26,6 +26,8 @@ namespace MATD {
 		MAT_IMAGE							= (1 << 3),
 		MAT_COLORVEC3					= (1 << 4),
 		MAT_NUMBER2					  = (1 << 5),
+		MAT_TEXGRAYSCALE			= (1 << 6),
+		MAT_TEXCOLOR					= (1 << 7),
 	};
 
 
@@ -52,6 +54,8 @@ namespace MATD {
 		class Argument {
 		public:
 			Argument(MAT_ARG type);
+			~Argument();
+
 			virtual void Bind(WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
 			virtual void AddToQueue(MATD::Queue* queue) = 0;

@@ -13,6 +13,9 @@ namespace MATD {
 		
 	}
 
+	DTYPES::Argument::~Argument() {
+	}
+
 	MATD::Int* MATD::Argument::Int(int val)
 	{
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();

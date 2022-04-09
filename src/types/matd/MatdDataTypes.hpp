@@ -12,7 +12,9 @@ namespace MATD {
 		COLORVEC1,
 		COLORVEC3,
 		LUT1,
-		LUT3
+		LUT3,
+		TEXGRAYSCALE,
+		TEXCOLOR
 	};
 
 	typedef float ColorVec1;
