@@ -4,7 +4,7 @@
 namespace MATD{
     class GrayscaleTexture : public DTYPES::Texture {
     public:
-      GrayscaleTexture(size_t size, size_t elem_size, size_t width, size_t height, buf_type argType);
+      GrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType);
 
     };
 }

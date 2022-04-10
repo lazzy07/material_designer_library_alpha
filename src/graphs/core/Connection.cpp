@@ -10,7 +10,11 @@ MATD::GRAPH::Connection::~Connection()
 	MATD_CORE_INFO("Connection Deleted ID: {}", this->GetID());
 }
 
-void MATD::GRAPH::Connection::Update()
+void MATD::GRAPH::Connection::Update(uint64_t time)
 {
-	m_Input->GetNode()->GetFunction()->get()->Update();
+	if (m_UpdatedTime <= time) {
+		m_UpdateStatus = CONNECTION_UPDATE_STATUS::UPDATED;
+		m_UpdatedTime = time;
+		m_Input->GetNode()->GetFunction()->get()->Update();
+	}
 }

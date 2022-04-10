@@ -13,7 +13,6 @@ namespace MATD{
 
       virtual int NoOfConnections() override;
 			virtual Ref<FUNC::Argument> GetArgument() override;
-      bool GetUpdateStatus() override;
 
 			inline void Update() override;
     private:

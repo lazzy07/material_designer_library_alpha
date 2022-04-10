@@ -40,18 +40,6 @@ MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::InputSocket::GetArgument()
 	return this->m_Argument;
 }
 
-bool MATD::GRAPH::InputSocket::GetUpdateStatus()
-{
-	auto connection = this->GetConnection("");
-	if (connection) {
-		auto input = connection->GetInput();
-		return input->GetUpdateStatus();
-	}
-	else {
-		return true;
-	}
-}
-
 inline void MATD::GRAPH::InputSocket::Update()
 {
 	this->GetNode()->GetFunction()->get()->Update();

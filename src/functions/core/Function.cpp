@@ -18,14 +18,6 @@ void MATD::FUNC::Function::SetArgument(Ref<Argument> arg)
 
 void MATD::FUNC::Function::Update()
 {
-	{
-		auto outputs = this->GetNode()->GetOutputSockets();
-
-		for (auto output : outputs) {
-			output.second->SetUpdateStatus(false);
-		}
-	}
-
 	this->Calculate();
 	this->OnComplete();
 }
@@ -35,7 +27,6 @@ void MATD::FUNC::Function::OnComplete()
 	auto outputs = this->GetNode()->GetOutputSockets();
 
 	for (auto output : outputs) {
-		output.second->SetUpdateStatus(true);
 		output.second->Update();
 	}
 }

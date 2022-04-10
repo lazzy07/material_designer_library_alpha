@@ -1,6 +1,7 @@
 #include "OutputSocket.hpp"
 #include "../../functions/core/Function.hpp"
 #include "Connection.hpp"
+#include "../../core/Time.hpp"
 
 MATD::GRAPH::OutputSocket::OutputSocket(std::string id, Node* node) : Socket(id, node), m_IsUpdated(false)
 {
@@ -24,7 +25,8 @@ void MATD::GRAPH::OutputSocket::RemoveConnection(const std::string& id)
 inline void MATD::GRAPH::OutputSocket::Update()
 {
 	for (auto elem : this->m_Connections) {
-		elem.second->Update();
+		auto time = MATD::CORE::Time::GetTime();
+		elem.second->Update(time);
 	}
 }
 

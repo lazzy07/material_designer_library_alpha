@@ -1,5 +1,6 @@
 #include "Graph.hpp"
 #include "../../core/Core.hpp"
+#include "../../core/Time.hpp"
 #include "Connection.hpp"
 
 MATD::GRAPH::Graph::Graph(MaterialGraph* graph, const MATD::JSON& JSONObj): m_MaterialGraph(graph)
@@ -37,6 +38,9 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 
 	auto outputNode = this->GetNode(outputNodeID);
 	auto inputNode = this->GetNode(inputNodeID);
+	
+	auto time = MATD::CORE::Time::GetTime();
+	this->StartUpdate(inputNode.get(), time);
 
 	auto outputSocket = outputNode->GetOutputSocket(outputSocketID);
 	auto inputSocket = inputNode->GetInputSocket(inputSocketID);
@@ -72,8 +76,12 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 		}
 	}
 	
-	inputSocket->GetNode()->GetFunction()->get()->Update();
+	auto nextNode = inputSocket->GetNode();
 
+	auto time = MATD::CORE::Time::GetTime();
+	this->StartUpdate(nextNode, time);
+	
+	nextNode->GetFunction()->get()->Update();
 }
 
 std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
@@ -91,4 +99,23 @@ std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
 	}
 
 	return outputNodes;
+}
+
+void MATD::GRAPH::Graph::StartUpdate(Node* node, uint64_t time)
+{
+	auto outputSockets = node->GetOutputSockets();
+
+	for (auto outputSocket : outputSockets) {
+		if (outputSocket.second->NoOfConnections()) {
+			auto connections = outputSocket.second->GetConnections();
+
+			for (auto connection : connections) {
+				auto nextNode = connection.second->GetInput()->GetNode();
+				if (nextNode) {
+					connection.second->SetUpdateStatus(CONNECTION_UPDATE_STATUS::IN_PROGRESS, time);
+					this->StartUpdate(nextNode, time);
+				}
+			}
+		}
+	}
 }
