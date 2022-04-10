@@ -35,6 +35,8 @@ namespace MATD {
       inline void SetID(std::string id) { m_ID = id; };
 			
       std::vector<Ref<MATD::GRAPH::Node>> GetOutputNodes();
+      //Change connection statuses to IN_PROGRESS for the whole path
+      void StartUpdate(Node* node, uint64_t time);
     private:
       std::string m_ID;
       MaterialGraph* m_MaterialGraph;

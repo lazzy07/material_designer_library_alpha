@@ -1,6 +1,8 @@
 #include "DataNode.hpp"
 #include "../../functions/core/DataPrimitiveFunction.hpp"
 #include "../../functions/core/Argument.hpp"
+#include "../core/InputSocket.hpp"
+#include "../core/Connection.hpp"
 
 MATD::GRAPH::DataNode::DataNode(Graph* graph,JSON JSONObj) : Node(graph, JSONObj)
 {
@@ -37,6 +39,16 @@ void MATD::GRAPH::DataNode::Init()
 
 void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
 {
+	for (auto inputSocket : this->GetInputsSockets()) {
+		auto connection = inputSocket.second->GetConnection("");
+		if (connection) {
+			if (connection->GetUpdateStatus() == CONNECTION_UPDATE_STATUS::IN_PROGRESS) {
+				return;
+			}
+		}
+	}
+
+
 	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
 		MATD::JSON argData = it.value();
 		std::string id = argData["id"].get<std::string>();
