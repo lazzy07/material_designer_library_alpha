@@ -6,6 +6,6 @@ namespace MATD {
     public:
       static uint64_t GetCurrentTime();
     };
-  } // namespace CORE
+  }
   
-} // namespace MATD
+}
