@@ -6,6 +6,11 @@
 
 namespace MATD{
   namespace GRAPH{
+    enum class CONNECTION_UPDATE_STATUS {
+      UPDATED,
+      IN_PROGRESS
+    };
+
     class Connection{
     public:
       Connection(std::string id, Ref<MATD::GRAPH::InputSocket> input, Ref<MATD::GRAPH::OutputSocket> output);
@@ -21,6 +26,8 @@ namespace MATD{
 
       Ref<MATD::GRAPH::InputSocket> m_Input;
       Ref<MATD::GRAPH::OutputSocket> m_Output;
+
+      CONNECTION_UPDATE_STATUS m_UpdateStatus;
     };
   }
 }

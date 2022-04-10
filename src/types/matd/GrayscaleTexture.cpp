@@ -1,5 +1,5 @@
 #include "GrayscaleTexture.hpp"
 
-MATD::GrayscaleTexture::GrayscaleTexture(size_t size, size_t elem_size, size_t width, size_t height, buf_type argType) : Texture(size, elem_size, width, height, argType)
+MATD::GrayscaleTexture::GrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType) : Texture(bitType, 1, width, height, argType)
 {
 }

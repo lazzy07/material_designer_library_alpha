@@ -4,6 +4,7 @@
 #include "../../core/JSONParser.hpp"
 #include "../shader_graph/ShaderCache.hpp"
 #include "../data_graph/DataCache.hpp"
+#include "../../types/matd/Texture.hpp"
 #include <map>
 #include <string>
 
@@ -34,6 +35,10 @@ namespace MATD{
 
         std::map<std::string, Ref<MaterialGraph>> m_Graphs;
         Ref<MATD::CORE::JSONParser> m_JSONParser;
+
+        MATD::MATD_TEXTURE_BIT_TYPE m_GlobalBitDepth;
+				size_t m_GlobalTexHeight;
+				size_t m_GlobalTexWidth;
       private:
         void ParsePackages(MATD::JSON json);
     };
