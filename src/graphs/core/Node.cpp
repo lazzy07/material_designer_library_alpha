@@ -10,13 +10,3 @@ MATD::GRAPH::Node::Node(MATD::GRAPH::Graph* graph, MATD::JSON JSONObj)
 MATD::GRAPH::Node::~Node()
 {
 }
-
-bool MATD::GRAPH::Node::ShouldUpdate(MATD::JSON JSONObj)
-{
-  if (JSONObj == m_JSON) {
-    return false;
-  }
-  else {
-    return true;
-  }
-}

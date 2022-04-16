@@ -39,8 +39,6 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 	auto outputNode = this->GetNode(outputNodeID);
 	auto inputNode = this->GetNode(inputNodeID);
 	
-	auto time = MATD::CORE::Time::GetTime();
-	this->StartUpdate(inputNode.get(), time);
 
 	auto outputSocket = outputNode->GetOutputSocket(outputSocketID);
 	auto inputSocket = inputNode->GetInputSocket(inputSocketID);
@@ -50,7 +48,9 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 		outputSocket->AddConnection(connection);
 		inputSocket->AddConnection(connection);
 		this->AddToConnectionPool(connectionId, connection);
-		outputNode->GetFunction()->get()->Update();
+		auto time = MATD::CORE::Time::GetTime();
+		this->StartUpdate(inputNode.get(), time);
+		inputNode->GetFunction()->get()->Update();
 	}
 	else {
 		MATD_CORE_ERROR("Input/Output sockets cannot be null");
@@ -70,17 +70,17 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 			connection->GetOutput()->RemoveConnection(connectionId);
 			this->RemoveFromConnectionPool(connectionId);
 			inputSocket = connection->GetInput();
+
 		}
 		else {
 			MATD_CORE_ASSERT(false, "Connection not found");
 		}
 	}
-	
-	auto nextNode = inputSocket->GetNode();
-
+			
 	auto time = MATD::CORE::Time::GetTime();
+	auto nextNode = inputSocket->GetNode();
 	this->StartUpdate(nextNode, time);
-	
+
 	nextNode->GetFunction()->get()->Update();
 }
 
@@ -106,7 +106,7 @@ void MATD::GRAPH::Graph::StartUpdate(Node* node, uint64_t time)
 	auto outputSockets = node->GetOutputSockets();
 
 	for (auto outputSocket : outputSockets) {
-		if (outputSocket.second->NoOfConnections()) {
+		if (outputSocket.second->NoOfConnections() > 0) {
 			auto connections = outputSocket.second->GetConnections();
 
 			for (auto connection : connections) {

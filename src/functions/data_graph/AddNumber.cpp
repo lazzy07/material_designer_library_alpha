@@ -20,7 +20,7 @@ void MATD::FUNC::DATA::PROCESS::AddNumber::Calculate()
 
 	Number1 total = num1Val + num2Val;
 
-	MATD_CORE_TRACE("AddNumber values Num1: {} Num2: {} Total: {}", num1Val, num2Val, total);
+	MATD_CORE_TRACE("AddNumber ID: {} values Num1: {} Num2: {} Total: {}", this->GetNode()->GetID(), num1Val, num2Val, total);
 
 	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(total);
 }

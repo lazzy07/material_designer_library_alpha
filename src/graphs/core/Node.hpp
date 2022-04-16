@@ -17,7 +17,6 @@ namespace MATD{
 
       virtual void Init() = 0;
       virtual void UpdateParameters(MATD::JSON JSONObj) = 0;
-      bool ShouldUpdate(MATD::JSON JSONObj);
 
       inline void AddInputSocket(std::string id, Ref<InputSocket> socket) { m_Inputs[id] = socket; };
 			inline void AddOutputSocket(std::string id, Ref<OutputSocket> socket) { m_Outputs[id] = socket; };
@@ -32,9 +31,10 @@ namespace MATD{
       inline Ref<OutputSocket> GetOutputSocket(const std::string& id) { return m_Outputs[id]; };
 
       inline std::map <std::string, Ref<OutputSocket>> GetOutputSockets() { return m_Outputs; };
-      inline std::map<std::string, Ref<InputSocket>> GetInputsSockets() { return m_Inputs; };
+      inline std::map<std::string, Ref<InputSocket>> GetInputSockets() { return m_Inputs; };
 
-      inline int GetID() { return m_ID; };
+			inline int GetID() { return m_ID; };
+			inline Graph* GetGraph() { return m_Graph; };
       inline void SetID(int id) { m_ID = id; };
 
     private:

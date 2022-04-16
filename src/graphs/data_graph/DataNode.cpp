@@ -1,4 +1,5 @@
 #include "DataNode.hpp"
+#include "../core/Graph.hpp"
 #include "../../functions/core/DataPrimitiveFunction.hpp"
 #include "../../functions/core/Argument.hpp"
 #include "../core/InputSocket.hpp"
@@ -39,16 +40,6 @@ void MATD::GRAPH::DataNode::Init()
 
 void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
 {
-	for (auto inputSocket : this->GetInputsSockets()) {
-		auto connection = inputSocket.second->GetConnection("");
-		if (connection) {
-			if (connection->GetUpdateStatus() == CONNECTION_UPDATE_STATUS::IN_PROGRESS) {
-				return;
-			}
-		}
-	}
-
-
 	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
 		MATD::JSON argData = it.value();
 		std::string id = argData["id"].get<std::string>();
@@ -57,5 +48,9 @@ void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
 		arg->SetData(argData);
 		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
 	}
+
+	auto time = MATD::CORE::Time::GetTime();
+	this->GetGraph()->StartUpdate(this, time);
+
 	this->GetFunction()->get()->Update();
 }

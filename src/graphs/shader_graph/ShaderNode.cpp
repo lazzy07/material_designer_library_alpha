@@ -1,4 +1,5 @@
 #include "ShaderNode.hpp"
+#include "../core/Graph.hpp"
 #include "../../functions/core/ShaderPrimitiveFunction.hpp"
 #include "../../functions/core/Argument.hpp"
 
@@ -45,5 +46,8 @@ void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj)
 		arg->SetData(argData);
 		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
 	}
+
+	auto time = MATD::CORE::Time::GetTime();
+	this->GetGraph()->StartUpdate(this, time);
 	this->GetFunction()->get()->Update();
 }
