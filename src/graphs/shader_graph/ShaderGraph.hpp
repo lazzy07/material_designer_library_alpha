@@ -5,10 +5,10 @@
 
 namespace MATD{
   namespace GRAPH{
-    class ShaderGraph : public Graph{
+    class ShaderGraph final : public MATD::GRAPH::Graph{
     public:
       ShaderGraph(MaterialGraph* graph, MATD::JSON JSONObj);
-      ~ShaderGraph();
+    	~ShaderGraph() override;
 
 			virtual void CreateNode(MATD::JSON JSONObj) override;
 			virtual void Update(MATD::JSON JSONObj) override;

@@ -5,10 +5,10 @@
 
 namespace MATD{
   namespace GRAPH{
-    class KernelGraph : public MATD::GRAPH::Graph{
+    class KernelGraph final : public MATD::GRAPH::Graph{
     public:
       KernelGraph(MaterialGraph* graph, const MATD::JSON& JSONObj);
-			~KernelGraph();
+			~KernelGraph() override;
 
 			virtual void CreateNode(MATD::JSON JSONObj) override;
 			virtual void Update(MATD::JSON JSONObj) override;

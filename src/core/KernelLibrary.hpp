@@ -10,9 +10,9 @@ namespace MATD{
     class KernelLibrary {
     public:
       KernelLibrary();
-      inline const std::vector<std::string>& GetKernelLibPaths() const { return m_KernelLibPaths; };
-      inline void AddKernelPath(std::string path) { m_KernelLibPaths.push_back(path); };
-      inline void AddKernel(MATD::Kernel* kernel);
+      [[nodiscard]] const std::vector<std::string>& GetKernelLibPaths() const { return m_KernelLibPaths; };
+      void AddKernelPath(const std::string& path) { m_KernelLibPaths.push_back(path); };
+      void AddKernel(MATD::Kernel* kernel);
 
       MATD::Kernel* GetKernel(const std::string& kernelName);
     private:
