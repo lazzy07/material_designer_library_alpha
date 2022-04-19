@@ -16,10 +16,10 @@ namespace MATD {
       Texture(MATD_TEXTURE_BIT_TYPE bitType, size_t noOfChannels, size_t width, size_t height, buf_type argType);
       ~Texture();
 
-			inline MATD_TEXTURE_BIT_TYPE const GetBitType() { return m_BitType; };
-			inline size_t const GetHeight() { return m_Height; };
-			inline size_t const GetWidth() { return m_Width; };
-			inline size_t const GetNoOfChannels() { return m_NoOfChannels; };
+      MATD_TEXTURE_BIT_TYPE GetBitType() const;
+      size_t GetHeight() const;
+      size_t GetWidth() const;
+      size_t GetNoOfChannels() const;
 
       void ChangeImageProperties(MATD_TEXTURE_BIT_TYPE bitType, size_t noOfChannels, size_t width, size_t height);
     private:
@@ -31,5 +31,6 @@ namespace MATD {
       size_t m_NoOfChannels;
       MATD_TEXTURE_BIT_TYPE m_BitType;
     };
+
   }
 }

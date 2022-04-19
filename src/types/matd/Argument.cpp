@@ -81,7 +81,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	MATD::Image* MATD::Argument::Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType) {
+	MATD::Image* MATD::Argument::Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType, DTYPES::Texture* texture) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -90,7 +90,6 @@ namespace MATD {
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
 			return new DTYPES::OPENCL::Image(buffer, size, elem_size, width, height, argType);
-			break;
 		}
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
 		return nullptr;
