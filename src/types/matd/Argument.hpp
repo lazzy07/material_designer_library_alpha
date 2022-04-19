@@ -6,6 +6,11 @@
 #define buf_type int
 
 namespace MATD {
+	namespace DTYPES
+	{
+		class Texture;
+	}
+
 	enum ARG_TYPE {
 		DEVICE_READ_WRITE			=	(1 << 0),
 		DEVICE_WRITE					=	(1 << 1),
@@ -47,7 +52,7 @@ namespace MATD {
 			static MATD::MatColorVec3* ColorVec3(MATD::ColorVec3 val);
 			static MATD::MatNumber2* Number2(MATD::Number2 val);
 			static MATD::Buffer* Buffer(void* val, size_t size, size_t elem_size, buf_type argType);
-			static MATD::Image* Image(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType);
+			static MATD::Image* Image(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType, DTYPES::Texture* texture = nullptr);
 	};
 
 	namespace DTYPES {

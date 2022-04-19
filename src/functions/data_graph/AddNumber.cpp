@@ -10,17 +10,17 @@ MATD::FUNC::DATA::PROCESS::AddNumber::AddNumber(MATD::GRAPH::Node* node) : DataP
 
 void MATD::FUNC::DATA::PROCESS::AddNumber::Calculate()
 {
-	auto num1Input = this->GetNode()->GetInputSocket("1"); 
-	auto num2Input = this->GetNode()->GetInputSocket("2"); 
+	const auto num1Input = this->GetNode()->GetInputSocket("1"); 
+	const auto num2Input = this->GetNode()->GetInputSocket("2"); 
 	
-	auto num1 = num1Input->GetArgument();
+	const auto num1 = num1Input->GetArgument();
 	Number1 num1Val = *num1->GetData<float>();
-	auto num2 = num2Input->GetArgument();
+	const auto num2 = num2Input->GetArgument();
 	Number1 num2Val = *num2->GetData<float>();
 
 	Number1 total = num1Val + num2Val;
 
-	MATD_CORE_TRACE("AddNumber values Num1: {} Num2: {} Total: {}", num1Val, num2Val, total);
+	MATD_CORE_TRACE("AddNumber ID: {} values Num1: {} Num2: {} Total: {}", this->GetNode()->GetID(), num1Val, num2Val, total);
 
 	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(total);
 }
@@ -33,7 +33,7 @@ void MATD::FUNC::DATA::PROCESS::AddNumber::SetSocketArguments()
 		node->AddInputSocket("2", std::make_shared<MATD::GRAPH::InputSocket>("2", node, GetArgument("1412")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 
-		UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+		const UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
 		node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::NUMBER1));
 		this->Update();
 	}

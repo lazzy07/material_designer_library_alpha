@@ -15,6 +15,16 @@ void MATD::GRAPH::Connection::Update(uint64_t time)
 	if (m_UpdatedTime <= time) {
 		m_UpdateStatus = CONNECTION_UPDATE_STATUS::UPDATED;
 		m_UpdatedTime = time;
-		m_Input->GetNode()->GetFunction()->get()->Update();
+
+		auto node = m_Input->GetNode();
+		for (auto inputSocket : node->GetInputSockets()) {
+			auto connection = inputSocket.second->GetConnection("");
+			if (connection) {
+				if (connection->GetUpdateStatus() == CONNECTION_UPDATE_STATUS::IN_PROGRESS) {
+					return;
+				}
+			}
+		}
+		node->GetFunction()->get()->Update();
 	}
 }

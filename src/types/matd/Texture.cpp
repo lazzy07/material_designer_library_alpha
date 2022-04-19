@@ -16,14 +16,16 @@ size_t MATD::DTYPES::Texture::BitTypeToSize(MATD_TEXTURE_BIT_TYPE bitType)
 	}
 }
 
-MATD::DTYPES::Texture::Texture(MATD_TEXTURE_BIT_TYPE bitType, size_t noOfChannels, size_t width, size_t height, buf_type argType) : m_BitType(bitType), m_Height(height), m_Width(width), m_NoOfChannels(noOfChannels)
+MATD::DTYPES::Texture::Texture(MATD_TEXTURE_BIT_TYPE bitType, size_t noOfChannels, size_t width, size_t height, buf_type argType) :
+	m_Width(width), m_Height(height), m_NoOfChannels(noOfChannels), m_BitType(bitType)
 {
-	int size = width * height * noOfChannels;
-	int elem_size = Texture::BitTypeToSize(bitType);
+	const size_t size = width * height * noOfChannels;
+	const size_t elemSize = Texture::BitTypeToSize(bitType);
 
-	m_Buffer = malloc(elem_size * size);
+	m_Buffer = malloc(size * elemSize);
 	
-	auto image = MATD::Argument::Image(m_Buffer, size, elem_size, width, height, argType);
+	const auto image = MATD::Argument::Image(m_Buffer, size, elemSize, width, height, argType, this);
+	image->SetTexture(this);
 	m_Image.reset(image);
 }
 
@@ -31,6 +33,18 @@ MATD::DTYPES::Texture::~Texture()
 {
 	delete m_Buffer;
 }
+
+MATD::MATD_TEXTURE_BIT_TYPE MATD::DTYPES::Texture::GetBitType() const
+{ return m_BitType; }
+
+size_t MATD::DTYPES::Texture::GetHeight() const
+{ return m_Height; }
+
+size_t MATD::DTYPES::Texture::GetWidth() const
+{ return m_Width; }
+
+size_t MATD::DTYPES::Texture::GetNoOfChannels() const
+{ return m_NoOfChannels; }
 
 void MATD::DTYPES::Texture::ChangeImageProperties(MATD_TEXTURE_BIT_TYPE bitType, size_t noOfChannels, size_t width, size_t height)
 {

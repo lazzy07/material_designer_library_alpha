@@ -1,9 +1,11 @@
 #include "MaterialProject.hpp"
 
-MATD::GRAPH::MaterialProject::MaterialProject()
+MATD::GRAPH::MaterialProject::MaterialProject() : m_GlobalBitDepth(MATD_TEXTURE_BIT_TYPE::TEX_8BIT), m_GlobalTexHeight(1024), m_GlobalTexWidth(1024)
 {
 	MATD_CORE_INFO("MATD::GRAPH:: A new project created");
 	this->m_JSONParser = std::make_shared<MATD::CORE::JSONParser>();
+	this->m_DefaultTextureGrayscale = std::make_shared<MATD::GrayscaleTexture>(m_GlobalBitDepth, m_GlobalTexWidth, m_GlobalTexHeight, MATD::ARG_TYPE::DEVICE_READ);
+	this->m_DefaultTextureColor = std::make_shared<MATD::ColorTexture>(m_GlobalBitDepth, m_GlobalTexWidth, m_GlobalTexHeight, MATD::ARG_TYPE::DEVICE_READ);
 }
 
 MATD::GRAPH::MaterialProject::~MaterialProject()
@@ -128,7 +130,7 @@ void MATD::GRAPH::MaterialProject::ParsePackages(MATD::JSON package)
 	else {
 		if (this->m_Graphs.find(package["id"]) == this->m_Graphs.end()) {
 			Ref<MATD::GRAPH::MaterialGraph> graph = std::make_shared<MATD::GRAPH::MaterialGraph>(this, package);
-			this->m_Graphs.insert(std::pair<std::string, Ref<MATD::GRAPH::MaterialGraph>>(package["id"].get<std::string>(), graph));
+			this->m_Graphs.insert(std::pair(package["id"].get<std::string>(), graph));
 		}
 	}
 }

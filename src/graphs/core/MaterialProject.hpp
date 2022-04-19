@@ -2,9 +2,9 @@
 #include "MaterialGraph.hpp"
 #include "../../core/Core.hpp"
 #include "../../core/JSONParser.hpp"
-#include "../shader_graph/ShaderCache.hpp"
-#include "../data_graph/DataCache.hpp"
 #include "../../types/matd/Texture.hpp"
+#include "../../types/matd/GrayscaleTexture.hpp"
+#include "../../types/matd/ColorTexture.hpp"
 #include <map>
 #include <string>
 
@@ -39,8 +39,10 @@ namespace MATD{
         MATD::MATD_TEXTURE_BIT_TYPE m_GlobalBitDepth;
 				size_t m_GlobalTexHeight;
 				size_t m_GlobalTexWidth;
+        Ref<MATD::GrayscaleTexture> m_DefaultTextureGrayscale;
+        Ref<MATD::ColorTexture> m_DefaultTextureColor;
       private:
-        void ParsePackages(MATD::JSON json);
+        void ParsePackages(MATD::JSON package);
     };
   }
 }
