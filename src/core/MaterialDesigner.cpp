@@ -2,14 +2,14 @@
 #include "MaterialDesigner.hpp"
 #include "Log.hpp"
 #include "../engine/matd/WorkItem.hpp"
-
+#include "EngineManager.hpp"
 void MATD::CORE::MaterialDesigner::SelectDevice(uint8_t platformId, uint8_t deviceId)
 {
 	EngineManager::GetEngineInstance()->SelectPlatform(platformId);
 	EngineManager::GetEngineInstance()->SelectDevice(deviceId);
 }
 
-void MATD::CORE::MaterialDesigner::SetKenelLibraryFolder(const std::string& path)
+void MATD::CORE::MaterialDesigner::SetKernelLibraryFolder(const std::string& path)
 {
 	m_KernelLibrary->AddKernelPath(path);
 }
@@ -41,9 +41,16 @@ MATD::Buffer* MATD::CORE::MaterialDesigner::CreateBuffer(void* val, size_t size,
 	return MATD::Argument::Buffer(val, size, elem_size, argType);
 }
 
-MATD::Image* MATD::CORE::MaterialDesigner::CreateImage(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType)
+MATD::GrayscaleTexture* MATD::CORE::MaterialDesigner::CreateGrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType,
+	size_t width, size_t height, buf_type argType)
 {
-	return MATD::Argument::Image(val, size, elem_size, width, height, argType);
+	return MATD::Argument::GrayscaleTexture(bitType, width, height, argType);
+}
+
+MATD::ColorTexture* MATD::CORE::MaterialDesigner::CreateColorTexture(MATD_TEXTURE_BIT_TYPE bitType,
+	size_t width, size_t height, buf_type argType)
+{
+	return MATD::Argument::ColorTexture(bitType, width, height, argType);
 }
 
 MATD::WorkItem* MATD::CORE::MaterialDesigner::CreateWorkItem(const std::string& kernelName)

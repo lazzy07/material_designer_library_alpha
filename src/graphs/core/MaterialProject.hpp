@@ -17,7 +17,7 @@ namespace MATD{
 
         void OpenProject(const std::string& JSONString);
         void UpdateProject(const std::string& JSONString);
-				void SetSelectedGraph(const std::string& graphID);
+				void SetSelectedGraph(const std::string& data);
 
 				void CreateNode(const std::string& JSONString);
 				void RemoveNode(const std::string& JSONString);
@@ -25,6 +25,9 @@ namespace MATD{
 				void RemoveConnection(const std::string& JSONString);
 				void Update(const std::string& JSONString);
         std::string CompileKernel();
+
+        Ref<MATD::GrayscaleTexture> GetDefaultGrayscaleTexture() { return m_DefaultTextureGrayscale; }
+        Ref<MATD::ColorTexture> GetDefaultColorTexture() { return m_DefaultTextureColor; }
       private:
         std::string m_ProjectID;
         std::string m_FileName;

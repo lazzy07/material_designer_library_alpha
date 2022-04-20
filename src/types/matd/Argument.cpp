@@ -3,7 +3,8 @@
 #include "../../core/EngineManager.hpp"
 #include "../vendor/opencl/CLInt.hpp"
 #include "../vendor/opencl/CLFloat.hpp"
-#include "../vendor/opencl/CLImage.hpp"
+#include "../vendor/opencl/CLGrayscaleTexture.hpp"
+#include "../vendor/opencl/CLColorTexture.hpp"
 #include "../vendor/opencl/CLBuffer.hpp"
 #include "../vendor/opencl/CLColorVec3.hpp"
 #include "../vendor/opencl/CLNumber2.hpp"
@@ -81,7 +82,7 @@ namespace MATD {
 		return nullptr;
 	}
 
-	MATD::Image* MATD::Argument::Image(void* buffer, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType, DTYPES::Texture* texture) {
+	MATD::ColorTexture* MATD::Argument::ColorTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType) {
 		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
 
 		switch (engine) {
@@ -89,7 +90,21 @@ namespace MATD {
 			MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
 			break;
 		case CORE::SUPPORTED_ENGINES::OPEN_CL:
-			return new DTYPES::OPENCL::Image(buffer, size, elem_size, width, height, argType);
+			return new DTYPES::OPENCL::ColorTexture(bitType, width, height, argType);
+		}
+		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
+		return nullptr;
+	}
+
+	MATD::GrayscaleTexture* MATD::Argument::GrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType) {
+		CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
+
+		switch (engine) {
+		case CORE::SUPPORTED_ENGINES::CUDA:
+			MATD_CORE_ASSERT(false, "ARGUMENT::CUDA not supported yet");
+			break;
+		case CORE::SUPPORTED_ENGINES::OPEN_CL:
+			return new DTYPES::OPENCL::GrayscaleTexture(bitType, width, height, argType);
 		}
 		MATD_CORE_ASSERT(false, "ARGUMENT::Invalid engine selected");
 		return nullptr;

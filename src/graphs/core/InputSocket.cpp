@@ -31,8 +31,7 @@ void MATD::GRAPH::InputSocket::RemoveConnection(const std::string& id)
 MATD::Ref<MATD::FUNC::Argument> MATD::GRAPH::InputSocket::GetArgument()
 {
 	if (this->NoOfConnections() > 0) {
-		auto output = m_Connection->GetOutput();
-		if (output) {
+		if (const auto output = m_Connection->GetOutput()) {
 			return output->GetArgument();
 		}
 	}

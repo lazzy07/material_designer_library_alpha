@@ -17,8 +17,9 @@ namespace MATD {
 		virtual void AddToQueue(MATD::Queue* queue) = 0;
 		virtual void OnComplete() = 0;
 		virtual void SetOutput(Buffer* buffer) = 0;
-		virtual void SetOutput(Image* image) = 0;
- 
+		virtual void SetOutput(GrayscaleTexture* image) = 0;
+		virtual void SetOutput(ColorTexture* image) = 0;
+
 		static WorkItem* CreateWorkItem(Kernel* kernel);
 	private:
 		Kernel* m_Kernel;

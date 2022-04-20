@@ -1,4 +1,9 @@
 #include "InputColor.hpp"
+#include "../../core/UUIDGenerator.hpp"
+#include "../../graphs/core/Graph.hpp"
+#include "../../graphs/core/MaterialProject.hpp"
+#include "../../graphs/core/OutputSocket.hpp"
+#include "../../graphs/core/InputSocket.hpp"
 
 MATD::FUNC::SHADER::INPUT::InputColor::InputColor(MATD::GRAPH::Node* node) : ShaderPrimitiveInput(node)
 {
@@ -13,4 +18,9 @@ void MATD::FUNC::SHADER::INPUT::InputColor::Calculate()
 
 void MATD::FUNC::SHADER::INPUT::InputColor::SetSocketArguments()
 {
+	const auto node = this->GetNode();
+	const auto inputSocket = node->GetInputSocket("1");
+
+	node->GetOutputSocket("out")->SetArgument(inputSocket->GetArgument());
+	this->Update();
 }
