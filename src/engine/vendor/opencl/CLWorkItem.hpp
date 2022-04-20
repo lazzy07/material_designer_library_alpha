@@ -1,10 +1,10 @@
 #pragma once
 #include "../../matd/WorkItem.hpp"
 #include "CLKernel.hpp"
-#include <CL/cl.hpp>
 #include "../../matd/Queue.hpp"
 #include "../../../types/vendor/opencl/CLBuffer.hpp"
-#include "../../../types/vendor/opencl/CLImage.hpp"
+#include "../../../types/vendor/opencl/CLGrayscaleTexture.hpp"
+#include "../../../types/vendor/opencl/CLColorTexture.hpp"
 
 namespace MATD {
 	namespace ENGINE {
@@ -15,11 +15,13 @@ namespace MATD {
 				virtual void AddToQueue(MATD::Queue* queue) override;
 				virtual void OnComplete() override;
 				virtual void SetOutput(Buffer* buffer) override;
-				virtual void SetOutput(Image* image) override;
+				virtual void SetOutput(ColorTexture* texture) override;
+				virtual void SetOutput(GrayscaleTexture* texture) override;
 			private:
 				size_t m_OutputSize = 0;
 				DTYPES::OPENCL::Buffer* m_OutBuffer;
-				DTYPES::OPENCL::Image* m_OutImage;
+				DTYPES::OPENCL::ColorTexture* m_OutColorTexture;
+				DTYPES::OPENCL::GrayscaleTexture* m_OutGrayscaleTexture;
 			};
 		}
 	}
