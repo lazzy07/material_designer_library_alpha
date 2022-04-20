@@ -13,12 +13,13 @@ namespace MATD{
         ~MaterialDesigner();
         
         void SelectDevice(uint8_t platformId, uint8_t deviceId);
-        void SetKenelLibraryFolder(const std::string& path);
+        void SetKernelLibraryFolder(const std::string& path);
 
         MATD::Int* CreateInt(int val);
         MATD::Float* CreateFloat(float val);
         MATD::Buffer* CreateBuffer(void* val, size_t size, size_t elem_size, buf_type argType=MATD::ARG_TYPE::DEVICE_READ);
-	      MATD::Image* CreateImage(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType= MATD::ARG_TYPE::DEVICE_READ);
+        MATD::GrayscaleTexture* CreateGrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
+        MATD::ColorTexture* CreateColorTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
         MATD::WorkItem* CreateWorkItem(const std::string& kernelName);
         MATD::Queue* CreateQueue();
 
@@ -32,11 +33,16 @@ namespace MATD{
 				void AddConnection(const std::string& JSONString);
 				void RemoveConnection(const std::string& JSONString);
 				void Update(const std::string& JSONString);
+        std::string CompileKernel();
 
-        inline const Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
+        inline void SetUsedByMaterialDesignerApp(bool isUsedByApp) { this->m_IsUsedByMaterialDesignerApp = isUsedByApp; };
+        inline bool GetUsedByMaterialDesignerApp() const { return m_IsUsedByMaterialDesignerApp; };
+
+        inline Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
         Ref<MATD::GRAPH::MaterialProject> m_CurrentProject;
+        bool m_IsUsedByMaterialDesignerApp = false;
     };
   }
 }
