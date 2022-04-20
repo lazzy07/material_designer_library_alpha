@@ -1,6 +1,5 @@
 #pragma once
 #include "Core.hpp"
-#include "EngineManager.hpp"
 #include "KernelLibrary.hpp"
 #include "../types/matd/Argument.hpp"
 #include "../engine/matd/Queue.hpp"
@@ -15,12 +14,13 @@ namespace MATD{
         ~MaterialDesigner();
         
         void SelectDevice(uint8_t platformId, uint8_t deviceId);
-        void SetKenelLibraryFolder(const std::string& path);
+        void SetKernelLibraryFolder(const std::string& path);
 
         MATD::Int* CreateInt(int val);
         MATD::Float* CreateFloat(float val);
         MATD::Buffer* CreateBuffer(void* val, size_t size, size_t elem_size, buf_type argType=MATD::ARG_TYPE::DEVICE_READ);
-	      MATD::Image* CreateImage(void* val, size_t size, size_t elem_size, size_t width, size_t height, buf_type argType= MATD::ARG_TYPE::DEVICE_READ);
+        MATD::GrayscaleTexture* CreateGrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
+        MATD::ColorTexture* CreateColorTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
         MATD::WorkItem* CreateWorkItem(const std::string& kernelName);
         MATD::Queue* CreateQueue();
 
@@ -37,9 +37,9 @@ namespace MATD{
         std::string CompileKernel();
 
         inline void SetUsedByMaterialDesignerApp(bool isUsedByApp) { this->m_IsUsedByMaterialDesignerApp = isUsedByApp; };
-        inline bool GetUsedByMaterialDesignerApp() { return m_IsUsedByMaterialDesignerApp; };
+        inline bool GetUsedByMaterialDesignerApp() const { return m_IsUsedByMaterialDesignerApp; };
 
-        inline const Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
+        inline Ref<MATD::GRAPH::MaterialProject> GetNodeProject() { return m_CurrentProject; };
     private:
         Ref<MATD::CORE::KernelLibrary> m_KernelLibrary;
         Ref<MATD::GRAPH::MaterialProject> m_CurrentProject;
