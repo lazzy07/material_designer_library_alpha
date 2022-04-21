@@ -3,6 +3,10 @@
 #include "../core/MaterialGraph.hpp"
 #include "../data_graph/DataNode.hpp"
 #include "../../types/matd/Argument.hpp"
+#include "../shader_graph/ShaderOutputSocket.hpp"
+#include "../../types/matd/GrayscaleTexture.hpp"
+#include "../../types/matd/ColorTexture.hpp"
+#include <typeinfo>
 
 MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {
@@ -190,6 +194,14 @@ struct Lut3Elem {
 					argList += "__read_only  image2d_t " + argName;
 					index += 1;
 				}
+				if(node->GetName() == "KernelOutput")
+				{
+					auto argName = "_" + IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
+
+					argList += index > 0 ? "," : "";
+					argList += "__write_only  image2d_t " + argName;
+					index += 1;
+				}
 			}
 
 			m_ShaderSource += argList + "){\n\n";
@@ -272,6 +284,24 @@ void MATD::GRAPH::KernelGraph::SetArgumentsToWorkItem()
 			index += 2;
 		}
 		break;
+		}
+	}
+
+	for (auto [fst, node] : *shaderGraph->GetNodes())
+	{
+		if (node->GetName() == "KernelInput")
+		{
+			auto socket = (ShaderOutputSocket*)node->GetOutputSocket("out").get();
+			auto tex = socket->GetTexArgument();
+			m_WorkItem->SetArgument(index, (DTYPES::Argument*)tex.get());
+			index++;
+		}
+		if (node->GetName() == "KernelOutput")
+		{
+			auto socket = (ShaderOutputSocket*)node->GetOutputSocket("out").get();
+			auto tex = socket->GetTexArgument();
+			m_WorkItem->SetOutput(tex.get());
+			index++;
 		}
 	}
 }
