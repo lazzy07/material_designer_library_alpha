@@ -46,10 +46,31 @@ namespace MATD {
 					clQueue.enqueueReadBuffer(m_OutBuffer->GetCLBuffer(), CL_FALSE, 0, m_OutBuffer->GetByteSize(), m_OutBuffer->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 					matClQueue->SetEvent(onCompleteEvent);
 				} else if(m_OutColorTexture) {
-					//TODO:: Add image functionality
+					cl::size_t<3> origin;
+					cl::size_t<3> region;
+					origin[0] = 0;
+					origin[1] = 0;
+					origin[2] = 0;
+					
+					region[0] = m_OutGrayscaleTexture->GetWidth();
+					region[1] = m_OutGrayscaleTexture->GetWidth();
+					region[2] = 1;
+					clQueue.enqueueReadImage(m_OutGrayscaleTexture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
+					                         m_OutGrayscaleTexture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 				}
 				else if (m_OutGrayscaleTexture)
 				{
+					cl::size_t<3> origin;
+					cl::size_t<3> region;
+					origin[0] = 0;
+					origin[1] = 0;
+					origin[2] = 0;
+
+					region[0] = m_OutGrayscaleTexture->GetWidth();
+					region[1] = m_OutGrayscaleTexture->GetWidth();
+					region[2] = 1;
+					clQueue.enqueueReadImage(m_OutGrayscaleTexture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
+					                         m_OutGrayscaleTexture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 
 				} else {
 					MATD_CORE_ASSERT(false, "Output buffer/image not set");
@@ -77,26 +98,26 @@ namespace MATD {
 				kernel.setArg(index, clBuffer);
 			}
 
-			void WorkItem::SetOutput(ColorTexture* texture)
+			void WorkItem::SetOutput(DTYPES::Texture* texture)
 			{
 				m_OutputSize = texture->GetSize();
-				m_OutColorTexture = (MATD::DTYPES::OPENCL::ColorTexture*)texture;
-				cl::Image2D clImage= m_OutColorTexture->GetCLImage();
-				auto args = GetArguments();
-				size_t index = args.size();
-				cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
-				kernel.setArg(index, clImage);
-			}
-
-			void WorkItem::SetOutput(GrayscaleTexture* texture)
-			{
-				m_OutputSize = texture->GetSize();
-				m_OutGrayscaleTexture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)texture;
-				cl::Image2D clImage = m_OutGrayscaleTexture->GetCLImage();
-				auto args = GetArguments();
-				size_t index = args.size();
-				cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
-				kernel.setArg(index, clImage);
+				if(texture->GetNoOfChannels() == 1)
+				{
+					m_OutGrayscaleTexture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)texture;
+					cl::Image2D clImage = m_OutGrayscaleTexture->GetCLImage();
+					auto args = GetArguments();
+					size_t index = args.size();
+					cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
+					kernel.setArg(index, clImage);
+				}else
+				{
+					m_OutColorTexture = (MATD::DTYPES::OPENCL::ColorTexture*)texture;
+					cl::Image2D clImage = m_OutColorTexture->GetCLImage();
+					auto args = GetArguments();
+					size_t index = args.size();
+					cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
+					kernel.setArg(index, clImage);
+				}
 			}
 		}
 	}
