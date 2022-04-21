@@ -10,6 +10,9 @@ MATD::FUNC::DATA::OUTPUT::OutputCol3::OutputCol3(MATD::GRAPH::Node* node) : Data
 
 void MATD::FUNC::DATA::OUTPUT::OutputCol3::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<ColorVec3>(*(arg->GetData<ColorVec3>()));
 }
 
 void MATD::FUNC::DATA::OUTPUT::OutputCol3::SetSocketArguments()

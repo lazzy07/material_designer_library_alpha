@@ -4,11 +4,12 @@
 #include "../../graphs/core/MaterialProject.hpp"
 #include "../../graphs/shader_graph/ShaderInputSocket.hpp"
 #include "../../graphs/shader_graph/ShaderOutputSocket.hpp"
+#include "../../graphs/kernel_graph/KernelGraph.hpp"
 
 MATD::FUNC::SHADER::PROCESS::KernelInputGrayscale::KernelInputGrayscale(MATD::GRAPH::Node* node) : ShaderPrimitiveProcess(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC KernelInputGrayscale function created");
-	this->GetNode()->SetName("KernelInputGrayscale");
+	this->GetNode()->SetName("KernelInput");
 }
 
 void MATD::FUNC::SHADER::PROCESS::KernelInputGrayscale::Calculate()
@@ -18,6 +19,34 @@ void MATD::FUNC::SHADER::PROCESS::KernelInputGrayscale::Calculate()
 	auto shaderOutSocket = (GRAPH::ShaderOutputSocket*)node->GetOutputSocket("out").get();
 
 	shaderOutSocket->SetTexArgument(shaderInSocket->GetTextureArgument());
+
+	const auto nodes = this->GetNode()->GetGraph()->GetNodes();
+
+	bool canUpdate = true;
+
+	for(auto ele = nodes->begin(); ele != nodes->end(); ++ele)
+	{
+		if(ele->second->GetName() == "KernelInput")
+		{
+			if(!ele->second->GetInputSocket("1")->IsUpdated())
+			{
+				canUpdate = false;
+				break;
+			}
+		}
+	}
+
+	if(canUpdate)
+	{
+		auto materialGraph = node->GetGraph()->GetMaterialGraph();
+		if(materialGraph->GetType() == GRAPH::GRAPH_TYPE::KERNEL_GRAPH)
+		{
+			auto kernelGraph = (GRAPH::KernelGraph*)materialGraph->GetGraph(GRAPH::GRAPH_TYPE::KERNEL_GRAPH).get();
+
+			kernelGraph->Compile();
+			
+		} 
+	}
 }
 
 void MATD::FUNC::SHADER::PROCESS::KernelInputGrayscale::SetSocketArguments()

@@ -11,6 +11,9 @@ MATD::FUNC::DATA::OUTPUT::OutputNum2::OutputNum2(MATD::GRAPH::Node* node) : Data
 
 void MATD::FUNC::DATA::OUTPUT::OutputNum2::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number2>(*(arg->GetData<Number2>()));
 }
 
 void MATD::FUNC::DATA::OUTPUT::OutputNum2::SetSocketArguments()
@@ -21,5 +24,9 @@ void MATD::FUNC::DATA::OUTPUT::OutputNum2::SetSocketArguments()
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2911")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
+
+	UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::NUMBER2));
+	this->Update();
 }
 

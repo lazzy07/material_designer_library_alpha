@@ -10,7 +10,7 @@ namespace MATD{
       inline virtual Ref<Connection> GetConnection(const std::string&) override { return m_Connection; };
 			virtual void AddConnection(Ref<Connection> connection) override;
 			virtual void RemoveConnection(const std::string& id) override;
-
+      bool IsUpdated();
       virtual int NoOfConnections() override;
 			virtual Ref<FUNC::Argument> GetArgument() override;
 

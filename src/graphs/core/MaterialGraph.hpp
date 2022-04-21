@@ -23,6 +23,8 @@ namespace MATD{
       MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj);
       ~MaterialGraph();
 
+      GRAPH_TYPE GetType() const { return m_GraphType; }
+
       const std::string& GetID() { return m_ID; }
       MaterialProject* GetProject() const { return m_Project; }
 
