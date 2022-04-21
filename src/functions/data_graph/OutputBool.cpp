@@ -10,6 +10,9 @@ MATD::FUNC::DATA::OUTPUT::OutputBool::OutputBool(MATD::GRAPH::Node* node) : Data
 
 void MATD::FUNC::DATA::OUTPUT::OutputBool::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<bool>(*(arg->GetData<bool>()));
 }
 
 void MATD::FUNC::DATA::OUTPUT::OutputBool::SetSocketArguments()

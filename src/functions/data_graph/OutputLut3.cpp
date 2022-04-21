@@ -10,6 +10,9 @@ MATD::FUNC::DATA::OUTPUT::OutputLut3::OutputLut3(MATD::GRAPH::Node* node) : Data
 
 void MATD::FUNC::DATA::OUTPUT::OutputLut3::Calculate()
 {
+	auto input = this->GetNode()->GetInputSocket("1");
+	auto arg = input->GetArgument();
+	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Lut3>(*(arg->GetData<Lut3>()));
 }
 
 void MATD::FUNC::DATA::OUTPUT::OutputLut3::SetSocketArguments()
@@ -20,4 +23,8 @@ void MATD::FUNC::DATA::OUTPUT::OutputLut3::SetSocketArguments()
 		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("3411")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 	}
+
+	UUID id = MATD::CORE::UUIDGenerator::GenerateUUID();
+	node->GetOutputSocket("out")->SetArgument(Argument::ArgumentFactory(id.str(), DATA_TYPES::LUT3));
+	this->Update();
 }
