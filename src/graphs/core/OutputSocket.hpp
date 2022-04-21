@@ -20,7 +20,7 @@ namespace MATD{
 			inline void Update() override;
 
 			virtual inline Ref<FUNC::Argument> GetArgument() override;
-			inline void SetArgument(Ref<FUNC::Argument> arg) { m_Argument = arg; };
+			inline void SetArgument(const Ref<FUNC::Argument> arg) { m_Argument = arg; };
 		private:
 			std::map<std::string, Ref<Connection>> m_Connections;
 			Ref<FUNC::Argument> m_Argument;

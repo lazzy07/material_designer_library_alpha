@@ -10,6 +10,7 @@ MATD::GRAPH::MaterialProject::MaterialProject() : m_GlobalBitDepth(MATD_TEXTURE_
 
 MATD::GRAPH::MaterialProject::~MaterialProject()
 {
+	MATD_CORE_TRACE("MATD::PROJECT Project Deleted");
 }
 
 void MATD::GRAPH::MaterialProject::OpenProject(const std::string& JSONString)

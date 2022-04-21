@@ -1,6 +1,7 @@
 #include "MaterialGraph.hpp"
+#include "MaterialProject.hpp"
 
-MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj)
+MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj) : m_Project(project)
 {
 	this->m_GraphType = GetGraphType(JSONObj["type"].get<std::string>());
 

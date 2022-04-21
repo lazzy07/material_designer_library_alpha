@@ -212,7 +212,7 @@ MATD::Ref<MATD::FUNC::Argument> MATD::FUNC::Argument::ArgumentFactory(MATD::JSON
 	case MATD::DATA_TYPES::STRING:
 	{
 		std::string str = data.get<std::string>();
-		std::string* mem = new std::string(str.c_str());
+		auto mem = new std::string(str);
 
 		return std::make_shared<Argument>(id, DATA_TYPES::STRING, mem);
 	}

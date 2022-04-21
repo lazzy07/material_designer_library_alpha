@@ -1,12 +1,9 @@
 #include "Function.hpp"
 #include "../../graphs/core/Node.hpp"
 #include "../../graphs/core/OutputSocket.hpp"
-#include "../../graphs/core/InputSocket.hpp"
-#include "../../graphs/core/Connection.hpp"
 
 MATD::FUNC::Function::Function(MATD::GRAPH::Node* node) : m_Node(node)
 {
-
 }
 
 MATD::FUNC::Function::~Function()

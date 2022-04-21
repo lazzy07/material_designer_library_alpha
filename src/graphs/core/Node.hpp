@@ -18,30 +18,33 @@ namespace MATD{
       virtual void Init() = 0;
       virtual void UpdateParameters(MATD::JSON JSONObj) = 0;
 
-      inline void AddInputSocket(std::string id, Ref<InputSocket> socket) { m_Inputs[id] = socket; };
-			inline void AddOutputSocket(std::string id, Ref<OutputSocket> socket) { m_Outputs[id] = socket; };
+      void AddInputSocket(const std::string& id, const Ref<InputSocket>& socket) { m_Inputs[id] = socket; }
+			void AddOutputSocket(const std::string& id, const Ref<OutputSocket>& socket) { m_Outputs[id] = socket; }
 
-			inline const MATD::JSON* GetJSON() { return &m_JSON; };
-      inline void SetJSON(MATD::JSON JSONObj) { m_JSON = JSONObj; };
+			[[nodiscard]] const MATD::JSON* GetJSON() const { return &m_JSON; }
+      void SetJSON(const MATD::JSON& JSONObj) { m_JSON = JSONObj; }
 
-			inline const Ref<MATD::FUNC::Function>* GetFunction() { return &m_Function; };
-			inline void SetFunction(Ref<MATD::FUNC::Function> function) { m_Function = function; };
+      [[nodiscard]] const Ref<MATD::FUNC::Function>* GetFunction() const { return &m_Function; }
+			void SetFunction(const Ref<MATD::FUNC::Function>& function) { m_Function = function; }
 
-      inline Ref<InputSocket> GetInputSocket(const std::string& id) { return m_Inputs[id]; };
-      inline Ref<OutputSocket> GetOutputSocket(const std::string& id) { return m_Outputs[id]; };
+      Ref<InputSocket> GetInputSocket(const std::string& id) { return m_Inputs[id]; }
+      Ref<OutputSocket> GetOutputSocket(const std::string& id) { return m_Outputs[id]; }
 
-      inline std::map <std::string, Ref<OutputSocket>> GetOutputSockets() { return m_Outputs; };
-      inline std::map<std::string, Ref<InputSocket>> GetInputSockets() { return m_Inputs; };
+      std::map <std::string, Ref<OutputSocket>> GetOutputSockets() { return m_Outputs; }
+      std::map<std::string, Ref<InputSocket>> GetInputSockets() { return m_Inputs; }
 
-			inline int GetID() { return m_ID; };
-			inline Graph* GetGraph() { return m_Graph; };
-      inline void SetID(int id) { m_ID = id; };
+      [[nodiscard]] std::string GetName() const { return m_Name; }
+      void SetName(const std::string& name) { m_Name = name; }
+
+      [[nodiscard]] int GetID() const { return m_ID; }
+			[[nodiscard]] Graph* GetGraph() const { return m_Graph; }
+      void SetID(const int& id) { m_ID = id; }
 
     private:
       int m_ID;
       Graph* m_Graph;
       MATD::JSON m_JSON;
-
+      std::string m_Name;
       Ref<MATD::FUNC::Function> m_Function;
 			std::map<std::string,Ref<InputSocket>> m_Inputs;
       std::map<std::string, Ref<OutputSocket>> m_Outputs;
