@@ -16,13 +16,13 @@ namespace MATD{
         void SelectDevice(uint8_t platformId, uint8_t deviceId);
         void SetKernelLibraryFolder(const std::string& path);
 
-        MATD::Int* CreateInt(int val);
-        MATD::Float* CreateFloat(float val);
-        MATD::Buffer* CreateBuffer(void* val, size_t size, size_t elem_size, buf_type argType=MATD::ARG_TYPE::DEVICE_READ);
-        MATD::GrayscaleTexture* CreateGrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
-        MATD::ColorTexture* CreateColorTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
-        MATD::WorkItem* CreateWorkItem(const std::string& kernelName);
-        MATD::Queue* CreateQueue();
+        static MATD::Int* CreateInt(int val);
+        static MATD::Float* CreateFloat(float val);
+        static MATD::Buffer* CreateBuffer(void* val, size_t size, size_t elem_size, buf_type argType=MATD::ARG_TYPE::DEVICE_READ);
+        static MATD::GrayscaleTexture* CreateGrayscaleTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
+        static MATD::ColorTexture* CreateColorTexture(MATD_TEXTURE_BIT_TYPE bitType, size_t width, size_t height, buf_type argType = MATD::ARG_TYPE::DEVICE_READ);
+        static MATD::WorkItem* CreateWorkItem(MATD::Kernel* kernel);
+        static MATD::Queue* CreateQueue();
 
         void OpenProject(const std::string& JSONString);
         void UpdateProject(const std::string& JSONString);

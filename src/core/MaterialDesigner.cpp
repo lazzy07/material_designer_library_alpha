@@ -53,9 +53,8 @@ MATD::ColorTexture* MATD::CORE::MaterialDesigner::CreateColorTexture(MATD_TEXTUR
 	return MATD::Argument::ColorTexture(bitType, width, height, argType);
 }
 
-MATD::WorkItem* MATD::CORE::MaterialDesigner::CreateWorkItem(const std::string& kernelName)
+MATD::WorkItem* MATD::CORE::MaterialDesigner::CreateWorkItem(MATD::Kernel* kernel)
 {
-	MATD::Kernel* kernel = m_KernelLibrary->GetKernel(kernelName);
 	return MATD::WorkItem::CreateWorkItem(kernel);
 }
 
