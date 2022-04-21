@@ -33,6 +33,9 @@ namespace MATD{
       std::map <std::string, Ref<OutputSocket>> GetOutputSockets() { return m_Outputs; }
       std::map<std::string, Ref<InputSocket>> GetInputSockets() { return m_Inputs; }
 
+      [[nodiscard]] std::string GetName() const { return m_Name; }
+      void SetName(const std::string& name) { m_Name = name; }
+
       [[nodiscard]] int GetID() const { return m_ID; }
 			[[nodiscard]] Graph* GetGraph() const { return m_Graph; }
       void SetID(const int& id) { m_ID = id; }
@@ -41,7 +44,7 @@ namespace MATD{
       int m_ID;
       Graph* m_Graph;
       MATD::JSON m_JSON;
-
+      std::string m_Name;
       Ref<MATD::FUNC::Function> m_Function;
 			std::map<std::string,Ref<InputSocket>> m_Inputs;
       std::map<std::string, Ref<OutputSocket>> m_Outputs;

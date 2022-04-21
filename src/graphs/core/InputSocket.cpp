@@ -1,8 +1,7 @@
 #include "InputSocket.hpp"
 #include "Connection.hpp"
 
-MATD::GRAPH::InputSocket::InputSocket(std::string id, Node* node, Ref<FUNC::Argument> argument) : Socket(id, node), m_Argument(
-	std::move(argument))
+MATD::GRAPH::InputSocket::InputSocket(std::string id, Node* node, Ref<FUNC::Argument> argument) : Socket(id, node), m_Argument(std::move(argument))
 {
 }
 
