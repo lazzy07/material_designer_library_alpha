@@ -28,6 +28,10 @@ namespace MATD{
 
         Ref<MATD::GrayscaleTexture> GetDefaultGrayscaleTexture() { return m_DefaultTextureGrayscale; }
         Ref<MATD::ColorTexture> GetDefaultColorTexture() { return m_DefaultTextureColor; }
+
+        size_t GetGlobalTexWidth() const { return m_GlobalTexWidth; }
+        size_t GetGlobalTexHeight() const { return m_GlobalTexHeight; }
+        MATD::MATD_TEXTURE_BIT_TYPE GetGlobalBitDepth() const { return m_GlobalBitDepth; }
       private:
         std::string m_ProjectID;
         std::string m_FileName;

@@ -15,8 +15,7 @@ namespace MATD {
 				virtual void AddToQueue(MATD::Queue* queue) override;
 				virtual void OnComplete() override;
 				virtual void SetOutput(Buffer* buffer) override;
-				virtual void SetOutput(ColorTexture* texture) override;
-				virtual void SetOutput(GrayscaleTexture* texture) override;
+				virtual void SetOutput(DTYPES::Texture* texture) override;
 			private:
 				size_t m_OutputSize = 0;
 				DTYPES::OPENCL::Buffer* m_OutBuffer;

@@ -19,8 +19,7 @@ namespace MATD {
 		virtual void OnComplete() = 0;
 
 		virtual void SetOutput(Buffer* buffer) = 0;
-		virtual void SetOutput(GrayscaleTexture* texture) = 0;
-		virtual void SetOutput(ColorTexture* texture) = 0;
+		virtual void SetOutput(DTYPES::Texture* texture) = 0;
 
 		static WorkItem* CreateWorkItem(Kernel* kernel);
 	private:
