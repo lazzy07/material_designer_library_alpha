@@ -65,6 +65,7 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 		if (const Ref<MATD::GRAPH::Connection> connection = this->GetConnection(connectionId)) {
 			connection->GetInput()->RemoveConnection(connectionId);
 			connection->GetOutput()->RemoveConnection(connectionId);
+
 			this->RemoveFromConnectionPool(connectionId);
 			inputSocket = connection->GetInput();
 		}
@@ -85,7 +86,7 @@ std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
 	std::vector<Ref<MATD::GRAPH::Node>> outputNodes;
 	auto nodes = this->GetNodes();
 
-	for (auto ele = nodes->begin(); ele != nodes->end(); ele++) {
+	for (auto ele = nodes->begin(); ele != nodes->end(); ++ele) {
 		auto node = ele->second;
 		auto functionType = node->GetFunction()->get()->GetFunctionType();
 

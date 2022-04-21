@@ -8,7 +8,7 @@
 MATD::FUNC::SHADER::PROCESS::KernelInputColor::KernelInputColor(MATD::GRAPH::Node* node) : ShaderPrimitiveProcess(node)
 {
 	MATD_CORE_TRACE("MATD::FUNC KernelInputColor function created");
-	this->GetNode()->SetName("KernelInputColor");
+	this->GetNode()->SetName("KernelInput");
 }
 
 void MATD::FUNC::SHADER::PROCESS::KernelInputColor::Calculate()
@@ -19,6 +19,33 @@ void MATD::FUNC::SHADER::PROCESS::KernelInputColor::Calculate()
 
 	shaderOutSocket->SetTexArgument(shaderInSocket->GetTextureArgument());
 
+	const auto nodes = this->GetNode()->GetGraph()->GetNodes();
+
+	bool canUpdate = true;
+
+	for (auto ele = nodes->begin(); ele != nodes->end(); ++ele)
+	{
+		if (ele->second->GetName() == "KernelInput")
+		{
+			if (!ele->second->GetInputSocket("1")->IsUpdated())
+			{
+				canUpdate = false;
+				break;
+			}
+		}
+	}
+
+	if (canUpdate)
+	{
+		auto materialGraph = node->GetGraph()->GetMaterialGraph();
+		if (materialGraph->GetType() == GRAPH::GRAPH_TYPE::KERNEL_GRAPH)
+		{
+			auto kernelGraph = (GRAPH::KernelGraph*)materialGraph->GetGraph(GRAPH::GRAPH_TYPE::KERNEL_GRAPH).get();
+
+			kernelGraph->Compile();
+
+		}
+	}
 
 }
 

@@ -2,6 +2,7 @@
 #include "../core/Graph.hpp"
 #include "../../engine/matd/Kernel.hpp"
 #include "../../engine/matd/Queue.hpp"
+#include "../../engine/matd/WorkItem.hpp"
 
 namespace MATD{
   namespace GRAPH{
@@ -19,6 +20,7 @@ namespace MATD{
 			inline const std::string& GetFunctionsSource() { return m_FunctionsSource; };
 
       std::string Compile();
+      [[nodiscard]] bool ShouldCompile() const { return m_ShouldCompile; }
 
       void SubmitToQueue(Ref<MATD::Queue> queue);
       std::string GetKernelName();
@@ -32,9 +34,15 @@ namespace MATD{
       std::string m_ShaderSource;
 
       Ref<MATD::Kernel> m_EngineKernel;
+
+      bool m_ShouldCompile = true;
+
+      Ref<WorkItem> m_WorkItem;
     private:
       //Creating the kernel source
       void InitKernel();
+      //Assign data to the workitem
+      void SetArgumentsToWorkItem();
       //Set outputs so that outputs can be ported to other graphs/nodes
       void SetOutputs();
     };

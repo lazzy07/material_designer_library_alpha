@@ -2,11 +2,11 @@
 #include "../core/Graph.hpp"
 #include "../../functions/core/ShaderPrimitiveFunction.hpp"
 #include "../../functions/core/Argument.hpp"
+#include <memory>
 
 MATD::GRAPH::ShaderNode::ShaderNode(Graph* graph, MATD::JSON JSONObj) : MATD::GRAPH::Node(graph, JSONObj)
 {
 	MATD_CORE_TRACE("MATD::GRAPH ShaderNode created, ID: {}", this->GetID());
-	this->Init();
 }
 
 MATD::GRAPH::ShaderNode::~ShaderNode()
@@ -27,8 +27,8 @@ void MATD::GRAPH::ShaderNode::Init()
 			//A primitive function
 			MATD::JSON dataArr = sGraphData["data"];
 			auto function = MATD::FUNC::ShaderPrimitiveFunction::FunctionFactory(this, initialID, sGraphData);
-
 			this->SetFunction(function);
+			this->GetFunction()->get()->Init(sGraphData);
 			return;
 		}
 	}
