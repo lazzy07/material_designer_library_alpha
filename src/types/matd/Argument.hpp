@@ -70,6 +70,8 @@ namespace MATD {
 
 			bool IsBound() const { return m_IsBound; }
 			void SeIsBound(bool bound) { m_IsBound = true; }
+
+			MAT_ARG GetArgType() const { return m_Type; }
 		private:
 			MAT_ARG m_Type;
 			bool m_IsBound = false;

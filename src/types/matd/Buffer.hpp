@@ -8,10 +8,10 @@ namespace MATD{
 
       void SetBuffer(void* val, size_t size, size_t elem_size);
 
-      inline void* GetBuffer() { return m_Value; };
-			inline const size_t GetSize() const { return m_Size; };
-			inline const size_t GetByteSize() const { return m_ByteSize; };
-			inline const size_t GetElementSize() const { return m_ElementSize; };
+      void* GetBuffer() const { return m_Value; };
+			size_t GetSize() const { return m_Size; };
+			size_t GetByteSize() const { return m_ByteSize; };
+			size_t GetElementSize() const { return m_ElementSize; };
       
 			virtual void Bind(WorkItem* workItem, size_t index) = 0;
 			virtual void Delete() = 0;
