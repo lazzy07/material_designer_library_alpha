@@ -43,7 +43,6 @@ void MATD::FUNC::SHADER::PROCESS::KernelInputColor::Calculate()
 			auto kernelGraph = (GRAPH::KernelGraph*)materialGraph->GetGraph(GRAPH::GRAPH_TYPE::KERNEL_GRAPH).get();
 
 			kernelGraph->Compile();
-
 		}
 	}
 
