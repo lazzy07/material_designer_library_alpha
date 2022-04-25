@@ -32,6 +32,7 @@ namespace MATD{
         size_t GetGlobalTexWidth() const { return m_GlobalTexWidth; }
         size_t GetGlobalTexHeight() const { return m_GlobalTexHeight; }
         MATD::MATD_TEXTURE_BIT_TYPE GetGlobalBitDepth() const { return m_GlobalBitDepth; }
+        Ref<MATD::Queue> GetQueue() const { return m_Queue; }
       private:
         std::string m_ProjectID;
         std::string m_FileName;
@@ -48,6 +49,8 @@ namespace MATD{
 				size_t m_GlobalTexWidth;
         Ref<MATD::GrayscaleTexture> m_DefaultTextureGrayscale;
         Ref<MATD::ColorTexture> m_DefaultTextureColor;
+
+        Ref<MATD::Queue> m_Queue;
       private:
         void ParsePackages(MATD::JSON package);
     };

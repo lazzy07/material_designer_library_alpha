@@ -25,7 +25,7 @@ namespace MATD{
       void SubmitToQueue(Ref<MATD::Queue> queue);
       std::string GetKernelName();
 
-      std::string IDToVariableName(std::string id);
+      std::string IDToVariableName(std::string id) const;
 
     private:
       std::string m_KernelSource;
