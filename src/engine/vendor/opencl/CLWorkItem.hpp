@@ -3,8 +3,6 @@
 #include "CLKernel.hpp"
 #include "../../matd/Queue.hpp"
 #include "../../../types/vendor/opencl/CLBuffer.hpp"
-#include "../../../types/vendor/opencl/CLGrayscaleTexture.hpp"
-#include "../../../types/vendor/opencl/CLColorTexture.hpp"
 
 namespace MATD {
 	namespace ENGINE {
@@ -12,15 +10,9 @@ namespace MATD {
 			class WorkItem : public MATD::WorkItem {
 			public:
 				WorkItem(Kernel* kernel);
-				virtual void AddToQueue(MATD::Queue* queue) override;
-				virtual void OnComplete() override;
-				virtual void SetOutput(Buffer* buffer) override;
-				virtual void SetOutput(DTYPES::Texture* texture) override;
-			private:
-				size_t m_OutputSize = 0;
-				DTYPES::OPENCL::Buffer* m_OutBuffer;
-				DTYPES::OPENCL::ColorTexture* m_OutColorTexture;
-				DTYPES::OPENCL::GrayscaleTexture* m_OutGrayscaleTexture;
+				void AddToQueue(MATD::Queue* queue) override;
+				void OnComplete() override;
+				void SetOutput(size_t index, DTYPES::Argument* argument) override;
 			};
 		}
 	}

@@ -28,6 +28,6 @@ namespace MATD {
 
 	void WorkItem::SetArgument(size_t index, DTYPES::Argument* argument)
 	{
-		m_Arguments.insert(std::pair<size_t, DTYPES::Argument*>(index, argument));
+		m_Arguments.insert(std::pair(index, argument));
 	}
 }

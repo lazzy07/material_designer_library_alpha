@@ -1,9 +1,10 @@
 #include "MaterialProject.hpp"
 #include "../../types/matd/Argument.hpp"
-MATD::GRAPH::MaterialProject::MaterialProject() : m_GlobalBitDepth(MATD_TEXTURE_BIT_TYPE::TEX_8BIT), m_GlobalTexHeight(1024), m_GlobalTexWidth(1024)
+MATD::GRAPH::MaterialProject::MaterialProject() : m_GlobalBitDepth(MATD_TEXTURE_BIT_TYPE::TEX_8BIT), m_GlobalTexHeight(1024), m_GlobalTexWidth(1024), m_IsLocal(true)
 {
 	MATD_CORE_INFO("MATD::GRAPH:: A new project created");
 	this->m_JSONParser = std::make_shared<MATD::CORE::JSONParser>();
+	this->m_Queue.reset(MATD::Queue::CreateQueue());
 	this->m_DefaultTextureGrayscale.reset(Argument::GrayscaleTexture(m_GlobalBitDepth, m_GlobalTexWidth, m_GlobalTexHeight, MATD::ARG_TYPE::DEVICE_READ));
 	this->m_DefaultTextureColor.reset(Argument::ColorTexture(m_GlobalBitDepth, m_GlobalTexWidth, m_GlobalTexHeight, MATD::ARG_TYPE::DEVICE_READ));
 }

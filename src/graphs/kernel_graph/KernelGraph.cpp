@@ -4,8 +4,6 @@
 #include "../data_graph/DataNode.hpp"
 #include "../../types/matd/Argument.hpp"
 #include "../shader_graph/ShaderOutputSocket.hpp"
-#include "../../types/matd/GrayscaleTexture.hpp"
-#include "../../types/matd/ColorTexture.hpp"
 #include <typeinfo>
 
 MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MATD::JSON& JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
@@ -15,8 +13,7 @@ MATD::GRAPH::KernelGraph::KernelGraph(MATD::GRAPH::MaterialGraph* graph,const MA
 }
 
 MATD::GRAPH::KernelGraph::~KernelGraph()
-{
-}
+= default;
 
 
 std::string MATD::GRAPH::KernelGraph::GetKernelName()
@@ -26,7 +23,8 @@ std::string MATD::GRAPH::KernelGraph::GetKernelName()
 	return id;
 }
 
-std::string MATD::GRAPH::KernelGraph::IDToVariableName(std::string id) {
+std::string MATD::GRAPH::KernelGraph::IDToVariableName(std::string id) const
+{
 	id.erase(std::remove(id.begin(), id.end(), '-'), id.end());
 	return id;
 }
@@ -39,8 +37,8 @@ void MATD::GRAPH::KernelGraph::Update(MATD::JSON JSONObj)
 {
 	m_ShouldCompile = true;
 	MATD_CORE_TRACE("Kernel update {}", JSONObj);
-	std::string type = JSONObj["type"].get<std::string>();
-	std::string update = JSONObj["update"].get<std::string>();
+	const std::string type = JSONObj["type"].get<std::string>();
+	const std::string update = JSONObj["update"].get<std::string>();
 
 	if (type == "kernel") {
 		m_KernelSource = update;
@@ -57,7 +55,7 @@ void MATD::GRAPH::KernelGraph::Init(const MATD::JSON& JSONObj)
 {
 	this->SetID(JSONObj["id"].get<std::string>());
 	m_KernelSource = JSONObj["data"]["kernel"].get<std::string>();
-	m_KernelSource = JSONObj["data"]["functions"].get<std::string>();
+	m_FunctionsSource = JSONObj["data"]["functions"].get<std::string>();
 }
 
 std::string MATD::GRAPH::KernelGraph::Compile()
@@ -65,9 +63,15 @@ std::string MATD::GRAPH::KernelGraph::Compile()
 	InitKernel();
 	std::string error;
 	const auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetKernelName(), m_ShaderSource, &error);
+
+	if (!error.empty()) return error;
+
 	m_EngineKernel.reset(kernel);
 	m_WorkItem.reset(CORE::MaterialDesigner::CreateWorkItem(m_EngineKernel.get()));
 	this->SetArgumentsToWorkItem();
+	const auto project = this->GetMaterialGraph()->GetProject();
+	m_WorkItem->AddToQueue(project->GetQueue().get());
+
 	m_ShouldCompile = false;
 	return error;
 }
@@ -300,7 +304,7 @@ void MATD::GRAPH::KernelGraph::SetArgumentsToWorkItem()
 		{
 			auto socket = (ShaderOutputSocket*)node->GetOutputSocket("out").get();
 			auto tex = socket->GetTexArgument();
-			m_WorkItem->SetOutput(tex.get());
+			m_WorkItem->SetOutput(index, (DTYPES::Argument*)tex.get());
 			index++;
 		}
 	}
