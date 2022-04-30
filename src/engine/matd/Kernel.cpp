@@ -32,7 +32,6 @@ namespace MATD {
 			kernel->LoadKernelDataFromFile(path);
 			kernel->CreateCLKernel();
 			return kernel;
-			break;
 		}
 		MATD_CORE_ASSERT(false, "MAT_KERNEL::Un-identified WorkItem type selected");
 		return nullptr;

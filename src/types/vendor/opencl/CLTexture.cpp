@@ -1,11 +1,5 @@
 #include "CLTexture.hpp"
 #include <CL/cl.hpp>
-#include "../../../core/Log.hpp"
-#include "../../../core/EngineManager.hpp"
-#include "../../../engine/vendor/opencl/CLWorkItem.hpp"
-#include "../../../engine/vendor/opencl/CLContext.hpp"
-#include "../../../engine/vendor/opencl/CLDevice.hpp"
-#include "../../../engine/vendor/opencl/CLQueue.hpp"
 
 namespace MATD::DTYPES::OPENCL
 {
@@ -16,7 +10,7 @@ namespace MATD::DTYPES::OPENCL
 		case 1:
 			return CL_R;
 		case 3:
-			return CL_RGB;
+			return CL_RGBA;
 		default: ;
 		}
 

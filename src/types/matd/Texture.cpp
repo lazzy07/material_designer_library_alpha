@@ -17,8 +17,8 @@ size_t MATD::DTYPES::Texture::BitTypeToSize(MATD_TEXTURE_BIT_TYPE bitType)
 }
 
 MATD::DTYPES::Texture::Texture(const MAT_ARG matArgType, const MATD_TEXTURE_BIT_TYPE bitType, const size_t noOfChannels, const size_t width, const size_t height, buf_type argType) : DTYPES::Argument(matArgType),
-	m_Size(width * height * noOfChannels), m_ElementSize(Texture::BitTypeToSize(bitType)),
-	m_ByteSize(m_ElementSize * m_Size), m_Width(width), m_Height(height), m_NoOfChannels(noOfChannels), m_BitType(bitType), m_BufType(argType)
+	m_BufType(argType), m_Size(width * height * noOfChannels),
+	m_ElementSize(Texture::BitTypeToSize(bitType)), m_ByteSize(m_ElementSize * m_Size), m_Width(width), m_Height(height), m_NoOfChannels(noOfChannels), m_BitType(bitType)
 {
 	m_Buffer = malloc(m_Size * m_ElementSize);
 }

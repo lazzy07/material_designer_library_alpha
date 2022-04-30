@@ -1,7 +1,6 @@
 #include "KernelGraph.hpp"
 #include "../../core/MaterialDesigner.hpp"
 #include "../core/MaterialGraph.hpp"
-#include "../data_graph/DataNode.hpp"
 #include "../../types/matd/Argument.hpp"
 #include "../shader_graph/ShaderOutputSocket.hpp"
 #include <typeinfo>
@@ -35,7 +34,6 @@ void MATD::GRAPH::KernelGraph::CreateNode(MATD::JSON JSONObj)
 
 void MATD::GRAPH::KernelGraph::Update(MATD::JSON JSONObj)
 {
-	m_ShouldCompile = true;
 	MATD_CORE_TRACE("Kernel update {}", JSONObj);
 	const std::string type = JSONObj["type"].get<std::string>();
 	const std::string update = JSONObj["update"].get<std::string>();
@@ -64,15 +62,18 @@ std::string MATD::GRAPH::KernelGraph::Compile()
 	std::string error;
 	const auto kernel = MATD::Kernel::CreateKernelFromSource(this->GetKernelName(), m_ShaderSource, &error);
 
-	if (!error.empty()) return error;
+	if (!error.empty())
+	{
+		MATD_CORE_WARN("MATD::GRAPH Compilation Error: {}", error);
+		return error;
+	};
 
 	m_EngineKernel.reset(kernel);
 	m_WorkItem.reset(CORE::MaterialDesigner::CreateWorkItem(m_EngineKernel.get()));
 	this->SetArgumentsToWorkItem();
 	const auto project = this->GetMaterialGraph()->GetProject();
 	m_WorkItem->AddToQueue(project->GetQueue().get());
-
-	m_ShouldCompile = false;
+	
 	return error;
 }
 
