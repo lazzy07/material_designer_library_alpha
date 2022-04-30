@@ -17,6 +17,13 @@ namespace MATD {
 
 			void WorkItem::AddToQueue(MATD::Queue* queue)
 			{
+				const auto argument = GetOutput();
+
+				if (argument == nullptr) {
+					MATD_CORE_WARN("MATD::OPENCL No outputs are set. Quitting compilation process");
+					return;
+				}
+
 				const Ref<ENGINE::Device> device = CORE::EngineManager::GetEngineInstance()->GetSelectedDevice();
 				auto clDevice = std::static_pointer_cast<ENGINE::OPENCL::Device>(device);
 				const cl::CommandQueue clQueue = ((ENGINE::OPENCL::Queue*)queue)->GetCLQueue();
@@ -24,38 +31,33 @@ namespace MATD {
 
 				for (auto it = arguments.begin(); it != arguments.end(); ++it) {
 					MATD::DTYPES::Argument*  arg = it->second;
-					if (arg->IsBound()) {
-						MATD_CORE_TRACE("MATD_WORKITEM::Argument at index {} is already found on device", it->first);
-					} else {
-						arg->AddToQueue(queue);
-					}
+
+					arg->AddToQueue(queue);
 					arg->Bind(this, it->first);
-					arg->SeIsBound(true);
 				}
 
 				const cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
 				OPENCL::Queue* matClQueue = (OPENCL::Queue*)queue;
 
-				auto argument = GetOutput();
-
-				if (argument == nullptr) {
-					MATD_CORE_WARN("MATD::OPENCL No outputs are set. Quitting compilation process");
-					return;
-				}
+				
 
 				cl::Event event;
 				cl::Event onCompleteEvent;
 				const auto events = matClQueue->GetCLEvents();
-				size_t size = 0;
 
 				if(argument->GetArgType() == MAT_ARG::MAT_BUFFER)
 				{
+					size_t size = 0;
 					const auto* buffer = (MATD::DTYPES::OPENCL::Buffer*)argument;
 					size = buffer->GetSize();
-					clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, size, cl::NullRange, &events, &event);
-					matClQueue->SetEvent(event);
 
 					clQueue.enqueueReadBuffer(buffer->GetCLBuffer(), CL_FALSE, 0, buffer->GetByteSize(), buffer->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
+
+					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, size, cl::NullRange, &events, &event);
+					if(err != 0) MATD_CORE_ERROR("MATD::OPENCL::WorkItem Error {}", err);
+
+					matClQueue->SetEvent(event);
+
 				}else if(argument->GetArgType() == MAT_ARG::MAT_TEXGRAYSCALE)
 				{
 					const auto* texture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)argument;
@@ -67,15 +69,17 @@ namespace MATD {
 					origin[2] = 0;
 
 					region[0] = texture->GetWidth();
-					region[1] = texture->GetWidth();
+					region[1] = texture->GetHeight();
 					region[2] = 1;
-
-					size = texture->GetSize();
-					clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, size, cl::NullRange, &events, &event);
-					matClQueue->SetEvent(event);
 
 					clQueue.enqueueReadImage(texture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
 						texture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
+					
+					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, cl::NDRange(texture->GetWidth(), texture->GetHeight()), cl::NullRange, &(events), &event);
+
+					if (err != 0) MATD_CORE_ERROR("MATD::OPENCL::WorkItem Error {}", err);
+					matClQueue->SetEvent(event);
+
 				}else if(argument->GetArgType() == MAT_ARG::MAT_TEXCOLOR)
 				{
 					const auto* texture = (MATD::DTYPES::OPENCL::ColorTexture*)argument;
@@ -87,15 +91,16 @@ namespace MATD {
 					origin[2] = 0;
 
 					region[0] = texture->GetWidth();
-					region[1] = texture->GetWidth();
+					region[1] = texture->GetHeight();
 					region[2] = 1;
-					size = texture->GetSize();
-
-					clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, size, cl::NullRange, &events, &event);
-					matClQueue->SetEvent(event);
 
 					clQueue.enqueueReadImage(texture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
 						texture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
+
+					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, cl::NDRange(texture->GetWidth(), texture->GetHeight(), 3), cl::NullRange, &(events), &event);
+
+					if (err != 0) MATD_CORE_ERROR("MATD::OPENCL::WorkItem Error {}", err);
+					matClQueue->SetEvent(event);
 				}
 				else {
 					MATD_CORE_ASSERT(false, "Output buffer/image not set");
@@ -121,17 +126,17 @@ namespace MATD {
 				if(argument->GetArgType() == MAT_ARG::MAT_BUFFER)
 				{
 					const auto* buffer = (MATD::DTYPES::OPENCL::Buffer*)argument;
-					cl::Buffer clBuffer = buffer->GetCLBuffer();
+					const cl::Buffer clBuffer = buffer->GetCLBuffer();
 					kernel.setArg(index, clBuffer);
 				}
 				else if(argument->GetArgType() == MAT_ARG::MAT_TEXGRAYSCALE)
 				{
-					auto* texture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)argument;
-					cl::Image2D clImage = texture->GetCLImage();
+					const auto* texture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)argument;
+					const cl::Image2D clImage = texture->GetCLImage();
 					kernel.setArg(index, clImage);
 				} else if(argument->GetArgType() == MAT_ARG::MAT_TEXCOLOR)
 				{
-					auto* texture = (MATD::DTYPES::OPENCL::ColorTexture*)argument;
+					const auto* texture = (MATD::DTYPES::OPENCL::ColorTexture*)argument;
 					cl::Image2D clImage = texture->GetCLImage();
 					kernel.setArg(index, clImage);
 				}

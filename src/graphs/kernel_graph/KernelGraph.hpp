@@ -20,12 +20,11 @@ namespace MATD{
 			inline const std::string& GetFunctionsSource() { return m_FunctionsSource; };
 
       std::string Compile();
-      [[nodiscard]] bool ShouldCompile() const { return m_ShouldCompile; }
 
       void SubmitToQueue(Ref<MATD::Queue> queue);
       std::string GetKernelName();
 
-      std::string IDToVariableName(std::string id) const;
+      [[nodiscard]] std::string IDToVariableName(std::string id) const;
 
     private:
       std::string m_KernelSource;
@@ -34,8 +33,6 @@ namespace MATD{
       std::string m_ShaderSource;
 
       Ref<MATD::Kernel> m_EngineKernel;
-
-      bool m_ShouldCompile = true;
 
       Ref<WorkItem> m_WorkItem;
     private:

@@ -5,15 +5,13 @@
 #include "../vendor/opencl/CLKernel.hpp"
 
 namespace MATD {
-  WorkItem::WorkItem(Kernel* kernel) {
-    m_Kernel = kernel;
+  WorkItem::WorkItem(Kernel* kernel, MATD::GRAPH::ShaderNode* node): m_Kernel(kernel), m_ShaderNode(node) {
+    
   }
 
   WorkItem* WorkItem::CreateWorkItem(Kernel* kernel)
   {
-    CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine();
-
-    switch (engine) {
+	  switch (CORE::SUPPORTED_ENGINES engine = CORE::EngineManager::GetSelectedEngine()) {
     case CORE::SUPPORTED_ENGINES::CUDA:
       MATD_CORE_ASSERT(false, "WORKITEM::CUDA is not supported yet");
       break;
