@@ -134,7 +134,7 @@ struct Lut3Elem {
 				auto arg = outSocket->GetArgument();
 
 
-				auto argName = "_" + IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
+				auto argName = IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
 				
 				argList += index > 0 ? "," : "";
 
@@ -193,7 +193,7 @@ struct Lut3Elem {
 			{
 				if(node->GetName() == "KernelInput")
 				{
-					auto argName = "_" + IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
+					auto argName = IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
 
 					argList += index > 0 ? "," : "";
 					argList += "__read_only  image2d_t " + argName;
@@ -201,7 +201,7 @@ struct Lut3Elem {
 				}
 				if(node->GetName() == "KernelOutput")
 				{
-					auto argName = "_" + IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
+					auto argName = IDToVariableName(*node->GetFunction()->get()->GetArgument("var_name")->GetData<std::string>());
 
 					argList += index > 0 ? "," : "";
 					argList += "__write_only  image2d_t " + argName;
