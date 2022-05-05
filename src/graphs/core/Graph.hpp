@@ -15,12 +15,12 @@ namespace MATD {
       virtual ~Graph();
 
       std::string GetID() { return m_ID; };
-      MaterialGraph* GetMaterialGraph() { return m_MaterialGraph; }
+      [[nodiscard]] MaterialGraph* GetMaterialGraph() const { return m_MaterialGraph; }
 
 			virtual void CreateNode(MATD::JSON JSONObj) = 0;
-			void RemoveNode(MATD::JSON JSONObj);
-			void AddConnection(MATD::JSON JSONObj);
-			void RemoveConnection(MATD::JSON JSONObj);
+      virtual void RemoveNode(MATD::JSON JSONObj);
+      virtual void AddConnection(MATD::JSON JSONObj);
+      virtual void RemoveConnection(MATD::JSON JSONObj);
 			virtual void Update(MATD::JSON JSONObj) = 0;
       virtual void Init(const MATD::JSON& JSONObj) = 0;
 

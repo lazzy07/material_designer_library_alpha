@@ -8,8 +8,13 @@ namespace MATD{
       ShaderNode(Graph* graph, JSON JSONObj);
       ~ShaderNode();
 
-			virtual void Init() override;
-      virtual void UpdateParameters(JSON JSONObj) override;
+			void Init() override;
+      void UpdateParameters(JSON JSONObj) override;
+
+      void SetDisplayTexture(const Ref<DTYPES::Texture>& texture) { m_DisplayTexture = texture; }
+      [[nodiscard]] Ref<DTYPES::Texture> GetDisplayTexture() const { return m_DisplayTexture; }
+    private:
+      Ref<DTYPES::Texture> m_DisplayTexture;
     };
   }
 }

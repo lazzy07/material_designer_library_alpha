@@ -1,7 +1,6 @@
 #pragma once
 #include "../core/Graph.hpp"
 #include "../../core/JSONParser.hpp"
-#include "ShaderNode.hpp"
 
 namespace MATD{
   namespace GRAPH{
@@ -12,6 +11,10 @@ namespace MATD{
 
 			virtual void CreateNode(MATD::JSON JSONObj) override;
 			virtual void Update(MATD::JSON JSONObj) override;
+
+      void RemoveNode(MATD::JSON JSONObj) override;
+      void AddConnection(MATD::JSON JSONObj) override;
+      void RemoveConnection(MATD::JSON JSONObj) override;
 
       virtual void Init(const MATD::JSON& JSONObj) override;
     };

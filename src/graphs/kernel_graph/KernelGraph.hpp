@@ -13,7 +13,7 @@ namespace MATD{
 
 			virtual void CreateNode(MATD::JSON JSONObj) override;
 			virtual void Update(MATD::JSON JSONObj) override;
-      
+
       virtual void Init(const MATD::JSON& JSONObj) override;
 
 			inline const std::string& GetKernelSource() { return m_KernelSource; };
@@ -25,7 +25,7 @@ namespace MATD{
       std::string GetKernelName();
 
       [[nodiscard]] std::string IDToVariableName(std::string id) const;
-
+      void SetOutputNodeInWorkItem(Ref<Node> node) const;
     private:
       std::string m_KernelSource;
       std::string m_FunctionsSource;

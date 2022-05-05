@@ -14,11 +14,10 @@ MATD::FUNC::SHADER::PROCESS::KernelOutputColor::KernelOutputColor(MATD::GRAPH::N
 
 void MATD::FUNC::SHADER::PROCESS::KernelOutputColor::Calculate()
 {
-	auto node = this->GetNode();
+	const auto node = this->GetNode();
 
 	//auto shaderOutSocket = (GRAPH::ShaderOutputSocket*)node->GetOutputSocket("out").get();
 
-	
 	const auto nodes = this->GetNode()->GetGraph()->GetNodes();
 	bool canUpdate = true;
 
@@ -36,11 +35,9 @@ void MATD::FUNC::SHADER::PROCESS::KernelOutputColor::Calculate()
 
 	if (canUpdate)
 	{
-		auto materialGraph = node->GetGraph()->GetMaterialGraph();
-		if (materialGraph->GetType() == GRAPH::GRAPH_TYPE::KERNEL_GRAPH)
+		if (const auto materialGraph = node->GetGraph()->GetMaterialGraph(); materialGraph->GetType() == GRAPH::GRAPH_TYPE::KERNEL_GRAPH)
 		{
-			auto kernelGraph = (GRAPH::KernelGraph*)materialGraph->GetGraph(GRAPH::GRAPH_TYPE::KERNEL_GRAPH).get();
-
+			const auto kernelGraph = dynamic_cast<GRAPH::KernelGraph*>(materialGraph->GetGraph(GRAPH::GRAPH_TYPE::KERNEL_GRAPH).get());
 			kernelGraph->Compile();
 		}
 	}
