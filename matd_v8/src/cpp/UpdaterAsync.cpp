@@ -45,5 +45,17 @@ void MATD::V8::UpdaterAsync::Execute()
 
 void MATD::V8::UpdaterAsync::OnOK()
 {
+	auto node = MATD::CORE::MaterialDesigner::GetOutputNode();
+	auto tex = MATD::CORE::MaterialDesigner::GetOutputTexture();
+	if(node && tex)
+	{
+		Callback().Call({Napi::Number::New(this->Env(), node->GetID()), Napi::ArrayBuffer::New(this->Env(), tex->GetBuffer(), tex->GetSize())});
+	}else
+	{
+		Callback().Call({Napi::Number::New(this->Env(), -1)});
+	}
+
+	MATD::CORE::MaterialDesigner::SetOutputNode(nullptr);
+	MATD::CORE::MaterialDesigner::SetOutputTexture(nullptr);
 }
 

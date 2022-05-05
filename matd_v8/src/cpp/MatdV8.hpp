@@ -2,6 +2,11 @@
 #include <napi.h>
 #include <core/MaterialDesigner.hpp>
 
+/**
+ * \brief This will be used to check whether the MATD library is running in Node environment
+ */
+#define V8_ENGINE
+
 namespace MATD{
   namespace V8{
     class MatdV8 : public Napi::ObjectWrap<MatdV8> {

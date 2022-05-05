@@ -1,6 +1,7 @@
 #include "Graph.hpp"
 #include "../../core/Core.hpp"
 #include "../../core/Time.hpp"
+#include "../../core/MaterialDesigner.hpp"
 #include "Connection.hpp"
 
 MATD::GRAPH::Graph::Graph(MaterialGraph* graph, const MATD::JSON& JSONObj): m_MaterialGraph(graph)
@@ -54,15 +55,19 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 		MATD_CORE_ERROR("Input/Output sockets cannot be null");
 		MATD_CORE_ASSERT(false, "Input/Output sockets cannot be null");
 	}
+
+	MATD::CORE::MaterialDesigner::SetOutputNode(inputNode.get());
 }
 
 void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 {
 	const std::string connectionId = JSONObj["id"].get<std::string>();
 	MATD::Ref<InputSocket> inputSocket;
-	
+
+	const Ref<MATD::GRAPH::Connection> connection = this->GetConnection(connectionId);
+
 	{
-		if (const Ref<MATD::GRAPH::Connection> connection = this->GetConnection(connectionId)) {
+		if (connection) {
 			connection->GetInput()->RemoveConnection(connectionId);
 			connection->GetOutput()->RemoveConnection(connectionId);
 
@@ -79,6 +84,8 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 	this->StartUpdate(nextNode, time);
 
 	nextNode->GetFunction()->get()->Update();
+	
+	MATD::CORE::MaterialDesigner::SetOutputNode(nextNode);
 }
 
 std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()

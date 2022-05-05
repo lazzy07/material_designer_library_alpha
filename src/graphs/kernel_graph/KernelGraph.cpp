@@ -28,6 +28,11 @@ std::string MATD::GRAPH::KernelGraph::IDToVariableName(std::string id) const
 	return id;
 }
 
+void MATD::GRAPH::KernelGraph::SetOutputNodeInWorkItem(Ref<Node> node) const
+{
+	m_WorkItem->SetNode(node);
+}
+
 void MATD::GRAPH::KernelGraph::CreateNode(MATD::JSON JSONObj)
 {
 }
@@ -303,9 +308,11 @@ void MATD::GRAPH::KernelGraph::SetArgumentsToWorkItem()
 		}
 		if (node->GetName() == "KernelOutput")
 		{
-			auto socket = (ShaderOutputSocket*)node->GetOutputSocket("out").get();
+			const auto socket = static_cast<ShaderOutputSocket*>(node->GetOutputSocket("out").get());
 			auto tex = socket->GetTexArgument();
-			m_WorkItem->SetOutput(index, (DTYPES::Argument*)tex.get());
+			m_WorkItem->SetNode(node);
+			m_WorkItem->SetOutput(index, reinterpret_cast<DTYPES::Argument*>(tex.get()));
+			this->SetOutputNodeInWorkItem(node);
 			index++;
 		}
 	}

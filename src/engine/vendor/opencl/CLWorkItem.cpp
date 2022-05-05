@@ -3,6 +3,7 @@
 #include "CLQueue.hpp"
 #include "../../../core/EngineManager.hpp"
 #include "../../../core/Core.hpp"
+#include "../../../graphs/core/OutputSocket.hpp"
 #include "../../../types/matd/Texture.hpp"
 #include "../../../types/vendor/opencl/CLGrayscaleTexture.hpp"
 #include "../../../types/vendor/opencl/CLColorTexture.hpp"
@@ -29,11 +30,12 @@ namespace MATD {
 				const cl::CommandQueue clQueue = ((ENGINE::OPENCL::Queue*)queue)->GetCLQueue();
 				auto arguments = GetArguments();
 
-				for (auto it = arguments.begin(); it != arguments.end(); ++it) {
-					MATD::DTYPES::Argument*  arg = it->second;
+				for (auto& argument : arguments)
+				{
+					MATD::DTYPES::Argument*  arg = argument.second;
 
 					arg->AddToQueue(queue);
-					arg->Bind(this, it->first);
+					arg->Bind(this, argument.first);
 				}
 
 				const cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
@@ -117,6 +119,11 @@ namespace MATD {
 			void WorkItem::OnComplete()
 			{
 				MATD_CORE_INFO("CL_WORKITEM:::Finished processing");
+				if(const auto node = GetNode())
+				{
+					const auto socket = node->GetOutputSocket("out");
+					socket->Update();
+				}
 			}
 
 			void WorkItem::SetOutput(size_t index, DTYPES::Argument* argument)

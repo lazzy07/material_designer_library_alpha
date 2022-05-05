@@ -108,3 +108,6 @@ std::string MATD::CORE::MaterialDesigner::CompileKernel()
 {
 	return this->m_CurrentProject->CompileKernel();
 }
+
+MATD::Ref<MATD::GRAPH::MaterialProject> MATD::CORE::MaterialDesigner::GetNodeProject() const
+{ return m_CurrentProject; }

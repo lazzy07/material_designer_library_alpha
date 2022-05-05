@@ -6,9 +6,11 @@
 
 MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
 {
+	const Napi::Env env = info.Env();
+
   this->m_Matd = new MATD::CORE::MaterialDesigner();
 	this->m_Matd->SelectDevice(0, 0);
-	this->m_Matd->SetUsedByMaterialDesignerApp(true);
+	MATD::CORE::MaterialDesigner::SetUsedByMaterialDesignerApp(true);
 }
 
 MATD::V8::MatdV8::~MatdV8()
@@ -34,7 +36,7 @@ Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
 
 Napi::Value MATD::V8::MatdV8::OpenMaterialProject(const Napi::CallbackInfo& info)
 {
-	Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
 		Napi::TypeError::New(env, "NodeProject not found!").ThrowAsJavaScriptException();
@@ -46,7 +48,7 @@ Napi::Value MATD::V8::MatdV8::OpenMaterialProject(const Napi::CallbackInfo& info
 		return env.Null();
 	}
 
-	Napi::String project = info[0].As<Napi::String>();
+	const auto project = info[0].As<Napi::String>();
 	
 	MATD_CORE_TRACE("MATD_V8:: Open NodeProject request recieved");
 	this->m_Matd->OpenProject(project);
@@ -56,7 +58,7 @@ Napi::Value MATD::V8::MatdV8::OpenMaterialProject(const Napi::CallbackInfo& info
 
 Napi::Value MATD::V8::MatdV8::UpdateMaterialProject(const Napi::CallbackInfo& info)
 {
-	Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
 		Napi::TypeError::New(env, "MaterialProject not found!").ThrowAsJavaScriptException();
@@ -68,7 +70,7 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialProject(const Napi::CallbackInfo& in
 		return env.Null();
 	}
 
-	Napi::String project = info[0].As<Napi::String>();
+	const auto project = info[0].As<Napi::String>();
 
 	MATD_CORE_TRACE("MATD_V8:: Update MaterialProject request recieved");
 	this->m_Matd->UpdateProject(project);
@@ -78,7 +80,7 @@ Napi::Value MATD::V8::MatdV8::UpdateMaterialProject(const Napi::CallbackInfo& in
 
 void MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
 {
-	Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
 
 	if (info.Length() < 3) {
 		Napi::TypeError::New(env, "Update type, update data and callback are required").ThrowAsJavaScriptException();
@@ -105,7 +107,7 @@ void MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
 
 Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInfo& info)
 {
-	Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
 		Napi::TypeError::New(env, "graphID not found!").ThrowAsJavaScriptException();
@@ -117,7 +119,7 @@ Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInf
 		return env.Null();
 	}
 
-	Napi::String graphID = info[0].As<Napi::String>();
+	const auto graphID = info[0].As<Napi::String>();
 
 	MATD_CORE_TRACE("MATD_V8:: Selected Graph Change request recieved");
 	this->m_Matd->SetSelectedGraph(graphID);
@@ -127,7 +129,7 @@ Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInf
 
 Napi::Value MATD::V8::MatdV8::SetComputationDevice(const Napi::CallbackInfo& info)
 {
-  Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
 
   if (info.Length() < 2) {
 		Napi::TypeError::New(env, "Setting Computation Device requires 2 Number values").ThrowAsJavaScriptException();
@@ -150,10 +152,10 @@ Napi::Value MATD::V8::MatdV8::SetComputationDevice(const Napi::CallbackInfo& inf
 
 Napi::Value MATD::V8::MatdV8::GetAvailableEngines(const Napi::CallbackInfo& info)
 {
-	Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
   Napi::Array arr = Napi::Array::New(env);
-  
-  MATD::Ref<std::vector<std::string>> engines = MATD::CORE::EngineManager::GetSupportedEngines();
+
+	const MATD::Ref<std::vector<std::string>> engines = MATD::CORE::EngineManager::GetSupportedEngines();
 
   for (int i = 0; i < engines->size(); i++) {
     arr.Set(i, Napi::String::New(env, engines->at(i)));
@@ -164,7 +166,7 @@ Napi::Value MATD::V8::MatdV8::GetAvailableEngines(const Napi::CallbackInfo& info
 
 Napi::Value MATD::V8::MatdV8::SetEngine(const Napi::CallbackInfo& info)
 {
-  Napi::Env env = info.Env();
+	const Napi::Env env = info.Env();
 
 	if (info.Length() < 1) {
 		Napi::TypeError::New(env, "Engine cannot be undefined").ThrowAsJavaScriptException();
