@@ -1,4 +1,5 @@
 #pragma once
+
 #include <napi.h>
 #include <core/MaterialDesigner.hpp>
 
@@ -25,10 +26,15 @@ namespace MATD{
 			Napi::Value GetAvailableDevices(const Napi::CallbackInfo& info);
 
       void CompileKernel(const Napi::CallbackInfo& info);
+      void SetShaderNodeChangeCallback(const Napi::CallbackInfo& info);
+
+    	static void CallShaderNodeChangeCallback(int nodeId, MATD::DTYPES::Texture* texture);
 
       static Napi::Function GetClass(Napi::Env env);
     private:
       MATD::CORE::MaterialDesigner* m_Matd;
+      
+      inline static Napi::ThreadSafeFunction m_ShaderNodeChangeCallback;
     };
   }
 }

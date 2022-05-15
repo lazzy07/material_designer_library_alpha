@@ -28,7 +28,7 @@ int main() {
 		d.y = 0;
 		d.z = 0;
 
-		write_imageui(ejpg,(int2)(x,y), d);
+		write_imageui(troubled_ivory_quail,(int2)(x,y), d);
 	}
 	)"""";
 

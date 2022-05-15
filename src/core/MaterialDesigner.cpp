@@ -9,7 +9,7 @@ void MATD::CORE::MaterialDesigner::SelectDevice(uint8_t platformId, uint8_t devi
 	EngineManager::GetEngineInstance()->SelectDevice(deviceId);
 }
 
-void MATD::CORE::MaterialDesigner::SetKernelLibraryFolder(const std::string& path)
+void MATD::CORE::MaterialDesigner::SetKernelLibraryFolder(const std::string& path) const
 {
 	m_KernelLibrary->AddKernelPath(path);
 }
@@ -69,45 +69,53 @@ void MATD::CORE::MaterialDesigner::OpenProject(const std::string& JSONString)
 	this->m_CurrentProject->OpenProject(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::UpdateProject(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::UpdateProject(const std::string& JSONString) const
 {
 	this->m_CurrentProject->UpdateProject(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::SetSelectedGraph(const std::string& graphID)
+void MATD::CORE::MaterialDesigner::SetSelectedGraph(const std::string& graphID) const
 {
 	this->m_CurrentProject->SetSelectedGraph(graphID);
 }
 
-void MATD::CORE::MaterialDesigner::CreateNode(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::CreateNode(const std::string& JSONString) const
 {
 	this->m_CurrentProject->CreateNode(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::RemoveNode(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::RemoveNode(const std::string& JSONString) const
 {
 	this->m_CurrentProject->RemoveNode(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::AddConnection(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::AddConnection(const std::string& JSONString) const
 {
 	this->m_CurrentProject->AddConnection(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::RemoveConnection(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::RemoveConnection(const std::string& JSONString) const
 {
 	this->m_CurrentProject->RemoveConnection(JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::Update(const std::string& JSONString)
+void MATD::CORE::MaterialDesigner::Update(const std::string& JSONString) const
 {
 	this->m_CurrentProject->Update(JSONString);
 }
 
-std::string MATD::CORE::MaterialDesigner::CompileKernel()
+std::string MATD::CORE::MaterialDesigner::CompileKernel() const
 {
 	return this->m_CurrentProject->CompileKernel();
 }
 
 MATD::Ref<MATD::GRAPH::MaterialProject> MATD::CORE::MaterialDesigner::GetNodeProject() const
 { return m_CurrentProject; }
+
+void MATD::CORE::MaterialDesigner::UpdateShaderNodeData(int nodeId, MATD::DTYPES::Texture* texture)
+{
+	if(m_CallShaderNodeChangeCallback)
+	{
+		m_CallShaderNodeChangeCallback(nodeId, texture);
+	}
+}

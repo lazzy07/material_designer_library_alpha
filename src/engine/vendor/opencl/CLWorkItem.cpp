@@ -2,8 +2,9 @@
 #include "CLDevice.hpp"
 #include "CLQueue.hpp"
 #include "../../../core/EngineManager.hpp"
+#include "../../../core/MaterialDesigner.hpp"
 #include "../../../core/Core.hpp"
-#include "../../../graphs/core/OutputSocket.hpp"
+#include "../../../graphs/shader_graph/ShaderOutputSocket.hpp"
 #include "../../../types/matd/Texture.hpp"
 #include "../../../types/vendor/opencl/CLGrayscaleTexture.hpp"
 #include "../../../types/vendor/opencl/CLColorTexture.hpp"
@@ -53,13 +54,11 @@ namespace MATD {
 					const auto* buffer = (MATD::DTYPES::OPENCL::Buffer*)argument;
 					size = buffer->GetSize();
 
-					clQueue.enqueueReadBuffer(buffer->GetCLBuffer(), CL_FALSE, 0, buffer->GetByteSize(), buffer->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
-
 					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, size, cl::NullRange, &events, &event);
 					if(err != 0) MATD_CORE_ERROR("MATD::OPENCL::WorkItem Error {}", err);
-
 					matClQueue->SetEvent(event);
 
+					clQueue.enqueueReadBuffer(buffer->GetCLBuffer(), CL_FALSE, 0, buffer->GetByteSize(), buffer->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 				}else if(argument->GetArgType() == MAT_ARG::MAT_TEXGRAYSCALE)
 				{
 					const auto* texture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)argument;
@@ -74,13 +73,14 @@ namespace MATD {
 					region[1] = texture->GetHeight();
 					region[2] = 1;
 
-					clQueue.enqueueReadImage(texture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
-						texture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 					
 					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, cl::NDRange(texture->GetWidth(), texture->GetHeight()), cl::NullRange, &(events), &event);
+					matClQueue->SetEvent(event);
+
+					clQueue.enqueueReadImage(texture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
+						texture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 
 					if (err != 0) MATD_CORE_ERROR("MATD::OPENCL::WorkItem Error {}", err);
-					matClQueue->SetEvent(event);
 
 				}else if(argument->GetArgType() == MAT_ARG::MAT_TEXCOLOR)
 				{
@@ -96,13 +96,13 @@ namespace MATD {
 					region[1] = texture->GetHeight();
 					region[2] = 1;
 
+					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, cl::NDRange(texture->GetWidth(), texture->GetHeight()), cl::NullRange, &(events), &event);
+					matClQueue->SetEvent(event);
+
 					clQueue.enqueueReadImage(texture->GetCLImage(), CL_FALSE, origin, region, 0, 0,
 						texture->GetBuffer(), &(matClQueue->GetCLEvents()), &onCompleteEvent);
 
-					cl_int err = clQueue.enqueueNDRangeKernel(kernel, cl::NullRange, cl::NDRange(texture->GetWidth(), texture->GetHeight(), 3), cl::NullRange, &(events), &event);
-
 					if (err != 0) MATD_CORE_ERROR("MATD::OPENCL::WorkItem Error {}", err);
-					matClQueue->SetEvent(event);
 				}
 				else {
 					MATD_CORE_ASSERT(false, "Output buffer/image not set");
@@ -121,8 +121,11 @@ namespace MATD {
 				MATD_CORE_INFO("CL_WORKITEM:::Finished processing");
 				if(const auto node = GetNode())
 				{
-					const auto socket = node->GetOutputSocket("out");
+					const auto socket = dynamic_cast<GRAPH::ShaderOutputSocket*>(node->GetOutputSocket("out").get());
 					socket->Update();
+
+					const auto id = node->GetID();
+					MATD::CORE::MaterialDesigner::CallShaderNodeChangeCallback(id, socket->GetTexArgument().get());
 				}
 			}
 

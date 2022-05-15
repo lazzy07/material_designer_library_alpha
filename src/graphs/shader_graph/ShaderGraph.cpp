@@ -2,7 +2,6 @@
 #include "../core/MaterialGraph.hpp"
 #include "ShaderNode.hpp"
 #include "../../core/MaterialDesigner.hpp"
-#include "ShaderOutputSocket.hpp"
 
 MATD::GRAPH::ShaderGraph::ShaderGraph(MaterialGraph* graph, MATD::JSON JSONObj) : MATD::GRAPH::Graph(graph, JSONObj)
 {
@@ -20,12 +19,6 @@ void MATD::GRAPH::ShaderGraph::CreateNode(MATD::JSON JSONObj)
 	const unsigned int id = JSONObj["id"].get<int>();
 	this->SetNode(id, shaderNode);
 	shaderNode->Init();
-	MATD::CORE::MaterialDesigner::SetOutputNode(shaderNode.get());
-
-	const auto node = MATD::CORE::MaterialDesigner::GetOutputNode();
-	const auto shaderSocket = dynamic_cast<ShaderOutputSocket*>(node->GetOutputSocket("out").get());
-	const auto tex = shaderSocket->GetTexArgument();
-	MATD::CORE::MaterialDesigner::SetOutputTexture(tex);
 }
 
 void MATD::GRAPH::ShaderGraph::Update(MATD::JSON JSONObj)
@@ -50,21 +43,11 @@ void MATD::GRAPH::ShaderGraph::RemoveNode(MATD::JSON JSONObj)
 void MATD::GRAPH::ShaderGraph::AddConnection(MATD::JSON JSONObj)
 {
 	Graph::AddConnection(JSONObj);
-
-	const auto node = MATD::CORE::MaterialDesigner::GetOutputNode();
-	const auto shaderSocket = dynamic_cast<ShaderOutputSocket*>(node->GetOutputSocket("out").get());
-	const auto tex = shaderSocket->GetTexArgument();
-	MATD::CORE::MaterialDesigner::SetOutputTexture(tex);
 }
 
 void MATD::GRAPH::ShaderGraph::RemoveConnection(MATD::JSON JSONObj)
 {
 	Graph::RemoveConnection(JSONObj);
-
-	const auto node = MATD::CORE::MaterialDesigner::GetOutputNode();
-	const auto shaderSocket = dynamic_cast<ShaderOutputSocket*>(node->GetOutputSocket("out").get());
-	const auto tex = shaderSocket->GetTexArgument();
-	MATD::CORE::MaterialDesigner::SetOutputTexture(tex);
 }
 
 void MATD::GRAPH::ShaderGraph::Init(const MATD::JSON& JSONObj)
