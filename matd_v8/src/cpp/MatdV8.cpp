@@ -11,6 +11,7 @@ MATD::V8::MatdV8::MatdV8(const Napi::CallbackInfo& info) : ObjectWrap(info)
   this->m_Matd = new MATD::CORE::MaterialDesigner();
 	this->m_Matd->SelectDevice(0, 0);
 	MATD::CORE::MaterialDesigner::SetUsedByMaterialDesignerApp(true);
+	MATD::CORE::MaterialDesigner::SetCallShaderNodeChangeCallback(MatdV8::CallShaderNodeChangeCallback);
 }
 
 MATD::V8::MatdV8::~MatdV8()
@@ -31,6 +32,7 @@ Napi::Function MATD::V8::MatdV8::GetClass(Napi::Env env)
 			MatdV8::InstanceMethod("setEngine", &MatdV8::SetEngine),
 			MatdV8::InstanceMethod("getAvailableDevices", &MatdV8::GetAvailableDevices),
 			MatdV8::InstanceMethod("compileKernel", &MatdV8::CompileKernel),
+			MatdV8::InstanceMethod("setShaderNodeChangeCallback", &MatdV8::SetShaderNodeChangeCallback)
     });
 }
 
@@ -216,4 +218,44 @@ void MATD::V8::MatdV8::CompileKernel(const Napi::CallbackInfo& info)
 	MATD_CORE_TRACE("MATD_V8:: Compile kernel request recieved");
 	KernelCompilerAsync* kernelCompiler = new KernelCompilerAsync(info[0].As<Napi::Function>(), this->m_Matd);
 	kernelCompiler->Queue();
+}
+
+void MATD::V8::MatdV8::SetShaderNodeChangeCallback(const Napi::CallbackInfo& info)
+{
+	const Napi::Env env = info.Env();
+
+	if (info.Length() < 1) {
+		Napi::TypeError::New(env, "Engine cannot be undefined").ThrowAsJavaScriptException();
+	}
+
+	if (!info[0].IsFunction()) {
+		Napi::TypeError::New(env, "Expects an integer value").ThrowAsJavaScriptException();
+	}
+
+	m_ShaderNodeChangeCallback = Napi::ThreadSafeFunction::New(env, info[0].As<Napi::Function>(), "Check", 0, 1);
+}
+
+struct DataCb
+{
+	int m_NodeId;
+	void* m_Buffer;
+	size_t m_ByteSize;
+	size_t m_ElementSize;
+};
+
+void MATD::V8::MatdV8::CallShaderNodeChangeCallback(int nodeId, MATD::DTYPES::Texture* texture)
+{
+	const auto data = new DataCb();
+	data->m_Buffer = texture->GetBuffer();
+	data->m_ByteSize = texture->GetSize();
+	data->m_ElementSize = texture->GetElementSize();
+	data->m_NodeId = nodeId;
+
+	auto cb = [](Napi::Env env, Napi::Function callback, DataCb* data)
+	{
+		callback.Call({ Napi::Number::New(env, data->m_NodeId), Napi::Number::New(env, data->m_ElementSize),Napi::ArrayBuffer::New(env, data->m_Buffer, data->m_ByteSize)});
+		delete data;
+	};
+
+	m_ShaderNodeChangeCallback.NonBlockingCall(data, cb);
 }

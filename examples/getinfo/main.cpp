@@ -27,8 +27,9 @@ int main() {
 		d.x = 0;
 		d.y = 0;
 		d.z = 0;
+		d.w = 1;
 
-		write_imageui(ejpg,(int2)(x,y), d);
+		write_imageui(round_aquamarine_mongoose,(int2)(x,y), d);
 	}
 	)"""";
 

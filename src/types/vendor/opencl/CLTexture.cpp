@@ -9,7 +9,7 @@ namespace MATD::DTYPES::OPENCL
 		{
 		case 1:
 			return CL_R;
-		case 3:
+		case 4:
 			return CL_RGBA;
 		default: ;
 		}
