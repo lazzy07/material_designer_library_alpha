@@ -247,7 +247,7 @@ void MATD::V8::MatdV8::CallShaderNodeChangeCallback(int nodeId, MATD::DTYPES::Te
 {
 	const auto data = new DataCb();
 	data->m_Buffer = texture->GetBuffer();
-	data->m_ByteSize = texture->GetByteSize();
+	data->m_ByteSize = texture->GetSize();
 	data->m_ElementSize = texture->GetElementSize();
 	data->m_NodeId = nodeId;
 
