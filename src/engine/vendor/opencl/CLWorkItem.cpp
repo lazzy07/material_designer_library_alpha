@@ -121,11 +121,9 @@ namespace MATD {
 				MATD_CORE_INFO("CL_WORKITEM:::Finished processing");
 				if(const auto node = GetNode())
 				{
-					const auto socket = dynamic_cast<GRAPH::ShaderOutputSocket*>(node->GetOutputSocket("out").get());
-					socket->Update();
-
-					const auto id = node->GetID();
-					MATD::CORE::MaterialDesigner::CallShaderNodeChangeCallback(id, socket->GetTexArgument().get());
+					auto outputSocket = dynamic_cast<MATD::GRAPH::ShaderOutputSocket*>(node->GetOutputSocket("out").get());
+					MATD::CORE::MaterialDesigner::CallShaderNodeChangeCallback(node->GetID(), outputSocket->GetTexArgument().get());
+					outputSocket->Update();
 				}
 			}
 
@@ -133,18 +131,19 @@ namespace MATD {
 			{
 				cl::Kernel kernel = ((OPENCL::Kernel*)GetKernel())->GetCLKernel();
 				SetOutputItem(argument);
-				if(argument->GetArgType() == MAT_ARG::MAT_BUFFER)
+				if(MAT_ARG::MAT_BUFFER == argument->GetArgType())
 				{
 					const auto* buffer = (MATD::DTYPES::OPENCL::Buffer*)argument;
 					const cl::Buffer clBuffer = buffer->GetCLBuffer();
 					kernel.setArg(index, clBuffer);
 				}
-				else if(argument->GetArgType() == MAT_ARG::MAT_TEXGRAYSCALE)
+				else if(MAT_ARG::MAT_TEXGRAYSCALE == argument->GetArgType())
 				{
 					const auto* texture = (MATD::DTYPES::OPENCL::GrayscaleTexture*)argument;
 					const cl::Image2D clImage = texture->GetCLImage();
 					kernel.setArg(index, clImage);
-				} else if(argument->GetArgType() == MAT_ARG::MAT_TEXCOLOR)
+				}
+				else if(MAT_ARG::MAT_TEXCOLOR == argument->GetArgType())
 				{
 					const auto* texture = (MATD::DTYPES::OPENCL::ColorTexture*)argument;
 					cl::Image2D clImage = texture->GetCLImage();
