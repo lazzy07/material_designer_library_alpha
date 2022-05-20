@@ -28,11 +28,11 @@ namespace MATD{
 
     		void SetSelectedGraph(const std::string& graphID) const;
 
-				void CreateNode(const std::string& JSONString) const;
-				void RemoveNode(const std::string& JSONString) const;
-				void AddConnection(const std::string& JSONString) const;
-				void RemoveConnection(const std::string& JSONString) const;
-				void Update(const std::string& JSONString) const;
+				void CreateNode(const std::string& selectedGraphType, const std::string& JSONString) const;
+				void RemoveNode(const std::string& selectedGraphType, const std::string& JSONString) const;
+				void AddConnection(const std::string& selectedGraphType, const std::string& JSONString) const;
+				void RemoveConnection(const std::string& selectedGraphType, const std::string& JSONString) const;
+				void Update(const std::string& selectedGraphType, const std::string& JSONString) const;
         [[nodiscard]] std::string CompileKernel() const;
 
     		static void SetUsedByMaterialDesignerApp(bool isUsedByApp) { m_IsUsedByMaterialDesignerApp = isUsedByApp; };
