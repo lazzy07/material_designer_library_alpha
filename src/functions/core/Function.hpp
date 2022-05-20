@@ -25,8 +25,8 @@ namespace MATD{
 
       virtual void Init(MATD::JSON JSONObj) = 0;
       virtual void Calculate() = 0;
-      void Update();
-      void OnComplete();
+      virtual void Update();
+      virtual void OnComplete();
 
       void SetArgument(Ref<Argument> arg);
 

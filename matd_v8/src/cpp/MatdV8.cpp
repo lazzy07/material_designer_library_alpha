@@ -84,27 +84,32 @@ void MATD::V8::MatdV8::UpdateMaterialGraph(const Napi::CallbackInfo& info)
 {
 	const Napi::Env env = info.Env();
 
-	if (info.Length() < 3) {
+	if (info.Length() < 4) {
 		Napi::TypeError::New(env, "Update type, update data and callback are required").ThrowAsJavaScriptException();
 	}
 
 	if (!info[0].IsString()) {
 		Napi::TypeError::New(env, "Update type needs to be in string format").ThrowAsJavaScriptException();
 	}
-
 	if (!info[1].IsString()) {
 		Napi::TypeError::New(env, "Graph needs to be in string format").ThrowAsJavaScriptException();
 	}
 
-	if (!info[2].IsFunction()) {
+	//selectedGraphType
+	if (!info[2].IsString()) {
+		Napi::TypeError::New(env, "Graph needs to be in string format").ThrowAsJavaScriptException();
+	}
+
+	if (!info[3].IsFunction()) {
 		Napi::TypeError::New(env, "Callback needs to be a function").ThrowAsJavaScriptException();
 	}
 
-	Napi::String updateType = info[0].As<Napi::String>();
-	Napi::String graph = info[1].As<Napi::String>();
+	const auto updateType = info[0].As<Napi::String>();
+	const auto graph = info[1].As<Napi::String>();
+	const auto selectedGraphType = info[2].As<Napi::String>();
 	
-	UpdaterAsync* kernelCompiler = new UpdaterAsync(info[2].As<Napi::Function>(), this->m_Matd, updateType.Utf8Value(), graph.Utf8Value());
-	kernelCompiler->Queue();
+	UpdaterAsync* updater = new UpdaterAsync(info[3].As<Napi::Function>(), this->m_Matd, selectedGraphType.Utf8Value(), updateType.Utf8Value(), graph.Utf8Value());
+	updater->Queue();
 }
 
 Napi::Value MATD::V8::MatdV8::SelectCurrentMaterialGraph(const Napi::CallbackInfo& info)

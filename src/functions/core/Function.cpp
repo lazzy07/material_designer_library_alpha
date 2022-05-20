@@ -23,9 +23,9 @@ void MATD::FUNC::Function::Update()
 
 void MATD::FUNC::Function::OnComplete()
 {
-	auto outputs = this->GetNode()->GetOutputSockets();
+	const auto outputs = this->GetNode()->GetOutputSockets();
 
-	for (auto output : outputs) {
+	for (const auto output : outputs) {
 		output.second->Update();
 	}
 }

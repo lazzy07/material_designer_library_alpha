@@ -49,9 +49,6 @@ void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& data)
 	MATD::JSON json = m_JSONParser->ParseJSON(data);
 	
 	std::string graphID = json["id"].get<std::string>();
-	std::string graphType = json["type"].get<std::string>();
-
-	m_SelectedGraphType = MATD::GRAPH::MaterialGraph::GetGraphType(graphType);
 
 	auto selectedGraph = m_Graphs.find(graphID);
 
@@ -60,57 +57,57 @@ void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& data)
 	}
 	else {
 		this->m_SelectedMaterialGraph = selectedGraph->second;
-		MATD_CORE_INFO("MATD::GRAPH:: Selected MaterialGraph Changed, Graph ID: {} Type: {}", m_SelectedMaterialGraph->GetID(), graphType);
+		MATD_CORE_INFO("MATD::GRAPH:: Selected MaterialGraph Changed, Graph ID: {} Type: {}", m_SelectedMaterialGraph->GetID());
 	}
 }
 
-void MATD::GRAPH::MaterialProject::CreateNode(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::CreateNode(const std::string& selectedGraphType, const std::string& JSONString)
 {
-	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+	const MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
 	auto selectedGraph = this->m_SelectedMaterialGraph;
-
-	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
+	auto graphType = MaterialGraph::GetGraphType(selectedGraphType);
+	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(graphType);
 	graph->CreateNode(update);
 }
 
-void MATD::GRAPH::MaterialProject::RemoveNode(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::RemoveNode(const std::string& selectedGraphType, const std::string& JSONString)
 {
-	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
-
-	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
+	const MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+	auto graphType = MaterialGraph::GetGraphType(selectedGraphType);
+	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(graphType);
 	graph->RemoveNode(update);
 }
 
-void MATD::GRAPH::MaterialProject::AddConnection(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::AddConnection(const std::string& selectedGraphType, const std::string& JSONString)
 {
-	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
-	
-	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
+	const MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+	auto graphType = MaterialGraph::GetGraphType(selectedGraphType);
+	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(graphType);
 	graph->AddConnection(update);
 }
 
-void MATD::GRAPH::MaterialProject::RemoveConnection(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::RemoveConnection(const std::string& selectedGraphType, const std::string& JSONString)
 {
-	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+	const MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
 	auto selectedGraph = this->m_SelectedMaterialGraph;
-
-	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
+	auto graphType = MaterialGraph::GetGraphType(selectedGraphType);
+	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(graphType);
 	graph->RemoveConnection(update);
 }
 
-void MATD::GRAPH::MaterialProject::Update(const std::string& JSONString)
+void MATD::GRAPH::MaterialProject::Update(const std::string& selectedGraphType, const std::string& JSONString)
 {
-	MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
-	
-	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(m_SelectedGraphType);
+	const MATD::JSON update = m_JSONParser->ParseJSON(JSONString);
+	auto graphType = MaterialGraph::GetGraphType(selectedGraphType);
+	Ref<Graph> graph = m_SelectedMaterialGraph->GetGraph(graphType);
 	graph->Update(update);
 }
 
 std::string MATD::GRAPH::MaterialProject::CompileKernel()
 {
-	if (m_SelectedGraphType == GRAPH_TYPE::KERNEL_GRAPH) {
-		auto graph = m_SelectedMaterialGraph->GetGraph(GRAPH_TYPE::KERNEL_GRAPH);
-		auto kernelGraph = (MATD::GRAPH::KernelGraph*)graph.get();
+	if (m_SelectedMaterialGraph->GetType() == GRAPH_TYPE::KERNEL_GRAPH) {
+		const auto graph = m_SelectedMaterialGraph->GetGraph(GRAPH_TYPE::KERNEL_GRAPH);
+		const auto kernelGraph = (MATD::GRAPH::KernelGraph*)graph.get();
 
 		return kernelGraph->Compile();
 	}

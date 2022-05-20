@@ -79,29 +79,29 @@ void MATD::CORE::MaterialDesigner::SetSelectedGraph(const std::string& graphID) 
 	this->m_CurrentProject->SetSelectedGraph(graphID);
 }
 
-void MATD::CORE::MaterialDesigner::CreateNode(const std::string& JSONString) const
+void MATD::CORE::MaterialDesigner::CreateNode(const std::string& selectedGraphType, const std::string& JSONString) const
 {
-	this->m_CurrentProject->CreateNode(JSONString);
+	this->m_CurrentProject->CreateNode(selectedGraphType, JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::RemoveNode(const std::string& JSONString) const
+void MATD::CORE::MaterialDesigner::RemoveNode(const std::string& selectedGraphType, const std::string& JSONString) const
 {
-	this->m_CurrentProject->RemoveNode(JSONString);
+	this->m_CurrentProject->RemoveNode(selectedGraphType, JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::AddConnection(const std::string& JSONString) const
+void MATD::CORE::MaterialDesigner::AddConnection(const std::string& selectedGraphType, const std::string& JSONString) const
 {
-	this->m_CurrentProject->AddConnection(JSONString);
+	this->m_CurrentProject->AddConnection(selectedGraphType, JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::RemoveConnection(const std::string& JSONString) const
+void MATD::CORE::MaterialDesigner::RemoveConnection(const std::string& selectedGraphType, const std::string& JSONString) const
 {
-	this->m_CurrentProject->RemoveConnection(JSONString);
+	this->m_CurrentProject->RemoveConnection(selectedGraphType, JSONString);
 }
 
-void MATD::CORE::MaterialDesigner::Update(const std::string& JSONString) const
+void MATD::CORE::MaterialDesigner::Update(const std::string& selectedGraphType, const std::string& JSONString) const
 {
-	this->m_CurrentProject->Update(JSONString);
+	this->m_CurrentProject->Update(selectedGraphType, JSONString);
 }
 
 std::string MATD::CORE::MaterialDesigner::CompileKernel() const

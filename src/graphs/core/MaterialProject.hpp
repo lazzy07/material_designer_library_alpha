@@ -19,11 +19,11 @@ namespace MATD{
         void UpdateProject(const std::string& JSONString);
 				void SetSelectedGraph(const std::string& data);
 
-				void CreateNode(const std::string& JSONString);
-				void RemoveNode(const std::string& JSONString);
-				void AddConnection(const std::string& JSONString);
-				void RemoveConnection(const std::string& JSONString);
-				void Update(const std::string& JSONString);
+				void CreateNode(const std::string& selectedGraphType, const std::string& JSONString);
+				void RemoveNode(const std::string& selectedGraphType, const std::string& JSONString);
+				void AddConnection(const std::string& selectedGraphType, const std::string& JSONString);
+				void RemoveConnection(const std::string& selectedGraphType, const std::string& JSONString);
+				void Update(const std::string& selectedGraphType, const std::string& JSONString);
         std::string CompileKernel();
 
         Ref<MATD::GrayscaleTexture> GetDefaultGrayscaleTexture() { return m_DefaultTextureGrayscale; }
@@ -31,7 +31,7 @@ namespace MATD{
 
         size_t GetGlobalTexWidth() const { return m_GlobalTexWidth; }
         size_t GetGlobalTexHeight() const { return m_GlobalTexHeight; }
-        MATD::MATD_TEXTURE_BIT_TYPE GetGlobalBitDepth() const { return m_GlobalBitDepth; }
+        [[nodiscard]] MATD::MATD_TEXTURE_BIT_TYPE GetGlobalBitDepth() const { return m_GlobalBitDepth; }
         Ref<MATD::Queue> GetQueue() const { return m_Queue; }
       private:
         std::string m_ProjectID;
@@ -39,7 +39,6 @@ namespace MATD{
         bool m_IsLocal;
         
         Ref<MaterialGraph> m_SelectedMaterialGraph;
-        MATD::GRAPH::GRAPH_TYPE m_SelectedGraphType;
 
         std::map<std::string, Ref<MaterialGraph>> m_Graphs;
         Ref<MATD::CORE::JSONParser> m_JSONParser;
