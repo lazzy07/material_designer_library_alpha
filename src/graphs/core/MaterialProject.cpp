@@ -57,7 +57,7 @@ void MATD::GRAPH::MaterialProject::SetSelectedGraph(const std::string& data)
 	}
 	else {
 		this->m_SelectedMaterialGraph = selectedGraph->second;
-		MATD_CORE_INFO("MATD::GRAPH:: Selected MaterialGraph Changed, Graph ID: {} Type: {}", m_SelectedMaterialGraph->GetID());
+		MATD_CORE_INFO("MATD::GRAPH:: Selected MaterialGraph Changed, Graph ID: {}", m_SelectedMaterialGraph->GetID());
 	}
 }
 
