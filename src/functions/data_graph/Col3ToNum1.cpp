@@ -25,7 +25,7 @@ void MATD::FUNC::DATA::PROCESS::Col3ToNum1::SetSocketArguments()
 	auto node = this->GetNode();
 
 	{
-		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("2211")));
+		node->AddInputSocket("1", std::make_shared<MATD::GRAPH::InputSocket>("1", node, GetArgument("default")));
 		node->AddOutputSocket("out", std::make_shared<MATD::GRAPH::OutputSocket>("out", node));
 		node->AddOutputSocket("out2", std::make_shared<MATD::GRAPH::OutputSocket>("out2", node));
 		node->AddOutputSocket("out3", std::make_shared<MATD::GRAPH::OutputSocket>("out3", node));
