@@ -1,7 +1,7 @@
 #include "MaterialGraph.hpp"
 #include "MaterialProject.hpp"
 
-MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj) : m_Project(project)
+MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj) : m_Project(project), m_IsInitializedByGraph(false)
 {
 	this->m_GraphType = GetGraphType(JSONObj["type"].get<std::string>());
 
@@ -13,9 +13,22 @@ MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::
 	this->m_DataGraph = std::make_shared<MATD::GRAPH::DataGraph>(this, JSONObj["dataGraph"]);
 	this->m_KernelGraph = std::make_shared<MATD::GRAPH::KernelGraph>(this, JSONObj["kernelGraph"]);
 	this->m_ShaderGraph = std::make_shared<MATD::GRAPH::ShaderGraph>(this, JSONObj["shaderGraph"]);
+}
 
-	this->m_DataCache = std::make_shared<MATD::GRAPH::DataCache>();
-	this->m_ShaderCache = std::make_shared<MATD::GRAPH::ShaderCache>();
+MATD::GRAPH::MaterialGraph::MaterialGraph(MaterialProject* project, const MATD::JSON& JSONObj, bool isGraphNode) : m_Project(project), m_IsInitializedByGraph(isGraphNode)
+{
+	const auto data = JSONObj["data"];
+	const auto graphType = data["type"].get<std::string>();
+	this->m_GraphType = GetGraphType(graphType);
+
+	this->m_ID = data["id"].get<std::string>();
+	this->m_Name = data["name"].get<std::string>();
+
+	MATD_CORE_INFO("MATD::GRAPH MaterialGraph inside MaterialGraphNode Loaded: {} {}", this->m_ID, this->m_Name);
+
+	this->m_DataGraph = std::make_shared<MATD::GRAPH::DataGraph>(this, data["dataGraph"]);
+	this->m_KernelGraph = std::make_shared<MATD::GRAPH::KernelGraph>(this, data["kernelGraph"]);
+	this->m_ShaderGraph = std::make_shared<MATD::GRAPH::ShaderGraph>(this, data["shaderGraph"]);
 }
 
 MATD::GRAPH::MaterialGraph::~MaterialGraph()
@@ -28,18 +41,14 @@ MATD::Ref<MATD::GRAPH::Graph> MATD::GRAPH::MaterialGraph::GetGraph(GRAPH_TYPE gr
 	{
 	case MATD::GRAPH::GRAPH_TYPE::DATA_GRAPH:
 		return m_DataGraph;
-		break;
 	case MATD::GRAPH::GRAPH_TYPE::SHADER_GRAPH:
 		return m_ShaderGraph;
-		break;
 	case MATD::GRAPH::GRAPH_TYPE::KERNEL_GRAPH:
 		return m_KernelGraph;
-		break;
-	default:
-		MATD_CORE_ASSERT(false, "MATD::GRAPH Unknown graph type recieved");
-		return m_DataGraph;
-		break;
 	}
+
+	MATD_CORE_ASSERT(false, "MATD::GRAPH Unknown graph type recieved");
+	return m_DataGraph;
 }
 
 MATD::GRAPH::GRAPH_TYPE MATD::GRAPH::MaterialGraph::GetGraphType(const std::string& graphType)

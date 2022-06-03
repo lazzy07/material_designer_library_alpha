@@ -71,29 +71,44 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 
 			this->RemoveFromConnectionPool(connectionId);
 			inputSocket = connection->GetInput();
+
+			const auto time = MATD::CORE::Time::GetTime();
+			const auto nextNode = inputSocket->GetNode();
+			this->StartUpdate(nextNode, time);
+
+			nextNode->GetFunction()->get()->Update();
 		}
 		else {
-			MATD_CORE_ASSERT(false, "Connection not found");
+			MATD_CORE_WARN("Connection not found");
 		}
 	}
 
-	const auto time = MATD::CORE::Time::GetTime();
-	const auto nextNode = inputSocket->GetNode();
-	this->StartUpdate(nextNode, time);
+}
 
-	nextNode->GetFunction()->get()->Update();
+void MATD::GRAPH::Graph::Init(MATD::JSON JSONObj)
+{
+	this->SetID(JSONObj["id"].get<std::string>());
+	MATD::JSON nodes = JSONObj["data"]["nodes"];
+
+	for(auto [key, val] : nodes.items())
+	{
+		this->CreateNode(val);
+	}
+
+	for(auto [key, val] : nodes.items())
+	{
+		
+	}
 }
 
 std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
 {
 	std::vector<Ref<MATD::GRAPH::Node>> outputNodes;
-	auto nodes = this->GetNodes();
+	const auto nodes = this->GetNodes();
 
-	for (auto ele = nodes->begin(); ele != nodes->end(); ++ele) {
-		auto node = ele->second;
-		auto functionType = node->GetFunction()->get()->GetFunctionType();
-
-		if (functionType == MATD::FUNC::FUNCTION_TYPE::OUTPUT) {
+	for (const auto& [fst, node] : *nodes)
+	{
+		if (const auto functionType = node->GetFunction()->get()->GetFunctionType(); functionType == MATD::FUNC::FUNCTION_TYPE::OUTPUT) {
 			outputNodes.push_back(node);
 		}
 	}
@@ -103,16 +118,15 @@ std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
 
 void MATD::GRAPH::Graph::StartUpdate(Node* node, uint64_t time)
 {
-	auto outputSockets = node->GetOutputSockets();
+	const auto outputSockets = node->GetOutputSockets();
 
-	for (auto outputSocket : outputSockets) {
-		if (outputSocket.second->NoOfConnections() > 0) {
-			auto connections = outputSocket.second->GetConnections();
+	for (const auto [fst, snd] : outputSockets) {
+		if (snd->NoOfConnections() > 0) {
+			auto connections = snd->GetConnections();
 
-			for (auto connection : connections) {
-				auto nextNode = connection.second->GetInput()->GetNode();
-				if (nextNode) {
-					connection.second->SetUpdateStatus(CONNECTION_UPDATE_STATUS::IN_PROGRESS, time);
+			for (const auto& [fst, snd] : connections) {
+				if (const auto nextNode = snd->GetInput()->GetNode()) {
+					snd->SetUpdateStatus(CONNECTION_UPDATE_STATUS::IN_PROGRESS, time);
 					this->StartUpdate(nextNode, time);
 				}
 			}

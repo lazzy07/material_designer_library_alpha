@@ -22,7 +22,7 @@ namespace MATD {
       virtual void AddConnection(MATD::JSON JSONObj);
       virtual void RemoveConnection(MATD::JSON JSONObj);
 			virtual void Update(MATD::JSON JSONObj) = 0;
-      virtual void Init(const MATD::JSON& JSONObj) = 0;
+      virtual void Init(MATD::JSON JSONObj);
 
 			std::map<int, Ref<MATD::GRAPH::Node>>* GetNodes() { return &m_Nodes; }
 			Ref<MATD::GRAPH::Node> GetNode(const int& id) { return m_Nodes[id]; }
