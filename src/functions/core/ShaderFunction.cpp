@@ -36,8 +36,7 @@ MATD::Ref<MATD::FUNC::ShaderFunction> MATD::FUNC::ShaderFunction::FunctionFactor
 		return func;
 	}
 
-	MATD_CORE_WARN("MATD::FUNC Unknown shader node type recieved");
-	return nullptr;
+	return std::make_shared<MATD::FUNC::SHADER::PROCESS::ShaderGraphNode>(node);
 }
 
 MATD::FUNC::ShaderFunction::ShaderFunction(MATD::GRAPH::Node* node) : Function(node)
