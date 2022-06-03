@@ -1,6 +1,7 @@
 #include "DataNode.hpp"
 #include "../core/Graph.hpp"
 #include "../../functions/core/DataPrimitiveFunction.hpp"
+#include "../../functions/data_graph/DataGraphNode.hpp"
 #include "../../functions/core/Argument.hpp"
 #include "../core/InputSocket.hpp"
 #include "../core/Connection.hpp"
@@ -18,24 +19,26 @@ MATD::GRAPH::DataNode::~DataNode()
 void MATD::GRAPH::DataNode::Init()
 {
 	const MATD::JSON JSONObj = *this->GetJSON();
-	std::string name = JSONObj["name"].get<std::string>();
+	auto name = JSONObj["name"].get<std::string>();
 	MATD::JSON dGraphData = JSONObj["data"]["dataGraph"];
-	std::string initialID = dGraphData["parentId"].get<std::string>();
+	const std::string initialID = dGraphData["parentId"].get<std::string>();
 
-	if (dGraphData["ioType"].is_string()) {
-		std::string ioType = dGraphData["ioType"].get<std::string>();
+	if (!dGraphData["isSecondary"].is_boolean() || !dGraphData["isSecondary"].get<bool>()) {
+		const std::string ioType = dGraphData["ioType"].get<std::string>();
 
 		if (ioType.length() > 0) {
 			//A primitive function
 			MATD::JSON dataArr = dGraphData["data"];
-			auto function = MATD::FUNC::DataPrimitiveFunction::FunctionFactory(this, initialID, dGraphData);
+			const auto function = MATD::FUNC::DataPrimitiveFunction::FunctionFactory(this, initialID, dGraphData);
 			
 			this->SetFunction(function);
 			return;
 		}
 	}
 	//Not a primitive function
-	MATD::JSON graphData = dGraphData["data"];
+	const auto func = std::make_shared<MATD::FUNC::DATA::PROCESS::DataGraphNode>(this);
+	func->Init(JSONObj);
+	this->SetFunction(func);
 }
 
 void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
@@ -43,14 +46,13 @@ void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
 	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
 		MATD::JSON argData = it.value();
 		std::string id = argData["id"].get<std::string>();
-		auto arg = this->GetFunction()->get()->GetArgument(id);
+		const auto arg = this->GetFunction()->get()->GetArgument(id);
 
 		arg->SetData(argData);
 		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
 	}
 
-	auto time = MATD::CORE::Time::GetTime();
+	const auto time = MATD::CORE::Time::GetTime();
 	this->GetGraph()->StartUpdate(this, time);
-
 	this->GetFunction()->get()->Update();
 }
