@@ -54,7 +54,7 @@ void MATD::GRAPH::KernelGraph::Update(MATD::JSON JSONObj)
 	}
 }
 
-void MATD::GRAPH::KernelGraph::Init(const MATD::JSON& JSONObj)
+void MATD::GRAPH::KernelGraph::Init(MATD::JSON JSONObj)
 {
 	this->SetID(JSONObj["id"].get<std::string>());
 	m_KernelSource = JSONObj["data"]["kernel"].get<std::string>();
