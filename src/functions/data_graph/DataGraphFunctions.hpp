@@ -28,6 +28,4 @@
 #include "PowerNumber.hpp"
 #include "SqrtNumber.hpp"
 #include "SubstractNumber.hpp"
-
-
-
+#include "DataGraphNode.hpp"
