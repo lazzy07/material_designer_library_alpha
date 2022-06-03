@@ -47,7 +47,7 @@ void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj)
 		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
 	}
 
-	auto time = MATD::CORE::Time::GetTime();
+	const auto time = MATD::CORE::Time::GetTime();
 	this->GetGraph()->StartUpdate(this, time);
 	this->GetFunction()->get()->Update();
 }

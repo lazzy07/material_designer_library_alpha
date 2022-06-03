@@ -15,7 +15,7 @@ MATD::GRAPH::ShaderGraph::~ShaderGraph()
 
 void MATD::GRAPH::ShaderGraph::CreateNode(MATD::JSON JSONObj)
 {
-	Ref<ShaderNode> shaderNode = std::make_shared<ShaderNode>(this, JSONObj);
+	const Ref<ShaderNode> shaderNode = std::make_shared<ShaderNode>(this, JSONObj);
 	const unsigned int id = JSONObj["id"].get<int>();
 	this->SetNode(id, shaderNode);
 	shaderNode->Init();
@@ -48,10 +48,4 @@ void MATD::GRAPH::ShaderGraph::AddConnection(MATD::JSON JSONObj)
 void MATD::GRAPH::ShaderGraph::RemoveConnection(MATD::JSON JSONObj)
 {
 	Graph::RemoveConnection(JSONObj);
-}
-
-void MATD::GRAPH::ShaderGraph::Init(const MATD::JSON& JSONObj)
-{
-	this->SetID(JSONObj["id"].get<std::string>());
-	MATD::JSON nodes = JSONObj["data"]["nodes"];
 }
