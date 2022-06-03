@@ -7,3 +7,4 @@
 #include "OutputColor.hpp"
 #include "OutputGrayscale.hpp"
 #include "Viewer.hpp"
+#include "ShaderGraphNode.hpp"
