@@ -11,6 +11,8 @@ namespace MATD::FUNC::DATA::PROCESS
 
 		void Calculate() override;
 		void SetSocketArguments() override;
+
+		Ref<MATD::GRAPH::MaterialGraph> GetMaterialGraph() const { return m_MaterialGraph; }
 	private:
 		Ref<MATD::GRAPH::MaterialGraph> m_MaterialGraph;
 	};
