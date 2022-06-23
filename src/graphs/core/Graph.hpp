@@ -36,6 +36,8 @@ namespace MATD {
 
 			
       std::vector<Ref<MATD::GRAPH::Node>> GetOutputNodes();
+      std::vector<Ref<MATD::GRAPH::Node>> GetInputNodes();
+
       //Change connection statuses to IN_PROGRESS for the whole path
       void StartUpdate(Node* node, uint64_t time);
     private:

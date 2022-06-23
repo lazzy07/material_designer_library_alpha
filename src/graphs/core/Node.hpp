@@ -16,7 +16,7 @@ namespace MATD{
       ~Node();
 
       virtual void Init() = 0;
-      virtual void UpdateParameters(MATD::JSON JSONObj) = 0;
+      virtual void UpdateParameters(MATD::JSON JSONObj, int subNodeId = -1) = 0;
 
       void AddInputSocket(const std::string& id, const Ref<InputSocket>& socket) { m_Inputs[id] = socket; }
 			void AddOutputSocket(const std::string& id, const Ref<OutputSocket>& socket) { m_Outputs[id] = socket; }
@@ -40,8 +40,12 @@ namespace MATD{
 			[[nodiscard]] Graph* GetGraph() const { return m_Graph; }
       void SetID(const int& id) { m_ID = id; }
 
+      void SetPrimitive(const bool isPrimitive) { m_IsPrimitive = isPrimitive; }
+      [[nodiscar]] bool GetIsPrimitive() const { return m_IsPrimitive; }
+
     private:
       int m_ID;
+      bool m_IsPrimitive = true;
       Graph* m_Graph;
       MATD::JSON m_JSON;
       std::string m_Name;

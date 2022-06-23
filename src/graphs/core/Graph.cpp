@@ -60,7 +60,6 @@ void MATD::GRAPH::Graph::AddConnection(MATD::JSON JSONObj)
 void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 {
 	const std::string connectionId = JSONObj["id"].get<std::string>();
-	MATD::Ref<InputSocket> inputSocket;
 
 	const Ref<MATD::GRAPH::Connection> connection = this->GetConnection(connectionId);
 
@@ -70,7 +69,7 @@ void MATD::GRAPH::Graph::RemoveConnection(MATD::JSON JSONObj)
 			connection->GetOutput()->RemoveConnection(connectionId);
 
 			this->RemoveFromConnectionPool(connectionId);
-			inputSocket = connection->GetInput();
+			const MATD::Ref<InputSocket> inputSocket = connection->GetInput();
 
 			const auto time = MATD::CORE::Time::GetTime();
 			const auto nextNode = inputSocket->GetNode();
@@ -90,14 +89,36 @@ void MATD::GRAPH::Graph::Init(MATD::JSON JSONObj)
 	this->SetID(JSONObj["id"].get<std::string>());
 	MATD::JSON nodes = JSONObj["data"]["nodes"];
 
-	for(auto [key, val] : nodes.items())
+	for(auto& [key, nodeJson] : nodes.items())
 	{
-		this->CreateNode(val);
+		this->CreateNode(nodeJson);
 	}
 
-	for(auto [key, val] : nodes.items())
+	for(auto& [nodeId, nodeJson] : nodes.items())
 	{
-		
+		//Check input sockets and add connections (No need to check output nodes)
+		for(auto& [socketId, socket] : nodeJson["inputs"].items())
+		{
+			auto& connections = socket["connections"];
+			for(auto& connection: connections)
+			{
+				int inputNodeId = std::stoi(nodeId);
+				auto outputNodeId = connection["node"].get<int>();
+				
+				auto inputSocket = this->GetNode(inputNodeId)->GetInputSocket(socketId);
+
+				auto outputSocketId = connection["output"].get<std::string>();
+				auto outputSocket = this->GetNode(outputNodeId)->GetOutputSocket(outputSocketId);
+				auto connectionId = connection["id"].get<std::string>();
+
+				if (inputSocket && outputSocket) {
+					auto connectionPtr = std::make_shared<Connection>(connectionId, inputSocket, outputSocket);
+					outputSocket->AddConnection(connectionPtr);
+					inputSocket->AddConnection(connectionPtr);
+					this->AddToConnectionPool(connectionId, connectionPtr);
+				}
+			}
+		}
 	}
 }
 
@@ -114,6 +135,21 @@ std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetOutputNodes()
 	}
 
 	return outputNodes;
+}
+
+std::vector<MATD::Ref<MATD::GRAPH::Node>> MATD::GRAPH::Graph::GetInputNodes()
+{
+	std::vector<Ref<MATD::GRAPH::Node>> inputNodes;
+	const auto nodes = this->GetNodes();
+
+	for (const auto& [fst, node] : *nodes)
+	{
+		if (const auto functionType = node->GetFunction()->get()->GetFunctionType(); functionType == MATD::FUNC::FUNCTION_TYPE::INPUT) {
+			inputNodes.push_back(node);
+		}
+	}
+
+	return inputNodes;
 }
 
 void MATD::GRAPH::Graph::StartUpdate(Node* node, uint64_t time)
