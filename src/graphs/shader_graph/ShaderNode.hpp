@@ -9,7 +9,7 @@ namespace MATD{
       ~ShaderNode();
 
 			void Init() override;
-      void UpdateParameters(JSON JSONObj) override;
+      void UpdateParameters(JSON JSONObj, int subNodeId = -1) override;
 
       void SetDisplayTexture(const Ref<DTYPES::Texture>& texture) { m_DisplayTexture = texture; }
       [[nodiscard]] Ref<DTYPES::Texture> GetDisplayTexture() const { return m_DisplayTexture; }

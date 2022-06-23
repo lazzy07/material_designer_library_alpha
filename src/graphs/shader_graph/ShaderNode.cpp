@@ -36,7 +36,7 @@ void MATD::GRAPH::ShaderNode::Init()
 	MATD::JSON graphData = sGraphData["data"];
 }
 
-void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj)
+void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj, int subNodeId)
 {
 	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
 		MATD::JSON argData = it.value();
