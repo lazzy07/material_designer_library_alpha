@@ -30,6 +30,6 @@ void MATD::GRAPH::DataGraph::Update(MATD::JSON JSONObj)
 	int id = payload["data"]["id"].get<int>();
 	const auto node = this->GetNode(id);
 
-	node->UpdateParameters(payload["data"]["data"]["dataGraph"]["data"]);
+	node->UpdateParameters(payload["data"]["data"]["dataGraph"]["data"], payload.contains("subNodeId") ? payload["subNodeId"].get<int>() : NULL);
 	node->SetJSON(payload["data"]);
 }

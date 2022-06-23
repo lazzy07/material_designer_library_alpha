@@ -41,18 +41,45 @@ void MATD::GRAPH::DataNode::Init()
 	this->SetFunction(func);
 }
 
-void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj)
+void MATD::GRAPH::DataNode::UpdateParameters(JSON JSONObj, int subNodeId)
 {
-	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
-		MATD::JSON argData = it.value();
-		std::string id = argData["id"].get<std::string>();
-		const auto arg = this->GetFunction()->get()->GetArgument(id);
+	if(this->GetIsPrimitive())
+	{
+		for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
+			MATD::JSON argData = it.value();
+			std::string id = argData["id"].get<std::string>();
+			const auto arg = this->GetFunction()->get()->GetArgument(id);
+			if(arg)
+			{
+				arg->SetData(argData);
+				MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
+			}else
+			{
+				MATD_CORE_WARN("MATD::GRAPH Argument not found {}", id);
+			}
+		}
+	}else{
+		//the node is not a primitive node, hence data have graphData
+		const auto nodes = JSONObj["nodes"];
+		const auto nodeData = nodes[std::to_string(subNodeId)];
 
-		arg->SetData(argData);
-		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
+		const auto func = dynamic_cast<MATD::FUNC::DATA::PROCESS::DataGraphNode*>
+		(this->GetFunction()->get());
+
+		const auto materialGraph = func->GetMaterialGraph();
+		const auto node = materialGraph->GetGraph(GRAPH_TYPE::DATA_GRAPH)->GetNode(subNodeId);
+
+		if(const auto function = node->GetFunction()->get())
+		{
+			if(function->GetFunctionType() == FUNC::FUNCTION_TYPE::INPUT)
+			{
+				node->UpdateParameters(nodeData["data"]["dataGraph"]["data"]);
+			}
+		}
 	}
+	
 
-	const auto time = MATD::CORE::Time::GetTime();
+ 	const auto time = MATD::CORE::Time::GetTime();
 	this->GetGraph()->StartUpdate(this, time);
 	this->GetFunction()->get()->Update();
 }
