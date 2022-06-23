@@ -148,10 +148,10 @@ MATD::Ref<MATD::FUNC::DataFunction> MATD::FUNC::DataFunction::FunctionFactory(MA
 		func->Init(JSONObj);
 		return func;
 	}
-
-	MATD_CORE_WARN("Unknown function id detected");
 	
-	return nullptr;
+	auto func = std::make_shared<MATD::FUNC::DATA::PROCESS::DataGraphNode>(node);
+	func->Init(JSONObj);
+	return func;
 }
 
 MATD::FUNC::DataFunction::DataFunction(MATD::GRAPH::Node* node) : Function(node)

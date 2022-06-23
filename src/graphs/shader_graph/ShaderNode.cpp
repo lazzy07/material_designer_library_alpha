@@ -36,7 +36,7 @@ void MATD::GRAPH::ShaderNode::Init()
 	MATD::JSON graphData = sGraphData["data"];
 }
 
-void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj)
+void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj, int subNodeId)
 {
 	for (auto it = JSONObj.begin(); it != JSONObj.end(); ++it) {
 		MATD::JSON argData = it.value();
@@ -47,7 +47,7 @@ void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj)
 		MATD_CORE_TRACE("MATD::GRAPH Argument data changed ID: {}", arg->GetID());
 	}
 
-	auto time = MATD::CORE::Time::GetTime();
+	const auto time = MATD::CORE::Time::GetTime();
 	this->GetGraph()->StartUpdate(this, time);
 	this->GetFunction()->get()->Update();
 }

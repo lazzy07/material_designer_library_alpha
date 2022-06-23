@@ -15,8 +15,6 @@ namespace MATD{
       void RemoveNode(MATD::JSON JSONObj) override;
       void AddConnection(MATD::JSON JSONObj) override;
       void RemoveConnection(MATD::JSON JSONObj) override;
-
-      virtual void Init(const MATD::JSON& JSONObj) override;
     };
   }
 }

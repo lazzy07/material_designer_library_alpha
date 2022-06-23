@@ -10,8 +10,8 @@ MATD::FUNC::DATA::INPUT::Num1Input::Num1Input(MATD::GRAPH::Node* node) : DataPri
 
 void MATD::FUNC::DATA::INPUT::Num1Input::Calculate()
 {
-	auto input = this->GetNode()->GetInputSocket("1");
-	auto arg = input->GetArgument();
+	const auto input = this->GetNode()->GetInputSocket("1");
+	const auto arg = input->GetArgument();
 	this->GetNode()->GetOutputSocket("out")->GetArgument()->SetData<Number1>(*(arg->GetData<Number1>()));
 }
 

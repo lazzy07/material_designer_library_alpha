@@ -6,9 +6,9 @@ namespace MATD{
     class ShaderPrimitiveProcess : public ShaderPrimitiveFunction {
 		public:
 			ShaderPrimitiveProcess(MATD::GRAPH::Node* node);
-			
-			virtual void Calculate() = 0;
-			virtual void SetSocketArguments() = 0;
+
+			void Calculate() override = 0;
+			void SetSocketArguments() override = 0;
     };
   }
 }
