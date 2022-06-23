@@ -9,8 +9,8 @@ namespace MATD{
 			~DataPrimitiveFunction();
 
     	void Init(MATD::JSON JSONObj) override;
-			virtual void Calculate() = 0;
-			virtual void SetSocketArguments() = 0;
+			void Calculate() override = 0;
+			void SetSocketArguments() override = 0;
     };
   }
 }
