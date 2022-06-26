@@ -10,7 +10,7 @@ void MATD::FUNC::DATA::PROCESS::DataGraphNode::Init(MATD::JSON JSONObj)
 {
 	this->m_MaterialGraph = std::make_shared<
 		MATD::GRAPH::MaterialGraph>(this->GetNode()->GetGraph()->GetMaterialGraph()->GetProject(), JSONObj, true);
-	
+
 	this->SetSocketArguments();
 }
 
@@ -25,11 +25,11 @@ void MATD::FUNC::DATA::PROCESS::DataGraphNode::SetSocketArguments()
 	const auto dataGraph = this->m_MaterialGraph->GetGraph(GRAPH::GRAPH_TYPE::DATA_GRAPH);
 	{
 		const auto inputNodes = dataGraph->GetInputNodes();
-			
-		for(auto& inputNode: inputNodes)
+
+		for (auto& inputNode : inputNodes)
 		{
 			auto id = std::to_string(inputNode->GetID());
-			
+
 			node->AddInputSocket(id, inputNode->GetInputSocket("1"));
 		}
 	}
@@ -46,3 +46,4 @@ void MATD::FUNC::DATA::PROCESS::DataGraphNode::SetSocketArguments()
 		}
 	}
 }
+
