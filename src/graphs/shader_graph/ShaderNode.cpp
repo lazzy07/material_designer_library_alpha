@@ -1,6 +1,7 @@
 #include "ShaderNode.hpp"
 #include "../core/Graph.hpp"
 #include "../../functions/core/ShaderPrimitiveFunction.hpp"
+#include "../../functions/shader_graph/ShaderGraphNode.hpp"
 #include "../../functions/core/Argument.hpp"
 #include <memory>
 
@@ -16,24 +17,26 @@ MATD::GRAPH::ShaderNode::~ShaderNode()
 void MATD::GRAPH::ShaderNode::Init()
 {
 	const MATD::JSON JSONObj = *this->GetJSON();
-	std::string name = JSONObj["name"].get<std::string>();
-	MATD::JSON sGraphData = JSONObj["data"]["dataGraph"];
-	std::string initialID = sGraphData["parentId"].get<std::string>();
+	auto name = JSONObj["name"].get<std::string>();
+	MATD::JSON dGraphData = JSONObj["data"]["dataGraph"];
+	const std::string initialID = dGraphData["parentId"].get<std::string>();
 
-	if (sGraphData["ioType"].is_string()) {
-		std::string ioType = sGraphData["ioType"].get<std::string>();
+	if (!dGraphData["isSecondary"].is_boolean() || !dGraphData["isSecondary"].get<bool>()) {
+		const std::string ioType = dGraphData["ioType"].get<std::string>();
 
 		if (ioType.length() > 0) {
 			//A primitive function
-			MATD::JSON dataArr = sGraphData["data"];
-			auto function = MATD::FUNC::ShaderPrimitiveFunction::FunctionFactory(this, initialID, sGraphData);
+			MATD::JSON dataArr = dGraphData["data"];
+			const auto function = MATD::FUNC::ShaderPrimitiveFunction::FunctionFactory(this, initialID, dGraphData);
+
 			this->SetFunction(function);
-			this->GetFunction()->get()->Init(sGraphData);
 			return;
 		}
 	}
 	//Not a primitive function
-	MATD::JSON graphData = sGraphData["data"];
+	const auto func = std::make_shared<MATD::FUNC::SHADER::PROCESS::ShaderGraphNode>(this);
+	func->Init(JSONObj);
+	this->SetFunction(func);
 }
 
 void MATD::GRAPH::ShaderNode::UpdateParameters(JSON JSONObj, int subNodeId)
