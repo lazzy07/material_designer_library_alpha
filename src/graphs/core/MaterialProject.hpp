@@ -32,7 +32,8 @@ namespace MATD{
         size_t GetGlobalTexWidth() const { return m_GlobalTexWidth; }
         size_t GetGlobalTexHeight() const { return m_GlobalTexHeight; }
         [[nodiscard]] MATD::MATD_TEXTURE_BIT_TYPE GetGlobalBitDepth() const { return m_GlobalBitDepth; }
-        Ref<MATD::Queue> GetQueue() const { return m_Queue; }
+        [[nodiscard]] Ref<Queue> GetQueue() const { return m_Queue; }
+        [[nodiscard]] Ref<MaterialGraph> GetGraph(const std::string& graphId) { return m_Graphs[graphId]; }
       private:
         std::string m_ProjectID;
         std::string m_FileName;
