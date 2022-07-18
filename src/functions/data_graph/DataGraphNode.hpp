@@ -4,7 +4,8 @@
 
 namespace MATD::FUNC::DATA::PROCESS
 {
-	class DataGraphNode: public DataPrimitiveFunction{
+	class DataGraphNode : public DataPrimitiveFunction
+	{
 	public:
 		explicit DataGraphNode(MATD::GRAPH::Node* node);
 		void Init(MATD::JSON JSONObj) override;
@@ -12,7 +13,7 @@ namespace MATD::FUNC::DATA::PROCESS
 		void Calculate() override;
 		void SetSocketArguments() override;
 
-		Ref<MATD::GRAPH::MaterialGraph> GetMaterialGraph() const { return m_MaterialGraph; }
+		[[nodiscard]] Ref<MATD::GRAPH::MaterialGraph> GetMaterialGraph() const { return m_MaterialGraph; }
 	private:
 		Ref<MATD::GRAPH::MaterialGraph> m_MaterialGraph;
 	};

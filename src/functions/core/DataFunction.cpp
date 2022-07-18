@@ -147,6 +147,11 @@ MATD::Ref<MATD::FUNC::DataFunction> MATD::FUNC::DataFunction::FunctionFactory(MA
 		auto func = std::make_shared<MATD::FUNC::DATA::OUTPUT::OutputLut3>(node);
 		func->Init(JSONObj);
 		return func;
+	} else if (initialID == "35")
+	{
+		auto func = std::make_shared<MATD::FUNC::DATA::OUTPUT::DataRef>(node);
+		func->Init(JSONObj);
+		return func;
 	}
 	
 	auto func = std::make_shared<MATD::FUNC::DATA::PROCESS::DataGraphNode>(node);
