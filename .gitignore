@@ -39,7 +39,8 @@ _deps
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+bin/*.dll
+build/*.dll
 
 # Fortran module files
 *.mod
@@ -49,7 +50,9 @@ _deps
 *.lai
 *.la
 *.a
-*.lib
+
+bin/*.lib
+build/*.lib
 
 # Executables
 *.exe
