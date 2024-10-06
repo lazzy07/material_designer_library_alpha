@@ -29,7 +29,7 @@ int main() {
 		d.z = 0;
 		d.w = 1;
 
-		write_imageui(round_aquamarine_mongoose,(int2)(x,y), d);
+		write_imageui(ejpg,(int2)(x,y), d);
 	}
 	)"""";
 
