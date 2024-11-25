@@ -22,7 +22,6 @@ add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 # Essential library files to link to a node addon,
-# you should add this line in every CMake.js based project.
 target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB})
 
 ## Matd library
@@ -35,8 +34,8 @@ WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 OUTPUT_VARIABLE NODE_ADDON_API_DIR
 )
 
-#string(REPLACE "\n" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
-#string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
+string(REPLACE "\n" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
+string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${NODE_ADDON_API_DIR} PRIVATE ../include)
 add_definitions(-DNAPI_VERSION=4)
 
