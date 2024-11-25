@@ -28,7 +28,7 @@ target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB})
 target_link_libraries(${PROJECT_NAME} matd_library)
 
 
-# Include N-API wrappers
+# Include N-API wrappers for Node.js
 execute_process(COMMAND node -p "require('node-addon-api').include"
 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 OUTPUT_VARIABLE NODE_ADDON_API_DIR
