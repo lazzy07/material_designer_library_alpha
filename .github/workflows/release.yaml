@@ -5,6 +5,10 @@ on:
     branches:
       - release
 
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
 jobs:
   build:
     runs-on: windows-latest
@@ -23,7 +27,7 @@ jobs:
 
       - name: Test
         working-directory: ${{github.workspace}}/build/Release
-        run: MatdTesting.exe
+        run: ./MatdTesting.exe
 
       - name: Create Release
         id: create_release
