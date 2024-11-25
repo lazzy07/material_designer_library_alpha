@@ -23,7 +23,7 @@ jobs:
 
       - name: Test
         working-directory: ${{github.workspace}}/build/Release
-        run: MatdTesting.exe
+        run: ./MatdTesting.exe
 
       - name: Create Release
         id: create_release
