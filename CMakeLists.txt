@@ -16,6 +16,7 @@ add_subdirectory(src)
 add_subdirectory(matd_v8)
 #examples (used for testing as well)
 add_subdirectory(examples)
+add_subdirectory(tests)
 
 add_definitions(/bigobj)
 

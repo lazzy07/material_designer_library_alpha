@@ -6,13 +6,14 @@
   "types": "./dist/@types/matd_v8/src/ts/index.d.ts",
   "type": "commonjs",
   "scripts": {
-    "preinstall": "npm config set cmake_js_arch x64",
-    "install": "cmake-js compile",
+    
+    "install": "cmake-js compile --debug",
     "configure": "cmake-js configure",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "cmake-js clean",
     "dev": "webpack --mode development --watch",
     "build": "webpack",
+    "debug": "cmake-js rebuild --debug",
     "start": "node ./dist/bundle.js"
   },
   "repository": {
