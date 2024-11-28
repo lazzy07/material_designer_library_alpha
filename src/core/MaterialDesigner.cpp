@@ -1,12 +1,15 @@
 #include <CL/opencl.h>
+#include <vector>
 #include "MaterialDesigner.hpp"
 #include "Log.hpp"
 #include "../engine/matd/WorkItem.hpp"
 #include "EngineManager.hpp"
-void MATD::CORE::MaterialDesigner::SelectDevice(uint8_t platformId, uint8_t deviceId)
+std::vector<size_t> MATD::CORE::MaterialDesigner::SelectDevice(uint8_t platformId, uint8_t deviceId)
 {
-	EngineManager::GetEngineInstance()->SelectPlatform(platformId);
-	EngineManager::GetEngineInstance()->SelectDevice(deviceId);
+	size_t selectedPlatform = EngineManager::GetEngineInstance()->SelectPlatform(platformId);
+	size_t selectedDevice = EngineManager::GetEngineInstance()->SelectDevice(deviceId);
+
+	return std::vector<size_t> {selectedPlatform, selectedDevice};
 }
 
 void MATD::CORE::MaterialDesigner::SetKernelLibraryFolder(const std::string& path) const

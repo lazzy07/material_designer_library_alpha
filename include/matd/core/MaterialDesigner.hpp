@@ -12,7 +12,7 @@ namespace MATD{
     		MaterialDesigner();
         ~MaterialDesigner();
         
-    		void SelectDevice(uint8_t platformId, uint8_t deviceId);
+    		std::vector<size_t> SelectDevice(uint8_t platformId, uint8_t deviceId);
     		void SetKernelLibraryFolder(const std::string& path) const;
 
     		static MATD::Int* CreateInt(int val);
