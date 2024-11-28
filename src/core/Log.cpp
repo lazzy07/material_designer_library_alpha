@@ -19,6 +19,10 @@ namespace MATD {
 		}
 
 		void Log::Init() {
+			if (s_CoreLogger.get() != nullptr) {
+				return;
+			}
+
 			spdlog::set_pattern("%^[%T] %n: %v%$");
 			s_CoreLogger = spdlog::stdout_color_mt("MATD_CORE");
 			s_ClientLogger = spdlog::stdout_color_mt("MATD_APP");
