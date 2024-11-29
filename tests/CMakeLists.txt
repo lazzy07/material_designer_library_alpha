@@ -12,6 +12,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/vendor/gtest-1.15.2 ${CMAKE_SOURCE_DIR}/bui
 set(Sources
     MainTest.cpp
     VariablesTest.cpp
+    BufferTest.cpp
 )
 
 add_executable(${This} ${Sources})
