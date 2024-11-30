@@ -14,6 +14,7 @@ set(Sources
     VariablesTest.cpp
     BufferTest.cpp
     TextureTest.cpp
+    VectorTest.cpp
 )
 
 add_executable(${This} ${Sources})
