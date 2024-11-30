@@ -66,6 +66,16 @@ MATD::Queue* MATD::CORE::MaterialDesigner::CreateQueue()
 	return MATD::Queue::CreateQueue();
 }
 
+MATD::MatNumber2* MATD::CORE::MaterialDesigner::CreateNumber2(MATD::Number2 val)
+{
+	return MATD::Argument::Number2(val);
+}
+
+MATD::MatColorVec3* MATD::CORE::MaterialDesigner::CreateColorVec3(MATD::ColorVec3 val)
+{
+	return MATD::Argument::ColorVec3(val);
+}
+
 void MATD::CORE::MaterialDesigner::OpenProject(const std::string& JSONString)
 {
 	this->m_CurrentProject = std::make_shared<MATD::GRAPH::MaterialProject>();

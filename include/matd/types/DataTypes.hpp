@@ -6,3 +6,4 @@
 #include "ColorTexture.hpp"
 #include "Float.hpp"
 #include "Int.hpp"
+#include "Structs.hpp"

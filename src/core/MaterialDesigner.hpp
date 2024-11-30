@@ -23,6 +23,9 @@ namespace MATD{
     	static MATD::WorkItem* CreateWorkItem(MATD::Kernel* kernel);
     	static MATD::Queue* CreateQueue();
 
+        static MATD::MatNumber2* CreateNumber2(MATD::Number2 val);
+        static MATD::MatColorVec3* CreateColorVec3(MATD::ColorVec3 val);
+
     	void OpenProject(const std::string& JSONString);
     	void UpdateProject(const std::string& JSONString) const;
 
