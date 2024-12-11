@@ -1,0 +1,159 @@
+\doxysection{MATD\+::GRAPH\+::Kernel\+Graph Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph}\index{MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}}
+
+
+\doxylink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph}{Kernel\+Graph} class that inherits from \doxylink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}, this class is used to store the kernel graph and update the kernel nodes. \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} nodes are special nodes that are used to calculate Kernels and output the data to the next nodes.  
+
+
+
+
+{\ttfamily \#include $<$Kernel\+Graph.\+hpp$>$}
+
+Inheritance diagram for MATD\+::GRAPH\+::Kernel\+Graph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_af81e24b76f6bb1af766c28101aaa4eab}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_af81e24b76f6bb1af766c28101aaa4eab} 
+{\bfseries Kernel\+Graph} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*}graph, const MATD\+::\+JSON \&JSONObj)
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_af57e71e2d2010d051815bf810b74ecf8}{Create\+Node}} (MATD\+::\+JSON JSONObj) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a2735b5b775f88b0c3682fc471e18b1e1}{Update}} (MATD\+::\+JSON JSONObj) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a662e34b0700cb66c98ed969d3afa99e9}{Init}} (MATD\+::\+JSON JSONObj) override
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_acd73403c2cfa750632339f5ea9ac8988}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_acd73403c2cfa750632339f5ea9ac8988} 
+const std\+::string \& {\bfseries Get\+Kernel\+Source} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a209e121e0c36336a1348ec94d587bd97}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a209e121e0c36336a1348ec94d587bd97} 
+const std\+::string \& {\bfseries Get\+Functions\+Source} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_ac9879f74e7a97a616f656b710ddf061f}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_ac9879f74e7a97a616f656b710ddf061f} 
+std\+::string {\bfseries Compile} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a34ac709954448b50359a3f7cb9e9746b}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a34ac709954448b50359a3f7cb9e9746b} 
+void {\bfseries Submit\+To\+Queue} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} $>$ queue)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a5dbcf58863439efaedf618cce0f9f0fd}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a5dbcf58863439efaedf618cce0f9f0fd} 
+std\+::string {\bfseries Get\+Kernel\+Name} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a1cfc73e6cc65a0c2a7d9f6a383a04db4}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a1cfc73e6cc65a0c2a7d9f6a383a04db4} 
+std\+::string {\bfseries IDTo\+Variable\+Name} (std\+::string id) const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a604102f0f32a5af7c108985db8f24fc3}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a604102f0f32a5af7c108985db8f24fc3} 
+void {\bfseries Set\+Output\+Node\+In\+Work\+Item} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} $>$ node) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Graph} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*}graph, const MATD\+::\+JSON \&JSONObj)
+\item 
+std\+::string {\bfseries Get\+ID} ()
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Material\+Graph} () const
+\item 
+virtual void {\bfseries Remove\+Node} (MATD\+::\+JSON JSONObj)
+\item 
+virtual void {\bfseries Add\+Connection} (MATD\+::\+JSON JSONObj)
+\item 
+virtual void {\bfseries Remove\+Connection} (MATD\+::\+JSON JSONObj)
+\item 
+std\+::map$<$ int, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Nodes} ()
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ {\bfseries Get\+Node} (const int \&id)
+\item 
+void {\bfseries Set\+Node} (const int \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} $>$ \&node)
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Connections} ()
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ {\bfseries Get\+Connection} (const std\+::string \&id)
+\item 
+void {\bfseries Add\+To\+Connection\+Pool} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ \&connection)
+\item 
+void {\bfseries Remove\+From\+Connection\+Pool} (const std\+::string \&id)
+\item 
+void {\bfseries Set\+ID} (const std\+::string \&id)
+\item 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries Get\+Output\+Nodes} ()
+\item 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries Get\+Input\+Nodes} ()
+\item 
+void {\bfseries Start\+Update} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node, uint64\+\_\+t time)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a94fa88dbc33c1e4c32c24f267822e27b}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a94fa88dbc33c1e4c32c24f267822e27b} 
+void {\bfseries Init\+Kernel} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a61fdf9eb0887e641e54118c405ce1d8e}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a61fdf9eb0887e641e54118c405ce1d8e} 
+void {\bfseries Set\+Arguments\+To\+Work\+Item} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a63b1ebb2b7e0405672a441cd6f5a8b31}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a63b1ebb2b7e0405672a441cd6f5a8b31} 
+void {\bfseries Set\+Outputs} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_ac61c0b51f23acb3d245bfa2959370ce9}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_ac61c0b51f23acb3d245bfa2959370ce9} 
+std\+::string {\bfseries m\+\_\+\+Kernel\+Source}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a623418d33ce7c9cc4e7ec9612641722a}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a623418d33ce7c9cc4e7ec9612641722a} 
+std\+::string {\bfseries m\+\_\+\+Functions\+Source}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_ad072455ed96bc42f597f7dfa6a5357b8}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_ad072455ed96bc42f597f7dfa6a5357b8} 
+std\+::string {\bfseries m\+\_\+\+Shader\+Source}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a9d1d709e2f6faa80d3864780eac44211}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a9d1d709e2f6faa80d3864780eac44211} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} $>$ {\bfseries m\+\_\+\+Engine\+Kernel}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a5198be97f5009a0fcb0ff5dfa15103c1}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a5198be97f5009a0fcb0ff5dfa15103c1} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} $>$ {\bfseries m\+\_\+\+Work\+Item}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph}{Kernel\+Graph} class that inherits from \doxylink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}, this class is used to store the kernel graph and update the kernel nodes. \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} nodes are special nodes that are used to calculate Kernels and output the data to the next nodes. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_af57e71e2d2010d051815bf810b74ecf8}\index{MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}!CreateNode@{CreateNode}}
+\index{CreateNode@{CreateNode}!MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}}
+\doxysubsubsection{\texorpdfstring{CreateNode()}{CreateNode()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_af57e71e2d2010d051815bf810b74ecf8} 
+void MATD\+::\+GRAPH\+::\+Kernel\+Graph\+::\+Create\+Node (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a662e34b0700cb66c98ed969d3afa99e9}\index{MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}!Init@{Init}}
+\index{Init@{Init}!MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a662e34b0700cb66c98ed969d3afa99e9} 
+void MATD\+::\+GRAPH\+::\+Kernel\+Graph\+::\+Init (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a2735b5b775f88b0c3682fc471e18b1e1}\index{MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}!Update@{Update}}
+\index{Update@{Update}!MATD::GRAPH::KernelGraph@{MATD::GRAPH::KernelGraph}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_kernel_graph_a2735b5b775f88b0c3682fc471e18b1e1} 
+void MATD\+::\+GRAPH\+::\+Kernel\+Graph\+::\+Update (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/kernel\+\_\+graph/Kernel\+Graph.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/kernel\+\_\+graph/Kernel\+Graph.\+cpp\end{DoxyCompactItemize}

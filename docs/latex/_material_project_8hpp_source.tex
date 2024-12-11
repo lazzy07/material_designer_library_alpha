@@ -1,0 +1,64 @@
+\doxysection{Material\+Project.\+hpp}
+\hypertarget{_material_project_8hpp_source}{}\label{_material_project_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/MaterialProject.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/MaterialProject.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}MaterialGraph.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_j_s_o_n_parser_8hpp}{../../core/JSONParser.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../../types/matd/Texture.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../../types/matd/GrayscaleTexture.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../../types/matd/ColorTexture.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MaterialProject}}\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MaterialProject}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{\string~MaterialProject}}();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ OpenProject(\textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateProject(\textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetSelectedGraph(\textcolor{keyword}{const}\ std::string\&\ data);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ CreateNode(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveNode(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddConnection(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveConnection(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Update(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::string\ CompileKernel();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ Ref<MATD::GrayscaleTexture>\ GetDefaultGrayscaleTexture()\ \{\ \textcolor{keywordflow}{return}\ m\_DefaultTextureGrayscale;\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ Ref<MATD::ColorTexture>\ GetDefaultColorTexture()\ \{\ \textcolor{keywordflow}{return}\ m\_DefaultTextureColor;\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetGlobalTexWidth()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_GlobalTexWidth;\ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetGlobalTexHeight()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_GlobalTexHeight;\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ [[nodiscard]]\ MATD::MATD\_TEXTURE\_BIT\_TYPE\ GetGlobalBitDepth()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_GlobalBitDepth;\ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ [[nodiscard]]\ Ref<Queue>\ GetQueue()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Queue;\ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ [[nodiscard]]\ Ref<MaterialGraph>\ GetGraph(\textcolor{keyword}{const}\ std::string\&\ graphId)\ \{\ \textcolor{keywordflow}{return}\ m\_Graphs[graphId];\ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::string\ m\_ProjectID;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::string\ m\_FileName;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_IsLocal;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ Ref<MaterialGraph>\ m\_SelectedMaterialGraph;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::map<std::string,\ Ref<MaterialGraph>>\ m\_Graphs;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ Ref<MATD::CORE::JSONParser>\ m\_JSONParser;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ MATD::MATD\_TEXTURE\_BIT\_TYPE\ m\_GlobalBitDepth;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_GlobalTexHeight;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_GlobalTexWidth;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ Ref<MATD::GrayscaleTexture>\ m\_DefaultTextureGrayscale;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ Ref<MATD::ColorTexture>\ m\_DefaultTextureColor;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ Ref<MATD::Queue>\ m\_Queue;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ParsePackages(MATD::JSON\ package);}
+\DoxyCodeLine{00056\ \ \ \ \ \};}
+\DoxyCodeLine{00057\ \ \ \}}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}

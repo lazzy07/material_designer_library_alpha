@@ -1,0 +1,138 @@
+\doxysection{MATD\+::CORE\+::Log Class Reference}
+\hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_log}\index{MATD::CORE::Log@{MATD::CORE::Log}}
+
+
+Logger class for Material Designer Engine and Editor.  
+
+
+
+
+{\ttfamily \#include $<$Log.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8663771ad09c91c9ad62ed981767e18a}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8663771ad09c91c9ad62ed981767e18a} 
+static void {\bfseries Init} ()
+\begin{DoxyCompactList}\small\item\em Initialize the logger. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8ae385933beb7e4b8fc75afdf484fe58}{Set\+Core\+Log\+Level}} (LOGLEVEL log\+Level)
+\begin{DoxyCompactList}\small\item\em Set the Core \doxylink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log} Level object. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a863499c0f7c584c5900046ef67858716}{Set\+App\+Log\+Level}} (LOGLEVEL log\+Level)
+\begin{DoxyCompactList}\small\item\em Set the Editor \doxylink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log} Level object. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{Get\+Core\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Get the Core Logger object. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{Get\+Core\+File\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Get the Core File Logger object. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{Get\+Client\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Get the Client Logger object. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{Get\+Client\+File\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Get the Client File Logger object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a98720ba8285d269bce42b69ac14123bc}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a98720ba8285d269bce42b69ac14123bc} 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ {\bfseries s\+\_\+\+Core\+Logger}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a3fb01c9343a3343c897b90b2472d49dc}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a3fb01c9343a3343c897b90b2472d49dc} 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ {\bfseries s\+\_\+\+Core\+File\+Logger}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a9b5291bc2c396ae5b0311b0360254c2b}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a9b5291bc2c396ae5b0311b0360254c2b} 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ {\bfseries s\+\_\+\+Client\+Logger}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a7f652f01593e34ad275cfb5020bbbf05}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a7f652f01593e34ad275cfb5020bbbf05} 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ {\bfseries s\+\_\+\+Client\+File\+Logger}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logger class for Material Designer Engine and Editor. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}\index{MATD::CORE::Log@{MATD::CORE::Log}!GetClientFileLogger@{GetClientFileLogger}}
+\index{GetClientFileLogger@{GetClientFileLogger}!MATD::CORE::Log@{MATD::CORE::Log}}
+\doxysubsubsection{\texorpdfstring{GetClientFileLogger()}{GetClientFileLogger()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& MATD\+::\+CORE\+::\+Log\+::\+Get\+Client\+File\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the Client File Logger object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$\& Client file logger 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}\index{MATD::CORE::Log@{MATD::CORE::Log}!GetClientLogger@{GetClientLogger}}
+\index{GetClientLogger@{GetClientLogger}!MATD::CORE::Log@{MATD::CORE::Log}}
+\doxysubsubsection{\texorpdfstring{GetClientLogger()}{GetClientLogger()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& MATD\+::\+CORE\+::\+Log\+::\+Get\+Client\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the Client Logger object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$\& Client logger 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}\index{MATD::CORE::Log@{MATD::CORE::Log}!GetCoreFileLogger@{GetCoreFileLogger}}
+\index{GetCoreFileLogger@{GetCoreFileLogger}!MATD::CORE::Log@{MATD::CORE::Log}}
+\doxysubsubsection{\texorpdfstring{GetCoreFileLogger()}{GetCoreFileLogger()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5} 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& MATD\+::\+CORE\+::\+Log\+::\+Get\+Core\+File\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the Core File Logger object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$\& Core file logger 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}\index{MATD::CORE::Log@{MATD::CORE::Log}!GetCoreLogger@{GetCoreLogger}}
+\index{GetCoreLogger@{GetCoreLogger}!MATD::CORE::Log@{MATD::CORE::Log}}
+\doxysubsubsection{\texorpdfstring{GetCoreLogger()}{GetCoreLogger()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256} 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& MATD\+::\+CORE\+::\+Log\+::\+Get\+Core\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the Core Logger object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$\& Core logger 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a863499c0f7c584c5900046ef67858716}\index{MATD::CORE::Log@{MATD::CORE::Log}!SetAppLogLevel@{SetAppLogLevel}}
+\index{SetAppLogLevel@{SetAppLogLevel}!MATD::CORE::Log@{MATD::CORE::Log}}
+\doxysubsubsection{\texorpdfstring{SetAppLogLevel()}{SetAppLogLevel()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a863499c0f7c584c5900046ef67858716} 
+void MATD\+::\+CORE\+::\+Log\+::\+Set\+App\+Log\+Level (\begin{DoxyParamCaption}\item[{LOGLEVEL}]{log\+Level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the Editor \doxylink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log} Level object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+Level} & \doxylink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log} level to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8ae385933beb7e4b8fc75afdf484fe58}\index{MATD::CORE::Log@{MATD::CORE::Log}!SetCoreLogLevel@{SetCoreLogLevel}}
+\index{SetCoreLogLevel@{SetCoreLogLevel}!MATD::CORE::Log@{MATD::CORE::Log}}
+\doxysubsubsection{\texorpdfstring{SetCoreLogLevel()}{SetCoreLogLevel()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8ae385933beb7e4b8fc75afdf484fe58} 
+void MATD\+::\+CORE\+::\+Log\+::\+Set\+Core\+Log\+Level (\begin{DoxyParamCaption}\item[{LOGLEVEL}]{log\+Level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the Core \doxylink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log} Level object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+Level} & \doxylink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log} level to set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/\mbox{\hyperlink{_log_8hpp}{Log.\+hpp}}\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/Log.\+cpp\end{DoxyCompactItemize}

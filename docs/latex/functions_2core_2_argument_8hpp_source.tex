@@ -1,0 +1,45 @@
+\doxysection{Argument.\+hpp}
+\hypertarget{functions_2core_2_argument_8hpp_source}{}\label{functions_2core_2_argument_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/functions/core/Argument.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/functions/core/Argument.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../types/matd/MatdDataTypes.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_j_s_o_n_parser_8hpp}{../../core/JSONParser.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../../types/matd/Argument.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{namespace\ }FUNC\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ MATD::Ref<MATD::FUNC::Argument>\ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument_a3cbbeebb06c988ec872cf0ea53a8511c}{ArgumentFactory}}(MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ MATD::Ref<MATD::FUNC::Argument>\ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument_a3cbbeebb06c988ec872cf0ea53a8511c}{ArgumentFactory}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id},\ DATA\_TYPES\ dataType);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<MATD::DTYPES::Argument>\ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument_a71980f8ad5ccfc26baae720703e2adb5}{Serialize}}(\mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{MATD::FUNC::Argument}}*\ arg);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ MATD::DATA\_TYPES\ StringToArgumentType(std::string\ str);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}}(std::string\ \textcolor{keywordtype}{id},\ MATD::DATA\_TYPES\ dataType,\ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{\string~Argument}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ GetID()\ \{\ \textcolor{keywordflow}{return}\ m\_ID;\ \};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ MATD::DATA\_TYPES\ GetDataType()\ \{\ \textcolor{keywordflow}{return}\ m\_DataType;\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T*\ GetData()\ \{\ \textcolor{keywordflow}{return}\ (T*)m\_Data;\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetData(T\ data)\ \{\ memcpy(m\_Data,\ \&data,\ \textcolor{keyword}{sizeof}(T));\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetData(MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ m\_ID;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ MATD::DATA\_TYPES\ m\_DataType;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ m\_Data;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}

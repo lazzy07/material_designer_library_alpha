@@ -1,0 +1,28 @@
+\doxysection{CLPlatform.\+hpp}
+\hypertarget{_c_l_platform_8hpp_source}{}\label{_c_l_platform_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLPlatform.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLPlatform.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <CL/cl.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../matd/Platform.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00007\ \ \ \textcolor{keyword}{namespace\ }ENGINE\{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{namespace\ }OPENCL\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform}{Platform}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{ENGINE::Platform}}\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetPlatform(cl::Platform\ platform)\{m\_Platform\ =\ platform;\};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::vector<cl::Device>\ GetCLDevices()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Devices;\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ InitCompatibleDevices()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ cl::Platform\ m\_Platform;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::vector<cl::Device>\ m\_Devices;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ \ \ \}}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

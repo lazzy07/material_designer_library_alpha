@@ -1,0 +1,29 @@
+\doxysection{CLColor\+Texture.\+hpp}
+\hypertarget{_c_l_color_texture_8hpp_source}{}\label{_c_l_color_texture_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/vendor/opencl/CLColorTexture.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/vendor/opencl/CLColorTexture.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../matd/Argument.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../matd/ColorTexture.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cl/cl.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }MATD::DTYPES::OPENCL}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_texture}{ColorTexture}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{MATD::ColorTexture}}}
+\DoxyCodeLine{00015\ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_texture}{ColorTexture}}(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ [[nodiscard]]\ cl::Image2D\ GetCLImage()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_CLImage2D;\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ Bind(\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ workItem,\ \textcolor{keywordtype}{size\_t}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ Delete()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ cl::Image2D\ m\_CLImage2D;}
+\DoxyCodeLine{00027\ \ \ \};}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}

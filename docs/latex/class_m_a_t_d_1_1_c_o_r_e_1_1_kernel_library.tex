@@ -1,0 +1,129 @@
+\doxysection{MATD\+::CORE\+::Kernel\+Library Class Reference}
+\hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library}{}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library}\index{MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}}
+
+
+\doxylink{class_m_a_t_d_1_1_kernel}{Kernel} Library class, which is used to store and manage kernels.  
+
+
+
+
+{\ttfamily \#include $<$Kernel\+Library.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a298b306cfa8dc915b09ca2c2b71414e3}{Get\+Kernel\+Lib\+Paths}} () const
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} Lib Paths object which is a list of paths to search for kernel files. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a4bf4ecf6a8c1dad3ebaa6905f030137e}{Add\+Kernel\+Path}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Add a path to the kernel library paths. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_ae68e0132b94ed3f8b384c87165582147}{Add\+Kernel}} (\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*}kernel)
+\begin{DoxyCompactList}\small\item\em Add a kernel to the kernel library. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_aee7e2470c37d4ac28b0fba08bf9e1a29}{Get\+Kernel}} (const std\+::string \&kernel\+Name)
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::filesystem\+::path \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a73cb02bfac87f7eba0a86fadc6d26be0}{Get\+Path}} (const std\+::string \&path, const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Get the Path object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a4140f68b64406d4404cd948bdc55f015}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a4140f68b64406d4404cd948bdc55f015} 
+std\+::vector$<$ std\+::string $>$ {\bfseries m\+\_\+\+Kernel\+Lib\+Paths}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a063558acf2b72ec44568a5ac4c9f4816}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a063558acf2b72ec44568a5ac4c9f4816} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+\+Kernels}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_m_a_t_d_1_1_kernel}{Kernel} Library class, which is used to store and manage kernels. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_ae68e0132b94ed3f8b384c87165582147}\index{MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}!AddKernel@{AddKernel}}
+\index{AddKernel@{AddKernel}!MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}}
+\doxysubsubsection{\texorpdfstring{AddKernel()}{AddKernel()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_ae68e0132b94ed3f8b384c87165582147} 
+void MATD\+::\+CORE\+::\+Kernel\+Library\+::\+Add\+Kernel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*}}]{kernel}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a kernel to the kernel library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kernel} & \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} to add to the kernel library \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a4bf4ecf6a8c1dad3ebaa6905f030137e}\index{MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}!AddKernelPath@{AddKernelPath}}
+\index{AddKernelPath@{AddKernelPath}!MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}}
+\doxysubsubsection{\texorpdfstring{AddKernelPath()}{AddKernelPath()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a4bf4ecf6a8c1dad3ebaa6905f030137e} 
+void MATD\+::\+CORE\+::\+Kernel\+Library\+::\+Add\+Kernel\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a path to the kernel library paths. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to add to the kernel library paths \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_aee7e2470c37d4ac28b0fba08bf9e1a29}\index{MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}!GetKernel@{GetKernel}}
+\index{GetKernel@{GetKernel}!MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}}
+\doxysubsubsection{\texorpdfstring{GetKernel()}{GetKernel()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_aee7e2470c37d4ac28b0fba08bf9e1a29} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Kernel\+Library\+::\+Get\+Kernel (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{kernel\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Get the \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kernel\+Name} & Name of the kernel to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}\texorpdfstring{$\ast$}{*} \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a298b306cfa8dc915b09ca2c2b71414e3}\index{MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}!GetKernelLibPaths@{GetKernelLibPaths}}
+\index{GetKernelLibPaths@{GetKernelLibPaths}!MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}}
+\doxysubsubsection{\texorpdfstring{GetKernelLibPaths()}{GetKernelLibPaths()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a298b306cfa8dc915b09ca2c2b71414e3} 
+const std\+::vector$<$ std\+::string $>$ \& MATD\+::\+CORE\+::\+Kernel\+Library\+::\+Get\+Kernel\+Lib\+Paths (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Get the \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} Lib Paths object which is a list of paths to search for kernel files. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::vector$<$std\+::string$>$\& List of paths, which are used to search for kernel files. 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a73cb02bfac87f7eba0a86fadc6d26be0}\index{MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}!GetPath@{GetPath}}
+\index{GetPath@{GetPath}!MATD::CORE::KernelLibrary@{MATD::CORE::KernelLibrary}}
+\doxysubsubsection{\texorpdfstring{GetPath()}{GetPath()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library_a73cb02bfac87f7eba0a86fadc6d26be0} 
+std\+::filesystem\+::path MATD\+::\+CORE\+::\+Kernel\+Library\+::\+Get\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{, }\item[{const std\+::string \&}]{file\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the Path object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to search for the file \\
+\hline
+{\em file\+Name} & Name of the file to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::filesystem\+::path Path to the file 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/\mbox{\hyperlink{_kernel_library_8hpp}{Kernel\+Library.\+hpp}}\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/Kernel\+Library.\+cpp\end{DoxyCompactItemize}

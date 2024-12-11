@@ -1,0 +1,116 @@
+\doxysection{MATD\+::GRAPH\+::Input\+Socket Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+Inheritance diagram for MATD\+::GRAPH\+::Input\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_aa94efb02e9711ef1be81e3d964d59e03}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_aa94efb02e9711ef1be81e3d964d59e03} 
+{\bfseries Input\+Socket} (std\+::string id, \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{MATD\+::\+FUNC\+::\+Argument}} $>$ argument)
+\item 
+virtual Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_aecde1edfec442fac1888481c8902e2a3}{Get\+Connection}} (const std\+::string \&) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6745a59b9d44b4e4e0bec26c4fb2b2e5}{Add\+Connection}} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ connection) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6fd4c270919d269c6ba8d0294b439347}{Remove\+Connection}} (const std\+::string \&id) override
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a8460f4da58d229779fbcdc7aa193171b}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a8460f4da58d229779fbcdc7aa193171b} 
+bool {\bfseries Is\+Updated} ()
+\item 
+virtual int \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a03bccf36da1e9aa5ce3c58f65743500d}{No\+Of\+Connections}} () override
+\item 
+virtual Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{FUNC\+::\+Argument}} $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a309b6dc97413ec37c0f050251e7d6501}{Get\+Argument}} () override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ada669fe54a809cfb1d6e610f685cac02}{Update}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Socket} (std\+::string id, \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+const std\+::string \& {\bfseries Get\+ID} ()
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Node} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ae2b02902c579005c47797728619d8567}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ae2b02902c579005c47797728619d8567} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ {\bfseries m\+\_\+\+Connection} = nullptr
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ac1bd3d68c0603281f9c488f17276209c}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ac1bd3d68c0603281f9c488f17276209c} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{MATD\+::\+FUNC\+::\+Argument}} $>$ {\bfseries m\+\_\+\+Argument}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6745a59b9d44b4e4e0bec26c4fb2b2e5}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}!AddConnection@{AddConnection}}
+\index{AddConnection@{AddConnection}!MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+\doxysubsubsection{\texorpdfstring{AddConnection()}{AddConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6745a59b9d44b4e4e0bec26c4fb2b2e5} 
+void MATD\+::\+GRAPH\+::\+Input\+Socket\+::\+Add\+Connection (\begin{DoxyParamCaption}\item[{Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$}]{connection}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a309b6dc97413ec37c0f050251e7d6501}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}!GetArgument@{GetArgument}}
+\index{GetArgument@{GetArgument}!MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+\doxysubsubsection{\texorpdfstring{GetArgument()}{GetArgument()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a309b6dc97413ec37c0f050251e7d6501} 
+MATD\+::\+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{MATD\+::\+FUNC\+::\+Argument}} $>$ MATD\+::\+GRAPH\+::\+Input\+Socket\+::\+Get\+Argument (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_aecde1edfec442fac1888481c8902e2a3}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}!GetConnection@{GetConnection}}
+\index{GetConnection@{GetConnection}!MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+\doxysubsubsection{\texorpdfstring{GetConnection()}{GetConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_aecde1edfec442fac1888481c8902e2a3} 
+virtual Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ MATD\+::\+GRAPH\+::\+Input\+Socket\+::\+Get\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a03bccf36da1e9aa5ce3c58f65743500d}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}!NoOfConnections@{NoOfConnections}}
+\index{NoOfConnections@{NoOfConnections}!MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+\doxysubsubsection{\texorpdfstring{NoOfConnections()}{NoOfConnections()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a03bccf36da1e9aa5ce3c58f65743500d} 
+int MATD\+::\+GRAPH\+::\+Input\+Socket\+::\+No\+Of\+Connections (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6fd4c270919d269c6ba8d0294b439347}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}!RemoveConnection@{RemoveConnection}}
+\index{RemoveConnection@{RemoveConnection}!MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+\doxysubsubsection{\texorpdfstring{RemoveConnection()}{RemoveConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6fd4c270919d269c6ba8d0294b439347} 
+void MATD\+::\+GRAPH\+::\+Input\+Socket\+::\+Remove\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ada669fe54a809cfb1d6e610f685cac02}\index{MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}!Update@{Update}}
+\index{Update@{Update}!MATD::GRAPH::InputSocket@{MATD::GRAPH::InputSocket}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ada669fe54a809cfb1d6e610f685cac02} 
+void MATD\+::\+GRAPH\+::\+Input\+Socket\+::\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Input\+Socket.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Input\+Socket.\+cpp\end{DoxyCompactItemize}

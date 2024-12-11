@@ -1,0 +1,23 @@
+\doxysection{Int.\+hpp}
+\hypertarget{_int_8hpp_source}{}\label{_int_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Int.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Int.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Argument.hpp"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_int}{Int}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_int}{Int}}(\textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetVal()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Value;\ \};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetVal(\textcolor{keywordtype}{int}\ val)\ \{\ m\_Value\ =\ val;\ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Bind(\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ workItem,\ \textcolor{keywordtype}{size\_t}\ index)\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Delete()\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_Value\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}

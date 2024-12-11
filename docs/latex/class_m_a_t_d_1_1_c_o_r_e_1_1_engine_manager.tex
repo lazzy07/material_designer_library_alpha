@@ -1,0 +1,97 @@
+\doxysection{MATD\+::CORE\+::Engine\+Manager Class Reference}
+\hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager}{}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager}\index{MATD::CORE::EngineManager@{MATD::CORE::EngineManager}}
+
+
+Manages engine selection and instance, this is a singleton class. Which selects the engine types, currently only Open\+CL is supported.  
+
+
+
+
+{\ttfamily \#include $<$Engine\+Manager.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a7de1ce78f61fc0db191a28e4299a42f0}{Select\+Engine}} (const SUPPORTED\+\_\+\+ENGINES \&engine)
+\begin{DoxyCompactList}\small\item\em Selects the engine type. \end{DoxyCompactList}\item 
+static Ref$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_afdbc7662d30af9311b5c2e843f69d337}{Get\+Supported\+Engines}} ()
+\begin{DoxyCompactList}\small\item\em Get the supported engines. \end{DoxyCompactList}\item 
+static SUPPORTED\+\_\+\+ENGINES \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a93d33eee6df70a2074467431383e9984}{Get\+Selected\+Engine}} ()
+\begin{DoxyCompactList}\small\item\em Get the Selected Engine object. \end{DoxyCompactList}\item 
+static Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}} $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a1eb067ba579ff7986bc71da85c99873d}{Get\+Engine\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get the Engine Instance object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a8e5ea139a195b4642381581948cf862d}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a8e5ea139a195b4642381581948cf862d} 
+static SUPPORTED\+\_\+\+ENGINES {\bfseries m\+\_\+\+Engine} = SUPPORTED\+\_\+\+ENGINES\+::\+OPEN\+\_\+\+CL
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a85f587f691e870bc1ab7f779a8784ce4}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a85f587f691e870bc1ab7f779a8784ce4} 
+static Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}} $>$ {\bfseries m\+\_\+\+Engine\+Instance} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{ENGINE\+::\+OPENCL\+::\+Engine}}$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages engine selection and instance, this is a singleton class. Which selects the engine types, currently only Open\+CL is supported. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a1eb067ba579ff7986bc71da85c99873d}\index{MATD::CORE::EngineManager@{MATD::CORE::EngineManager}!GetEngineInstance@{GetEngineInstance}}
+\index{GetEngineInstance@{GetEngineInstance}!MATD::CORE::EngineManager@{MATD::CORE::EngineManager}}
+\doxysubsubsection{\texorpdfstring{GetEngineInstance()}{GetEngineInstance()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a1eb067ba579ff7986bc71da85c99873d} 
+static Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}} $>$ MATD\+::\+CORE\+::\+Engine\+Manager\+::\+Get\+Engine\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the Engine Instance object. 
+
+\begin{DoxyReturn}{Returns}
+Ref$<$\+MATD\+::\+ENGINE\+::\+Engine$>$ Engine instance 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a93d33eee6df70a2074467431383e9984}\index{MATD::CORE::EngineManager@{MATD::CORE::EngineManager}!GetSelectedEngine@{GetSelectedEngine}}
+\index{GetSelectedEngine@{GetSelectedEngine}!MATD::CORE::EngineManager@{MATD::CORE::EngineManager}}
+\doxysubsubsection{\texorpdfstring{GetSelectedEngine()}{GetSelectedEngine()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a93d33eee6df70a2074467431383e9984} 
+static SUPPORTED\+\_\+\+ENGINES MATD\+::\+CORE\+::\+Engine\+Manager\+::\+Get\+Selected\+Engine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the Selected Engine object. 
+
+\begin{DoxyReturn}{Returns}
+SUPPORTED\+\_\+\+ENGINES Selected engine type 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_afdbc7662d30af9311b5c2e843f69d337}\index{MATD::CORE::EngineManager@{MATD::CORE::EngineManager}!GetSupportedEngines@{GetSupportedEngines}}
+\index{GetSupportedEngines@{GetSupportedEngines}!MATD::CORE::EngineManager@{MATD::CORE::EngineManager}}
+\doxysubsubsection{\texorpdfstring{GetSupportedEngines()}{GetSupportedEngines()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_afdbc7662d30af9311b5c2e843f69d337} 
+Ref$<$ std\+::vector$<$ std\+::string $>$ $>$ MATD\+::\+CORE\+::\+Engine\+Manager\+::\+Get\+Supported\+Engines (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the supported engines. 
+
+\begin{DoxyReturn}{Returns}
+Ref$<$std\+::vector$<$std\+::string$>$$>$ List of supported engines 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a7de1ce78f61fc0db191a28e4299a42f0}\index{MATD::CORE::EngineManager@{MATD::CORE::EngineManager}!SelectEngine@{SelectEngine}}
+\index{SelectEngine@{SelectEngine}!MATD::CORE::EngineManager@{MATD::CORE::EngineManager}}
+\doxysubsubsection{\texorpdfstring{SelectEngine()}{SelectEngine()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a7de1ce78f61fc0db191a28e4299a42f0} 
+void MATD\+::\+CORE\+::\+Engine\+Manager\+::\+Select\+Engine (\begin{DoxyParamCaption}\item[{const SUPPORTED\+\_\+\+ENGINES \&}]{engine}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Selects the engine type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em engine} & Engine type to select, currently only Open\+CL is supported \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/\mbox{\hyperlink{_engine_manager_8hpp}{Engine\+Manager.\+hpp}}\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/Engine\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\doxysection{MATD\+::Work\+Item Class Reference}
+\hypertarget{class_m_a_t_d_1_1_work_item}{}\label{class_m_a_t_d_1_1_work_item}\index{MATD::WorkItem@{MATD::WorkItem}}
+Inheritance diagram for MATD\+::Work\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_work_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_afd4ac424742992403bd84002cd55b4d8}\label{class_m_a_t_d_1_1_work_item_afd4ac424742992403bd84002cd55b4d8} 
+{\bfseries Work\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}kernel, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ node=nullptr)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a611fb0d6cc3302a165bcc7cbf0955ddb}\label{class_m_a_t_d_1_1_work_item_a611fb0d6cc3302a165bcc7cbf0955ddb} 
+void {\bfseries Set\+Argument} (size\+\_\+t index, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}argument)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a9e204338fb1303499ab66f52f957d180}\label{class_m_a_t_d_1_1_work_item_a9e204338fb1303499ab66f52f957d180} 
+virtual void {\bfseries Set\+Output} (size\+\_\+t index, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}argument)=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a6341783bf3cd780ffc861468904dab92}\label{class_m_a_t_d_1_1_work_item_a6341783bf3cd780ffc861468904dab92} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Kernel} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a22f0585a8d6492c93c49e3626a5b37c4}\label{class_m_a_t_d_1_1_work_item_a22f0585a8d6492c93c49e3626a5b37c4} 
+std\+::map$<$ size\+\_\+t, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*} $>$ \& {\bfseries Get\+Arguments} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_aec237bdba921e45fa484b3bb5bd924e5}\label{class_m_a_t_d_1_1_work_item_aec237bdba921e45fa484b3bb5bd924e5} 
+virtual void {\bfseries Add\+To\+Queue} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue)=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_ac1caecfefe78a28deaf70941ec94e5ae}\label{class_m_a_t_d_1_1_work_item_ac1caecfefe78a28deaf70941ec94e5ae} 
+virtual void {\bfseries On\+Complete} ()=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a40b8ed967e1a22a2af42bf43640d7477}\label{class_m_a_t_d_1_1_work_item_a40b8ed967e1a22a2af42bf43640d7477} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} $>$ {\bfseries Get\+Node} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a4826cdc50237a15f1ec81fb4b533c4d5}\label{class_m_a_t_d_1_1_work_item_a4826cdc50237a15f1ec81fb4b533c4d5} 
+void {\bfseries Set\+Node} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} $>$ node)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a7d179f33e37c3fefb262e67d8597172d}\label{class_m_a_t_d_1_1_work_item_a7d179f33e37c3fefb262e67d8597172d} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Output} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a9735ca5fffda0d80645fb1d8ce386bad}\label{class_m_a_t_d_1_1_work_item_a9735ca5fffda0d80645fb1d8ce386bad} 
+void {\bfseries Set\+Output\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}arg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a90e37c1fe34b3970a730832606514935}\label{class_m_a_t_d_1_1_work_item_a90e37c1fe34b3970a730832606514935} 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*} {\bfseries Create\+Work\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}kernel)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a8417fbe3b22059d2e84bc968e92509d4}\label{class_m_a_t_d_1_1_work_item_a8417fbe3b22059d2e84bc968e92509d4} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Kernel}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_ae83033b360983046e8536f0ff469102e}\label{class_m_a_t_d_1_1_work_item_ae83033b360983046e8536f0ff469102e} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} $>$ {\bfseries m\+\_\+\+Node}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_a5e6929096df5389c8765a245b456d3ac}\label{class_m_a_t_d_1_1_work_item_a5e6929096df5389c8765a245b456d3ac} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Output} = nullptr
+\item 
+\Hypertarget{class_m_a_t_d_1_1_work_item_abd231091b71ba9b7f3e862f7f3c4562b}\label{class_m_a_t_d_1_1_work_item_abd231091b71ba9b7f3e862f7f3c4562b} 
+std\+::map$<$ size\+\_\+t, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+\+Arguments}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Work\+Item.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Work\+Item.\+cpp\end{DoxyCompactItemize}

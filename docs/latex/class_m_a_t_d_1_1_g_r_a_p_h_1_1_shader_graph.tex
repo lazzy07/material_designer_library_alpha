@@ -1,0 +1,116 @@
+\doxysection{MATD\+::GRAPH\+::Shader\+Graph Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph}\index{MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}}
+Inheritance diagram for MATD\+::GRAPH\+::Shader\+Graph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a14d3619424356357133f88ce87ea39e0}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a14d3619424356357133f88ce87ea39e0} 
+{\bfseries Shader\+Graph} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*}graph, MATD\+::\+JSON JSONObj)
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_ac9993cadbdfce8f7c23ac1e76a7f029e}{Create\+Node}} (MATD\+::\+JSON JSONObj) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a9b0d12dbe48fb4cf775e3f367dd24ac0}{Update}} (MATD\+::\+JSON JSONObj) override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_ae9e2968418f915d66b7483e3adefba6f}{Remove\+Node}} (MATD\+::\+JSON JSONObj) override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a8674845d6f69b58c67e3b144052a30b3}{Add\+Connection}} (MATD\+::\+JSON JSONObj) override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a3c8f34e54a792e24cb2c6cdb2bed70b3}{Remove\+Connection}} (MATD\+::\+JSON JSONObj) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Graph} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*}graph, const MATD\+::\+JSON \&JSONObj)
+\item 
+std\+::string {\bfseries Get\+ID} ()
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Material\+Graph} () const
+\item 
+virtual void {\bfseries Init} (MATD\+::\+JSON JSONObj)
+\item 
+std\+::map$<$ int, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Nodes} ()
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ {\bfseries Get\+Node} (const int \&id)
+\item 
+void {\bfseries Set\+Node} (const int \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} $>$ \&node)
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Connections} ()
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ {\bfseries Get\+Connection} (const std\+::string \&id)
+\item 
+void {\bfseries Add\+To\+Connection\+Pool} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ \&connection)
+\item 
+void {\bfseries Remove\+From\+Connection\+Pool} (const std\+::string \&id)
+\item 
+void {\bfseries Set\+ID} (const std\+::string \&id)
+\item 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries Get\+Output\+Nodes} ()
+\item 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries Get\+Input\+Nodes} ()
+\item 
+void {\bfseries Start\+Update} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node, uint64\+\_\+t time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a8674845d6f69b58c67e3b144052a30b3}\index{MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}!AddConnection@{AddConnection}}
+\index{AddConnection@{AddConnection}!MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}}
+\doxysubsubsection{\texorpdfstring{AddConnection()}{AddConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a8674845d6f69b58c67e3b144052a30b3} 
+void MATD\+::\+GRAPH\+::\+Shader\+Graph\+::\+Add\+Connection (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_ac9993cadbdfce8f7c23ac1e76a7f029e}\index{MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}!CreateNode@{CreateNode}}
+\index{CreateNode@{CreateNode}!MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}}
+\doxysubsubsection{\texorpdfstring{CreateNode()}{CreateNode()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_ac9993cadbdfce8f7c23ac1e76a7f029e} 
+void MATD\+::\+GRAPH\+::\+Shader\+Graph\+::\+Create\+Node (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a3c8f34e54a792e24cb2c6cdb2bed70b3}\index{MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}!RemoveConnection@{RemoveConnection}}
+\index{RemoveConnection@{RemoveConnection}!MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}}
+\doxysubsubsection{\texorpdfstring{RemoveConnection()}{RemoveConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a3c8f34e54a792e24cb2c6cdb2bed70b3} 
+void MATD\+::\+GRAPH\+::\+Shader\+Graph\+::\+Remove\+Connection (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_ae9e2968418f915d66b7483e3adefba6f}\index{MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_ae9e2968418f915d66b7483e3adefba6f} 
+void MATD\+::\+GRAPH\+::\+Shader\+Graph\+::\+Remove\+Node (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a9b0d12dbe48fb4cf775e3f367dd24ac0}\index{MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}!Update@{Update}}
+\index{Update@{Update}!MATD::GRAPH::ShaderGraph@{MATD::GRAPH::ShaderGraph}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph_a9b0d12dbe48fb4cf775e3f367dd24ac0} 
+void MATD\+::\+GRAPH\+::\+Shader\+Graph\+::\+Update (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD\+::\+GRAPH\+::\+Graph}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/shader\+\_\+graph/Shader\+Graph.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/shader\+\_\+graph/Shader\+Graph.\+cpp\end{DoxyCompactItemize}

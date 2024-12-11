@@ -1,0 +1,121 @@
+\doxysection{MATD Namespace Reference}
+\hypertarget{namespace_m_a_t_d}{}\label{namespace_m_a_t_d}\index{MATD@{MATD}}
+
+
+Scope and Ref smart pointers for \doxylink{namespace_m_a_t_d}{MATD}.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_argument}{Argument}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{Buffer}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{Color\+Texture}}
+\item 
+struct \mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{Color\+Vec3}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_float}{Float}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture}{Grayscale\+Texture}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_int}{Int}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}}
+\item 
+struct \mbox{\hyperlink{struct_m_a_t_d_1_1_lut1}{Lut1}}
+\item 
+struct \mbox{\hyperlink{struct_m_a_t_d_1_1_lut1_elem}{Lut1\+Elem}}
+\item 
+struct \mbox{\hyperlink{struct_m_a_t_d_1_1_lut3}{Lut3}}
+\item 
+struct \mbox{\hyperlink{struct_m_a_t_d_1_1_lut3_elem}{Lut3\+Elem}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{Mat\+Color\+Vec3}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{Mat\+Number2}}
+\item 
+struct \mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{Number2}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_queue}{Queue}}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_m_a_t_d_ae07eb17a347c62b0f1d5bcf60eedde7e}\label{namespace_m_a_t_d_ae07eb17a347c62b0f1d5bcf60eedde7e} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries Scope} = std\+::unique\+\_\+ptr$<$T$>$
+\item 
+\Hypertarget{namespace_m_a_t_d_ae59c01ddb4817fbc6519008bc2b5bfb7}\label{namespace_m_a_t_d_ae59c01ddb4817fbc6519008bc2b5bfb7} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries Ref} = std\+::shared\+\_\+ptr$<$T$>$
+\item 
+\Hypertarget{namespace_m_a_t_d_ad6bec22ae30a23cab993e81b742eedfc}\label{namespace_m_a_t_d_ad6bec22ae30a23cab993e81b742eedfc} 
+using {\bfseries JSON} = nlohmann\+::json
+\item 
+\Hypertarget{namespace_m_a_t_d_a701fd0837c7a9bfb36f7c76e83e2b66f}\label{namespace_m_a_t_d_a701fd0837c7a9bfb36f7c76e83e2b66f} 
+using {\bfseries UUID} = UUIDv4\+::\+UUID
+\item 
+\Hypertarget{namespace_m_a_t_d_ad4401629d026a3dec54e216d55ec727e}\label{namespace_m_a_t_d_ad4401629d026a3dec54e216d55ec727e} 
+typedef float {\bfseries Color\+Vec1}
+\item 
+\Hypertarget{namespace_m_a_t_d_a33499f78878a0365dba1882422b92d6b}\label{namespace_m_a_t_d_a33499f78878a0365dba1882422b92d6b} 
+typedef float {\bfseries Number1}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_m_a_t_d_aa061309c66ac615a41505a274886106b}\label{namespace_m_a_t_d_aa061309c66ac615a41505a274886106b} 
+enum {\bfseries ARG\+\_\+\+TYPE} \{ \newline
+{\bfseries DEVICE\+\_\+\+READ\+\_\+\+WRITE} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, {\bfseries DEVICE\+\_\+\+WRITE} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, {\bfseries DEVICE\+\_\+\+READ} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+, {\bfseries DEVICE\+\_\+\+USE\+\_\+\+HOST\+\_\+\+PTR} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3)
+, \newline
+{\bfseries DEVICE\+\_\+\+ALLOC\+\_\+\+HOST\+\_\+\+PTR} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, {\bfseries DEVICE\+\_\+\+COPY\+\_\+\+HOST\+\_\+\+PTR} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5)
+, {\bfseries HOST\+\_\+\+WRITE} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 7)
+, {\bfseries HOST\+\_\+\+READ} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 8)
+, \newline
+{\bfseries HOST\+\_\+\+NO\+\_\+\+ACCESS} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 9)
+ \}
+\item 
+\Hypertarget{namespace_m_a_t_d_a288a04a45056d9baa75768b1707e944a}\label{namespace_m_a_t_d_a288a04a45056d9baa75768b1707e944a} 
+enum class {\bfseries MAT\+\_\+\+ARG} \{ \newline
+{\bfseries MAT\+\_\+\+INTEGER} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, {\bfseries MAT\+\_\+\+FLOAT} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, {\bfseries MAT\+\_\+\+BUFFER} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+, {\bfseries MAT\+\_\+\+COLORVEC3} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3)
+, \newline
+{\bfseries MAT\+\_\+\+NUMBER2} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, {\bfseries MAT\+\_\+\+TEXGRAYSCALE} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5)
+, {\bfseries MAT\+\_\+\+TEXCOLOR} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6)
+ \}
+\item 
+\Hypertarget{namespace_m_a_t_d_a47049c5dd5aaf5c1bce144a5ca48b9c0}\label{namespace_m_a_t_d_a47049c5dd5aaf5c1bce144a5ca48b9c0} 
+enum class {\bfseries DATA\+\_\+\+TYPES} \{ \newline
+{\bfseries NUMBER1}
+, {\bfseries NUMBER2}
+, {\bfseries STRING}
+, {\bfseries BOOLEAN}
+, \newline
+{\bfseries COLORVEC1}
+, {\bfseries COLORVEC3}
+, {\bfseries LUT1}
+, {\bfseries LUT3}
+, \newline
+{\bfseries TEXGRAYSCALE}
+, {\bfseries TEXCOLOR}
+ \}
+\item 
+\Hypertarget{namespace_m_a_t_d_a517d373567a87abe7634e91b05aa408f}\label{namespace_m_a_t_d_a517d373567a87abe7634e91b05aa408f} 
+enum class {\bfseries MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE} \{ {\bfseries TEX\+\_\+8\+BIT}
+, {\bfseries TEX\+\_\+16\+BIT}
+, {\bfseries TEX\+\_\+32\+BIT}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scope and Ref smart pointers for \doxylink{namespace_m_a_t_d}{MATD}. 

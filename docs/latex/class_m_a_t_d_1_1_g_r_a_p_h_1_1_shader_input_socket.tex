@@ -1,0 +1,57 @@
+\doxysection{MATD\+::GRAPH\+::Shader\+Input\+Socket Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket}\index{MATD::GRAPH::ShaderInputSocket@{MATD::GRAPH::ShaderInputSocket}}
+Inheritance diagram for MATD\+::GRAPH\+::Shader\+Input\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket_a2540c342e6ad081d42a66ab115a49dbe}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket_a2540c342e6ad081d42a66ab115a49dbe} 
+{\bfseries Shader\+Input\+Socket} (const std\+::string \&id, \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES\+::\+Texture}} $>$ \&texture)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket_a50a4ef47f3b73e68799369d91b3cb558}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket_a50a4ef47f3b73e68799369d91b3cb558} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES\+::\+Texture}} $>$ {\bfseries Get\+Texture\+Argument} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{MATD\+::\+GRAPH\+::\+Input\+Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Input\+Socket} (std\+::string id, \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{MATD\+::\+FUNC\+::\+Argument}} $>$ argument)
+\item 
+virtual Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_aecde1edfec442fac1888481c8902e2a3}{Get\+Connection}} (const std\+::string \&) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6745a59b9d44b4e4e0bec26c4fb2b2e5}{Add\+Connection}} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ connection) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a6fd4c270919d269c6ba8d0294b439347}{Remove\+Connection}} (const std\+::string \&id) override
+\item 
+bool {\bfseries Is\+Updated} ()
+\item 
+virtual int \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a03bccf36da1e9aa5ce3c58f65743500d}{No\+Of\+Connections}} () override
+\item 
+virtual Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{FUNC\+::\+Argument}} $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_a309b6dc97413ec37c0f050251e7d6501}{Get\+Argument}} () override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket_ada669fe54a809cfb1d6e610f685cac02}{Update}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{MATD\+::\+GRAPH\+::\+Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Socket} (std\+::string id, \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+const std\+::string \& {\bfseries Get\+ID} ()
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Node} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket_a3c9950bc972c2599deb7fa9aed60fd94}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_input_socket_a3c9950bc972c2599deb7fa9aed60fd94} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES\+::\+Texture}} $>$ {\bfseries m\+\_\+\+Tex\+Argument}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/shader\+\_\+graph/Shader\+Input\+Socket.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/shader\+\_\+graph/Shader\+Input\+Socket.\+cpp\end{DoxyCompactItemize}

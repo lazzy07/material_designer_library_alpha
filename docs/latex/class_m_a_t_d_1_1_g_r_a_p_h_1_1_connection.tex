@@ -1,0 +1,50 @@
+\doxysection{MATD\+::GRAPH\+::Connection Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}\index{MATD::GRAPH::Connection@{MATD::GRAPH::Connection}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_ae21ee8b34c7f0ba0e1f8e97a56f4503d}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_ae21ee8b34c7f0ba0e1f8e97a56f4503d} 
+{\bfseries Connection} (std\+::string id, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{MATD\+::\+GRAPH\+::\+Input\+Socket}} $>$ input, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{MATD\+::\+GRAPH\+::\+Output\+Socket}} $>$ output)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a3e36ea706e6f1e0ef3a21c541fce39b0}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a3e36ea706e6f1e0ef3a21c541fce39b0} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{MATD\+::\+GRAPH\+::\+Input\+Socket}} $>$ {\bfseries Get\+Input} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_abdae8e12c0ef47f64c241f0f880dc061}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_abdae8e12c0ef47f64c241f0f880dc061} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{MATD\+::\+GRAPH\+::\+Output\+Socket}} $>$ {\bfseries Get\+Output} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a5f4fedb8bbcd5a9995482f6c863482f4}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a5f4fedb8bbcd5a9995482f6c863482f4} 
+void {\bfseries Set\+Update\+Status} (CONNECTION\+\_\+\+UPDATE\+\_\+\+STATUS status, uint64\+\_\+t time)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a8f1e4e3ccdaea0855bedb6a540ac0c4a}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a8f1e4e3ccdaea0855bedb6a540ac0c4a} 
+CONNECTION\+\_\+\+UPDATE\+\_\+\+STATUS {\bfseries Get\+Update\+Status} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_aa74bd01fc45fe2332c96ced8a4c2bbda}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_aa74bd01fc45fe2332c96ced8a4c2bbda} 
+const std\+::string \& {\bfseries Get\+ID} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_acb64f6c144ae5f09e9f0598145c29bdd}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_acb64f6c144ae5f09e9f0598145c29bdd} 
+void {\bfseries Update} (uint64\+\_\+t time)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_ab0ce4658898cf14dd5336ea64eb84fcb}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_ab0ce4658898cf14dd5336ea64eb84fcb} 
+std\+::string {\bfseries m\+\_\+\+ID}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_affb050bc0718ed7e64095a1b87c78419}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_affb050bc0718ed7e64095a1b87c78419} 
+uint64\+\_\+t {\bfseries m\+\_\+\+Updated\+Time} = 0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_aa00ed79e9e1dcb1872d45861789de816}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_aa00ed79e9e1dcb1872d45861789de816} 
+CONNECTION\+\_\+\+UPDATE\+\_\+\+STATUS {\bfseries m\+\_\+\+Update\+Status}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a766abc889576dd0aed5f824bcc722e7b}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_a766abc889576dd0aed5f824bcc722e7b} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{MATD\+::\+GRAPH\+::\+Input\+Socket}} $>$ {\bfseries m\+\_\+\+Input}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_ad2a89b42d4a784786e5aa29dbdef2599}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection_ad2a89b42d4a784786e5aa29dbdef2599} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{MATD\+::\+GRAPH\+::\+Output\+Socket}} $>$ {\bfseries m\+\_\+\+Output}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Connection.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Connection.\+cpp\end{DoxyCompactItemize}

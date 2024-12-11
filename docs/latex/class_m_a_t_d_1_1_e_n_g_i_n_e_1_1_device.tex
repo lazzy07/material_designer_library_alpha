@@ -1,0 +1,78 @@
+\doxysection{MATD\+::ENGINE\+::Device Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}\index{MATD::ENGINE::Device@{MATD::ENGINE::Device}}
+
+
+Material Designer device class, used to store device information and run kernels on the device.  
+
+
+
+
+{\ttfamily \#include $<$Device.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::Device\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_aa3b7e320601d1ca68f3ea2521212f945}{Device}} (std\+::string device\+Name, MATD\+::\+ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE type)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a097d9f5781dd04ed4029dfed609ce0cf}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a097d9f5781dd04ed4029dfed609ce0cf} 
+void {\bfseries Set\+Device\+Name} (const std\+::string name)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a4e17308cb0c1f695cab7d92a89c48d38}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a4e17308cb0c1f695cab7d92a89c48d38} 
+void {\bfseries Set\+Device\+Type} (ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE type)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_ae31310db9fd3012c0b6a838331197048}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_ae31310db9fd3012c0b6a838331197048} 
+std\+::string {\bfseries Get\+Device\+Name} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a4015833ba781bbb9ac0e727a46aab448}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a4015833ba781bbb9ac0e727a46aab448} 
+size\+\_\+t {\bfseries Get\+Id} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a4abe316e24bf801b6c93c60119801932}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a4abe316e24bf801b6c93c60119801932} 
+void {\bfseries Set\+Id} (size\+\_\+t id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_afb2be32591e2641f7c41ffe5922770c4}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_afb2be32591e2641f7c41ffe5922770c4} 
+size\+\_\+t {\bfseries m\+\_\+\+Id}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_aec5a3a20b429d502ed8caf05734fce02}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_aec5a3a20b429d502ed8caf05734fce02} 
+std\+::string {\bfseries m\+\_\+\+Device\+Name}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a38b0cdcbf27c740078baa7436b55e052}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_a38b0cdcbf27c740078baa7436b55e052} 
+ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE {\bfseries m\+\_\+\+Device\+Type} = ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE\+::\+DEVICE\+\_\+\+CPU
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Material Designer device class, used to store device information and run kernels on the device. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_aa3b7e320601d1ca68f3ea2521212f945}\index{MATD::ENGINE::Device@{MATD::ENGINE::Device}!Device@{Device}}
+\index{Device@{Device}!MATD::ENGINE::Device@{MATD::ENGINE::Device}}
+\doxysubsubsection{\texorpdfstring{Device()}{Device()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_aa3b7e320601d1ca68f3ea2521212f945} 
+MATD\+::\+ENGINE\+::\+Device\+::\+Device (\begin{DoxyParamCaption}\item[{std\+::string}]{device\+Name}{, }\item[{MATD\+::\+ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Name} & Name of the device \\
+\hline
+{\em type} & GPU or CPU \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Device.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Device.\+cpp\end{DoxyCompactItemize}

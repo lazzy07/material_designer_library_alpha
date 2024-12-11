@@ -1,3 +1,13 @@
+/**
+ * @file Log.hpp
+ * @author Lasantha M Senanayake (222lasantha@gmail.com)
+ * @brief Logger for Material Designer Engine and Editor
+ * @version 0.1
+ * @date 2024-11-01
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #pragma once
 
 #define FMT_HEADER_ONLY
@@ -16,16 +26,57 @@ namespace MATD {
 			ERR,
 			FATAL
 		};
-
+		/**
+		 * @brief Logger class for Material Designer Engine and Editor
+		 * 
+		 */
 		class Log {
 		public:
+			/**
+			 * @brief Initialize the logger
+			 * 
+			 */
 			static void Init();
+			/**
+			 * @brief Set the Core Log Level object
+			 * 
+			 * @param logLevel Log level to set
+			 */
 			static void SetCoreLogLevel(LOGLEVEL logLevel);
+
+			/**
+			 * @brief Set the Editor Log Level object
+			 * 
+			 * @param logLevel Log level to set
+			 */
 			static void SetAppLogLevel(LOGLEVEL logLevel);
 
+			/**
+			 * @brief Get the Core Logger object
+			 * 
+			 * @return std::shared_ptr<spdlog::logger>& Core logger
+			 */
 			inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; };
+
+			/**
+			 * @brief Get the Core File Logger object
+			 * 
+			 * @return std::shared_ptr<spdlog::logger>& Core file logger
+			 */
 			inline static std::shared_ptr<spdlog::logger>& GetCoreFileLogger() { return s_CoreFileLogger; };
+
+			/**
+			 * @brief Get the Client Logger object
+			 * 
+			 * @return std::shared_ptr<spdlog::logger>& Client logger
+			 */
 			static std::shared_ptr<spdlog::logger>& GetClientLogger();
+
+			/**
+			 * @brief Get the Client File Logger object
+			 * 
+			 * @return std::shared_ptr<spdlog::logger>& Client file logger
+			 */
 			static std::shared_ptr<spdlog::logger>& GetClientFileLogger();
 
 		private:

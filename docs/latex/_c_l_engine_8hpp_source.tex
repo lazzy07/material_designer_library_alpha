@@ -1,0 +1,27 @@
+\doxysection{CLEngine.\+hpp}
+\hypertarget{_c_l_engine_8hpp_source}{}\label{_c_l_engine_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLEngine.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLEngine.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../matd/Engine.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}CLPlatform.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CL/cl.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{namespace\ }ENGINE\{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{namespace\ }OPENCL\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{Engine}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{ENGINE::Engine}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{Engine}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{\string~Engine}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<Ref<ENGINE::Platform>>\ GetSupportedPlatforms()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ std::vector<cl::Platform>\ m\_Platforms;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00023\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \}}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}

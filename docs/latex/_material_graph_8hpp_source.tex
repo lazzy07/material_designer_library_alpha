@@ -1,0 +1,51 @@
+\doxysection{Material\+Graph.\+hpp}
+\hypertarget{_material_graph_8hpp_source}{}\label{_material_graph_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/MaterialGraph.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/MaterialGraph.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../data\_graph/DataGraph.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../shader\_graph/ShaderGraph.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../kernel\_graph/KernelGraph.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum\ class}\ GRAPH\_TYPE\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ DATA\_GRAPH,}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ SHADER\_GRAPH,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ KERNEL\_GRAPH}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }MaterialProject;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keyword}{static}\ GRAPH\_TYPE\ GetGraphType(\textcolor{keyword}{const}\ std::string\&\ graphType);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MaterialProject}}*\ project,\ \textcolor{keyword}{const}\ MATD::JSON\&\ JSONObj);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MaterialProject}}*\ project,\ \textcolor{keyword}{const}\ MATD::JSON\&\ JSONObj,\ \textcolor{keywordtype}{bool}\ isGraphNode);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{\string~MaterialGraph}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ [[nodiscard]]\ GRAPH\_TYPE\ GetType()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_GraphType;\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetID()\ \{\ \textcolor{keywordflow}{return}\ m\_ID;\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MaterialProject}}*\ GetProject()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Project;\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ Ref<MATD::GRAPH::Graph>\ GetGraph(GRAPH\_TYPE\ graphType);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ std::string\ m\_ID;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ std::string\ m\_Name;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MaterialProject}}*\ m\_Project;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_IsInitializedByGraph;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ GRAPH\_TYPE\ m\_GraphType;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ Ref<DataGraph>\ m\_DataGraph;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ Ref<ShaderGraph>\ m\_ShaderGraph;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ Ref<KernelGraph>\ m\_KernelGraph;}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}

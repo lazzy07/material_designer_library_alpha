@@ -1,0 +1,96 @@
+\doxysection{MATD\+::ENGINE\+::OPENCL\+::Work\+Item Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}\index{MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}{Work\+Item} class, used to store the work item and run the kernel.  
+
+
+
+
+{\ttfamily \#include $<$CLWork\+Item.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::OPENCL\+::Work\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a27cebe05f43946954f2440bb828c46ff}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a27cebe05f43946954f2440bb828c46ff} 
+{\bfseries Work\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}kernel)
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a3c5a2891d2817062c7a34def792f727e}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue) override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a620b2f15b962ae188c0a7b84fff703b4}{On\+Complete}} () override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a84428911319ced4f27496bd944a482ac}{Set\+Output}} (size\+\_\+t index, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}argument) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Work\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}kernel, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ node=nullptr)
+\item 
+void {\bfseries Set\+Argument} (size\+\_\+t index, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}argument)
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Kernel} () const
+\item 
+std\+::map$<$ size\+\_\+t, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*} $>$ \& {\bfseries Get\+Arguments} ()
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} $>$ {\bfseries Get\+Node} () const
+\item 
+void {\bfseries Set\+Node} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} $>$ node)
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Output} () const
+\item 
+void {\bfseries Set\+Output\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}arg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*} {\bfseries Create\+Work\+Item} (\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}kernel)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}{Work\+Item} class, used to store the work item and run the kernel. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a3c5a2891d2817062c7a34def792f727e}\index{MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a3c5a2891d2817062c7a34def792f727e} 
+void MATD\+::\+ENGINE\+::\+OPENCL\+::\+Work\+Item\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}}.
+
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a620b2f15b962ae188c0a7b84fff703b4}\index{MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}!OnComplete@{OnComplete}}
+\index{OnComplete@{OnComplete}!MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}}
+\doxysubsubsection{\texorpdfstring{OnComplete()}{OnComplete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a620b2f15b962ae188c0a7b84fff703b4} 
+void MATD\+::\+ENGINE\+::\+OPENCL\+::\+Work\+Item\+::\+On\+Complete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}}.
+
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a84428911319ced4f27496bd944a482ac}\index{MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}!SetOutput@{SetOutput}}
+\index{SetOutput@{SetOutput}!MATD::ENGINE::OPENCL::WorkItem@{MATD::ENGINE::OPENCL::WorkItem}}
+\doxysubsubsection{\texorpdfstring{SetOutput()}{SetOutput()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item_a84428911319ced4f27496bd944a482ac} 
+void MATD\+::\+ENGINE\+::\+OPENCL\+::\+Work\+Item\+::\+Set\+Output (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index}{, }\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES\+::\+Argument}} \texorpdfstring{$\ast$}{*}}]{argument}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLWork\+Item.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLWork\+Item.\+cpp\end{DoxyCompactItemize}

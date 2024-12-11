@@ -1,0 +1,48 @@
+\doxysection{Connection.\+hpp}
+\hypertarget{_connection_8hpp_source}{}\label{_connection_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Connection.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Connection.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Socket.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}InputSocket.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}OutputSocket.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../../core/Time.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{enum\ class}\ CONNECTION\_UPDATE\_STATUS\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ UPDATED,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ IN\_PROGRESS}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}}\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}}(std::string\ \textcolor{keywordtype}{id},\ Ref<MATD::GRAPH::InputSocket>\ input,\ Ref<MATD::GRAPH::OutputSocket>\ output);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{\string~Connection}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Ref<MATD::GRAPH::InputSocket>\ GetInput()\ \{\ \textcolor{keywordflow}{return}\ m\_Input;\ \};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Ref<MATD::GRAPH::OutputSocket>\ GetOutput()\ \{\ \textcolor{keywordflow}{return}\ m\_Output;\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetUpdateStatus(CONNECTION\_UPDATE\_STATUS\ status,\ uint64\_t\ time)\ \{\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ m\_UpdatedTime\ =\ time;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ m\_UpdateStatus\ =\ status;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keyword}{inline}\ CONNECTION\_UPDATE\_STATUS\ GetUpdateStatus()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_UpdateStatus;\ \};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ GetID()\ \{\ \textcolor{keywordflow}{return}\ m\_ID;\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Update(uint64\_t\ time);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ std::string\ m\_ID;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ uint64\_t\ m\_UpdatedTime\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ CONNECTION\_UPDATE\_STATUS\ m\_UpdateStatus;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ Ref<MATD::GRAPH::InputSocket>\ m\_Input;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ Ref<MATD::GRAPH::OutputSocket>\ m\_Output;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ \ \ \}}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

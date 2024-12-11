@@ -1,0 +1,542 @@
+\doxysection{MATD\+::CORE\+::Material\+Designer Class Reference}
+\hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}{}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+
+
+Material Designer class, which is used to create and manage Material Designer projects.  
+
+
+
+
+{\ttfamily \#include $<$Material\+Designer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aad85a87856f3f9168c2b28cd9a279cb7}{Select\+Device}} (uint8\+\_\+t platform\+Id, uint8\+\_\+t device\+Id)
+\begin{DoxyCompactList}\small\item\em Selects the device to use for computation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac3301e839e4f4bfb8c044755d7d37704}{Set\+Kernel\+Library\+Folder}} (const std\+::string \&path) const
+\begin{DoxyCompactList}\small\item\em Set the \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} Library Folder object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a933c5a28c073ce36bf8f6646ac146b83}{Open\+Project}} (const std\+::string \&JSONString)
+\begin{DoxyCompactList}\small\item\em Open a Material Editor project. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a34737626539a0a389e7376c7ff148af6}{Update\+Project}} (const std\+::string \&JSONString) const
+\begin{DoxyCompactList}\small\item\em Update a Material Editor project. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a55938f192fc758ae0b37c0d821d830de}{Set\+Selected\+Graph}} (const std\+::string \&graph\+ID) const
+\begin{DoxyCompactList}\small\item\em Set the selected graph, graph could be kernel graph, data graph or shader graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae3abc8d1bd62f2cac8baa646bffb82f0}{Create\+Node}} (const std\+::string \&selected\+Graph\+Type, const std\+::string \&JSONString) const
+\begin{DoxyCompactList}\small\item\em Create a node in the selected graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae95b9ba25ffe34ea5da0ab5d08671316}{Remove\+Node}} (const std\+::string \&selected\+Graph\+Type, const std\+::string \&JSONString) const
+\begin{DoxyCompactList}\small\item\em Remove a node from the selected graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ad11181085005cae3da6011ef90744bf1}{Add\+Connection}} (const std\+::string \&selected\+Graph\+Type, const std\+::string \&JSONString) const
+\begin{DoxyCompactList}\small\item\em Add a connection to the selected graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_af870a51ae458f09b656266ca218c6519}{Remove\+Connection}} (const std\+::string \&selected\+Graph\+Type, const std\+::string \&JSONString) const
+\begin{DoxyCompactList}\small\item\em Remove a connection from the selected graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac4274aa547caaa0d18f20eb1de4f495c}{Update}} (const std\+::string \&selected\+Graph\+Type, const std\+::string \&JSONString) const
+\begin{DoxyCompactList}\small\item\em Update the selected graph. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aea685d6ca4a3e47943b02f09bc2c2d41}{Compile\+Kernel}} () const
+\begin{DoxyCompactList}\small\item\em Compile the kernel. \end{DoxyCompactList}\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MATD\+::\+GRAPH\+::\+Material\+Project}} $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac5579996cf7337f0d017ba1db78b9d83}{Get\+Node\+Project}} () const
+\begin{DoxyCompactList}\small\item\em Get the Material project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_int}{MATD\+::\+Int}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a0c0ecc8e730a1a491a3aa53f71965067}{Create\+Int}} (int val)
+\begin{DoxyCompactList}\small\item\em Create an integer object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_float}{MATD\+::\+Float}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a565a7e7b08a5d3f336d066a87dfc7c21}{Create\+Float}} (float val)
+\begin{DoxyCompactList}\small\item\em Create a float object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4166db6521618a5e65e1aa55e18f6de2}{Create\+Buffer}} (void \texorpdfstring{$\ast$}{*}val, size\+\_\+t size, size\+\_\+t elem\+\_\+size, buf\+\_\+type arg\+Type=MATD\+::\+ARG\+\_\+\+TYPE\+::\+DEVICE\+\_\+\+READ)
+\begin{DoxyCompactList}\small\item\em Create a buffer object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture}{MATD\+::\+Grayscale\+Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a230c7b68218e54f66bc8aa626da8a474}{Create\+Grayscale\+Texture}} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t width, size\+\_\+t height, buf\+\_\+type arg\+Type=MATD\+::\+ARG\+\_\+\+TYPE\+::\+DEVICE\+\_\+\+READ)
+\begin{DoxyCompactList}\small\item\em Create a grayscale texture object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{MATD\+::\+Color\+Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a880cd1c1fdef664991efc9df9df89653}{Create\+Color\+Texture}} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t width, size\+\_\+t height, buf\+\_\+type arg\+Type=MATD\+::\+ARG\+\_\+\+TYPE\+::\+DEVICE\+\_\+\+READ)
+\begin{DoxyCompactList}\small\item\em Create a color texture object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a98abfca23f9c2aee0fedfa5e1daccd88}{Create\+Work\+Item}} (\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*}kernel)
+\begin{DoxyCompactList}\small\item\em Create a work item object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aaaaa2506b76403042d5878cbc0707703}{Create\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em Create a queue object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a2bd27e85ea384161c8d9b70a7e1b0afd}{Create\+Number2}} (\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} val)
+\begin{DoxyCompactList}\small\item\em Create a number2 object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a314c8f41fe7eb035ebd16fe9c75d1faa}{Create\+Color\+Vec3}} (\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD\+::\+Color\+Vec3}} val)
+\begin{DoxyCompactList}\small\item\em Create a colorvec3 object. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4ebe07176c7a971777d7312e0e6e31f4}{Set\+Used\+By\+Material\+Designer\+App}} (bool is\+Used\+By\+App)
+\begin{DoxyCompactList}\small\item\em Set this to be true if the Material Designer is used by the Material Designer App. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a242bbd90ebea0a62c92aeb53c6216019}{Get\+Used\+By\+Material\+Designer\+App}} ()
+\begin{DoxyCompactList}\small\item\em Get if the Material Designer is used by the Material Designer App. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a75eccd25b74965cdb1bc79aeca73e933}{Update\+Shader\+Node\+Data}} (int node\+Id, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Update the shader node data callback. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a567746e44d7d15b5be8a95db5dfa2e23}{Set\+Call\+Shader\+Node\+Change\+Callback}} (void(\texorpdfstring{$\ast$}{*}func)(int, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*}))
+\begin{DoxyCompactList}\small\item\em Set the shader node change callback. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a41cb99b08257cce143674c3c17c5607a}{Call\+Shader\+Node\+Change\+Callback}} (int node\+Id, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Call the shader node change callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a2ad902453b2114118c46b013b1982c4c}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a2ad902453b2114118c46b013b1982c4c} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_kernel_library}{MATD\+::\+CORE\+::\+Kernel\+Library}} $>$ {\bfseries m\+\_\+\+Kernel\+Library}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a9f001bab1b0e8f4dd8c57d8ec0a641e9}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a9f001bab1b0e8f4dd8c57d8ec0a641e9} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MATD\+::\+GRAPH\+::\+Material\+Project}} $>$ {\bfseries m\+\_\+\+Current\+Project}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a613e34db19d3c3ed5a2714c8b33c91d8}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a613e34db19d3c3ed5a2714c8b33c91d8} 
+static bool {\bfseries m\+\_\+\+Is\+Used\+By\+Material\+Designer\+App} = false
+\item 
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a00ff6b96faf13af345d0225dfd72171a}\label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a00ff6b96faf13af345d0225dfd72171a} 
+static void(\texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Call\+Shader\+Node\+Change\+Callback} )(int, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Material Designer class, which is used to create and manage Material Designer projects. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ad11181085005cae3da6011ef90744bf1}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!AddConnection@{AddConnection}}
+\index{AddConnection@{AddConnection}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{AddConnection()}{AddConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ad11181085005cae3da6011ef90744bf1} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Add\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{selected\+Graph\+Type}{, }\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption}) const}
+
+
+
+Add a connection to the selected graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Graph\+Type} & Type of the selected graph, kernel, data or shader \\
+\hline
+{\em JSONString} & JSON string of the connection \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a41cb99b08257cce143674c3c17c5607a}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CallShaderNodeChangeCallback@{CallShaderNodeChangeCallback}}
+\index{CallShaderNodeChangeCallback@{CallShaderNodeChangeCallback}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CallShaderNodeChangeCallback()}{CallShaderNodeChangeCallback()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a41cb99b08257cce143674c3c17c5607a} 
+static void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Call\+Shader\+Node\+Change\+Callback (\begin{DoxyParamCaption}\item[{int}]{node\+Id}{, }\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*}}]{texture}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Call the shader node change callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Id} & Node ID that is updated \\
+\hline
+{\em texture} & Texture data that is updated \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aea685d6ca4a3e47943b02f09bc2c2d41}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CompileKernel@{CompileKernel}}
+\index{CompileKernel@{CompileKernel}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CompileKernel()}{CompileKernel()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aea685d6ca4a3e47943b02f09bc2c2d41} 
+std\+::string MATD\+::\+CORE\+::\+Material\+Designer\+::\+Compile\+Kernel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Compile the kernel. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string Compiled kernel 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4166db6521618a5e65e1aa55e18f6de2}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateBuffer@{CreateBuffer}}
+\index{CreateBuffer@{CreateBuffer}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateBuffer()}{CreateBuffer()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4166db6521618a5e65e1aa55e18f6de2} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Buffer (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{val}{, }\item[{size\+\_\+t}]{size}{, }\item[{size\+\_\+t}]{elem\+\_\+size}{, }\item[{buf\+\_\+type}]{arg\+Type}{ = {\ttfamily MATD\+:\+:ARG\+\_\+TYPE\+:\+:DEVICE\+\_\+READ}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a buffer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value of the buffer \\
+\hline
+{\em size} & Size of the buffer, in \# of elements \\
+\hline
+{\em elem\+\_\+size} & Size of each element in the buffer \\
+\hline
+{\em arg\+Type} & Type of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}\texorpdfstring{$\ast$}{*} \doxylink{class_m_a_t_d_1_1_buffer}{Buffer} object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a880cd1c1fdef664991efc9df9df89653}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateColorTexture@{CreateColorTexture}}
+\index{CreateColorTexture@{CreateColorTexture}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateColorTexture()}{CreateColorTexture()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a880cd1c1fdef664991efc9df9df89653} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{MATD\+::\+Color\+Texture}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Color\+Texture (\begin{DoxyParamCaption}\item[{MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE}]{bit\+Type}{, }\item[{size\+\_\+t}]{width}{, }\item[{size\+\_\+t}]{height}{, }\item[{buf\+\_\+type}]{arg\+Type}{ = {\ttfamily MATD\+:\+:ARG\+\_\+TYPE\+:\+:DEVICE\+\_\+READ}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a color texture object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+Type} & Bit depth of the texture \\
+\hline
+{\em width} & Width of the texture \\
+\hline
+{\em height} & Height of the texture \\
+\hline
+{\em arg\+Type} & Type of the texture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_color_texture}{MATD\+::\+Color\+Texture}\texorpdfstring{$\ast$}{*} Color texture object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a314c8f41fe7eb035ebd16fe9c75d1faa}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateColorVec3@{CreateColorVec3}}
+\index{CreateColorVec3@{CreateColorVec3}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateColorVec3()}{CreateColorVec3()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a314c8f41fe7eb035ebd16fe9c75d1faa} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Color\+Vec3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD\+::\+Color\+Vec3}}}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a colorvec3 object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value of the colorvec3 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}\texorpdfstring{$\ast$}{*} Colorvec3 object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a565a7e7b08a5d3f336d066a87dfc7c21}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateFloat@{CreateFloat}}
+\index{CreateFloat@{CreateFloat}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateFloat()}{CreateFloat()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a565a7e7b08a5d3f336d066a87dfc7c21} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_float}{MATD\+::\+Float}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Float (\begin{DoxyParamCaption}\item[{float}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a float object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value of the float \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_float}{MATD\+::\+Float}\texorpdfstring{$\ast$}{*} \doxylink{class_m_a_t_d_1_1_float}{Float} object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a230c7b68218e54f66bc8aa626da8a474}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateGrayscaleTexture@{CreateGrayscaleTexture}}
+\index{CreateGrayscaleTexture@{CreateGrayscaleTexture}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateGrayscaleTexture()}{CreateGrayscaleTexture()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a230c7b68218e54f66bc8aa626da8a474} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture}{MATD\+::\+Grayscale\+Texture}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Grayscale\+Texture (\begin{DoxyParamCaption}\item[{MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE}]{bit\+Type}{, }\item[{size\+\_\+t}]{width}{, }\item[{size\+\_\+t}]{height}{, }\item[{buf\+\_\+type}]{arg\+Type}{ = {\ttfamily MATD\+:\+:ARG\+\_\+TYPE\+:\+:DEVICE\+\_\+READ}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a grayscale texture object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+Type} & Bit depth of the texture \\
+\hline
+{\em width} & Width of the texture \\
+\hline
+{\em height} & Height of the texture \\
+\hline
+{\em arg\+Type} & Type of the texture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_grayscale_texture}{MATD\+::\+Grayscale\+Texture}\texorpdfstring{$\ast$}{*} Grayscale texture object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a0c0ecc8e730a1a491a3aa53f71965067}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateInt@{CreateInt}}
+\index{CreateInt@{CreateInt}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateInt()}{CreateInt()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a0c0ecc8e730a1a491a3aa53f71965067} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_int}{MATD\+::\+Int}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Int (\begin{DoxyParamCaption}\item[{int}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create an integer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value of the integer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_int}{MATD\+::\+Int}\texorpdfstring{$\ast$}{*} Integer object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae3abc8d1bd62f2cac8baa646bffb82f0}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateNode@{CreateNode}}
+\index{CreateNode@{CreateNode}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateNode()}{CreateNode()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae3abc8d1bd62f2cac8baa646bffb82f0} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{selected\+Graph\+Type}{, }\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption}) const}
+
+
+
+Create a node in the selected graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Graph\+Type} & Type of the selected graph, kernel, data or shader \\
+\hline
+{\em JSONString} & JSON string of the node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a2bd27e85ea384161c8d9b70a7e1b0afd}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateNumber2@{CreateNumber2}}
+\index{CreateNumber2@{CreateNumber2}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateNumber2()}{CreateNumber2()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a2bd27e85ea384161c8d9b70a7e1b0afd} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Number2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}}}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a number2 object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value of the number2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}\texorpdfstring{$\ast$}{*} \doxylink{struct_m_a_t_d_1_1_number2}{Number2} object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aaaaa2506b76403042d5878cbc0707703}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateQueue@{CreateQueue}}
+\index{CreateQueue@{CreateQueue}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateQueue()}{CreateQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aaaaa2506b76403042d5878cbc0707703} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a queue object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}\texorpdfstring{$\ast$}{*} \doxylink{class_m_a_t_d_1_1_queue}{Queue} object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a98abfca23f9c2aee0fedfa5e1daccd88}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!CreateWorkItem@{CreateWorkItem}}
+\index{CreateWorkItem@{CreateWorkItem}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{CreateWorkItem()}{CreateWorkItem()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a98abfca23f9c2aee0fedfa5e1daccd88} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}} \texorpdfstring{$\ast$}{*} MATD\+::\+CORE\+::\+Material\+Designer\+::\+Create\+Work\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}} \texorpdfstring{$\ast$}{*}}]{kernel}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a work item object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kernel} & \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} to create the work item for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_m_a_t_d_1_1_work_item}{MATD\+::\+Work\+Item}\texorpdfstring{$\ast$}{*} Work item object 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac5579996cf7337f0d017ba1db78b9d83}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!GetNodeProject@{GetNodeProject}}
+\index{GetNodeProject@{GetNodeProject}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{GetNodeProject()}{GetNodeProject()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac5579996cf7337f0d017ba1db78b9d83} 
+MATD\+::\+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_project}{MATD\+::\+GRAPH\+::\+Material\+Project}} $>$ MATD\+::\+CORE\+::\+Material\+Designer\+::\+Get\+Node\+Project (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Get the Material project. 
+
+\begin{DoxyReturn}{Returns}
+Ref$<$\+MATD\+::\+GRAPH\+::\+Material\+Project$>$ Material project that is currently open 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a242bbd90ebea0a62c92aeb53c6216019}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!GetUsedByMaterialDesignerApp@{GetUsedByMaterialDesignerApp}}
+\index{GetUsedByMaterialDesignerApp@{GetUsedByMaterialDesignerApp}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{GetUsedByMaterialDesignerApp()}{GetUsedByMaterialDesignerApp()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a242bbd90ebea0a62c92aeb53c6216019} 
+static bool MATD\+::\+CORE\+::\+Material\+Designer\+::\+Get\+Used\+By\+Material\+Designer\+App (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get if the Material Designer is used by the Material Designer App. 
+
+\begin{DoxyReturn}{Returns}
+bool True if used by the app 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a933c5a28c073ce36bf8f6646ac146b83}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!OpenProject@{OpenProject}}
+\index{OpenProject@{OpenProject}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{OpenProject()}{OpenProject()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a933c5a28c073ce36bf8f6646ac146b83} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Open\+Project (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption})}
+
+
+
+Open a Material Editor project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em JSONString} & JSON string of the project \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_af870a51ae458f09b656266ca218c6519}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!RemoveConnection@{RemoveConnection}}
+\index{RemoveConnection@{RemoveConnection}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{RemoveConnection()}{RemoveConnection()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_af870a51ae458f09b656266ca218c6519} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Remove\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{selected\+Graph\+Type}{, }\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption}) const}
+
+
+
+Remove a connection from the selected graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Graph\+Type} & Type of the selected graph, kernel, data or shader \\
+\hline
+{\em JSONString} & JSON string of the connection \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae95b9ba25ffe34ea5da0ab5d08671316}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae95b9ba25ffe34ea5da0ab5d08671316} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Remove\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{selected\+Graph\+Type}{, }\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption}) const}
+
+
+
+Remove a node from the selected graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Graph\+Type} & Type of the selected graph, kernel, data or shader \\
+\hline
+{\em JSONString} & JSON string of the node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aad85a87856f3f9168c2b28cd9a279cb7}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!SelectDevice@{SelectDevice}}
+\index{SelectDevice@{SelectDevice}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{SelectDevice()}{SelectDevice()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aad85a87856f3f9168c2b28cd9a279cb7} 
+std\+::vector$<$ size\+\_\+t $>$ MATD\+::\+CORE\+::\+Material\+Designer\+::\+Select\+Device (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{platform\+Id}{, }\item[{uint8\+\_\+t}]{device\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Selects the device to use for computation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform\+Id} & Platform ID to select \\
+\hline
+{\em device\+Id} & Device ID to select \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$size\+\_\+t$>$ List of selected devices 
+\end{DoxyReturn}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a567746e44d7d15b5be8a95db5dfa2e23}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!SetCallShaderNodeChangeCallback@{SetCallShaderNodeChangeCallback}}
+\index{SetCallShaderNodeChangeCallback@{SetCallShaderNodeChangeCallback}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{SetCallShaderNodeChangeCallback()}{SetCallShaderNodeChangeCallback()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a567746e44d7d15b5be8a95db5dfa2e23} 
+static void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Set\+Call\+Shader\+Node\+Change\+Callback (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*}}]{func~}{)(int, \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Set the shader node change callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Callback function \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac3301e839e4f4bfb8c044755d7d37704}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!SetKernelLibraryFolder@{SetKernelLibraryFolder}}
+\index{SetKernelLibraryFolder@{SetKernelLibraryFolder}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{SetKernelLibraryFolder()}{SetKernelLibraryFolder()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac3301e839e4f4bfb8c044755d7d37704} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Set\+Kernel\+Library\+Folder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption}) const}
+
+
+
+Set the \doxylink{class_m_a_t_d_1_1_kernel}{Kernel} Library Folder object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the kernel library folder \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a55938f192fc758ae0b37c0d821d830de}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!SetSelectedGraph@{SetSelectedGraph}}
+\index{SetSelectedGraph@{SetSelectedGraph}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{SetSelectedGraph()}{SetSelectedGraph()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a55938f192fc758ae0b37c0d821d830de} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Set\+Selected\+Graph (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{graph\+ID}{}\end{DoxyParamCaption}) const}
+
+
+
+Set the selected graph, graph could be kernel graph, data graph or shader graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph\+ID} & ID of the graph to select \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4ebe07176c7a971777d7312e0e6e31f4}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!SetUsedByMaterialDesignerApp@{SetUsedByMaterialDesignerApp}}
+\index{SetUsedByMaterialDesignerApp@{SetUsedByMaterialDesignerApp}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{SetUsedByMaterialDesignerApp()}{SetUsedByMaterialDesignerApp()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4ebe07176c7a971777d7312e0e6e31f4} 
+static void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Set\+Used\+By\+Material\+Designer\+App (\begin{DoxyParamCaption}\item[{bool}]{is\+Used\+By\+App}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Set this to be true if the Material Designer is used by the Material Designer App. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Used\+By\+App} & True if used by the app \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac4274aa547caaa0d18f20eb1de4f495c}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!Update@{Update}}
+\index{Update@{Update}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac4274aa547caaa0d18f20eb1de4f495c} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{selected\+Graph\+Type}{, }\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption}) const}
+
+
+
+Update the selected graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Graph\+Type} & Type of the selected graph, kernel, data or shader \\
+\hline
+{\em JSONString} & JSON string of the graph \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a34737626539a0a389e7376c7ff148af6}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!UpdateProject@{UpdateProject}}
+\index{UpdateProject@{UpdateProject}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{UpdateProject()}{UpdateProject()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a34737626539a0a389e7376c7ff148af6} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Update\+Project (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{JSONString}{}\end{DoxyParamCaption}) const}
+
+
+
+Update a Material Editor project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em JSONString} & JSON string of the project \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a75eccd25b74965cdb1bc79aeca73e933}\index{MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}!UpdateShaderNodeData@{UpdateShaderNodeData}}
+\index{UpdateShaderNodeData@{UpdateShaderNodeData}!MATD::CORE::MaterialDesigner@{MATD::CORE::MaterialDesigner}}
+\doxysubsubsection{\texorpdfstring{UpdateShaderNodeData()}{UpdateShaderNodeData()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a75eccd25b74965cdb1bc79aeca73e933} 
+void MATD\+::\+CORE\+::\+Material\+Designer\+::\+Update\+Shader\+Node\+Data (\begin{DoxyParamCaption}\item[{int}]{node\+Id}{, }\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}} \texorpdfstring{$\ast$}{*}}]{texture}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Update the shader node data callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Id} & Node ID that is updated \\
+\hline
+{\em texture} & Texture data that is updated \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/Material\+Designer.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/Material\+Designer.\+cpp\end{DoxyCompactItemize}

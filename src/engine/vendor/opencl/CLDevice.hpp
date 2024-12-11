@@ -7,6 +7,10 @@
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
+      /**
+       * @brief Device class for OpenCL, used to store the device information and context
+       * 
+       */
       class Device : public ENGINE::Device{
       public:
         Device(std::string deviceName, MATD::ENGINE::MAT_DEVICE_TYPE type);

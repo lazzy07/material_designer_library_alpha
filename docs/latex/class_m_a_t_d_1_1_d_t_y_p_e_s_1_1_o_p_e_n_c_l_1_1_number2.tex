@@ -1,0 +1,91 @@
+\doxysection{MATD\+::DTYPES\+::OPENCL\+::Number2 Class Reference}
+\hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2}{}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2}\index{MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2}{Number2} class that inherits from \doxylink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}, this class is used to store the number2 data and bind it to the kernel arguments to be used in the Open\+CL kernel and to be added to the Open\+CL queue.  
+
+
+
+
+{\ttfamily \#include $<$CLNumber2.\+hpp$>$}
+
+Inheritance diagram for MATD\+::DTYPES\+::OPENCL\+::Number2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_a9ae3556ac54c8fe6eb53a692a6647d7f}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_a9ae3556ac54c8fe6eb53a692a6647d7f} 
+{\bfseries Number2} (\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} val)
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_a5979e4b3300671a6a097ead31374ffcc}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_ab09ad48568860796bbe48e56c2c5bcd1}{Delete}} () override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_ac4ac4f92cedd93cca7d440bfbc585a89}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Mat\+Number2} (\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} val)
+\item 
+\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} {\bfseries Get\+Val} () const
+\item 
+void {\bfseries Set\+Val} (\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Argument} (MAT\+\_\+\+ARG type)
+\item 
+bool {\bfseries Is\+Bound} () const
+\item 
+void {\bfseries Se\+Is\+Bound} (bool bound)
+\item 
+MAT\+\_\+\+ARG {\bfseries Get\+Arg\+Type} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2}{Number2} class that inherits from \doxylink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}, this class is used to store the number2 data and bind it to the kernel arguments to be used in the Open\+CL kernel and to be added to the Open\+CL queue. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_ac4ac4f92cedd93cca7d440bfbc585a89}\index{MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_ac4ac4f92cedd93cca7d440bfbc585a89} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Number2\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}}.
+
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_a5979e4b3300671a6a097ead31374ffcc}\index{MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_a5979e4b3300671a6a097ead31374ffcc} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Number2\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}}.
+
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_ab09ad48568860796bbe48e56c2c5bcd1}\index{MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::DTYPES::OPENCL::Number2@{MATD::DTYPES::OPENCL::Number2}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_number2_ab09ad48568860796bbe48e56c2c5bcd1} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Number2\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD\+::\+Mat\+Number2}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/vendor/opencl/CLNumber2.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/vendor/opencl/CLNumber2.\+cpp\end{DoxyCompactItemize}

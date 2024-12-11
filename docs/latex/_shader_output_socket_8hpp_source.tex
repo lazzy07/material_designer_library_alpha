@@ -1,0 +1,22 @@
+\doxysection{Shader\+Output\+Socket.\+hpp}
+\hypertarget{_shader_output_socket_8hpp_source}{}\label{_shader_output_socket_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/shader\_graph/ShaderOutputSocket.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/shader\_graph/ShaderOutputSocket.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/OutputSocket.hpp"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }MATD::GRAPH}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_output_socket}{ShaderOutputSocket}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{OutputSocket}}}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_output_socket}{ShaderOutputSocket}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}}*\ node);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ Ref<DTYPES::Texture>\ GetTexArgument();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetTexArgument(\textcolor{keyword}{const}\ Ref<DTYPES::Texture>\&\ texture)\ \{\ m\_TexArgument\ =\ texture;\ \}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Ref<DTYPES::Texture>\ m\_TexArgument;}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}

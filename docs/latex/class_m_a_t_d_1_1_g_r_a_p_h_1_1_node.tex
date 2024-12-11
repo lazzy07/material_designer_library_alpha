@@ -1,0 +1,104 @@
+\doxysection{MATD\+::GRAPH\+::Node Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}\index{MATD::GRAPH::Node@{MATD::GRAPH::Node}}
+Inheritance diagram for MATD\+::GRAPH\+::Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ab42f069d0bbb6a2d0217f54fbbf912db}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ab42f069d0bbb6a2d0217f54fbbf912db} 
+{\bfseries Node} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*}graph, JSON JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a63a425f5dd3da84469e3c9fa7d9219ac}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a63a425f5dd3da84469e3c9fa7d9219ac} 
+virtual void {\bfseries Init} ()=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a3b5482aa1f2c929571072265affefad9}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a3b5482aa1f2c929571072265affefad9} 
+virtual void {\bfseries Update\+Parameters} (MATD\+::\+JSON JSONObj, int sub\+Node\+Id=-\/1)=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a20bd998740570dbb5eebdbf51cece84e}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a20bd998740570dbb5eebdbf51cece84e} 
+void {\bfseries Add\+Input\+Socket} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ \&socket)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_aeec4bfffde9761e8808911ec5dacd989}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_aeec4bfffde9761e8808911ec5dacd989} 
+void {\bfseries Add\+Output\+Socket} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ \&socket)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ad0a510b285d67c10ce809cfad8fe5e58}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ad0a510b285d67c10ce809cfad8fe5e58} 
+const MATD\+::\+JSON \texorpdfstring{$\ast$}{*} {\bfseries Get\+JSON} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ae55d7b5848a2f13b65914ddc0173e9f1}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ae55d7b5848a2f13b65914ddc0173e9f1} 
+void {\bfseries Set\+JSON} (const MATD\+::\+JSON \&JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a7c3578ab32c4a28d727cccac784f0829}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a7c3578ab32c4a28d727cccac784f0829} 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Function} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a02317cb5a395596d6f03d4346ef61fe2}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a02317cb5a395596d6f03d4346ef61fe2} 
+void {\bfseries Set\+Function} (const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ \&function)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a838738889e4484b3a0ee69da1b725151}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a838738889e4484b3a0ee69da1b725151} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ {\bfseries Get\+Input\+Socket} (const std\+::string \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a688ecbcb8e26620016d41f592dfcf326}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a688ecbcb8e26620016d41f592dfcf326} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ {\bfseries Get\+Output\+Socket} (const std\+::string \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ac45695e32a52f40a4305fbd5930d330e}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ac45695e32a52f40a4305fbd5930d330e} 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ $>$ {\bfseries Get\+Output\+Sockets} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ac6c215ea8577c97b9805dea25c73bbed}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ac6c215ea8577c97b9805dea25c73bbed} 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ $>$ {\bfseries Get\+Input\+Sockets} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_af443a2b9cd04296cd30a24ce5cdc6a8c}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_af443a2b9cd04296cd30a24ce5cdc6a8c} 
+std\+::string {\bfseries Get\+Name} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ad51fdb710ab9488a5a120a06c9820107}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ad51fdb710ab9488a5a120a06c9820107} 
+void {\bfseries Set\+Name} (const std\+::string \&name)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a9d67bee91adabf39e3e6ad96f139a3a1}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a9d67bee91adabf39e3e6ad96f139a3a1} 
+int {\bfseries Get\+ID} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a436c2f6e7485df826ccdd862337fe836}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a436c2f6e7485df826ccdd862337fe836} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Graph} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_aa6997ea315a9fa4aa0801ddd3f4c1e78}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_aa6997ea315a9fa4aa0801ddd3f4c1e78} 
+void {\bfseries Set\+ID} (const int \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a3d98959815736859b14ae4156a9d7d3d}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a3d98959815736859b14ae4156a9d7d3d} 
+void {\bfseries Set\+Primitive} (const bool is\+Primitive)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_afbc54b2c15e36e2e4202afbf0436bc43}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_afbc54b2c15e36e2e4202afbf0436bc43} 
+bool {\bfseries Get\+Is\+Primitive} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a53031a51653dcab33c6d44ef9aab5f16}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a53031a51653dcab33c6d44ef9aab5f16} 
+int {\bfseries m\+\_\+\+ID}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ad032d43b4bd2e4ec18fbe53e146109e6}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_ad032d43b4bd2e4ec18fbe53e146109e6} 
+bool {\bfseries m\+\_\+\+Is\+Primitive} = true
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a76e77cabff0e0105e7db41f0c1a34fc6}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a76e77cabff0e0105e7db41f0c1a34fc6} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Graph}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_af5f2c842d0ca779d514c44294e66d30d}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_af5f2c842d0ca779d514c44294e66d30d} 
+MATD\+::\+JSON {\bfseries m\+\_\+\+JSON}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a6e82575a2fa893590847c4f19e2a4a0f}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a6e82575a2fa893590847c4f19e2a4a0f} 
+std\+::string {\bfseries m\+\_\+\+Name}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a2d8e0fb5e408a13c147cec2eba3e9a19}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_a2d8e0fb5e408a13c147cec2eba3e9a19} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ {\bfseries m\+\_\+\+Function}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_aba421d141f2f9263f9103f13e013c0d3}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_aba421d141f2f9263f9103f13e013c0d3} 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ $>$ {\bfseries m\+\_\+\+Inputs}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_af268eb902430b48de97e0d9826117264}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node_af268eb902430b48de97e0d9826117264} 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ $>$ {\bfseries m\+\_\+\+Outputs}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Node.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Node.\+cpp\end{DoxyCompactItemize}

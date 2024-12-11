@@ -1,0 +1,32 @@
+\doxysection{Buffer.\+hpp}
+\hypertarget{_buffer_8hpp_source}{}\label{_buffer_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Buffer.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Buffer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Argument.hpp"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{Buffer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{Buffer}}(\textcolor{keywordtype}{void}*\ buffer,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ elem\_size,\ buf\_type\ argType);}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetBuffer(\textcolor{keywordtype}{void}*\ val,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ elem\_size);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ GetBuffer()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Value;\ \};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Size;\ \};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetByteSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_ByteSize;\ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetElementSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_ElementSize;\ \};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Bind(\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ workItem,\ \textcolor{keywordtype}{size\_t}\ index)\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Delete()\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ buf\_type\ m\_BufType;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ m\_Value;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_ByteSize\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_Size\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_ElementSize\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

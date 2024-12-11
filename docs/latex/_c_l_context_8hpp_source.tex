@@ -1,0 +1,26 @@
+\doxysection{CLContext.\+hpp}
+\hypertarget{_c_l_context_8hpp_source}{}\label{_c_l_context_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLContext.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLContext.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <CL/cl.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{namespace\ }ENGINE\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{namespace\ }OPENCL\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_context}{Context}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_context}{Context}}(cl::Device\ device,\ std::string\ deviceName);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ cl::Context\ GetCLContext()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Context;\ \};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ cl::Context\ m\_Context;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ cl::Device\ m\_Device;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::string\ m\_DeviceName;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ \ \ \};}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

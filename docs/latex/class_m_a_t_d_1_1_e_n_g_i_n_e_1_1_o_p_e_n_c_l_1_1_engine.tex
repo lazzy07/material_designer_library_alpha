@@ -1,0 +1,82 @@
+\doxysection{MATD\+::ENGINE\+::OPENCL\+::Engine Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}\index{MATD::ENGINE::OPENCL::Engine@{MATD::ENGINE::OPENCL::Engine}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{Engine} class, used to select platforms and devices to run kernels on, this class is used to initialize the engine and select the platform and device. And this is a singleton class.  
+
+
+
+
+{\ttfamily \#include $<$CLEngine.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::OPENCL\+::Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{ENGINE\+::\+Platform}} $>$ $>$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a068653cccf01d63211a7f843b24caa07}{Get\+Supported\+Platforms}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Set\+Platforms} (std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ $>$ platforms)
+\item 
+size\+\_\+t {\bfseries Select\+Platform} (size\+\_\+t id)
+\item 
+size\+\_\+t {\bfseries Select\+Device} (size\+\_\+t id)
+\item 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ {\bfseries Get\+Selected\+Platform} () const
+\item 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ {\bfseries Get\+Selected\+Device} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a6c9cbcc2c509c4a064d50ff9c88e0f65}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a6c9cbcc2c509c4a064d50ff9c88e0f65} 
+std\+::vector$<$ cl\+::\+Platform $>$ {\bfseries m\+\_\+\+Platforms}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}}}
+\begin{DoxyCompactItemize}
+\item 
+static Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{Engine}} $>$ {\bfseries Create\+Engine} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine}{Engine} class, used to select platforms and devices to run kernels on, this class is used to initialize the engine and select the platform and device. And this is a singleton class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a6aa9417e492c36996e0f1ecf79781a70}\index{MATD::ENGINE::OPENCL::Engine@{MATD::ENGINE::OPENCL::Engine}!````~Engine@{\texorpdfstring{$\sim$}{\string~}Engine}}
+\index{````~Engine@{\texorpdfstring{$\sim$}{\string~}Engine}!MATD::ENGINE::OPENCL::Engine@{MATD::ENGINE::OPENCL::Engine}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Engine()}{\string~Engine()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a6aa9417e492c36996e0f1ecf79781a70} 
+MATD\+::\+ENGINE\+::\+OPENCL\+::\+Engine\+::\texorpdfstring{$\sim$}{\string~}\+Engine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a068653cccf01d63211a7f843b24caa07}\index{MATD::ENGINE::OPENCL::Engine@{MATD::ENGINE::OPENCL::Engine}!GetSupportedPlatforms@{GetSupportedPlatforms}}
+\index{GetSupportedPlatforms@{GetSupportedPlatforms}!MATD::ENGINE::OPENCL::Engine@{MATD::ENGINE::OPENCL::Engine}}
+\doxysubsubsection{\texorpdfstring{GetSupportedPlatforms()}{GetSupportedPlatforms()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_engine_a068653cccf01d63211a7f843b24caa07} 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{ENGINE\+::\+Platform}} $>$ $>$ MATD\+::\+ENGINE\+::\+OPENCL\+::\+Engine\+::\+Get\+Supported\+Platforms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{MATD\+::\+ENGINE\+::\+Engine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLEngine.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLEngine.\+cpp\end{DoxyCompactItemize}

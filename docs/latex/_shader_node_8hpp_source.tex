@@ -1,0 +1,26 @@
+\doxysection{Shader\+Node.\+hpp}
+\hypertarget{_shader_node_8hpp_source}{}\label{_shader_node_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/shader\_graph/ShaderNode.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/shader\_graph/ShaderNode.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/Node.hpp"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00005\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node}{ShaderNode}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node}{ShaderNode}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}}*\ graph,\ JSON\ JSONObj);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node}{\string~ShaderNode}}();}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Init()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateParameters(JSON\ JSONObj,\ \textcolor{keywordtype}{int}\ subNodeId\ =\ -\/1)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetDisplayTexture(\textcolor{keyword}{const}\ Ref<DTYPES::Texture>\&\ texture)\ \{\ m\_DisplayTexture\ =\ texture;\ \}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ [[nodiscard]]\ Ref<DTYPES::Texture>\ GetDisplayTexture()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_DisplayTexture;\ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ Ref<DTYPES::Texture>\ m\_DisplayTexture;}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ \ \ \}}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}

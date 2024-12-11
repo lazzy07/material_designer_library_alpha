@@ -5,6 +5,11 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
+			/**
+			 * @brief OpenCL Int class that inherits from MATD::Int, this class is used to store the int data and bind it to the kernel arguments 
+			 * to be used in the OpenCL kernel and to be added to the OpenCL queue
+			 * 
+			 */
 			class Int : public MATD::Int {
 			public:
 				Int(int val);

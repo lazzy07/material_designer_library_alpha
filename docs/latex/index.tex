@@ -1,0 +1,52 @@
+\chapter{Material Designer Library}
+\hypertarget{index}{}\label{index}\index{Material Designer Library@{Material Designer Library}}
+\label{index_md__c_1_2personal_2projects_2material__designer_2material__designer__library__alpha_2_r_e_a_d_m_e}%
+\Hypertarget{index_md__c_1_2personal_2projects_2material__designer_2material__designer__library__alpha_2_r_e_a_d_m_e}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{What is Material Designer?}{What is Material Designer?}}\label{index_autotoc_md1}
+Material Desgner is a procedural texture generator software that runs on all platforms using electron.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{What is Material Designer Library?}{What is Material Designer Library?}}\label{index_autotoc_md2}
+Material Designer library which is written using C++ is the engine under the hood of material designer software. Thanks to V8 bindings, using N-\/\+API material designer library has been ported to electron\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{How to use the library?}{How to use the library?}}\label{index_autotoc_md3}
+Use this library to build material designer engine and V8 bindings, you can customize the library using your own kernels to carry out image processing. Please refer to the doc.\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Debugging}{Debugging}}\label{index_autotoc_md4}
+To debug the library with electron bindings (v8 bindings using Visual Studio), select all the electron processes from Debug \texorpdfstring{$>$}{>} Attach To Process\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Engine functionality}{Engine functionality}}\label{index_autotoc_md5}
+Engine functionality can be used without using any graph functionality
+
+assume that the "{}hello.\+cl"{} file resides inside the folder C\+:/material\+\_\+designer/kernels/ following is the implementation of hello.\+cl file
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\_\_kernel\ \textcolor{keywordtype}{void}\ test(\_\_global\ \textcolor{keywordtype}{int}*\ A,\ \textcolor{keywordtype}{int}\ B,\ \_\_global\ \textcolor{keywordtype}{int}*\ out)\{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ gid\ =\ get\_global\_id(0);}
+\DoxyCodeLine{\ \ out[gid]\ =\ A[gid]*B;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Once the kernel being implemented, you can use it to process data as follows
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//Create\ the\ material\ designer\ engine\ context}}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}{MATD::CORE::MaterialDesigner}}*\ matd\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}{MATD::CORE::MaterialDesigner}}();}
+\DoxyCodeLine{\textcolor{comment}{//Set\ library\ folder\ where\ kernel\ files\ been\ loaded}}
+\DoxyCodeLine{matd-\/>SetKenelLibraryFolder(\textcolor{stringliteral}{"{}C:/material\_designer/kernels/"{}});}
+\DoxyCodeLine{matd-\/>\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aad85a87856f3f9168c2b28cd9a279cb7}{SelectDevice}}(0,\ 0);}
+\DoxyCodeLine{MATD\_INFO(\textcolor{stringliteral}{"{}APPLICATION::Started"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ noOfElems\ =\ 8;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ arr[8]\ =\ \{1,2,3,4,5,6,7,8\};\ \textcolor{comment}{//\ Array\ to\ be\ processed}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ outArr[8]\ =\ \{\};\ \textcolor{comment}{//\ where\ the\ output\ will\ be\ saved\ to}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD::Buffer}}*\ buffer\ =\ matd-\/>\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4166db6521618a5e65e1aa55e18f6de2}{CreateBuffer}}(arr,\ noOfElems,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ MATD::ARG\_TYPE::DEVICE\_READ);\ \ \textcolor{comment}{//Creating\ Matd\ buffer\ from\ the\ array}}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD::Buffer}}*\ outBuffer\ =\ matd-\/>\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4166db6521618a5e65e1aa55e18f6de2}{CreateBuffer}}(outArr,\ noOfElems,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ MATD::ARG\_TYPE::DEVICE\_WRITE);\ \textcolor{comment}{//Creating\ out\ buffer\ that\ processed\ data\ need\ to\ save\ to}}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_int}{MATD::Int}}*\ integer\ =\ matd-\/>\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a0c0ecc8e730a1a491a3aa53f71965067}{CreateInt}}(3);\ \textcolor{comment}{//Another\ argument\ which\ required\ by\ the\ kernel}}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD::WorkItem}}*\ wi\ =\ matd-\/>\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a98abfca23f9c2aee0fedfa5e1daccd88}{CreateWorkItem}}(\textcolor{stringliteral}{"{}test"{}});\ \textcolor{comment}{//\ creating\ workitem\ from\ the\ kernel\ (test.cl)}}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue\ =\ matd-\/>\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aaaaa2506b76403042d5878cbc0707703}{CreateQueue}}();\ \textcolor{comment}{//Creating\ a\ MATD\ queue\ where\ the\ workitems\ will\ be\ enqueued\ to\ be\ processed}}
+\DoxyCodeLine{}
+\DoxyCodeLine{wi-\/>SetArgument(0,\ buffer);\ \textcolor{comment}{//\ Setting\ kernel\ arguments\ (Please\ check\ hello.cl)}}
+\DoxyCodeLine{wi-\/>SetArgument(1,\ integer);}
+\DoxyCodeLine{wi-\/>SetOutput(outBuffer);}
+\DoxyCodeLine{wi-\/>AddToQueue(queue);\ \textcolor{comment}{//adding\ workitem\ to\ the\ created\ queue}}
+
+\end{DoxyCode}
+ 

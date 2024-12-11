@@ -1,0 +1,86 @@
+\doxysection{MATD\+::GRAPH\+::Data\+Node Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node}\index{MATD::GRAPH::DataNode@{MATD::GRAPH::DataNode}}
+Inheritance diagram for MATD\+::GRAPH\+::Data\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_a09777cd05286bf7fa78ca798c4f25fa8}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_a09777cd05286bf7fa78ca798c4f25fa8} 
+{\bfseries Data\+Node} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*}graph, JSON JSONObj)
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_a8f479df44656cec89f9e6597bb2f00ef}{Init}} () override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_acc140f4016afcd8f9e19d75cd24429ed}{Update\+Parameters}} (JSON JSONObj, int sub\+Node\+Id=-\/1) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Node} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*}graph, JSON JSONObj)
+\item 
+void {\bfseries Add\+Input\+Socket} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ \&socket)
+\item 
+void {\bfseries Add\+Output\+Socket} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ \&socket)
+\item 
+const MATD\+::\+JSON \texorpdfstring{$\ast$}{*} {\bfseries Get\+JSON} () const
+\item 
+void {\bfseries Set\+JSON} (const MATD\+::\+JSON \&JSONObj)
+\item 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Function} () const
+\item 
+void {\bfseries Set\+Function} (const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ \&function)
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ {\bfseries Get\+Input\+Socket} (const std\+::string \&id)
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ {\bfseries Get\+Output\+Socket} (const std\+::string \&id)
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ $>$ {\bfseries Get\+Output\+Sockets} ()
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ $>$ {\bfseries Get\+Input\+Sockets} ()
+\item 
+std\+::string {\bfseries Get\+Name} () const
+\item 
+void {\bfseries Set\+Name} (const std\+::string \&name)
+\item 
+int {\bfseries Get\+ID} () const
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Graph} () const
+\item 
+void {\bfseries Set\+ID} (const int \&id)
+\item 
+void {\bfseries Set\+Primitive} (const bool is\+Primitive)
+\item 
+bool {\bfseries Get\+Is\+Primitive} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_a8f479df44656cec89f9e6597bb2f00ef}\index{MATD::GRAPH::DataNode@{MATD::GRAPH::DataNode}!Init@{Init}}
+\index{Init@{Init}!MATD::GRAPH::DataNode@{MATD::GRAPH::DataNode}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_a8f479df44656cec89f9e6597bb2f00ef} 
+void MATD\+::\+GRAPH\+::\+Data\+Node\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_acc140f4016afcd8f9e19d75cd24429ed}\index{MATD::GRAPH::DataNode@{MATD::GRAPH::DataNode}!UpdateParameters@{UpdateParameters}}
+\index{UpdateParameters@{UpdateParameters}!MATD::GRAPH::DataNode@{MATD::GRAPH::DataNode}}
+\doxysubsubsection{\texorpdfstring{UpdateParameters()}{UpdateParameters()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_node_acc140f4016afcd8f9e19d75cd24429ed} 
+void MATD\+::\+GRAPH\+::\+Data\+Node\+::\+Update\+Parameters (\begin{DoxyParamCaption}\item[{JSON}]{JSONObj}{, }\item[{int}]{sub\+Node\+Id}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/data\+\_\+graph/Data\+Node.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/data\+\_\+graph/Data\+Node.\+cpp\end{DoxyCompactItemize}

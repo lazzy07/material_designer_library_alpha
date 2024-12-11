@@ -7,6 +7,12 @@
 
 namespace MATD{
   namespace ENGINE{
+
+    /**
+     * @brief Platform class, used to store platform information and devices, this is the main class that is used to select the platform and devices. 
+     * Platform can have multiple devices, from multiple vendors (Eg: Nvidia, Intel etc.), and multiple profiles
+     * 
+     */
     class Platform{
       public:
 				virtual void InitCompatibleDevices() = 0;

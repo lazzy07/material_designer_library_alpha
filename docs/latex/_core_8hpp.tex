@@ -1,0 +1,63 @@
+\doxysection{C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/\+Core.hpp File Reference}
+\hypertarget{_core_8hpp}{}\label{_core_8hpp}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Core.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Core.hpp}}
+
+
+Core header file for \doxylink{namespace_m_a_t_d}{MATD}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include "{}Log.\+hpp"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_m_a_t_d}{MATD}}
+\begin{DoxyCompactList}\small\item\em Scope and Ref smart pointers for \doxylink{namespace_m_a_t_d}{MATD}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_core_8hpp_aef6f51b1b96d3d19f4b997d6cab2fd5e}{MATD\+\_\+\+ASSERT}}(x, ...)
+\begin{DoxyCompactList}\small\item\em Enable assert if Debug mode is enabled. \end{DoxyCompactList}\item 
+\Hypertarget{_core_8hpp_a9a5c7c52c225d444b1c8a7b28ea7b9f2}\label{_core_8hpp_a9a5c7c52c225d444b1c8a7b28ea7b9f2} 
+\#define {\bfseries MATD\+\_\+\+CORE\+\_\+\+ASSERT}(x, ...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_m_a_t_d_ae07eb17a347c62b0f1d5bcf60eedde7e}\label{namespace_m_a_t_d_ae07eb17a347c62b0f1d5bcf60eedde7e} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries MATD\+::\+Scope} = std\+::unique\+\_\+ptr$<$T$>$
+\item 
+\Hypertarget{namespace_m_a_t_d_ae59c01ddb4817fbc6519008bc2b5bfb7}\label{namespace_m_a_t_d_ae59c01ddb4817fbc6519008bc2b5bfb7} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries MATD\+::\+Ref} = std\+::shared\+\_\+ptr$<$T$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core header file for \doxylink{namespace_m_a_t_d}{MATD}. 
+
+\begin{DoxyAuthor}{Author}
+Lasantha M Senanayake (\href{mailto:222lasantha@gmail.com}{\texttt{ 222lasantha@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/11-\/01
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_core_8hpp_aef6f51b1b96d3d19f4b997d6cab2fd5e}\index{Core.hpp@{Core.hpp}!MATD\_ASSERT@{MATD\_ASSERT}}
+\index{MATD\_ASSERT@{MATD\_ASSERT}!Core.hpp@{Core.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_ASSERT}{MATD\_ASSERT}}
+{\footnotesize\ttfamily \label{_core_8hpp_aef6f51b1b96d3d19f4b997d6cab2fd5e} 
+\#define MATD\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+
+
+Enable assert if Debug mode is enabled. 
+
+Assert macro for \doxylink{namespace_m_a_t_d}{MATD} 

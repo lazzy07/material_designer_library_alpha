@@ -1,0 +1,74 @@
+\doxysection{MATD\+::ENGINE\+::OPENCL\+::Platform Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform}\index{MATD::ENGINE::OPENCL::Platform@{MATD::ENGINE::OPENCL::Platform}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform}{Platform} class, used to store the platform information and devices.  
+
+
+
+
+{\ttfamily \#include $<$CLPlatform.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::OPENCL\+::Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_ac035490085648faeff3a3ba4427da11c}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_ac035490085648faeff3a3ba4427da11c} 
+void {\bfseries Set\+Platform} (cl\+::\+Platform platform)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a7a9153b8a0c4782fc297ea09afbe7bd4}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a7a9153b8a0c4782fc297ea09afbe7bd4} 
+const std\+::vector$<$ cl\+::\+Device $>$ {\bfseries Get\+CLDevices} () const
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a0334ae53e76f97e257764d7a11d21b91}{Init\+Compatible\+Devices}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{MATD\+::\+ENGINE\+::\+Platform}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Set\+Platform\+Data} (const std\+::string version, const std\+::string profile, const std\+::string name, const std\+::string vendor)
+\item 
+std\+::string {\bfseries Get\+Name} () const
+\item 
+void {\bfseries Set\+Devices} (std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ $>$ devices)
+\item 
+const std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ $>$ {\bfseries Get\+Devices} ()
+\item 
+size\+\_\+t {\bfseries Get\+Id} () const
+\item 
+void {\bfseries Set\+Id} (size\+\_\+t id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a80524dd64bf9b65391ab386e130a2641}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a80524dd64bf9b65391ab386e130a2641} 
+cl\+::\+Platform {\bfseries m\+\_\+\+Platform}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a65f0d1a156fcd1bafa200fd01ea56a85}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a65f0d1a156fcd1bafa200fd01ea56a85} 
+std\+::vector$<$ cl\+::\+Device $>$ {\bfseries m\+\_\+\+Devices}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform}{Platform} class, used to store the platform information and devices. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a0334ae53e76f97e257764d7a11d21b91}\index{MATD::ENGINE::OPENCL::Platform@{MATD::ENGINE::OPENCL::Platform}!InitCompatibleDevices@{InitCompatibleDevices}}
+\index{InitCompatibleDevices@{InitCompatibleDevices}!MATD::ENGINE::OPENCL::Platform@{MATD::ENGINE::OPENCL::Platform}}
+\doxysubsubsection{\texorpdfstring{InitCompatibleDevices()}{InitCompatibleDevices()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_platform_a0334ae53e76f97e257764d7a11d21b91} 
+void MATD\+::\+ENGINE\+::\+OPENCL\+::\+Platform\+::\+Init\+Compatible\+Devices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{MATD\+::\+ENGINE\+::\+Platform}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLPlatform.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLPlatform.\+cpp\end{DoxyCompactItemize}

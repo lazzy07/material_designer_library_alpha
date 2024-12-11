@@ -1,0 +1,34 @@
+\doxysection{CLDevice.\+hpp}
+\hypertarget{_c_l_device_8hpp_source}{}\label{_c_l_device_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLDevice.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLDevice.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <CL/cl.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../matd/Device.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CLContext.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{namespace\ }ENGINE\{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{namespace\ }OPENCL\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}{Device}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{ENGINE::Device}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}{Device}}(std::string\ deviceName,\ MATD::ENGINE::MAT\_DEVICE\_TYPE\ type);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetCLDeviceData(cl::Device\ device,\ cl\_uint\ maxUnits,\ cl\_uint\ maxDim,\ std::vector<size\_t>\ maxItem,\ cl\_uint\ grpSize);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ InitDevice();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Ref<OPENCL::Context>\ GetContext()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Context;\ \};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ cl::Device\ GetClDevice()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Device;\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ cl::Device\ m\_Device;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ cl\_uint\ m\_DeviceMaxComputeUnits\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ cl\_uint\ m\_DeviceMaxWorkItemDimensions\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<size\_t>\ m\_DeviceMaxWorkItemSizes;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ cl\_uint\ m\_DeviceMaxGroupSize\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ Ref<OPENCL::Context>\ m\_Context;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ \ \ \};}
+\DoxyCodeLine{00032\ \};}
+
+\end{DoxyCode}

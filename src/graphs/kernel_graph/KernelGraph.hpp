@@ -6,6 +6,10 @@
 
 namespace MATD{
   namespace GRAPH{
+    /**
+     * @brief KernelGraph class that inherits from MATD::GRAPH::Graph, this class is used to store the kernel graph and update the kernel nodes.
+     * Kernel nodes are special nodes that are used to calculate Kernels and output the data to the next nodes.
+     */
     class KernelGraph final : public MATD::GRAPH::Graph{
     public:
       KernelGraph(MaterialGraph* graph, const MATD::JSON& JSONObj);

@@ -1,0 +1,218 @@
+\doxysection{C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/core/\+Log.hpp File Reference}
+\hypertarget{_log_8hpp}{}\label{_log_8hpp}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Log.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Log.hpp}}
+
+
+Logger for Material Designer Engine and Editor.  
+
+
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/fmt/ostr.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{MATD\+::\+CORE\+::\+Log}}
+\begin{DoxyCompactList}\small\item\em Logger class for Material Designer Engine and Editor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_m_a_t_d}{MATD}}
+\begin{DoxyCompactList}\small\item\em Scope and Ref smart pointers for \doxylink{namespace_m_a_t_d}{MATD}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_log_8hpp_a27b3249db8d77bd236109bda307bc263}\label{_log_8hpp_a27b3249db8d77bd236109bda307bc263} 
+\#define {\bfseries FMT\+\_\+\+HEADER\+\_\+\+ONLY}
+\item 
+\Hypertarget{_log_8hpp_a8aba8a78c514e176e0dd0a159de7a369}\label{_log_8hpp_a8aba8a78c514e176e0dd0a159de7a369} 
+\#define {\bfseries FMT\+\_\+\+DEPRECATED}
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a6e046e7e36214c4c863333820a1acdc5}{MATD\+\_\+\+CORE\+\_\+\+LOG\+\_\+\+LEVEL}}(x)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_ae0f44116084423b1f946739467e2352a}{MATD\+\_\+\+LOG\+\_\+\+LEVEL}}(x)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a6b796ccea9c4e19e2a33641fc0683608}{MATD\+\_\+\+CORE\+\_\+\+TRACE}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a6abb2970cc79daf13ee06566d5e4a802}{MATD\+\_\+\+CORE\+\_\+\+INFO}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a8c6111cf7959a01b960a32d7119e1130}{MATD\+\_\+\+CORE\+\_\+\+WARN}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a5470fd50ff6ff6cb568dcb43a3da6a35}{MATD\+\_\+\+CORE\+\_\+\+ERROR}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_ae0c43f371d4759eac88a99200af80ab7}{MATD\+\_\+\+CORE\+\_\+\+FATAL}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_aac427cdab44b9c60b86865b9d077455f}{MATD\+\_\+\+TRACE}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a978d9c73bdd08d44f0c8a093f91411f0}{MATD\+\_\+\+INFO}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a8872479b7fc13533c95da40900866a6c}{MATD\+\_\+\+WARN}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_acc6278c8510a63ef42e3820dd8fc6962}{MATD\+\_\+\+ERROR}}(...)
+\item 
+\#define \mbox{\hyperlink{_log_8hpp_a534fce8dd291d25ef55cd38d7773acbf}{MATD\+\_\+\+FATAL}}(...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_log_8hpp_aac8788e7e8bd571f99d8fbb55a5673d4}\label{_log_8hpp_aac8788e7e8bd571f99d8fbb55a5673d4} 
+enum class {\bfseries LOGLEVEL} \{ \newline
+{\bfseries TRACE}
+, {\bfseries INFO}
+, {\bfseries WARN}
+, {\bfseries ERR}
+, \newline
+{\bfseries FATAL}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logger for Material Designer Engine and Editor. 
+
+\begin{DoxyAuthor}{Author}
+Lasantha M Senanayake (\href{mailto:222lasantha@gmail.com}{\texttt{ 222lasantha@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/11-\/01
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_log_8hpp_a5470fd50ff6ff6cb568dcb43a3da6a35}\index{Log.hpp@{Log.hpp}!MATD\_CORE\_ERROR@{MATD\_CORE\_ERROR}}
+\index{MATD\_CORE\_ERROR@{MATD\_CORE\_ERROR}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_CORE\_ERROR}{MATD\_CORE\_ERROR}}
+{\footnotesize\ttfamily \label{_log_8hpp_a5470fd50ff6ff6cb568dcb43a3da6a35} 
+\#define MATD\+\_\+\+CORE\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{::MATD::CORE::Log::GetCoreLogger}}()-\/>error(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{MATD::CORE::Log::GetCoreFileLogger}}()-\/>error(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_ae0c43f371d4759eac88a99200af80ab7}\index{Log.hpp@{Log.hpp}!MATD\_CORE\_FATAL@{MATD\_CORE\_FATAL}}
+\index{MATD\_CORE\_FATAL@{MATD\_CORE\_FATAL}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_CORE\_FATAL}{MATD\_CORE\_FATAL}}
+{\footnotesize\ttfamily \label{_log_8hpp_ae0c43f371d4759eac88a99200af80ab7} 
+\#define MATD\+\_\+\+CORE\+\_\+\+FATAL(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{::MATD::CORE::Log::GetCoreLogger}}()-\/>critical(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{MATD::CORE::Log::GetCoreFileLogger}}()-\/>critical(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a6abb2970cc79daf13ee06566d5e4a802}\index{Log.hpp@{Log.hpp}!MATD\_CORE\_INFO@{MATD\_CORE\_INFO}}
+\index{MATD\_CORE\_INFO@{MATD\_CORE\_INFO}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_CORE\_INFO}{MATD\_CORE\_INFO}}
+{\footnotesize\ttfamily \label{_log_8hpp_a6abb2970cc79daf13ee06566d5e4a802} 
+\#define MATD\+\_\+\+CORE\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{::MATD::CORE::Log::GetCoreLogger}}()-\/>info(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{MATD::CORE::Log::GetCoreFileLogger}}()-\/>info(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a6e046e7e36214c4c863333820a1acdc5}\index{Log.hpp@{Log.hpp}!MATD\_CORE\_LOG\_LEVEL@{MATD\_CORE\_LOG\_LEVEL}}
+\index{MATD\_CORE\_LOG\_LEVEL@{MATD\_CORE\_LOG\_LEVEL}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_CORE\_LOG\_LEVEL}{MATD\_CORE\_LOG\_LEVEL}}
+{\footnotesize\ttfamily \label{_log_8hpp_a6e046e7e36214c4c863333820a1acdc5} 
+\#define MATD\+\_\+\+CORE\+\_\+\+LOG\+\_\+\+LEVEL(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8ae385933beb7e4b8fc75afdf484fe58}{::MATD::CORE::Log::SetCoreLogLevel}}(x)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a6b796ccea9c4e19e2a33641fc0683608}\index{Log.hpp@{Log.hpp}!MATD\_CORE\_TRACE@{MATD\_CORE\_TRACE}}
+\index{MATD\_CORE\_TRACE@{MATD\_CORE\_TRACE}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_CORE\_TRACE}{MATD\_CORE\_TRACE}}
+{\footnotesize\ttfamily \label{_log_8hpp_a6b796ccea9c4e19e2a33641fc0683608} 
+\#define MATD\+\_\+\+CORE\+\_\+\+TRACE(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{::MATD::CORE::Log::GetCoreLogger}}()-\/>trace(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{MATD::CORE::Log::GetCoreFileLogger}}()-\/>trace(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a8c6111cf7959a01b960a32d7119e1130}\index{Log.hpp@{Log.hpp}!MATD\_CORE\_WARN@{MATD\_CORE\_WARN}}
+\index{MATD\_CORE\_WARN@{MATD\_CORE\_WARN}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_CORE\_WARN}{MATD\_CORE\_WARN}}
+{\footnotesize\ttfamily \label{_log_8hpp_a8c6111cf7959a01b960a32d7119e1130} 
+\#define MATD\+\_\+\+CORE\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{::MATD::CORE::Log::GetCoreLogger}}()-\/>warn(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{MATD::CORE::Log::GetCoreFileLogger}}()-\/>warn(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_acc6278c8510a63ef42e3820dd8fc6962}\index{Log.hpp@{Log.hpp}!MATD\_ERROR@{MATD\_ERROR}}
+\index{MATD\_ERROR@{MATD\_ERROR}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_ERROR}{MATD\_ERROR}}
+{\footnotesize\ttfamily \label{_log_8hpp_acc6278c8510a63ef42e3820dd8fc6962} 
+\#define MATD\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{::MATD::CORE::Log::GetClientLogger}}()-\/>error(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{MATD::CORE::Log::GetClientFileLogger}}()-\/>error(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a534fce8dd291d25ef55cd38d7773acbf}\index{Log.hpp@{Log.hpp}!MATD\_FATAL@{MATD\_FATAL}}
+\index{MATD\_FATAL@{MATD\_FATAL}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_FATAL}{MATD\_FATAL}}
+{\footnotesize\ttfamily \label{_log_8hpp_a534fce8dd291d25ef55cd38d7773acbf} 
+\#define MATD\+\_\+\+FATAL(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{::MATD::CORE::Log::GetClientLogger}}()-\/>critical(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{MATD::CORE::Log::GetClientFileLogger}}()-\/>critical(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a978d9c73bdd08d44f0c8a093f91411f0}\index{Log.hpp@{Log.hpp}!MATD\_INFO@{MATD\_INFO}}
+\index{MATD\_INFO@{MATD\_INFO}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_INFO}{MATD\_INFO}}
+{\footnotesize\ttfamily \label{_log_8hpp_a978d9c73bdd08d44f0c8a093f91411f0} 
+\#define MATD\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{::MATD::CORE::Log::GetClientLogger}}()-\/>info(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{MATD::CORE::Log::GetClientFileLogger}}()-\/>info(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_ae0f44116084423b1f946739467e2352a}\index{Log.hpp@{Log.hpp}!MATD\_LOG\_LEVEL@{MATD\_LOG\_LEVEL}}
+\index{MATD\_LOG\_LEVEL@{MATD\_LOG\_LEVEL}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_LOG\_LEVEL}{MATD\_LOG\_LEVEL}}
+{\footnotesize\ttfamily \label{_log_8hpp_ae0f44116084423b1f946739467e2352a} 
+\#define MATD\+\_\+\+LOG\+\_\+\+LEVEL(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a863499c0f7c584c5900046ef67858716}{::MATD::CORE::Log::SetAppLogLevel}}(x)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_aac427cdab44b9c60b86865b9d077455f}\index{Log.hpp@{Log.hpp}!MATD\_TRACE@{MATD\_TRACE}}
+\index{MATD\_TRACE@{MATD\_TRACE}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_TRACE}{MATD\_TRACE}}
+{\footnotesize\ttfamily \label{_log_8hpp_aac427cdab44b9c60b86865b9d077455f} 
+\#define MATD\+\_\+\+TRACE(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{::MATD::CORE::Log::GetClientLogger}}()-\/>trace(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{MATD::CORE::Log::GetClientFileLogger}}()-\/>trace(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_log_8hpp_a8872479b7fc13533c95da40900866a6c}\index{Log.hpp@{Log.hpp}!MATD\_WARN@{MATD\_WARN}}
+\index{MATD\_WARN@{MATD\_WARN}!Log.hpp@{Log.hpp}}
+\doxysubsubsection{\texorpdfstring{MATD\_WARN}{MATD\_WARN}}
+{\footnotesize\ttfamily \label{_log_8hpp_a8872479b7fc13533c95da40900866a6c} 
+\#define MATD\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{::MATD::CORE::Log::GetClientLogger}}()-\/>warn(\_\_VA\_ARGS\_\_);\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{MATD::CORE::Log::GetClientFileLogger}}()-\/>warn(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}

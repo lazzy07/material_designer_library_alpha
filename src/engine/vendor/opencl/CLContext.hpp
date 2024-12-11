@@ -5,6 +5,10 @@
 namespace MATD {
   namespace ENGINE {
     namespace OPENCL {
+      /**
+       * @brief Context class for OpenCL, used to store the context of the device
+       * 
+       */
       class Context {
       public:
         Context(cl::Device device, std::string deviceName);

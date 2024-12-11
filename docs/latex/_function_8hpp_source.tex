@@ -1,0 +1,54 @@
+\doxysection{Function.\+hpp}
+\hypertarget{_function_8hpp_source}{}\label{_function_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/functions/core/Function.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/functions/core/Function.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_j_s_o_n_parser_8hpp}{../../core/JSONParser.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Argument.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{namespace\ }GRAPH\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }Node;}
+\DoxyCodeLine{00011\ \ \ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{namespace\ }FUNC\{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{enum\ class}\ FUNCTION\_TYPE\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ OUTPUT,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ INPUT,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ PROCESS,}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{Function}}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{Function}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD::GRAPH::Node}}*\ node);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{\string~Function}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Init(MATD::JSON\ JSONObj)\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Calculate()\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Update();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnComplete();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetArgument(Ref<Argument>\ arg);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH::Node}}*\ GetNode()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Node;\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ Ref<Argument>\ GetArgument(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ m\_Arguments[id];\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ std::map<std::string,\ Ref<Argument>>\ GetArguments()\ \{\ \textcolor{keywordflow}{return}\ m\_Arguments;\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ [[nodiscard]]\ FUNCTION\_TYPE\ GetFunctionType()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_FunctionType;\ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetFunctionType(FUNCTION\_TYPE\ functionType)\ \{\ m\_FunctionType\ =\ functionType;\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD::GRAPH::Node}}*\ m\_Node;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ MATD::FUNC::FUNCTION\_TYPE\ m\_FunctionType;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \textcolor{comment}{//Arguments\ are\ the\ node\ properties\ coming\ from\ Material\ Designer\ editor}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ std::map<std::string,\ Ref<Argument>>\ m\_Arguments;}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

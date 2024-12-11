@@ -1,0 +1,92 @@
+\doxysection{MATD\+::GRAPH\+::Graph Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}\index{MATD::GRAPH::Graph@{MATD::GRAPH::Graph}}
+Inheritance diagram for MATD\+::GRAPH\+::Graph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.996435cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a71b129acd2d2a4f7f1f6355b270e2e9e}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a71b129acd2d2a4f7f1f6355b270e2e9e} 
+{\bfseries Graph} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*}graph, const MATD\+::\+JSON \&JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a08eda7c5be8e9cbba2ef369708c42622}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a08eda7c5be8e9cbba2ef369708c42622} 
+std\+::string {\bfseries Get\+ID} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a31a8d1c7eb899746ca6e92876730a8e7}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a31a8d1c7eb899746ca6e92876730a8e7} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Material\+Graph} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a53c3a0a0d7c2d52c26a3b58bf1dcc847}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a53c3a0a0d7c2d52c26a3b58bf1dcc847} 
+virtual void {\bfseries Create\+Node} (MATD\+::\+JSON JSONObj)=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa97f50d6bb21054ea9cb2d7adc52fbbd}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa97f50d6bb21054ea9cb2d7adc52fbbd} 
+virtual void {\bfseries Remove\+Node} (MATD\+::\+JSON JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a0e417b5c33d8e9ced211f19d3ceebe26}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a0e417b5c33d8e9ced211f19d3ceebe26} 
+virtual void {\bfseries Add\+Connection} (MATD\+::\+JSON JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a8d44770284e2ea887a2750aac3a0a609}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a8d44770284e2ea887a2750aac3a0a609} 
+virtual void {\bfseries Remove\+Connection} (MATD\+::\+JSON JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_af033743a1b6738a0cec591b5e41d03e3}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_af033743a1b6738a0cec591b5e41d03e3} 
+virtual void {\bfseries Update} (MATD\+::\+JSON JSONObj)=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a900d8d10ace714e68aeee22ca7033bce}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a900d8d10ace714e68aeee22ca7033bce} 
+virtual void {\bfseries Init} (MATD\+::\+JSON JSONObj)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a9b1a8375a7497d8e23ea65fd3fdba9d7}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a9b1a8375a7497d8e23ea65fd3fdba9d7} 
+std\+::map$<$ int, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Nodes} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa71c3cf47600932bf78d0ad167971619}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa71c3cf47600932bf78d0ad167971619} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ {\bfseries Get\+Node} (const int \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a4bb93664f9a8e33d055639c2a23fb579}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a4bb93664f9a8e33d055639c2a23fb579} 
+void {\bfseries Set\+Node} (const int \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} $>$ \&node)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa53479f67690500bc50c9f562cb5c4cb}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa53479f67690500bc50c9f562cb5c4cb} 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Connections} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa0b3791dca70450871522ae7eb4d19a6}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_aa0b3791dca70450871522ae7eb4d19a6} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ {\bfseries Get\+Connection} (const std\+::string \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_ad629cffdb1e219a31a8be5e60e14ba73}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_ad629cffdb1e219a31a8be5e60e14ba73} 
+void {\bfseries Add\+To\+Connection\+Pool} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{Connection}} $>$ \&connection)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_ad50de89fadbc80d207ddcc3fd357dbf2}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_ad50de89fadbc80d207ddcc3fd357dbf2} 
+void {\bfseries Remove\+From\+Connection\+Pool} (const std\+::string \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_ad556ef98745fdc1b609addee8beae48d}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_ad556ef98745fdc1b609addee8beae48d} 
+void {\bfseries Set\+ID} (const std\+::string \&id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a8799f61c3897af9a65aedc1ad8b8799b}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a8799f61c3897af9a65aedc1ad8b8799b} 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries Get\+Output\+Nodes} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a340a0fa80f1e0e9b91f2de1eb0fec423}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a340a0fa80f1e0e9b91f2de1eb0fec423} 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries Get\+Input\+Nodes} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a81e38ff9b8c2cddcbad2c9880febed57}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a81e38ff9b8c2cddcbad2c9880febed57} 
+void {\bfseries Start\+Update} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}node, uint64\+\_\+t time)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a5c2d6bdbb33513c3b4e7b48605d26088}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a5c2d6bdbb33513c3b4e7b48605d26088} 
+std\+::string {\bfseries m\+\_\+\+ID}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a6f2711c1b64bc9051f6740f76302c908}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a6f2711c1b64bc9051f6740f76302c908} 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{Material\+Graph}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Material\+Graph}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a3f89bf9f8a1f75fb49cf26dac023e670}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a3f89bf9f8a1f75fb49cf26dac023e670} 
+std\+::map$<$ int, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} $>$ $>$ {\bfseries m\+\_\+\+Nodes}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a1ad49d7866e94674f0751a3ddc180de2}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph_a1ad49d7866e94674f0751a3ddc180de2} 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_connection}{MATD\+::\+GRAPH\+::\+Connection}} $>$ $>$ {\bfseries m\+\_\+\+Connections}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Graph.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/core/Graph.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,20 @@
+\doxysection{Color\+Texture.\+hpp}
+\hypertarget{_color_texture_8hpp_source}{}\label{_color_texture_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/ColorTexture.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/ColorTexture.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Texture.hpp"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{ColorTexture}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES::Texture}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{ColorTexture}}(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType);}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{\string~ColorTexture}}();}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Bind(\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ workItem,\ \textcolor{keywordtype}{size\_t}\ index)\ \textcolor{keyword}{override}\ =\ 0;}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Delete()\ \textcolor{keyword}{override}\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ \textcolor{keyword}{override}\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
