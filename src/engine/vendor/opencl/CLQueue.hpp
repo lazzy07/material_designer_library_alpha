@@ -6,6 +6,10 @@
 namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
+			/**
+			 * @brief OpenCL Queue class, used to store the queue and events
+			 * 
+			 */
 			class Queue : public MATD::Queue {
 			public:
 				Queue();

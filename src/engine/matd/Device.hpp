@@ -8,8 +8,18 @@ namespace MATD{
       DEVICE_CPU
     };
 
+    /**
+     * @brief Material Designer device class, used to store device information and run kernels on the device
+     * 
+     */
     class Device{
     public:
+      /**
+       * @brief Construct a new Device object
+       * 
+       * @param deviceName Name of the device
+       * @param type GPU or CPU
+       */
       Device(std::string deviceName, MATD::ENGINE::MAT_DEVICE_TYPE type);
 
       inline void SetDeviceName(const std::string name) { m_DeviceName = name; };

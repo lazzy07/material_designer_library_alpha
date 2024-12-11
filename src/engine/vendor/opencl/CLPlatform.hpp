@@ -6,6 +6,10 @@
 namespace MATD{
   namespace ENGINE{
     namespace OPENCL{
+      /**
+       * @brief OpenCL Platform class, used to store the platform information and devices
+       * 
+       */
       class Platform : public ENGINE::Platform{
       public:
         inline void SetPlatform(cl::Platform platform){m_Platform = platform;};

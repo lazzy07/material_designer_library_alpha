@@ -6,6 +6,10 @@
 namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
+			/**
+			 * @brief OpenCL Kernel class, used to store the kernel data and create the kernel
+			 * 
+			 */
 			class Kernel: public MATD::Kernel {
 			public:
 				Kernel(std::string id);

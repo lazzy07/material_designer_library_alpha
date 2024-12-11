@@ -6,6 +6,11 @@
 
 namespace MATD::DTYPES::OPENCL
 {
+    /**
+      * @brief OpenCL GrayscaleTexture class that inherits from MATD::GrayscaleTexture, this class is used to store the grayscale texture data and bind it to the kernel arguments 
+      * to be used in the OpenCL kernel and to be added to the OpenCL queue
+      * 
+      */
    class GrayscaleTexture : public MATD::GrayscaleTexture
    {
    public:

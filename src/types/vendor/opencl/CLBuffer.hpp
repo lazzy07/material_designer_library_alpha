@@ -5,6 +5,11 @@
 namespace MATD {
 	namespace DTYPES {
 		namespace OPENCL {
+			/**
+			 * @brief OpenCL Buffer class that inherits from MATD::Buffer, this class is used to store the buffer data and bind it to the kernel arguments 
+			 * to be used in the OpenCL kernel and to be added to the OpenCL queue
+			 * 
+			 */
 			class Buffer : public MATD::Buffer {
 			public:
 				Buffer(void* buffer, size_t size, size_t elem_size, buf_type argType);

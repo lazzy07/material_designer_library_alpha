@@ -7,6 +7,10 @@
 namespace MATD {
 	namespace ENGINE {
 		namespace OPENCL {
+			/**
+			 * @brief OpenCL WorkItem class, used to store the work item and run the kernel
+			 * 
+			 */
 			class WorkItem : public MATD::WorkItem {
 			public:
 				WorkItem(Kernel* kernel);

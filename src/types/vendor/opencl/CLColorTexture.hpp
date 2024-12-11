@@ -6,6 +6,11 @@
 
 namespace MATD::DTYPES::OPENCL
 {
+  /**
+   * @brief OpenCL ColorTexture class that inherits from MATD::ColorTexture, this class is used to store the color texture data and bind it to the kernel arguments 
+   * to be used in the OpenCL kernel and to be added to the OpenCL queue
+   * 
+   */
   class ColorTexture : public MATD::ColorTexture
   {
   public:
