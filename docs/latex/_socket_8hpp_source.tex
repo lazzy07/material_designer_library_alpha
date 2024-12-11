@@ -1,0 +1,39 @@
+\doxysection{Socket.\+hpp}
+\hypertarget{_socket_8hpp_source}{}\label{_socket_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Socket.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Socket.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../functions/core/Argument.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Node.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }Connection;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{Socket}}\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{Socket}}(std::string\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}}*\ node);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_socket}{\string~Socket}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetID()\ \{\ \textcolor{keywordflow}{return}\ m\_ID;\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}}*\ GetNode()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Node;\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Ref<Connection>\ GetConnection(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ AddConnection(Ref<Connection>\ connection)\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ RemoveConnection(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ NoOfConnections()\ =\ 0;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Ref<FUNC::Argument>\ GetArgument()\ =\ 0;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Update()\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ std::string\ m\_ID;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}}*\ m\_Node;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ \}}
+
+\end{DoxyCode}

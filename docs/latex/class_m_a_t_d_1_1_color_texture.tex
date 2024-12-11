@@ -1,0 +1,88 @@
+\doxysection{MATD\+::Color\+Texture Class Reference}
+\hypertarget{class_m_a_t_d_1_1_color_texture}{}\label{class_m_a_t_d_1_1_color_texture}\index{MATD::ColorTexture@{MATD::ColorTexture}}
+Inheritance diagram for MATD\+::Color\+Texture\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_m_a_t_d_1_1_color_texture}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_color_texture_a4406ddd0fc6291475efc0d59162f24a9}\label{class_m_a_t_d_1_1_color_texture_a4406ddd0fc6291475efc0d59162f24a9} 
+{\bfseries Color\+Texture} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t width, size\+\_\+t height, buf\+\_\+type arg\+Type)
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture_a45d7fcb986ea34111504513a798894ec}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index) override=0
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture_a5c4b0d493e777e165a4fc7d6b779dc9b}{Delete}} () override=0
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture_ab370aeb2904253da93f44c78fadb95d4}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue) override=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Texture} (MAT\+\_\+\+ARG mat\+Arg\+Type, MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t no\+Of\+Channels, size\+\_\+t width, size\+\_\+t height, buf\+\_\+type arg\+Type)
+\item 
+MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE {\bfseries Get\+Bit\+Type} () const
+\item 
+size\+\_\+t {\bfseries Get\+Height} () const
+\item 
+size\+\_\+t {\bfseries Get\+Width} () const
+\item 
+size\+\_\+t {\bfseries Get\+No\+Of\+Channels} () const
+\item 
+size\+\_\+t {\bfseries Get\+Size} () const
+\item 
+size\+\_\+t {\bfseries Get\+Byte\+Size} () const
+\item 
+size\+\_\+t {\bfseries Get\+Element\+Size} () const
+\item 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Buffer} () const
+\item 
+void {\bfseries Change\+Image\+Properties} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t no\+Of\+Channels, size\+\_\+t width, size\+\_\+t height)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t {\bfseries Bit\+Type\+To\+Size} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_color_texture_ab370aeb2904253da93f44c78fadb95d4}\index{MATD::ColorTexture@{MATD::ColorTexture}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::ColorTexture@{MATD::ColorTexture}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_color_texture_ab370aeb2904253da93f44c78fadb95d4} 
+void MATD\+::\+Color\+Texture\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}.
+
+\Hypertarget{class_m_a_t_d_1_1_color_texture_a45d7fcb986ea34111504513a798894ec}\index{MATD::ColorTexture@{MATD::ColorTexture}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::ColorTexture@{MATD::ColorTexture}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_color_texture_a45d7fcb986ea34111504513a798894ec} 
+void MATD\+::\+Color\+Texture\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}.
+
+\Hypertarget{class_m_a_t_d_1_1_color_texture_a5c4b0d493e777e165a4fc7d6b779dc9b}\index{MATD::ColorTexture@{MATD::ColorTexture}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::ColorTexture@{MATD::ColorTexture}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_color_texture_a5c4b0d493e777e165a4fc7d6b779dc9b} 
+void MATD\+::\+Color\+Texture\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Color\+Texture.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Color\+Texture.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\doxysection{MATD\+::FUNC\+::Kernel\+Function Class Reference}
+\hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function}{}\label{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function}\index{MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}}
+Inheritance diagram for MATD\+::FUNC\+::Kernel\+Function\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a08b2afea33410cda595f61294e6166bb}\label{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a08b2afea33410cda595f61294e6166bb} 
+{\bfseries Kernel\+Function} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a134eaf3efdbeb04b2e4eba52cc687348}\label{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a134eaf3efdbeb04b2e4eba52cc687348} 
+virtual void {\bfseries Init} (const MATD\+::\+JSON \&JSONObj)=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a75f15ab8ae4ff823acc00560c4189f6c}{Calculate}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a484645d916a7e4c8f34f040dcf46d660}{Update}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a4ef59cf056123855ffdc49d5dc7c0f1c}{On\+Complete}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Function} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+virtual void {\bfseries Init} (MATD\+::\+JSON JSONObj)=0
+\item 
+void {\bfseries Set\+Argument} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}} $>$ arg)
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Node} () const
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}} $>$ {\bfseries Get\+Argument} (const std\+::string \&id)
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}} $>$ $>$ {\bfseries Get\+Arguments} ()
+\item 
+FUNCTION\+\_\+\+TYPE {\bfseries Get\+Function\+Type} () const
+\item 
+void {\bfseries Set\+Function\+Type} (FUNCTION\+\_\+\+TYPE function\+Type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a75f15ab8ae4ff823acc00560c4189f6c}\index{MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}!Calculate@{Calculate}}
+\index{Calculate@{Calculate}!MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}}
+\doxysubsubsection{\texorpdfstring{Calculate()}{Calculate()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a75f15ab8ae4ff823acc00560c4189f6c} 
+virtual void MATD\+::\+FUNC\+::\+Kernel\+Function\+::\+Calculate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}}.
+
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a4ef59cf056123855ffdc49d5dc7c0f1c}\index{MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}!OnComplete@{OnComplete}}
+\index{OnComplete@{OnComplete}!MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}}
+\doxysubsubsection{\texorpdfstring{OnComplete()}{OnComplete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a4ef59cf056123855ffdc49d5dc7c0f1c} 
+virtual void MATD\+::\+FUNC\+::\+Kernel\+Function\+::\+On\+Complete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}}.
+
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a484645d916a7e4c8f34f040dcf46d660}\index{MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}!Update@{Update}}
+\index{Update@{Update}!MATD::FUNC::KernelFunction@{MATD::FUNC::KernelFunction}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_f_u_n_c_1_1_kernel_function_a484645d916a7e4c8f34f040dcf46d660} 
+virtual void MATD\+::\+FUNC\+::\+Kernel\+Function\+::\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/functions/core/Kernel\+Function.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/functions/core/Kernel\+Function.\+cpp\end{DoxyCompactItemize}

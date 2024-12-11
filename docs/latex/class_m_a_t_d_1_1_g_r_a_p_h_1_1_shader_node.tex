@@ -1,0 +1,98 @@
+\doxysection{MATD\+::GRAPH\+::Shader\+Node Class Reference}
+\hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node}{}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node}\index{MATD::GRAPH::ShaderNode@{MATD::GRAPH::ShaderNode}}
+Inheritance diagram for MATD\+::GRAPH\+::Shader\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a2dd8f60ac6181727e219bfcc0091abad}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a2dd8f60ac6181727e219bfcc0091abad} 
+{\bfseries Shader\+Node} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*}graph, JSON JSONObj)
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a1b745c362f0aeea578d55ae9135b58b7}{Init}} () override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a198c3126d14008f02a9df4346381d9ae}{Update\+Parameters}} (JSON JSONObj, int sub\+Node\+Id=-\/1) override
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a10e52c4aa8ce99e725126fdcbb2f69d6}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a10e52c4aa8ce99e725126fdcbb2f69d6} 
+void {\bfseries Set\+Display\+Texture} (const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES\+::\+Texture}} $>$ \&texture)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a347a01f48d1be54e5838c893ea39eeca}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a347a01f48d1be54e5838c893ea39eeca} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES\+::\+Texture}} $>$ {\bfseries Get\+Display\+Texture} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Node} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*}graph, JSON JSONObj)
+\item 
+void {\bfseries Add\+Input\+Socket} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ \&socket)
+\item 
+void {\bfseries Add\+Output\+Socket} (const std\+::string \&id, const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ \&socket)
+\item 
+const MATD\+::\+JSON \texorpdfstring{$\ast$}{*} {\bfseries Get\+JSON} () const
+\item 
+void {\bfseries Set\+JSON} (const MATD\+::\+JSON \&JSONObj)
+\item 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ \texorpdfstring{$\ast$}{*} {\bfseries Get\+Function} () const
+\item 
+void {\bfseries Set\+Function} (const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}} $>$ \&function)
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ {\bfseries Get\+Input\+Socket} (const std\+::string \&id)
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ {\bfseries Get\+Output\+Socket} (const std\+::string \&id)
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_output_socket}{Output\+Socket}} $>$ $>$ {\bfseries Get\+Output\+Sockets} ()
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_input_socket}{Input\+Socket}} $>$ $>$ {\bfseries Get\+Input\+Sockets} ()
+\item 
+std\+::string {\bfseries Get\+Name} () const
+\item 
+void {\bfseries Set\+Name} (const std\+::string \&name)
+\item 
+int {\bfseries Get\+ID} () const
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Graph} () const
+\item 
+void {\bfseries Set\+ID} (const int \&id)
+\item 
+void {\bfseries Set\+Primitive} (const bool is\+Primitive)
+\item 
+bool {\bfseries Get\+Is\+Primitive} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_ae244efe38f4646d6806be4d08192b342}\label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_ae244efe38f4646d6806be4d08192b342} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{DTYPES\+::\+Texture}} $>$ {\bfseries m\+\_\+\+Display\+Texture}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a1b745c362f0aeea578d55ae9135b58b7}\index{MATD::GRAPH::ShaderNode@{MATD::GRAPH::ShaderNode}!Init@{Init}}
+\index{Init@{Init}!MATD::GRAPH::ShaderNode@{MATD::GRAPH::ShaderNode}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a1b745c362f0aeea578d55ae9135b58b7} 
+void MATD\+::\+GRAPH\+::\+Shader\+Node\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}}.
+
+\Hypertarget{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a198c3126d14008f02a9df4346381d9ae}\index{MATD::GRAPH::ShaderNode@{MATD::GRAPH::ShaderNode}!UpdateParameters@{UpdateParameters}}
+\index{UpdateParameters@{UpdateParameters}!MATD::GRAPH::ShaderNode@{MATD::GRAPH::ShaderNode}}
+\doxysubsubsection{\texorpdfstring{UpdateParameters()}{UpdateParameters()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_node_a198c3126d14008f02a9df4346381d9ae} 
+void MATD\+::\+GRAPH\+::\+Shader\+Node\+::\+Update\+Parameters (\begin{DoxyParamCaption}\item[{JSON}]{JSONObj}{, }\item[{int}]{sub\+Node\+Id}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/shader\+\_\+graph/Shader\+Node.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/graphs/shader\+\_\+graph/Shader\+Node.\+cpp\end{DoxyCompactItemize}

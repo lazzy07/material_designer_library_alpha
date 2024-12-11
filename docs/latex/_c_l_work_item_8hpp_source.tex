@@ -1,0 +1,25 @@
+\doxysection{CLWork\+Item.\+hpp}
+\hypertarget{_c_l_work_item_8hpp_source}{}\label{_c_l_work_item_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLWorkItem.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/vendor/opencl/CLWorkItem.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../../matd/WorkItem.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CLKernel.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../matd/Queue.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../../../types/vendor/opencl/CLBuffer.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{namespace\ }ENGINE\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }OPENCL\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}{WorkItem}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD::WorkItem}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_work_item}{WorkItem}}(\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}{Kernel}}*\ kernel);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ OnComplete()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetOutput(\textcolor{keywordtype}{size\_t}\ index,\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}*\ argument)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}

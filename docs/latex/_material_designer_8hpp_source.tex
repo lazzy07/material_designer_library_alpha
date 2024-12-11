@@ -1,0 +1,79 @@
+\doxysection{Material\+Designer.\+hpp}
+\hypertarget{_material_designer_8hpp_source}{}\label{_material_designer_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/MaterialDesigner.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/MaterialDesigner.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{Core.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_kernel_library_8hpp}{KernelLibrary.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../types/matd/Argument.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../engine/matd/Queue.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../graphs/core/MaterialProject.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{namespace\ }CORE\{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}{MaterialDesigner}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}{MaterialDesigner}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer}{\string~MaterialDesigner}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<size\_t>\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aad85a87856f3f9168c2b28cd9a279cb7}{SelectDevice}}(uint8\_t\ platformId,\ uint8\_t\ deviceId);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac3301e839e4f4bfb8c044755d7d37704}{SetKernelLibraryFolder}}(\textcolor{keyword}{const}\ std::string\&\ path)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_int}{MATD::Int}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a0c0ecc8e730a1a491a3aa53f71965067}{CreateInt}}(\textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_float}{MATD::Float}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a565a7e7b08a5d3f336d066a87dfc7c21}{CreateFloat}}(\textcolor{keywordtype}{float}\ val);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD::Buffer}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4166db6521618a5e65e1aa55e18f6de2}{CreateBuffer}}(\textcolor{keywordtype}{void}*\ val,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ elem\_size,\ buf\_type\ argType=MATD::ARG\_TYPE::DEVICE\_READ);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture}{MATD::GrayscaleTexture}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a230c7b68218e54f66bc8aa626da8a474}{CreateGrayscaleTexture}}(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType\ =\ MATD::ARG\_TYPE::DEVICE\_READ);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{MATD::ColorTexture}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a880cd1c1fdef664991efc9df9df89653}{CreateColorTexture}}(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType\ =\ MATD::ARG\_TYPE::DEVICE\_READ);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{MATD::WorkItem}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a98abfca23f9c2aee0fedfa5e1daccd88}{CreateWorkItem}}(\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD::Kernel}}*\ kernel);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aaaaa2506b76403042d5878cbc0707703}{CreateQueue}}();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD::MatNumber2}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a2bd27e85ea384161c8d9b70a7e1b0afd}{CreateNumber2}}(\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD::Number2}}\ val);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD::MatColorVec3}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a314c8f41fe7eb035ebd16fe9c75d1faa}{CreateColorVec3}}(\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD::ColorVec3}}\ val);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a933c5a28c073ce36bf8f6646ac146b83}{OpenProject}}(\textcolor{keyword}{const}\ std::string\&\ JSONString);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a34737626539a0a389e7376c7ff148af6}{UpdateProject}}(\textcolor{keyword}{const}\ std::string\&\ JSONString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a55938f192fc758ae0b37c0d821d830de}{SetSelectedGraph}}(\textcolor{keyword}{const}\ std::string\&\ graphID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae3abc8d1bd62f2cac8baa646bffb82f0}{CreateNode}}(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ae95b9ba25ffe34ea5da0ab5d08671316}{RemoveNode}}(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ad11181085005cae3da6011ef90744bf1}{AddConnection}}(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_af870a51ae458f09b656266ca218c6519}{RemoveConnection}}(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac4274aa547caaa0d18f20eb1de4f495c}{Update}}(\textcolor{keyword}{const}\ std::string\&\ selectedGraphType,\ \textcolor{keyword}{const}\ std::string\&\ JSONString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00180\ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_aea685d6ca4a3e47943b02f09bc2c2d41}{CompileKernel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a4ebe07176c7a971777d7312e0e6e31f4}{SetUsedByMaterialDesignerApp}}(\textcolor{keywordtype}{bool}\ isUsedByApp)\ \{\ m\_IsUsedByMaterialDesignerApp\ =\ isUsedByApp;\ \};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a242bbd90ebea0a62c92aeb53c6216019}{GetUsedByMaterialDesignerApp}}()\ \{\ \textcolor{keywordflow}{return}\ m\_IsUsedByMaterialDesignerApp;\ \};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \ \ \ \ [[nodiscard]]\ Ref<MATD::GRAPH::MaterialProject>\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_ac5579996cf7337f0d017ba1db78b9d83}{GetNodeProject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a75eccd25b74965cdb1bc79aeca73e933}{UpdateShaderNodeData}}(\textcolor{keywordtype}{int}\ nodeId,\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD::DTYPES::Texture}}*\ texture);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a567746e44d7d15b5be8a95db5dfa2e23}{SetCallShaderNodeChangeCallback}}(\textcolor{keywordtype}{void}(*func)(\textcolor{keywordtype}{int},\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD::DTYPES::Texture}}*))\ \{\ m\_CallShaderNodeChangeCallback\ =\ func;\ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_material_designer_a41cb99b08257cce143674c3c17c5607a}{CallShaderNodeChangeCallback}}(\textcolor{keywordtype}{int}\ nodeId,\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD::DTYPES::Texture}}*\ texture)\ \{\ m\_CallShaderNodeChangeCallback(nodeId,\ texture);\ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ Ref<MATD::CORE::KernelLibrary>\ m\_KernelLibrary;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ Ref<MATD::GRAPH::MaterialProject>\ m\_CurrentProject;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ m\_IsUsedByMaterialDesignerApp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ void(*m\_CallShaderNodeChangeCallback)(int,\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD::DTYPES::Texture}}*);}
+\DoxyCodeLine{00231\ \ \ \ \ \};}
+\DoxyCodeLine{00232\ \ \ \};}
+\DoxyCodeLine{00233\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,39 @@
+\doxysection{Platform.\+hpp}
+\hypertarget{_platform_8hpp_source}{}\label{_platform_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/matd/Platform.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/matd/Platform.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Device.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{namespace\ }ENGINE\{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}}\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ InitCompatibleDevices()\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetPlatformData(\textcolor{keyword}{const}\ std::string\ version,\ \textcolor{keyword}{const}\ std::string\ profile,\ \textcolor{keyword}{const}\ std::string\ name,\ \textcolor{keyword}{const}\ std::string\ vendor);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::string\ GetName()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ m\_Name;\};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetDevices(std::vector<Ref<Device>>\ devices)\ \{\ m\_Devices\ =\ devices;\ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::vector<Ref<Device>>\ GetDevices()\ \{\ \textcolor{keywordflow}{return}\ m\_Devices;\ \};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}\ GetId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Id;\ \};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetId(\textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id})\ \{\ m\_Id\ =\ id;\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_Id;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::string\ m\_Version;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::string\ m\_Profile;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::string\ m\_Name;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::string\ m\_Vendor;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<Ref<Device>>\ m\_Devices;}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \ \ \};}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

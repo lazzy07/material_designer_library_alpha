@@ -1,0 +1,31 @@
+\doxysection{Engine\+Manager.\+hpp}
+\hypertarget{_engine_manager_8hpp_source}{}\label{_engine_manager_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/EngineManager.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/EngineManager.hpp}}
+\mbox{\hyperlink{_engine_manager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../engine/matd/Engine.hpp"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{namespace\ }CORE\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{enum\ class}\ SUPPORTED\_ENGINES\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ OPEN\_CL,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ CUDA}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager}{EngineManager}}\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a7de1ce78f61fc0db191a28e4299a42f0}{SelectEngine}}(\textcolor{keyword}{const}\ SUPPORTED\_ENGINES\&\ engine);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<std::vector<std::string>>\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_afdbc7662d30af9311b5c2e843f69d337}{GetSupportedEngines}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ SUPPORTED\_ENGINES\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a93d33eee6df70a2074467431383e9984}{GetSelectedEngine}}()\ \{\ \textcolor{keywordflow}{return}\ m\_Engine;\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<MATD::ENGINE::Engine>\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_engine_manager_a1eb067ba579ff7986bc71da85c99873d}{GetEngineInstance}}()\ \{\ \textcolor{keywordflow}{return}\ m\_EngineInstance;\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ SUPPORTED\_ENGINES\ m\_Engine;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<MATD::ENGINE::Engine>\ m\_EngineInstance;}
+\DoxyCodeLine{00056\ \ \ \ \ \};}
+\DoxyCodeLine{00057\ \ \ \};}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}

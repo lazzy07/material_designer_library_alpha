@@ -1,0 +1,31 @@
+\doxysection{Core.\+hpp}
+\hypertarget{_core_8hpp_source}{}\label{_core_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Core.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Core.hpp}}
+\mbox{\hyperlink{_core_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_log_8hpp}{Log.hpp}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ MATD\_DEBUG}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \#define\ MATD\_ENABLE\_ASSERTS}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifdef\ MATD\_ENABLE\_ASSERTS}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \#define\ MATD\_ASSERT(x,\ ...)\ \{if(!(x))\ \{\ MATD\_ERROR("{}Assertion\ Failed\ \{0\}"{},\ \_\_VA\_ARGS\_\_);\ \_\_debugbreak();\ \}\ \}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#define\ MATD\_CORE\_ASSERT(x,\ ...)\ \{if(!(x))\ \{\ MATD\_CORE\_ERROR("{}Assertion\ Failed\ \{0\}"{},\ \_\_VA\_ARGS\_\_);\ \_\_debugbreak();\ \}\ \}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \#define\ MATD\_ASSERT(x,\ ...)\ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \#define\ MATD\_CORE\_ASSERT(x,\ ...)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{using\ }Scope\ =\ std::unique\_ptr<T>;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{using\ }Ref\ =\ std::shared\_ptr<T>;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}

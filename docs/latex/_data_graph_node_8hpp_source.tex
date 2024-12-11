@@ -1,0 +1,26 @@
+\doxysection{Data\+Graph\+Node.\+hpp}
+\hypertarget{_data_graph_node_8hpp_source}{}\label{_data_graph_node_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/functions/data\_graph/DataGraphNode.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/functions/data\_graph/DataGraphNode.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/DataPrimitiveProcess.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../graphs/core/MaterialGraph.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }MATD::FUNC::DATA::PROCESS}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_d_a_t_a_1_1_p_r_o_c_e_s_s_1_1_data_graph_node}{DataGraphNode}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function}{DataPrimitiveFunction}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_d_a_t_a_1_1_p_r_o_c_e_s_s_1_1_data_graph_node}{DataGraphNode}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD::GRAPH::Node}}*\ node);}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Init(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Calculate()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetSocketArguments()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ [[nodiscard]]\ Ref<MATD::GRAPH::MaterialGraph>\ GetMaterialGraph()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_MaterialGraph;\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ Ref<MATD::GRAPH::MaterialGraph>\ m\_MaterialGraph;}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}

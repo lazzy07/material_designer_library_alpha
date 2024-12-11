@@ -1,0 +1,80 @@
+\doxysection{MATD\+::ENGINE\+::OPENCL\+::Device Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}\index{MATD::ENGINE::OPENCL::Device@{MATD::ENGINE::OPENCL::Device}}
+
+
+\doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}{Device} class for Open\+CL, used to store the device information and context.  
+
+
+
+
+{\ttfamily \#include $<$CLDevice.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::OPENCL\+::Device\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ac59e8fa6c9d7d701fdfe09df47ed6a40}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ac59e8fa6c9d7d701fdfe09df47ed6a40} 
+{\bfseries Device} (std\+::string device\+Name, MATD\+::\+ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE type)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a7ad9e4d8bb852898f7a0dfe34fbdf6d6}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a7ad9e4d8bb852898f7a0dfe34fbdf6d6} 
+void {\bfseries Set\+CLDevice\+Data} (cl\+::\+Device device, cl\+\_\+uint max\+Units, cl\+\_\+uint max\+Dim, std\+::vector$<$ size\+\_\+t $>$ max\+Item, cl\+\_\+uint grp\+Size)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ae65b8c7d5f8fb74d0c5232a378ceee87}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ae65b8c7d5f8fb74d0c5232a378ceee87} 
+void {\bfseries Init\+Device} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_af57d668cd5f60b0a4ed999d9bca30fc2}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_af57d668cd5f60b0a4ed999d9bca30fc2} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_context}{OPENCL\+::\+Context}} $>$ {\bfseries Get\+Context} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a098e82a9b44ea162bc27f557fbb46e11}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a098e82a9b44ea162bc27f557fbb46e11} 
+cl\+::\+Device {\bfseries Get\+Cl\+Device} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{MATD\+::\+ENGINE\+::\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device_aa3b7e320601d1ca68f3ea2521212f945}{Device}} (std\+::string device\+Name, MATD\+::\+ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE type)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device} object. \end{DoxyCompactList}\item 
+void {\bfseries Set\+Device\+Name} (const std\+::string name)
+\item 
+void {\bfseries Set\+Device\+Type} (ENGINE\+::\+MAT\+\_\+\+DEVICE\+\_\+\+TYPE type)
+\item 
+std\+::string {\bfseries Get\+Device\+Name} () const
+\item 
+size\+\_\+t {\bfseries Get\+Id} () const
+\item 
+void {\bfseries Set\+Id} (size\+\_\+t id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ace3e6b741f7d5c8bbe76937c73a78f60}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ace3e6b741f7d5c8bbe76937c73a78f60} 
+cl\+::\+Device {\bfseries m\+\_\+\+Device}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a91ff9f4698658ed86c014f9f416cdc5e}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a91ff9f4698658ed86c014f9f416cdc5e} 
+cl\+\_\+uint {\bfseries m\+\_\+\+Device\+Max\+Compute\+Units} = 0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a8df1e014dfd5d88f40c8a4c4829ee6b0}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a8df1e014dfd5d88f40c8a4c4829ee6b0} 
+cl\+\_\+uint {\bfseries m\+\_\+\+Device\+Max\+Work\+Item\+Dimensions} = 0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_aab09b17cdab88ac01c2f30d5e50ce2f6}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_aab09b17cdab88ac01c2f30d5e50ce2f6} 
+std\+::vector$<$ size\+\_\+t $>$ {\bfseries m\+\_\+\+Device\+Max\+Work\+Item\+Sizes}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ab73173032e157f793b28c9a5676bf01d}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_ab73173032e157f793b28c9a5676bf01d} 
+cl\+\_\+uint {\bfseries m\+\_\+\+Device\+Max\+Group\+Size} = 0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a395a0931571ba4db67c26e48d2d162a1}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device_a395a0931571ba4db67c26e48d2d162a1} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_context}{OPENCL\+::\+Context}} $>$ {\bfseries m\+\_\+\+Context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_device}{Device} class for Open\+CL, used to store the device information and context. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLDevice.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLDevice.\+cpp\end{DoxyCompactItemize}

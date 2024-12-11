@@ -1,0 +1,65 @@
+\doxysection{Log.\+hpp}
+\hypertarget{_log_8hpp_source}{}\label{_log_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Log.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/Log.hpp}}
+\mbox{\hyperlink{_log_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ FMT\_HEADER\_ONLY}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ FMT\_DEPRECATED}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <spdlog/spdlog.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <spdlog/fmt/ostr.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{namespace\ }CORE\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ LOGLEVEL\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ TRACE,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ INFO,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ WARN,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ ERR,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ FATAL}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log}{Log}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8663771ad09c91c9ad62ed981767e18a}{Init}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a8ae385933beb7e4b8fc75afdf484fe58}{SetCoreLogLevel}}(LOGLEVEL\ logLevel);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a863499c0f7c584c5900046ef67858716}{SetAppLogLevel}}(LOGLEVEL\ logLevel);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a86f6f0b1e1f34088ea1ceab8b9f8d256}{GetCoreLogger}}()\ \{\ \textcolor{keywordflow}{return}\ s\_CoreLogger;\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_afff43fda34e32e30b41b12f11805abc5}{GetCoreFileLogger}}()\ \{\ \textcolor{keywordflow}{return}\ s\_CoreFileLogger;\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a6ee63d6b744c8c213f4dbea9174109c6}{GetClientLogger}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_log_a1f74af7aa5cc49a1919da3c76c472619}{GetClientFileLogger}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ s\_CoreLogger;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ s\_CoreFileLogger;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ s\_ClientLogger;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ s\_ClientFileLogger;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//Core\ log\ macros}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ MATD\_CORE\_LOG\_LEVEL(x)\ \ \ \ \ \ \ ::MATD::CORE::Log::SetCoreLogLevel(x)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ MATD\_LOG\_LEVEL(x)\ \ \ \ \ \ \ \ ::MATD::CORE::Log::SetAppLogLevel(x)}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ MATD\_CORE\_TRACE(...)\ \ \ ::MATD::CORE::Log::GetCoreLogger()-\/>trace(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetCoreFileLogger()-\/>trace(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ MATD\_CORE\_INFO(...)\ \ \ \ ::MATD::CORE::Log::GetCoreLogger()-\/>info(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetCoreFileLogger()-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ MATD\_CORE\_WARN(...)\ \ \ \ ::MATD::CORE::Log::GetCoreLogger()-\/>warn(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetCoreFileLogger()-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ MATD\_CORE\_ERROR(...)\ \ \ ::MATD::CORE::Log::GetCoreLogger()-\/>error(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetCoreFileLogger()-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ MATD\_CORE\_FATAL(...)\ \ \ ::MATD::CORE::Log::GetCoreLogger()-\/>critical(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetCoreFileLogger()-\/>critical(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{//Client\ log\ macros}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ MATD\_TRACE(...)\ \ \ \ \ \ \ \ ::MATD::CORE::Log::GetClientLogger()-\/>trace(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetClientFileLogger()-\/>trace(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ MATD\_INFO(...)\ \ \ \ \ \ \ \ \ ::MATD::CORE::Log::GetClientLogger()-\/>info(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetClientFileLogger()-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ MATD\_WARN(...)\ \ \ \ \ \ \ \ \ ::MATD::CORE::Log::GetClientLogger()-\/>warn(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetClientFileLogger()-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ MATD\_ERROR(...)\ \ \ \ \ \ \ \ ::MATD::CORE::Log::GetClientLogger()-\/>error(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetClientFileLogger()-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ MATD\_FATAL(...)\ \ \ \ \ \ \ \ ::MATD::CORE::Log::GetClientLogger()-\/>critical(\_\_VA\_ARGS\_\_);\ MATD::CORE::Log::GetClientFileLogger()-\/>critical(\_\_VA\_ARGS\_\_)}}
+
+\end{DoxyCode}

@@ -1,0 +1,88 @@
+\doxysection{MATD\+::Grayscale\+Texture Class Reference}
+\hypertarget{class_m_a_t_d_1_1_grayscale_texture}{}\label{class_m_a_t_d_1_1_grayscale_texture}\index{MATD::GrayscaleTexture@{MATD::GrayscaleTexture}}
+Inheritance diagram for MATD\+::Grayscale\+Texture\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_m_a_t_d_1_1_grayscale_texture}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_grayscale_texture_a4f95b1c9a26136fda2d63b04f87ec494}\label{class_m_a_t_d_1_1_grayscale_texture_a4f95b1c9a26136fda2d63b04f87ec494} 
+{\bfseries Grayscale\+Texture} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t width, size\+\_\+t height, buf\+\_\+type arg\+Type)
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture_a76e69bd960371d90f18b62ad4076baef}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index) override=0
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture_ae4df6c620f6c4b714cdaf540e9d3228f}{Delete}} () override=0
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture_a9c6b9bb3cc7230e3a59cb61055526128}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue) override=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Texture} (MAT\+\_\+\+ARG mat\+Arg\+Type, MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t no\+Of\+Channels, size\+\_\+t width, size\+\_\+t height, buf\+\_\+type arg\+Type)
+\item 
+MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE {\bfseries Get\+Bit\+Type} () const
+\item 
+size\+\_\+t {\bfseries Get\+Height} () const
+\item 
+size\+\_\+t {\bfseries Get\+Width} () const
+\item 
+size\+\_\+t {\bfseries Get\+No\+Of\+Channels} () const
+\item 
+size\+\_\+t {\bfseries Get\+Size} () const
+\item 
+size\+\_\+t {\bfseries Get\+Byte\+Size} () const
+\item 
+size\+\_\+t {\bfseries Get\+Element\+Size} () const
+\item 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Buffer} () const
+\item 
+void {\bfseries Change\+Image\+Properties} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type, size\+\_\+t no\+Of\+Channels, size\+\_\+t width, size\+\_\+t height)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t {\bfseries Bit\+Type\+To\+Size} (MATD\+\_\+\+TEXTURE\+\_\+\+BIT\+\_\+\+TYPE bit\+Type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_grayscale_texture_a9c6b9bb3cc7230e3a59cb61055526128}\index{MATD::GrayscaleTexture@{MATD::GrayscaleTexture}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::GrayscaleTexture@{MATD::GrayscaleTexture}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_grayscale_texture_a9c6b9bb3cc7230e3a59cb61055526128} 
+void MATD\+::\+Grayscale\+Texture\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}.
+
+\Hypertarget{class_m_a_t_d_1_1_grayscale_texture_a76e69bd960371d90f18b62ad4076baef}\index{MATD::GrayscaleTexture@{MATD::GrayscaleTexture}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::GrayscaleTexture@{MATD::GrayscaleTexture}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_grayscale_texture_a76e69bd960371d90f18b62ad4076baef} 
+void MATD\+::\+Grayscale\+Texture\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}.
+
+\Hypertarget{class_m_a_t_d_1_1_grayscale_texture_ae4df6c620f6c4b714cdaf540e9d3228f}\index{MATD::GrayscaleTexture@{MATD::GrayscaleTexture}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::GrayscaleTexture@{MATD::GrayscaleTexture}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_grayscale_texture_ae4df6c620f6c4b714cdaf540e9d3228f} 
+void MATD\+::\+Grayscale\+Texture\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{MATD\+::\+DTYPES\+::\+Texture}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Grayscale\+Texture.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Grayscale\+Texture.\+cpp\end{DoxyCompactItemize}

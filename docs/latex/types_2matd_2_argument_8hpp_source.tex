@@ -1,0 +1,86 @@
+\doxysection{Argument.\+hpp}
+\hypertarget{types_2matd_2_argument_8hpp_source}{}\label{types_2matd_2_argument_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Argument.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Argument.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}MatdDataTypes.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../engine/matd/Queue.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ buf\_type\ int}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum\ class}\ MATD\_TEXTURE\_BIT\_TYPE;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{namespace\ }DTYPES}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Texture;}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{enum}\ ARG\_TYPE\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ DEVICE\_READ\_WRITE\ \ \ \ \ \ \ \ \ \ \ =\ \ \ (1\ <<\ 0),}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ DEVICE\_WRITE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \ (1\ <<\ 1),}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ DEVICE\_READ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 2),}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ DEVICE\_USE\_HOST\_PTR\ \ \ \ \ =\ (1\ <<\ 3),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ DEVICE\_ALLOC\_HOST\_PTR\ =\ (1\ <<\ 4),}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ DEVICE\_COPY\_HOST\_PTR\ \ \ \ =\ (1\ <<\ 5),}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ HOST\_WRITE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 7),}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ HOST\_READ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 8),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ HOST\_NO\_ACCESS\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 9),}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{enum\ class}\ MAT\_ARG\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ MAT\_INTEGER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 0),}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ MAT\_FLOAT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 1),}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ MAT\_BUFFER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 2),}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ MAT\_COLORVEC3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 3),}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ MAT\_NUMBER2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 4),}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ MAT\_TEXGRAYSCALE\ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 5),}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ MAT\_TEXCOLOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (1\ <<\ 6),}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{class\ }Int;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{class\ }Float;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{class\ }Buffer;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{class\ }ColorTexture;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{class\ }GrayscaleTexture;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{class\ }MatColorVec3;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{class\ }MatNumber2;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{class\ }WorkItem;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_argument}{Argument}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_int}{MATD::Int}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_int}{Int}}(\textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_float}{MATD::Float}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_float}{Float}}(\textcolor{keywordtype}{float}\ val);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD::MatColorVec3}}*\ \mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{ColorVec3}}(\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD::ColorVec3}}\ val);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2}{MATD::MatNumber2}}*\ \mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{Number2}}(\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD::Number2}}\ val);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD::Buffer}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{Buffer}}(\textcolor{keywordtype}{void}*\ buffer,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ elem\_size,\ buf\_type\ argType);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{MATD::ColorTexture}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_color_texture}{ColorTexture}}(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture}{MATD::GrayscaleTexture}}*\ \mbox{\hyperlink{class_m_a_t_d_1_1_grayscale_texture}{GrayscaleTexture}}(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType);}
+\DoxyCodeLine{00059\ \ \ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{namespace\ }DTYPES\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{Argument}}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{Argument}}(MAT\_ARG\ type);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{\string~Argument}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Bind(\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ workItem,\ \textcolor{keywordtype}{size\_t}\ index)\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Delete()\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsBound()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_IsBound;\ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SeIsBound(\textcolor{keywordtype}{bool}\ bound)\ \{\ m\_IsBound\ =\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ MAT\_ARG\ GetArgType()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Type;\ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ MAT\_ARG\ m\_Type;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_IsBound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}

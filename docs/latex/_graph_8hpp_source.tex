@@ -1,0 +1,56 @@
+\doxysection{Graph.\+hpp}
+\hypertarget{_graph_8hpp_source}{}\label{_graph_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Graph.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Graph.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_j_s_o_n_parser_8hpp}{../../core/JSONParser.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Connection.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{namespace\ }GRAPH\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }MaterialGraph;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }Node;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{Graph}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}*\ graph,\ \textcolor{keyword}{const}\ MATD::JSON\&\ JSONObj);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{\string~Graph}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ std::string\ GetID()\ \{\ \textcolor{keywordflow}{return}\ m\_ID;\ \};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}*\ GetMaterialGraph()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_MaterialGraph;\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ CreateNode(MATD::JSON\ JSONObj)\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ RemoveNode(MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ AddConnection(MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ RemoveConnection(MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Update(MATD::JSON\ JSONObj)\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Init(MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::map<int,\ Ref<MATD::GRAPH::Node>>*\ GetNodes()\ \{\ \textcolor{keywordflow}{return}\ \&m\_Nodes;\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ Ref<MATD::GRAPH::Node>\ GetNode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ m\_Nodes[id];\ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetNode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ Ref<Node>\&\ node)\ \{\ m\_Nodes[id]\ =\ node;\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ std::map<std::string,\ Ref<MATD::GRAPH::Connection>>*\ GetConnections()\ \{\ \textcolor{keywordflow}{return}\ \&m\_Connections;\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ Ref<MATD::GRAPH::Connection>\ GetConnection(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ m\_Connections[id];\ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddToConnectionPool(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ Ref<Connection>\&\ connection)\ \{\ m\_Connections[id]\ =\ connection;\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveFromConnectionPool(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ \{\ m\_Connections.erase(\textcolor{keywordtype}{id});\ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetID(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ \{\ m\_ID\ =\ id;\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ std::vector<Ref<MATD::GRAPH::Node>>\ GetOutputNodes();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ std::vector<Ref<MATD::GRAPH::Node>>\ GetInputNodes();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{comment}{//Change\ connection\ statuses\ to\ IN\_PROGRESS\ for\ the\ whole\ path}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartUpdate(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{Node}}*\ node,\ uint64\_t\ time);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ std::string\ m\_ID;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}*\ m\_MaterialGraph;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::map<int,\ Ref<MATD::GRAPH::Node>>\ m\_Nodes;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ std::map<std::string,\ Ref<MATD::GRAPH::Connection>>\ m\_Connections;}
+\DoxyCodeLine{00048\ \ \ \ \ \};}
+\DoxyCodeLine{00049\ \ \ \};}
+\DoxyCodeLine{00050\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,37 @@
+\doxysection{Engine.\+hpp}
+\hypertarget{_engine_8hpp_source}{}\label{_engine_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/matd/Engine.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/matd/Engine.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Platform.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Device.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{namespace\ }ENGINE\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{Engine}}\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{\string~Engine}}()\ \{\};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<Ref<Platform>>\ GetSupportedPlatforms()\ =\ 0;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<Engine>\ CreateEngine();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SetPlatforms(std::vector<Ref<Platform>>\ platforms)\ \{\ m\_Platforms\ =\ platforms;\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ SelectPlatform(\textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ SelectDevice(\textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ Ref<Platform>\ GetSelectedPlatform()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_SelectedPlatfom;\ \};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ Ref<Device>\ GetSelectedDevice()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_SelectedDevice;\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::vector<Ref<Platform>>\ m\_Platforms;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ Ref<Platform>\ m\_SelectedPlatfom;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Ref<Device>\ m\_SelectedDevice;}
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ \ \ \};}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}

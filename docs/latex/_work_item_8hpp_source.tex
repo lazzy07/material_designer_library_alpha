@@ -1,0 +1,43 @@
+\doxysection{Work\+Item.\+hpp}
+\hypertarget{_work_item_8hpp_source}{}\label{_work_item_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/matd/WorkItem.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/engine/matd/WorkItem.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../types/matd/Argument.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../graphs/shader\_graph/ShaderNode.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Kernel.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Queue.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}(\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}}*\ kernel,\ Ref<MATD::GRAPH::Node>\ node\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetArgument(\textcolor{keywordtype}{size\_t}\ index,\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}*\ argument);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetOutput(\textcolor{keywordtype}{size\_t}\ index,\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}*\ argument)\ =\ 0;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}}*\ GetKernel()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Kernel;\ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::map<size\_t,\ DTYPES::Argument*>\&\ GetArguments()\ \{\ \textcolor{keywordflow}{return}\ m\_Arguments;\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnComplete()\ =\ 0;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Ref<GRAPH::Node>\ GetNode()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Node;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetNode(Ref<GRAPH::Node>\ node)\ \{\ m\_Node\ =\ node;\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}*\ GetOutput()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Output;\ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetOutputItem(\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}*\ arg)\ \{\ m\_Output\ =\ arg;\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ CreateWorkItem(\mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}}*\ kernel);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}}*\ m\_Kernel;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Ref<GRAPH::Node>\ m\_Node;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}*\ m\_Output\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::map<size\_t,\ DTYPES::Argument*>\ m\_Arguments;}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}

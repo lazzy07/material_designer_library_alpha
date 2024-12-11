@@ -1,0 +1,91 @@
+\doxysection{MATD\+::FUNC\+::Data\+Primitive\+Function Class Reference}
+\hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function}{}\label{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function}\index{MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}}
+Inheritance diagram for MATD\+::FUNC\+::Data\+Primitive\+Function\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.144737cm]{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_aeb26e12eee8b04d0f1aa045cb502779c}\label{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_aeb26e12eee8b04d0f1aa045cb502779c} 
+{\bfseries Data\+Primitive\+Function} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_affe852b99b385b3c9ecec0115b87ccf9}{Init}} (MATD\+::\+JSON JSONObj) override
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_a49b2afd60ccc70f20ddc500a8d237794}{Calculate}} () override=0
+\item 
+void \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_a0e29e0444ac0a7b7df8490f4a2966607}{Set\+Socket\+Arguments}} () override=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_function}{MATD\+::\+FUNC\+::\+Data\+Function}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Data\+Function} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*}node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_function}{MATD\+::\+FUNC\+::\+Function}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Function} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+virtual void {\bfseries Update} ()
+\item 
+virtual void {\bfseries On\+Complete} ()
+\item 
+void {\bfseries Set\+Argument} (Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}} $>$ arg)
+\item 
+\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Node} () const
+\item 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}} $>$ {\bfseries Get\+Argument} (const std\+::string \&id)
+\item 
+std\+::map$<$ std\+::string, Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_argument}{Argument}} $>$ $>$ {\bfseries Get\+Arguments} ()
+\item 
+FUNCTION\+\_\+\+TYPE {\bfseries Get\+Function\+Type} () const
+\item 
+void {\bfseries Set\+Function\+Type} (FUNCTION\+\_\+\+TYPE function\+Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_function}{MATD\+::\+FUNC\+::\+Data\+Function}}}
+\begin{DoxyCompactItemize}
+\item 
+static Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_function}{FUNC\+::\+Data\+Function}} $>$ {\bfseries Function\+Factory} (\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_node}{MATD\+::\+GRAPH\+::\+Node}} \texorpdfstring{$\ast$}{*}node, const std\+::string \&initial\+ID, MATD\+::\+JSON JSONObj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_a49b2afd60ccc70f20ddc500a8d237794}\index{MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}!Calculate@{Calculate}}
+\index{Calculate@{Calculate}!MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}}
+\doxysubsubsection{\texorpdfstring{Calculate()}{Calculate()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_a49b2afd60ccc70f20ddc500a8d237794} 
+void MATD\+::\+FUNC\+::\+Data\+Primitive\+Function\+::\+Calculate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_function}{MATD\+::\+FUNC\+::\+Data\+Function}}.
+
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_affe852b99b385b3c9ecec0115b87ccf9}\index{MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}!Init@{Init}}
+\index{Init@{Init}!MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_affe852b99b385b3c9ecec0115b87ccf9} 
+void MATD\+::\+FUNC\+::\+Data\+Primitive\+Function\+::\+Init (\begin{DoxyParamCaption}\item[{MATD\+::\+JSON}]{JSONObj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_function}{MATD\+::\+FUNC\+::\+Data\+Function}}.
+
+\Hypertarget{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_a0e29e0444ac0a7b7df8490f4a2966607}\index{MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}!SetSocketArguments@{SetSocketArguments}}
+\index{SetSocketArguments@{SetSocketArguments}!MATD::FUNC::DataPrimitiveFunction@{MATD::FUNC::DataPrimitiveFunction}}
+\doxysubsubsection{\texorpdfstring{SetSocketArguments()}{SetSocketArguments()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_f_u_n_c_1_1_data_primitive_function_a0e29e0444ac0a7b7df8490f4a2966607} 
+void MATD\+::\+FUNC\+::\+Data\+Primitive\+Function\+::\+Set\+Socket\+Arguments (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_f_u_n_c_1_1_data_function}{MATD\+::\+FUNC\+::\+Data\+Function}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/functions/core/Data\+Primitive\+Function.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/functions/core/Data\+Primitive\+Function.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\doxysection{MATD\+::ENGINE\+::Platform Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}\index{MATD::ENGINE::Platform@{MATD::ENGINE::Platform}}
+
+
+\doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform} class, used to store platform information and devices, this is the main class that is used to select the platform and devices. \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform} can have multiple devices, from multiple vendors (Eg\+: Nvidia, Intel etc.), and multiple profiles.  
+
+
+
+
+{\ttfamily \#include $<$Platform.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a87971d6e92f5bcc1a28cc616cc4d2fbb}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a87971d6e92f5bcc1a28cc616cc4d2fbb} 
+virtual void {\bfseries Init\+Compatible\+Devices} ()=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_afe217b5935c98da36195ff2c3afcbd38}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_afe217b5935c98da36195ff2c3afcbd38} 
+void {\bfseries Set\+Platform\+Data} (const std\+::string version, const std\+::string profile, const std\+::string name, const std\+::string vendor)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a33add0b0610658803aa6acc0c1dc5248}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a33add0b0610658803aa6acc0c1dc5248} 
+std\+::string {\bfseries Get\+Name} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_adbc40c8a2bbe1ffcbfbcd30e84c86aab}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_adbc40c8a2bbe1ffcbfbcd30e84c86aab} 
+void {\bfseries Set\+Devices} (std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ $>$ devices)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_af8cdb743a028b1e43fd2ef3be1d1cb42}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_af8cdb743a028b1e43fd2ef3be1d1cb42} 
+const std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ $>$ {\bfseries Get\+Devices} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a9259a3363c14fc6ee311eca7d8427f21}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a9259a3363c14fc6ee311eca7d8427f21} 
+size\+\_\+t {\bfseries Get\+Id} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a3d75259295419c2345bc799cd844ec28}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a3d75259295419c2345bc799cd844ec28} 
+void {\bfseries Set\+Id} (size\+\_\+t id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a79f0584ceb48933c7f614e5a74b3be1c}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a79f0584ceb48933c7f614e5a74b3be1c} 
+size\+\_\+t {\bfseries m\+\_\+\+Id}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a98f2028b173fc6787894f0c53841afca}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a98f2028b173fc6787894f0c53841afca} 
+std\+::string {\bfseries m\+\_\+\+Version}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_aef8957f8b19e001e3d66c1a6930f5386}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_aef8957f8b19e001e3d66c1a6930f5386} 
+std\+::string {\bfseries m\+\_\+\+Profile}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a6bb1369f30745bf82553fac1774c53bc}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a6bb1369f30745bf82553fac1774c53bc} 
+std\+::string {\bfseries m\+\_\+\+Name}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a98043c7f41f7d25a6e514d7fa8747946}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a98043c7f41f7d25a6e514d7fa8747946} 
+std\+::string {\bfseries m\+\_\+\+Vendor}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a200c2735339b4977249a64e715661d51}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform_a200c2735339b4977249a64e715661d51} 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ $>$ {\bfseries m\+\_\+\+Devices}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform} class, used to store platform information and devices, this is the main class that is used to select the platform and devices. \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform} can have multiple devices, from multiple vendors (Eg\+: Nvidia, Intel etc.), and multiple profiles. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Platform.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Platform.\+cpp\end{DoxyCompactItemize}

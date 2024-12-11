@@ -1,0 +1,22 @@
+\doxysection{Data\+Graph.\+hpp}
+\hypertarget{_data_graph_8hpp_source}{}\label{_data_graph_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/data\_graph/DataGraph.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/data\_graph/DataGraph.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/Graph.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}DataNode.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_graph}{DataGraph}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD::GRAPH::Graph}}\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_graph}{DataGraph}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}*\ graph,\textcolor{keyword}{const}\ MATD::JSON\&\ JSONObj);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_data_graph}{\string~DataGraph}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ CreateNode(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Update(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ \ \ \}}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}

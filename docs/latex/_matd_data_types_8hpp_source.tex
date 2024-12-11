@@ -1,0 +1,59 @@
+\doxysection{Matd\+Data\+Types.\+hpp}
+\hypertarget{_matd_data_types_8hpp_source}{}\label{_matd_data_types_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/MatdDataTypes.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/MatdDataTypes.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8hpp}{../../core/Core.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{enum\ class}\ DATA\_TYPES\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ NUMBER1,}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ NUMBER2,}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ STRING,}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ BOOLEAN,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ COLORVEC1,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ COLORVEC3,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ LUT1,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ LUT3,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ TEXGRAYSCALE,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ TEXCOLOR}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ ColorVec1;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ Number1;}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{ColorVec3}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ g;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ b;}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{Number2}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00032\ \ \ \ \ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_a_t_d_1_1_lut1_elem}{Lut1Elem}}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ ColorVec1\ color;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos;}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_a_t_d_1_1_lut3_elem}{Lut3Elem}}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{ColorVec3}}\ color;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos;}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_a_t_d_1_1_lut1}{Lut1}}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_d_1_1_lut1_elem}{Lut1Elem}}*\ stops;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ length;}
+\DoxyCodeLine{00047\ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_a_t_d_1_1_lut3}{Lut3}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_d_1_1_lut3_elem}{Lut3Elem}}*\ stops;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ length;}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}

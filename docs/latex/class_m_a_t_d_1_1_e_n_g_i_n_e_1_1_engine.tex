@@ -1,0 +1,65 @@
+\doxysection{MATD\+::ENGINE\+::Engine Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}\index{MATD::ENGINE::Engine@{MATD::ENGINE::Engine}}
+
+
+\doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{Engine} class, used to select platforms and devices to run kernels on, this class is used to initialize the engine and select the platform and device. And this is a singleton class.  
+
+
+
+
+{\ttfamily \#include $<$Engine.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a4663ba8a5e24e128be6b7b88f23ad179}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a4663ba8a5e24e128be6b7b88f23ad179} 
+virtual std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ $>$ {\bfseries Get\+Supported\+Platforms} ()=0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8cf5d3f119aaf8d164e15f3556154b93}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8cf5d3f119aaf8d164e15f3556154b93} 
+void {\bfseries Set\+Platforms} (std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ $>$ platforms)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_abe54def5ed88542612583f1c2b249287}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_abe54def5ed88542612583f1c2b249287} 
+size\+\_\+t {\bfseries Select\+Platform} (size\+\_\+t id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a9d7d6b900b5f71d5f4f2f49cb1821060}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a9d7d6b900b5f71d5f4f2f49cb1821060} 
+size\+\_\+t {\bfseries Select\+Device} (size\+\_\+t id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8c2927f85fde2f1fa4f7f11a5bcd6170}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8c2927f85fde2f1fa4f7f11a5bcd6170} 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ {\bfseries Get\+Selected\+Platform} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_af9074521e55259416cdf6ed1218edae5}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_af9074521e55259416cdf6ed1218edae5} 
+const Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ {\bfseries Get\+Selected\+Device} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a7e7b8b89bc9c439b94c2b67c7457a18c}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a7e7b8b89bc9c439b94c2b67c7457a18c} 
+static Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{Engine}} $>$ {\bfseries Create\+Engine} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8ff926d5b830f5902ffcf3912d47980a}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8ff926d5b830f5902ffcf3912d47980a} 
+std\+::vector$<$ Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ $>$ {\bfseries m\+\_\+\+Platforms}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8adb9374d7de465bc961973f3828eff7}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a8adb9374d7de465bc961973f3828eff7} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_platform}{Platform}} $>$ {\bfseries m\+\_\+\+Selected\+Platfom}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a23e4b6f497ec77b6d6bb49ea6e00c238}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine_a23e4b6f497ec77b6d6bb49ea6e00c238} 
+Ref$<$ \mbox{\hyperlink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_device}{Device}} $>$ {\bfseries m\+\_\+\+Selected\+Device}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_engine}{Engine} class, used to select platforms and devices to run kernels on, this class is used to initialize the engine and select the platform and device. And this is a singleton class. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Engine.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/matd/Engine.\+cpp\end{DoxyCompactItemize}

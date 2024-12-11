@@ -1,0 +1,20 @@
+\doxysection{UUIDGenerator.\+hpp}
+\hypertarget{_u_u_i_d_generator_8hpp_source}{}\label{_u_u_i_d_generator_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/UUIDGenerator.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/core/UUIDGenerator.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}uuid/uuid.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00005\ \ \ \textcolor{keyword}{using\ }UUID\ =\ UUIDv4::UUID;}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{namespace\ }CORE\{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_u_u_i_d_generator}{UUIDGenerator}}\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{keyword}{static}\ MATD::UUID\ \mbox{\hyperlink{class_m_a_t_d_1_1_c_o_r_e_1_1_u_u_i_d_generator_a78947e416adbb307a7ba1a1ada34d734}{GenerateUUID}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{static}\ UUIDv4::UUIDGenerator<std::mt19937\_64>\ m\_UUIDGenerator;}
+\DoxyCodeLine{00021\ \ \ \ \ \};}
+\DoxyCodeLine{00022\ \ \ \}}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}

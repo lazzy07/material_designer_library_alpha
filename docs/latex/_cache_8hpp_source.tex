@@ -1,0 +1,23 @@
+\doxysection{Cache.\+hpp}
+\hypertarget{_cache_8hpp_source}{}\label{_cache_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Cache.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/core/Cache.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_cache}{Cache}}\{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetCache(std::string\ key,\ \textcolor{keywordtype}{void}*\ value);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ T*\ GetCache(std::string\ key);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ std::map<std::string,\ void*>\ m\_Map;}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ \ \ \}}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}

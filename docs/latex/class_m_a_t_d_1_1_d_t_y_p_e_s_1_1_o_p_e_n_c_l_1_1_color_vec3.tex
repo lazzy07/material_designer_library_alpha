@@ -1,0 +1,91 @@
+\doxysection{MATD\+::DTYPES\+::OPENCL\+::Color\+Vec3 Class Reference}
+\hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3}{}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3}\index{MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3}{Color\+Vec3} class that inherits from \doxylink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}, this class is used to store the color vector data and bind it to the kernel arguments to be used in the Open\+CL kernel and to be added to the Open\+CL queue.  
+
+
+
+
+{\ttfamily \#include $<$CLColor\+Vec3.\+hpp$>$}
+
+Inheritance diagram for MATD\+::DTYPES\+::OPENCL\+::Color\+Vec3\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a82925750ec99bed8d74ef73deb80e257}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a82925750ec99bed8d74ef73deb80e257} 
+{\bfseries Color\+Vec3} (\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD\+::\+Color\+Vec3}} val)
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a1088ae99f48095eee04cb3e50bfe0a73}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_ae3e8706a2cc520ebeb81270ff6f242dc}{Delete}} () override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a2d995346e2baae9af092a3446611c99e}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Mat\+Color\+Vec3} (\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD\+::\+Color\+Vec3}} val)
+\item 
+\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD\+::\+Color\+Vec3}} {\bfseries Get\+Val} () const
+\item 
+void {\bfseries Set\+Val} (\mbox{\hyperlink{struct_m_a_t_d_1_1_color_vec3}{MATD\+::\+Color\+Vec3}} val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Argument} (MAT\+\_\+\+ARG type)
+\item 
+bool {\bfseries Is\+Bound} () const
+\item 
+void {\bfseries Se\+Is\+Bound} (bool bound)
+\item 
+MAT\+\_\+\+ARG {\bfseries Get\+Arg\+Type} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3}{Color\+Vec3} class that inherits from \doxylink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}, this class is used to store the color vector data and bind it to the kernel arguments to be used in the Open\+CL kernel and to be added to the Open\+CL queue. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a2d995346e2baae9af092a3446611c99e}\index{MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a2d995346e2baae9af092a3446611c99e} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Color\+Vec3\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}}.
+
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a1088ae99f48095eee04cb3e50bfe0a73}\index{MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_a1088ae99f48095eee04cb3e50bfe0a73} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Color\+Vec3\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}}.
+
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_ae3e8706a2cc520ebeb81270ff6f242dc}\index{MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::DTYPES::OPENCL::ColorVec3@{MATD::DTYPES::OPENCL::ColorVec3}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_color_vec3_ae3e8706a2cc520ebeb81270ff6f242dc} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Color\+Vec3\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_mat_color_vec3}{MATD\+::\+Mat\+Color\+Vec3}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/vendor/opencl/CLColor\+Vec3.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/vendor/opencl/CLColor\+Vec3.\+cpp\end{DoxyCompactItemize}

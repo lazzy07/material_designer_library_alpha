@@ -1,0 +1,65 @@
+\doxysection{MATD\+::ENGINE\+::OPENCL\+::Kernel Class Reference}
+\hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}{}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}\index{MATD::ENGINE::OPENCL::Kernel@{MATD::ENGINE::OPENCL::Kernel}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}{Kernel} class, used to store the kernel data and create the kernel.  
+
+
+
+
+{\ttfamily \#include $<$CLKernel.\+hpp$>$}
+
+Inheritance diagram for MATD\+::ENGINE\+::OPENCL\+::Kernel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_ac42f4e8e42c86c38ab4a8d983d375754}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_ac42f4e8e42c86c38ab4a8d983d375754} 
+{\bfseries Kernel} (std\+::string id)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_aa3c19c55661d26830ec6983b28b4e70d}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_aa3c19c55661d26830ec6983b28b4e70d} 
+std\+::string {\bfseries Create\+CLKernel} ()
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_aafc09d06ba899428564d86a90acbc2c1}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_aafc09d06ba899428564d86a90acbc2c1} 
+const cl\+::\+Kernel \& {\bfseries Get\+CLKernel} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Kernel} (std\+::string id)
+\item 
+void {\bfseries Load\+Kernel\+Data\+From\+File} (std\+::string const \&path)
+\item 
+void {\bfseries Load\+Kernel\+Data\+From\+String} (std\+::string const \&kernel)
+\item 
+const std\+::string \& {\bfseries Get\+Kernel\+Data} () const
+\item 
+std\+::string {\bfseries Get\+ID} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_ab056da7ce5f82dd5b665b6341f0cca78}\label{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel_ab056da7ce5f82dd5b665b6341f0cca78} 
+cl\+::\+Kernel {\bfseries m\+\_\+\+Kernel}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{MATD\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} {\bfseries Create\+Kernel\+From\+File} (std\+::string id, std\+::string const \&path)
+\item 
+static \mbox{\hyperlink{class_m_a_t_d_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} {\bfseries Create\+Kernel\+From\+Source} (std\+::string id, std\+::string const \&kernel, std\+::string \texorpdfstring{$\ast$}{*}error)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_e_n_g_i_n_e_1_1_o_p_e_n_c_l_1_1_kernel}{Kernel} class, used to store the kernel data and create the kernel. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLKernel.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/engine/vendor/opencl/CLKernel.\+cpp\end{DoxyCompactItemize}

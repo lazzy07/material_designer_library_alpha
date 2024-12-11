@@ -1,0 +1,26 @@
+\doxysection{Shader\+Graph.\+hpp}
+\hypertarget{_shader_graph_8hpp_source}{}\label{_shader_graph_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/shader\_graph/ShaderGraph.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/graphs/shader\_graph/ShaderGraph.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/Graph.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_j_s_o_n_parser_8hpp}{../../core/JSONParser.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{namespace\ }GRAPH\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph}{ShaderGraph}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_graph}{MATD::GRAPH::Graph}}\{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph}{ShaderGraph}}(\mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_material_graph}{MaterialGraph}}*\ graph,\ MATD::JSON\ JSONObj);}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_g_r_a_p_h_1_1_shader_graph}{\string~ShaderGraph}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ CreateNode(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Update(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveNode(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddConnection(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveConnection(MATD::JSON\ JSONObj)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ \ \ \}}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}

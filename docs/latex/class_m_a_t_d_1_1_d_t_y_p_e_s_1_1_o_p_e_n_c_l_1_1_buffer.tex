@@ -1,0 +1,106 @@
+\doxysection{MATD\+::DTYPES\+::OPENCL\+::Buffer Class Reference}
+\hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer}{}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer}\index{MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}}
+
+
+Open\+CL \doxylink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer}{Buffer} class that inherits from \doxylink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}, this class is used to store the buffer data and bind it to the kernel arguments to be used in the Open\+CL kernel and to be added to the Open\+CL queue.  
+
+
+
+
+{\ttfamily \#include $<$CLBuffer.\+hpp$>$}
+
+Inheritance diagram for MATD\+::DTYPES\+::OPENCL\+::Buffer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a0b8faee9c57bfb3a84fdf8355ff373b4}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a0b8faee9c57bfb3a84fdf8355ff373b4} 
+{\bfseries Buffer} (void \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size, size\+\_\+t elem\+\_\+size, buf\+\_\+type arg\+Type)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a4e34b9d9abe104eefcab32b04d6d2bad}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a4e34b9d9abe104eefcab32b04d6d2bad} 
+cl\+::\+Buffer {\bfseries Get\+CLBuffer} () const
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_af6843738ea3ccd57dedbb2e7f9221cc3}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index) override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a40b3b5926c4416809f43c86cc4ebc51c}{Delete}} () override
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a785f6afed363cbd266168e1134e8e4f4}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Buffer} (void \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size, size\+\_\+t elem\+\_\+size, buf\+\_\+type arg\+Type)
+\item 
+void {\bfseries Set\+Buffer} (void \texorpdfstring{$\ast$}{*}val, size\+\_\+t size, size\+\_\+t elem\+\_\+size)
+\item 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Buffer} () const
+\item 
+size\+\_\+t {\bfseries Get\+Size} () const
+\item 
+size\+\_\+t {\bfseries Get\+Byte\+Size} () const
+\item 
+size\+\_\+t {\bfseries Get\+Element\+Size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Argument} (MAT\+\_\+\+ARG type)
+\item 
+bool {\bfseries Is\+Bound} () const
+\item 
+void {\bfseries Se\+Is\+Bound} (bool bound)
+\item 
+MAT\+\_\+\+ARG {\bfseries Get\+Arg\+Type} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_abf87939291170b4b389c53436527a927}\label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_abf87939291170b4b389c53436527a927} 
+cl\+::\+Buffer {\bfseries m\+\_\+\+CLBuffer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Open\+CL \doxylink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer}{Buffer} class that inherits from \doxylink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}, this class is used to store the buffer data and bind it to the kernel arguments to be used in the Open\+CL kernel and to be added to the Open\+CL queue. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a785f6afed363cbd266168e1134e8e4f4}\index{MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a785f6afed363cbd266168e1134e8e4f4} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Buffer\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}}.
+
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_af6843738ea3ccd57dedbb2e7f9221cc3}\index{MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_af6843738ea3ccd57dedbb2e7f9221cc3} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Buffer\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}}.
+
+\Hypertarget{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a40b3b5926c4416809f43c86cc4ebc51c}\index{MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::DTYPES::OPENCL::Buffer@{MATD::DTYPES::OPENCL::Buffer}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_o_p_e_n_c_l_1_1_buffer_a40b3b5926c4416809f43c86cc4ebc51c} 
+void MATD\+::\+DTYPES\+::\+OPENCL\+::\+Buffer\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_buffer}{MATD\+::\+Buffer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/vendor/opencl/CLBuffer.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/vendor/opencl/CLBuffer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\doxysection{MATD\+::Buffer Class Reference}
+\hypertarget{class_m_a_t_d_1_1_buffer}{}\label{class_m_a_t_d_1_1_buffer}\index{MATD::Buffer@{MATD::Buffer}}
+Inheritance diagram for MATD\+::Buffer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_buffer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_abfad53814eece357fdb9dffe3ee98427}\label{class_m_a_t_d_1_1_buffer_abfad53814eece357fdb9dffe3ee98427} 
+{\bfseries Buffer} (void \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size, size\+\_\+t elem\+\_\+size, buf\+\_\+type arg\+Type)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_a53e63eaa05baac2d118a2abc7a25181c}\label{class_m_a_t_d_1_1_buffer_a53e63eaa05baac2d118a2abc7a25181c} 
+void {\bfseries Set\+Buffer} (void \texorpdfstring{$\ast$}{*}val, size\+\_\+t size, size\+\_\+t elem\+\_\+size)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_a9e634573f7e5390e07604c05cc510fde}\label{class_m_a_t_d_1_1_buffer_a9e634573f7e5390e07604c05cc510fde} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Buffer} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_abc23d407565a04ee3f2d2ec8c729de61}\label{class_m_a_t_d_1_1_buffer_abc23d407565a04ee3f2d2ec8c729de61} 
+size\+\_\+t {\bfseries Get\+Size} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_a04b021cce3afcde37a837ab611b8e202}\label{class_m_a_t_d_1_1_buffer_a04b021cce3afcde37a837ab611b8e202} 
+size\+\_\+t {\bfseries Get\+Byte\+Size} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_a046d0f6cee61bcf4a0bc19c5ef270b41}\label{class_m_a_t_d_1_1_buffer_a046d0f6cee61bcf4a0bc19c5ef270b41} 
+size\+\_\+t {\bfseries Get\+Element\+Size} () const
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_buffer_af3cc1f5e55c3e3b9eac2b4daa655a847}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index)=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_buffer_a6e5e7a511f6f491ca477b9d253c9fbc7}{Delete}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_buffer_a822963a0b2954154b20645d14fb9bb14}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Argument} (MAT\+\_\+\+ARG type)
+\item 
+bool {\bfseries Is\+Bound} () const
+\item 
+void {\bfseries Se\+Is\+Bound} (bool bound)
+\item 
+MAT\+\_\+\+ARG {\bfseries Get\+Arg\+Type} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_aef4dcfe51619376b577740fb45611678}\label{class_m_a_t_d_1_1_buffer_aef4dcfe51619376b577740fb45611678} 
+buf\+\_\+type {\bfseries m\+\_\+\+Buf\+Type}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_af584b3057e972167d4f65c41947600b0}\label{class_m_a_t_d_1_1_buffer_af584b3057e972167d4f65c41947600b0} 
+void \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Value}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_abdf76b83cfec549bec5c02ce7c7e57d3}\label{class_m_a_t_d_1_1_buffer_abdf76b83cfec549bec5c02ce7c7e57d3} 
+size\+\_\+t {\bfseries m\+\_\+\+Byte\+Size} = 0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_ab423772692939c8d230de2c91e8a03e5}\label{class_m_a_t_d_1_1_buffer_ab423772692939c8d230de2c91e8a03e5} 
+size\+\_\+t {\bfseries m\+\_\+\+Size} = 0
+\item 
+\Hypertarget{class_m_a_t_d_1_1_buffer_ab2892700c7d044dfd2e51ef1375e4312}\label{class_m_a_t_d_1_1_buffer_ab2892700c7d044dfd2e51ef1375e4312} 
+size\+\_\+t {\bfseries m\+\_\+\+Element\+Size} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_buffer_a822963a0b2954154b20645d14fb9bb14}\index{MATD::Buffer@{MATD::Buffer}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::Buffer@{MATD::Buffer}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_buffer_a822963a0b2954154b20645d14fb9bb14} 
+virtual void MATD\+::\+Buffer\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}.
+
+\Hypertarget{class_m_a_t_d_1_1_buffer_af3cc1f5e55c3e3b9eac2b4daa655a847}\index{MATD::Buffer@{MATD::Buffer}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::Buffer@{MATD::Buffer}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_buffer_af3cc1f5e55c3e3b9eac2b4daa655a847} 
+virtual void MATD\+::\+Buffer\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}.
+
+\Hypertarget{class_m_a_t_d_1_1_buffer_a6e5e7a511f6f491ca477b9d253c9fbc7}\index{MATD::Buffer@{MATD::Buffer}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::Buffer@{MATD::Buffer}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_buffer_a6e5e7a511f6f491ca477b9d253c9fbc7} 
+virtual void MATD\+::\+Buffer\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Buffer.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Buffer.\+cpp\end{DoxyCompactItemize}

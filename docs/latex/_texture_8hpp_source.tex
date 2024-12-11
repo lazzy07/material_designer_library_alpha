@@ -1,0 +1,54 @@
+\doxysection{Texture.\+hpp}
+\hypertarget{_texture_8hpp_source}{}\label{_texture_8hpp_source}\index{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Texture.hpp@{C:/personal/projects/material\_designer/material\_designer\_library\_alpha/src/types/matd/Texture.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Argument.hpp"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_m_a_t_d}{MATD}}\ \{}
+\DoxyCodeLine{00005\ \ \ \textcolor{keyword}{enum\ class}\ MATD\_TEXTURE\_BIT\_TYPE\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ TEX\_8BIT,}
+\DoxyCodeLine{00007\ \ \ \ \ TEX\_16BIT,}
+\DoxyCodeLine{00008\ \ \ \ \ TEX\_32BIT}
+\DoxyCodeLine{00009\ \ \ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{namespace\ }DTYPES\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{Texture}}\ :\ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{DTYPES::Argument}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ BitTypeToSize(MATD\_TEXTURE\_BIT\_TYPE\ bitType);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{Texture}}(MAT\_ARG\ matArgType,\ MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ noOfChannels,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height,\ buf\_type\ argType);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_texture}{\string~Texture}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ [[nodiscard]]\ MATD\_TEXTURE\_BIT\_TYPE\ GetBitType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ GetHeight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ GetWidth()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ GetNoOfChannels()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ GetSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Size;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ GetByteSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_ByteSize;\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ GetElementSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_ElementSize;\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{void}*\ GetBuffer()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Buffer;\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Bind(\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{WorkItem}}*\ workItem,\ \textcolor{keywordtype}{size\_t}\ index)\ \textcolor{keyword}{override}\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Delete()\ \textcolor{keyword}{override}\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddToQueue(\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD::Queue}}*\ queue)\ \textcolor{keyword}{override}\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ChangeImageProperties(MATD\_TEXTURE\_BIT\_TYPE\ bitType,\ \textcolor{keywordtype}{size\_t}\ noOfChannels,\ \textcolor{keywordtype}{size\_t}\ width,\ \textcolor{keywordtype}{size\_t}\ height);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ m\_Buffer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ buf\_type\ m\_BufType;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_Size\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_ElementSize\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_ByteSize\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_Width;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_Height;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_NoOfChannels;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ MATD\_TEXTURE\_BIT\_TYPE\ m\_BitType;}
+\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

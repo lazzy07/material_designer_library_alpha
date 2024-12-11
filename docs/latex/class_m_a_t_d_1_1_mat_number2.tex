@@ -1,0 +1,82 @@
+\doxysection{MATD\+::Mat\+Number2 Class Reference}
+\hypertarget{class_m_a_t_d_1_1_mat_number2}{}\label{class_m_a_t_d_1_1_mat_number2}\index{MATD::MatNumber2@{MATD::MatNumber2}}
+Inheritance diagram for MATD\+::Mat\+Number2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_m_a_t_d_1_1_mat_number2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_afe2bf8047f883defaf687205ab131c62}\label{class_m_a_t_d_1_1_mat_number2_afe2bf8047f883defaf687205ab131c62} 
+{\bfseries Mat\+Number2} (\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} val)
+\item 
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_a019bd5f078626aa5301186ac9f04cad3}\label{class_m_a_t_d_1_1_mat_number2_a019bd5f078626aa5301186ac9f04cad3} 
+\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} {\bfseries Get\+Val} () const
+\item 
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_a433a6732a55a771c8bc0b4aee862119f}\label{class_m_a_t_d_1_1_mat_number2_a433a6732a55a771c8bc0b4aee862119f} 
+void {\bfseries Set\+Val} (\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} val)
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2_acae65c992dd447baea346255c00d242d}{Bind}} (\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}work\+Item, size\+\_\+t index)=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2_a61e6b82edc32112bf72045d416e5c813}{Delete}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_m_a_t_d_1_1_mat_number2_abc7459a9b30605859389e4fada3ada5b}{Add\+To\+Queue}} (\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}queue)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Argument} (MAT\+\_\+\+ARG type)
+\item 
+bool {\bfseries Is\+Bound} () const
+\item 
+void {\bfseries Se\+Is\+Bound} (bool bound)
+\item 
+MAT\+\_\+\+ARG {\bfseries Get\+Arg\+Type} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_a7250f5e43d3f302b2bd43882173170de}\label{class_m_a_t_d_1_1_mat_number2_a7250f5e43d3f302b2bd43882173170de} 
+\mbox{\hyperlink{struct_m_a_t_d_1_1_number2}{MATD\+::\+Number2}} {\bfseries m\+\_\+\+Value}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_abc7459a9b30605859389e4fada3ada5b}\index{MATD::MatNumber2@{MATD::MatNumber2}!AddToQueue@{AddToQueue}}
+\index{AddToQueue@{AddToQueue}!MATD::MatNumber2@{MATD::MatNumber2}}
+\doxysubsubsection{\texorpdfstring{AddToQueue()}{AddToQueue()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_mat_number2_abc7459a9b30605859389e4fada3ada5b} 
+virtual void MATD\+::\+Mat\+Number2\+::\+Add\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_queue}{MATD\+::\+Queue}} \texorpdfstring{$\ast$}{*}}]{queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}.
+
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_acae65c992dd447baea346255c00d242d}\index{MATD::MatNumber2@{MATD::MatNumber2}!Bind@{Bind}}
+\index{Bind@{Bind}!MATD::MatNumber2@{MATD::MatNumber2}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_mat_number2_acae65c992dd447baea346255c00d242d} 
+virtual void MATD\+::\+Mat\+Number2\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_a_t_d_1_1_work_item}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{work\+Item}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}.
+
+\Hypertarget{class_m_a_t_d_1_1_mat_number2_a61e6b82edc32112bf72045d416e5c813}\index{MATD::MatNumber2@{MATD::MatNumber2}!Delete@{Delete}}
+\index{Delete@{Delete}!MATD::MatNumber2@{MATD::MatNumber2}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_m_a_t_d_1_1_mat_number2_a61e6b82edc32112bf72045d416e5c813} 
+virtual void MATD\+::\+Mat\+Number2\+::\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_m_a_t_d_1_1_d_t_y_p_e_s_1_1_argument}{MATD\+::\+DTYPES\+::\+Argument}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Mat\+Number2.\+hpp\item 
+C\+:/personal/projects/material\+\_\+designer/material\+\_\+designer\+\_\+library\+\_\+alpha/src/types/matd/Mat\+Number2.\+cpp\end{DoxyCompactItemize}
