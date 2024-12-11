@@ -3,7 +3,7 @@ name: Material Designer Library Release
 on:
   push:
     branches:
-      - v.*
+      - v*
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
