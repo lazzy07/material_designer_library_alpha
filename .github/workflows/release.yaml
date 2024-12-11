@@ -3,7 +3,7 @@ name: Material Designer Library Release
 on:
   push:
     branches:
-      - release
+      - v.*
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -37,8 +37,5 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release:
-            - First Release
           draft: false
-          prerelease: false
+          prerelease: true
